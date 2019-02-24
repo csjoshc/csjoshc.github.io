@@ -51,3 +51,7 @@ Then, **copy** the git url
 # Adding from remote
 
 `git clone repo.url`
+
+# Good to know: 
+
+`url = git@github.com:csjoshc/csjoshc.github.io.git`
