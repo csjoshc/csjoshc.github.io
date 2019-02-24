@@ -1,7 +1,8 @@
+<!-- TOC -->
+[Intro to using Github](#intro-to-using-github)
 
-
-
-<!-- TOC -->autoauto- [Intro to using Github](#intro-to-using-github)auto- [Updating an existing repository](#updating-an-existing-repository)autoauto<!-- /TOC -->
+[Updating an existing repository](#updating-an-existing-repository)
+<!-- /TOC -->
 
 <head>
   <link rel="stylesheet" type="text/css" href="css_gh.css">
@@ -36,7 +37,7 @@ Then, **copy** the git url
 
 `git checkout -b v1` 
 
-* change v1 as appropraite
+* change v1 as appropriate
 * maybe dd.mm.yy branch name? 
 
 `git add .`
