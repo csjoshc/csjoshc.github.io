@@ -1,14 +1,11 @@
-<!-- toc -->
 
-- [Intro to using Github](#Intro-to-using-Github)
-- [Updating an existing notebook](#Updating-an-existing-notebook)
 
-<!-- tocstop -->
----
-title: Intro to using Github
-created: '2019-02-23T03:43:08.733Z'
-modified: '2019-02-23T04:20:16.597Z'
----
+
+<!-- TOC -->autoauto- [Intro to using Github](#intro-to-using-github)auto- [Updating an existing repository](#updating-an-existing-repository)autoauto<!-- /TOC -->
+
+<head>
+  <link rel="stylesheet" type="text/css" href="css_gh.css">
+</head>
 
 # Intro to using Github
 * create new respository on github 
@@ -33,7 +30,9 @@ Then, **copy** the git url
 
 `git push origin master`
 
-# Updating an existing notebook
+# Updating an existing repository
+
+`cd /../../media/jcmint/'Data Volume'/Site` 
 
 `git checkout -b v1` 
 
