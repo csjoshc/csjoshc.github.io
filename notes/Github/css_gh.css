@@ -9,6 +9,7 @@ body {
 
 /* Applies to all <h1>...</h1> elements. */
 h1 {
+
   font-size: 45px;
   font-weight: normal;
   margin-top: 5px;
@@ -26,6 +27,19 @@ h3 {
   margin-top: 5px;
   color: teal;
 }
+
+
+=======
+  font-size: 35px;
+  font-weight: normal;
+  margin-top: 5px;
+  color: darkblue;
+}
+body {
+  color: blue;
+}
+
+
 
 
 /* Applies to all elements with <... class="someclass"> specified. */

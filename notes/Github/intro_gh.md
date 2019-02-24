@@ -2,9 +2,9 @@
 [Intro to using Github](#intro-to-using-github)
 
 [Updating an existing repository](#updating-an-existing-repository)
-
 <head>
-  <link rel="stylesheet" href="css_gh.css">
+  <link rel="stylesheet" type="text/css" href="css_gh.css">
+
 </head>
 
 # Intro to using Github
