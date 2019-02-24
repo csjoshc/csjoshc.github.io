@@ -44,3 +44,7 @@ Then, **copy** the git url
 `git commit -a -m "Message here"`
 
 `git push origin v1`
+
+# Adding from remote
+
+`git clone repo.url`
