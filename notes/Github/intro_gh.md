@@ -32,6 +32,8 @@ Then, **copy** the git url
 
 # Updating an existing repository
 
+`git fetch` ? 
+
 `cd /../../media/jcmint/'Data Volume'/Site` 
 
 `git checkout -b v1` 
