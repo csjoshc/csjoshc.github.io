@@ -1,11 +1,4 @@
 
-[Intro to using Github](#intro-to-using-github)
-
-[Updating an existing repository](#updating-an-existing-repository)
-
-<head>
-  <link rel="stylesheet" href="css_gh.css">
-</head>
 
 # Intro to using Github
 * create new respository on github 
@@ -31,6 +24,7 @@ Then, **copy** the git url
 `git push origin master`
 
 # Updating an existing repository
+
 
 `git fetch` ? 
 
