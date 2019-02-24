@@ -1,11 +1,6 @@
-
-<!-- TOC -->
 [Intro to using Github](#intro-to-using-github)
 
 [Updating an existing repository](#updating-an-existing-repository)
-<!-- /TOC -->
-
-
 <head>
   <link rel="stylesheet" type="text/css" href="css_gh.css">
 </head>
