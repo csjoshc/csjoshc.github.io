@@ -32,7 +32,7 @@ Then, **copy** the git url
 
 # Updating an existing repository
 
-`cd /../../media/jcmint/'Data Volume'/Site` 
+`cd /../../media/jcmint/'Data Volume'/csjoshc.github.io` 
 
 `git checkout -b v1` 
 
@@ -43,7 +43,10 @@ Then, **copy** the git url
 
 `git commit -a -m "Message here"`
 
-`git push origin v1`
+`git push -u origin v1` 
+
+`git push origin master` - Pushes to master
+
 
 # Adding from remote
 
