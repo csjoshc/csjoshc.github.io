@@ -1,7 +1,19 @@
 
 [Intro to using Github](#intro-to-using-github)
 
+[Updating an existing repository](#updating-an-existing-repository) 
+
+[Adding from remote](#adding-from-remote) 
+
+[Good to know:](#good-to-know)
+
+[Formatting](#formatting)
+
+[Compiling .md to html using task build in vscode](#compiling-md-to-html-using-task-build-in-vscode)
+
+
 [Updating an existing repository](#updating-an-existing-repository)
+
 <head>
   <link rel="stylesheet" href="css_gh.css">
 </head>
@@ -23,7 +35,7 @@
 
 Then, **copy** the git url
 
-`git remote add origin <url>`
+`git ]remote add origin <url>`
 
 `git remote -v`
 
@@ -33,12 +45,15 @@ Then, **copy** the git url
 
 `cd /../../media/jcmint/'Data Volume'/csjoshc.github.io` 
 
+`git add .`
+
+
 `git checkout -b v1` 
 
 * change v1 as appropriate
 * maybe dd.mm.yy branch name? 
 
-`git add .`
+
 
 `git commit -a -m "Message here"`
 
@@ -53,4 +68,25 @@ Then, **copy** the git url
 
 # Good to know: 
 
+
 `url = git@github.com:csjoshc/csjoshc.github.io.git`
+
+## Formatting 
+
+Now using [premade css](https://gist.github.com/tuzz/3331384), [github.css](github.css) in same directory..
+
+## Compiling .md to html using task build in vscode
+
+Important step even though process isn't automated. Since I'm not changing too many .md too frequently, ctrl-shift-b and Build Task is ok. 
+
+```
+"command": "markdown-it",
+"args": [
+    "${relativeFile}",
+    "-o",
+    "${fileDirname}/${fileBasenameNoExtension}.html"
+],
+```
+
+`url = git@github.com:csjoshc/csjoshc.github.io.git`
+
