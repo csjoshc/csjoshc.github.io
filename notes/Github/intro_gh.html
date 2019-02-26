@@ -1,0 +1,51 @@
+<p><a href="#intro-to-using-github">Intro to using Github</a></p>
+<p><a href="#updating-an-existing-repository">Updating an existing repository</a></p>
+<p><a href="#adding-from-remote">Adding from remote</a></p>
+<p><a href="#good-to-know">Good to know:</a></p>
+<p><a href="#formatting">Formatting</a></p>
+<p><a href="#compiling-md-to-html-using-task-build-in-vscode">Compiling .md to html using task build in vscode</a></p>
+<head>
+  <link rel="stylesheet" href="css_gh.css">
+</head>
+<h1>Intro to using Github</h1>
+<ul>
+<li>create new respository on github</li>
+<li>create new folder under Notebooks</li>
+<li>change data directory in vscode</li>
+<li>create sample note md files</li>
+<li>follow directions on <a href="https://help.github.com/en/articles/adding-an-existing-project-to-github-using-the-command-line">this</a> link</li>
+</ul>
+<p><code># in console, cd to folder above</code></p>
+<p><code>git init</code></p>
+<p><code>git add.</code></p>
+<p><code>git commit -m &quot;First commit&quot;</code></p>
+<p>Then, <strong>copy</strong> the git url</p>
+<p><code>git ]remote add origin &lt;url&gt;</code></p>
+<p><code>git remote -v</code></p>
+<p><code>git push origin master</code></p>
+<h1>Updating an existing repository</h1>
+<p><code>cd /../../media/jcmint/'Data Volume'/csjoshc.github.io</code></p>
+<p><code>git add .</code></p>
+<p><code>git checkout -b v1</code></p>
+<ul>
+<li>change v1 as appropriate</li>
+<li>maybe dd.mm.yy branch name?</li>
+</ul>
+<p><code>git commit -a -m &quot;Message here&quot;</code></p>
+<p><code>git push -u origin v1</code></p>
+<p><code>git push origin master</code> - Pushes to master</p>
+<h1>Adding from remote</h1>
+<p><code>git clone repo.url</code></p>
+<h1>Good to know:</h1>
+<p><code>url = git@github.com:csjoshc/csjoshc.github.io.git</code></p>
+<h2>Formatting</h2>
+<p>Now using <a href="https://gist.github.com/tuzz/3331384">premade css</a>, <a href="github.css">github.css</a> in same directory..</p>
+<h2>Compiling .md to html using task build in vscode</h2>
+<p>Important step even though process isn't automated. Since I'm not changing too many .md too frequently, ctrl-shift-b and Build Task is ok.</p>
+<pre><code>&quot;command&quot;: &quot;markdown-it&quot;,
+&quot;args&quot;: [
+    &quot;${relativeFile}&quot;,
+    &quot;-o&quot;,
+    &quot;${fileDirname}/${fileBasenameNoExtension}.html&quot;
+],
+</code></pre>
