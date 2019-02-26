@@ -11,6 +11,9 @@
 
 [Compiling .md to html using task build in vscode](#compiling-md-to-html-using-task-build-in-vscode)
 
+
+[Updating an existing repository](#updating-an-existing-repository)
+
 <head>
   <link rel="stylesheet" href="css_gh.css">
 </head>
@@ -44,6 +47,7 @@ Then, **copy** the git url
 
 `git add .`
 
+
 `git checkout -b v1` 
 
 * change v1 as appropriate
@@ -64,6 +68,7 @@ Then, **copy** the git url
 
 # Good to know: 
 
+
 `url = git@github.com:csjoshc/csjoshc.github.io.git`
 
 ## Formatting 
@@ -82,3 +87,6 @@ Important step even though process isn't automated. Since I'm not changing too m
     "${fileDirname}/${fileBasenameNoExtension}.html"
 ],
 ```
+
+`url = git@github.com:csjoshc/csjoshc.github.io.git`
+
