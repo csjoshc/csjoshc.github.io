@@ -12,13 +12,15 @@ h1 {
   font-size: 45px;
   font-weight: normal;
   margin-top: 5px;
+  margin-bottom: 5px;
   color: darkblue;
 }
 h2 {
   font-size: 35px;
   font-weight: normal;
   margin-top: 5px;
-  color: lightblue;
+  margin-bottom: 5px;
+  color: rgb(8, 56, 4);
 }
 h3 {
   font-size: 30px;

@@ -1,4 +1,12 @@
 
+<a href="../../index.html">Go back to index</a>
+
+<head>
+  <link rel="stylesheet" href="../../css_themes/github.css">
+</head>
+
+# Intro to using Github
+
 [Intro to using Github](#intro-to-using-github)
 
 [Updating an existing repository](#updating-an-existing-repository) 
@@ -11,11 +19,10 @@
 
 [Compiling .md to html using task build in vscode](#compiling-md-to-html-using-task-build-in-vscode)
 
-<head>
-  <link rel="stylesheet" href="css_gh.css">
-</head>
+
 
 # Intro to using Github
+
 * create new respository on github 
 * create new folder under Notebooks
 * change data directory in vscode
@@ -48,6 +55,7 @@ Then, **copy** the git url
 
 * change v1 as appropriate
 * maybe dd.mm.yy branch name? 
+
 
 
 
