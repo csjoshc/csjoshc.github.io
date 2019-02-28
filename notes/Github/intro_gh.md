@@ -20,6 +20,9 @@
 [Compiling .md to html using task build in vscode](#compiling-md-to-html-using-task-build-in-vscode)
 
 
+
+# Intro to using Github
+
 * create new respository on github 
 * create new folder under Notebooks
 * change data directory in vscode
