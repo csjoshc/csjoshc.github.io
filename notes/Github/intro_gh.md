@@ -7,22 +7,6 @@
 
 # Intro to using Github
 
-[Intro to using Github](#intro-to-using-github)
-
-[Updating an existing repository](#updating-an-existing-repository) 
-
-[Adding from remote](#adding-from-remote) 
-
-[Good to know:](#good-to-know)
-
-[Formatting](#formatting)
-
-[Compiling .md to html using task build in vscode](#compiling-md-to-html-using-task-build-in-vscode)
-
-
-
-# Intro to using Github
-
 * create new respository on github 
 * create new folder under Notebooks
 * change data directory in vscode
