@@ -59,8 +59,8 @@ This creates a new branch for tracking code changes that won't affect the state 
 
 ### git push (to a new branch)
 I guess I can push and automatically create a new remote branch at the same time
-`git push -u origin v1` 
-
+`git push origin v1` 
+* adding `-u` as an argument is questionable 
 
 `git push origin master` - Pushes to master
 
