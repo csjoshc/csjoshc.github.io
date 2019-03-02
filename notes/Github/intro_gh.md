@@ -36,6 +36,15 @@ Then, **copy** the git url
 ## The confusion
 I was having a lot of trouble managing the staging, commit and push to branch process. [This](https://product.hubspot.com/blog/git-and-github-tutorial-for-beginners) *maybe* cleared it up for me. 
 
+**As a summary**, after any file change you want to eventually push, you must do 
+`git add .
+
+git status 
+
+git commit -a -m "new change"`
+
+**the first and third must be used together after any change**
+
 ### git add 
 git add stages the current version of a file, or the current version of all the files. Therefore, this needs to be run after all changes you are intending to package together are made. 
 
@@ -61,6 +70,7 @@ This creates a new branch for tracking code changes that won't affect the state 
 I guess I can push and automatically create a new remote branch at the same time
 `git push origin v1` 
 * adding `-u` as an argument is questionable 
+
 
 `git push origin master` - Pushes to master
 

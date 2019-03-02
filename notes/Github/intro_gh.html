@@ -22,6 +22,11 @@
 <p><code>cd /../../media/jcmint/'Data Volume'/csjoshc.github.io</code></p>
 <h2>The confusion</h2>
 <p>I was having a lot of trouble managing the staging, commit and push to branch process. <a href="https://product.hubspot.com/blog/git-and-github-tutorial-for-beginners">This</a> <em>maybe</em> cleared it up for me.</p>
+<p><strong>As a summary</strong>, after any file change you want to eventually push, you must do
+`git add .</p>
+<p>git status</p>
+<p>git commit -a -m &quot;new change&quot;`</p>
+<p><strong>the first and third must be used together after any change</strong></p>
 <h3>git add</h3>
 <p>git add stages the current version of a file, or the current version of all the files. Therefore, this needs to be run after all changes you are intending to package together are made.</p>
 <p><code>git add .</code></p>
