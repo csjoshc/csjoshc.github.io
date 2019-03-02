@@ -33,19 +33,34 @@ Then, **copy** the git url
 
 `cd /../../media/jcmint/'Data Volume'/csjoshc.github.io` 
 
+## The confusion
+I was having a lot of trouble managing the staging, commit and push to branch process. [This](https://product.hubspot.com/blog/git-and-github-tutorial-for-beginners) *maybe* cleared it up for me. 
+
+### git add 
+git add stages the current version of a file, or the current version of all the files. Therefore, this needs to be run after all changes you are intending to package together are made. 
+
 `git add .`
 
-`git checkout -b v1` 
+### git status
+This is good to run after git add .
+* this will make sure you are committing what you think you are.
+
+### git commit 
+`git commit` adds those changes to the index of changes to be sent off
+
+`git commit -a -m "Message here"`
 
 * change v1 as appropriate
 * maybe dd.mm.yy branch name? 
 
+### git checkout
+This creates a new branch for tracking code changes that won't affect the state of the master or other branch (so you could switch back to that branch and push that branch as a separate project state from the new branch). At least that's how I understand it. This might not be that necessary, since I don't really have a dev vs production version of my notes.
+`git checkout -b v1` 
 
-
-
-`git commit -a -m "Message here"`
-
+### git push (to a new branch)
+I guess I can push and automatically create a new remote branch at the same time
 `git push -u origin v1` 
+
 
 `git push origin master` - Pushes to master
 
