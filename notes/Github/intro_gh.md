@@ -60,11 +60,12 @@ Then, **copy** the git url
 
 ## Formatting 
 
-Now using [premade css](https://gist.github.com/tuzz/3331384), [github.css](github.css) in same directory..
+Now using [premade css](https://gist.github.com/tuzz/3331384) in a folder in the root directory. 
 
 ## Compiling .md to html using task build in vscode
 
 Important step even though process isn't automated. Since I'm not changing too many .md too frequently, ctrl-shift-b and Build Task is ok. 
+`tasks.json`:
 
 ```
 "command": "markdown-it",

@@ -34,9 +34,10 @@
 <h1>Good to know:</h1>
 <p><code>url = git@github.com:csjoshc/csjoshc.github.io.git</code></p>
 <h2>Formatting</h2>
-<p>Now using <a href="https://gist.github.com/tuzz/3331384">premade css</a>, <a href="github.css">github.css</a> in same directory..</p>
+<p>Now using <a href="https://gist.github.com/tuzz/3331384">premade css</a> in a folder in the root directory.</p>
 <h2>Compiling .md to html using task build in vscode</h2>
-<p>Important step even though process isn't automated. Since I'm not changing too many .md too frequently, ctrl-shift-b and Build Task is ok.</p>
+<p>Important step even though process isn't automated. Since I'm not changing too many .md too frequently, ctrl-shift-b and Build Task is ok.
+<code>tasks.json</code>:</p>
 <pre><code>&quot;command&quot;: &quot;markdown-it&quot;,
 &quot;args&quot;: [
     &quot;${relativeFile}&quot;,
