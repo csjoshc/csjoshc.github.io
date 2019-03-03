@@ -41,7 +41,8 @@ I was having a lot of trouble managing the staging, commit and push to branch pr
 
 git status 
 
-git commit -a -m "new change"`
+git commit -a -m "new cha
+nge"`
 
 **the first and third must be used together after any change**
 

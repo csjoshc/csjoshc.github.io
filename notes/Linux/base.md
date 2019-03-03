@@ -9,7 +9,9 @@
 Go through linux journey for basics, then follow up with Udemy courses according to the order below.
 
 ## Self-service Resources
-[Linux Journey](https://linuxjourney.com/)
+
+* Content link: [Linux Journey](https://linuxjourney.com/)
+* Notes: [(index page)](linux_journey/linux_journey_toc.html)
 
 ## Courses
 For now I only really want free courses. A couple times I was on the verge of buying a 90% off udemy course, but I held off. Here are some free courses I am looking at: 
