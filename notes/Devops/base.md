@@ -1,7 +1,9 @@
+<a href="../../index.html">Go back to index</a>
 
 <head>
   <link rel="stylesheet" href="../../css_themes/vscode.css">
 </head>
+
 
 # List of Devops learning resources
 

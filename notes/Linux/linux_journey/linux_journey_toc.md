@@ -6,7 +6,7 @@
 </head>
 
 # Basic topics
-1. [Command line](basic/01_comlin.md)
+1. [Command line](basic/01_comlin.html)
 2. Text manipulation 
 3. User management
 4. Permissions
