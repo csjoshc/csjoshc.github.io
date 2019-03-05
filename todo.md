@@ -9,6 +9,9 @@
 * automate the html compile process, make it a task in json...Its already tedious to compil
 e each .md to .html by going through all of them just to be sure with just 5-6 pages
 * add python notes from OneNote
+* floating toc makes better use of widescreen 
+* devops portal page has no href to return to index page
+* picture for index page
 
 # Notes
 * adding links in markdown format are relative to the file itself if there is no backslash before the beginning of the folder directory:

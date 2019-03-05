@@ -2,10 +2,10 @@
 selectors). */
 body {
   margin: 25px;
-  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 1);
   font-family: arial, sans-serif;
   font-size: 14px;
-  color: rgb(255, 255, 255);
+  background-color: rgba(255,255,255,1);
 }
 
 /* Applies to all <h1>...</h1> elements. */
@@ -14,20 +14,20 @@ h1 {
   font-weight: normal;
   margin-top: 5px;
   margin-bottom: 5px;
-  color: darkblue;
+  color: rgba(68, 71, 216, 1);
 }
 h2 {
   font-size: 35px;
   font-weight: normal;
   margin-top: 5px;
   margin-bottom: 5px;
-  color: rgb(8, 56, 4);
+  color: rgba(8, 56, 4, .1);
 }
 h3 {
   font-size: 30px;
   font-weight: normal;
   margin-top: 5px;
-  color: teal;
+  color: rgba(0, 128, 128, 1);
 }
 
 

@@ -27,9 +27,9 @@ body {
   line-height: 1.6;
   padding-top: 10px;
   padding-bottom: 10px;
-  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 1);
   padding: 30px;
-  color: rgb(255, 255, 255);
+  color: rgba(255, 255, 255, 1);
 }
 
 body > *:first-child {
@@ -128,7 +128,7 @@ h5 {
 }
 
 h6 {
-  color: #777777;
+  color: rgba(119, 119, 119, 1);
   font-size: 14px;
 }
 
@@ -372,8 +372,8 @@ code, tt {
   margin: 0 2px;
   padding: 0 5px;
   white-space: nowrap;
-  background-color: #3f3e3e;
-  background-color: #3f3e3e;
+  background-color: rgba(63, 62, 62, 1);
+  background-color: rgba(63, 62, 62, 1);
   border-radius: 3px;
 }
 
@@ -382,12 +382,12 @@ pre code {
   padding: 0;
   white-space: pre;
   border: none;
-  background-color: #3f3e3e;
+  background-color: rgba(64, 63, 63, 1);
 }
 
 .highlight pre {
-  background-color: #3f3e3e;
-  border: 1px solid #cccccc;
+  background-color: rgba(63, 62, 62, 1);
+  border: 1px solid rgba(204, 204, 204, 1);
   font-size: 13px;
   line-height: 19px;
   overflow: auto;
@@ -396,8 +396,8 @@ pre code {
 }
 
 pre {
-  background-color: #3f3e3e;
-  border: 1px solid #cccccc;
+  background-color: rgba(63, 62, 62, 1);
+  border: 1px solid rgba(204, 204, 204, 1);
   font-size: 13px;
   line-height: 19px;
   overflow: auto;
