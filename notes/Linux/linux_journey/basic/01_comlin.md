@@ -5,6 +5,16 @@
   <link rel="stylesheet" href="../../../../css_themes/vscode.css">
 </head>
 
+- [Command Line](#command-line)
+  - [echo and pwd](#echo-and-pwd)
+  - [Changing directory with `cd`](#changing-directory-with-cd)
+  - [Listing directories with `ls`](#listing-directories-with-ls)
+  - [create new file with `touch`](#create-new-file-with-touch)
+  - [inspect files with `file`](#inspect-files-with-file)
+  - [combine file contents with `cat` (concatenate)](#combine-file-contents-with-cat-concatenate)
+  - [get truncated preview with `less`](#get-truncated-preview-with-less)
+  - [past commands with `history`](#past-commands-with-history)
+
 # Command Line
 
 ## echo and pwd
@@ -50,3 +60,44 @@ touch linuxtextfile
 -rwxrwxrwx 1 jcmint jcmint    0 Mar  2 22:21 linuxtextfile
 ```
 
+## inspect files with `file`
+
+This describes a file's contents. 
+```
+file linuxtextfile
+file todo.md
+linuxtextfile: empty
+todo.md: HTML document, ASCII text
+```
+
+## combine file contents with `cat` (concatenate)
+
+Intended for short files. For two files containing `Hello` and `World` (without spaces):
+```
+cat test1 test2 
+HelloWorld
+```
+
+## get truncated preview with `less` 
+
+View large text files
+
+**Commands**: `q` to quit, Arrow keys to navigate, `g` go to start, `G` go to end, search using /wordhere
+
+## past commands with `history`
+
+* returns a list of all past commands
+* Besides using arrows, you can use `!!` to run past commands. 
+* `ctrl-R` to search past commands
+* clear this list with `clear`
+* **Tab Completion**: when entering a file name, if there is only one that works then pressing tab will autocomplete the name (useful if long)
+
+- [Command Line](#command-line)
+  - [echo and pwd](#echo-and-pwd)
+  - [Changing directory with `cd`](#changing-directory-with-cd)
+  - [Listing directories with `ls`](#listing-directories-with-ls)
+  - [create new file with `touch`](#create-new-file-with-touch)
+  - [inspect files with `file`](#inspect-files-with-file)
+  - [combine file contents with `cat` (concatenate)](#combine-file-contents-with-cat-concatenate)
+  - [get truncated preview with `less`](#get-truncated-preview-with-less)
+  - [past commands with `history`](#past-commands-with-history)

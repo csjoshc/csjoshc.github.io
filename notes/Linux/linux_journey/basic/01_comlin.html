@@ -1,16 +1,53 @@
-<p><a href="../../../../index.html">Go back to index</a></p>
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+        <title>Command Line</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+        <link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        
+        <script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+    </head>
+    <body>
+        <p><a href="../../../../index.html">Go back to index</a></p>
 <p><a href = "../linux_journey_toc.html"> Go back to Linux Journey topic portal </a></p>
 <head>
   <link rel="stylesheet" href="../../../../css_themes/vscode.css">
 </head>
-<h1>Command Line</h1>
-<h2>echo and pwd</h2>
+<ul>
+<li><a href="#command-line">Command Line</a>
+<ul>
+<li><a href="#echo-and-pwd">echo and pwd</a></li>
+<li><a href="#changing-directory-with-cd">Changing directory with <code>cd</code></a></li>
+<li><a href="#listing-directories-with-ls">Listing directories with <code>ls</code></a></li>
+<li><a href="#create-new-file-with-touch">create new file with <code>touch</code></a></li>
+<li><a href="#inspect-files-with-file">inspect files with <code>file</code></a></li>
+<li><a href="#combine-file-contents-with-cat-concatenate">combine file contents with <code>cat</code> (concatenate)</a></li>
+<li><a href="#get-truncated-preview-with-less">get truncated preview with <code>less</code></a></li>
+<li><a href="#past-commands-with-history">past commands with <code>history</code></a></li>
+</ul>
+</li>
+</ul>
+<h1 id="command-line">Command Line</h1>
+<h2 id="echo-and-pwd">echo and pwd</h2>
 <ul>
 <li>Using linux mint based on ubuntu</li>
 <li><code>echo Hello World</code> - prints out text arguments to display</li>
 <li><code>pwd</code> - prints working directory</li>
 </ul>
-<h2>Changing directory with <code>cd</code></h2>
+<h2 id="changing-directory-with-cd">Changing directory with <code>cd</code></h2>
 <p>I noticed this earlier when specifying links with <code>[]()</code> syntax. Using <code>/</code> in front of a directory means <strong>absolute path</strong>, while starting without a slash means the folder should be in the current working directory. There are also a few arguments for cd:</p>
 <ul>
 <li><code>.</code> for current directory</li>
@@ -18,7 +55,7 @@
 <li><code>~</code> to go to home directory</li>
 <li><code>-</code> to go to previous directory.</li>
 </ul>
-<h2>Listing directories with <code>ls</code></h2>
+<h2 id="listing-directories-with-ls">Listing directories with <code>ls</code></h2>
 <ul>
 <li>defaults to working directory but you specify a folder path to list a specific directory
 <ul>
@@ -28,21 +65,61 @@
 </li>
 <li><code>ls -l</code> use this flag to list detailed info about files/folders in a directory:</li>
 </ul>
-<pre><code>ls -l notes
+<pre><code><div>ls -l notes
 total 0
 drwxrwxrwx 1 jcmint jcmint   0 Mar  2 00:20 Devops
 drwxrwxrwx 1 jcmint jcmint   0 Mar  2 00:20 Github
 drwxrwxrwx 1 jcmint jcmint 456 Mar  2 21:06 Linux
-</code></pre>
+</div></code></pre>
 <p>Finally, combine flags in any order such as <code>ls -al</code></p>
-<h2>create new file with <code>touch</code></h2>
+<h2 id="create-new-file-with-touch">create new file with <code>touch</code></h2>
 <p><code>touch filename</code></p>
 <ul>
 <li>also updates timestamps on files/dirs:</li>
 </ul>
-<pre><code>touch linuxtextfile
+<pre><code><div>touch linuxtextfile
 ls -l
 -rwxrwxrwx 1 jcmint jcmint    0 Mar  2 22:19 linuxtextfile
 touch linuxtextfile
 -rwxrwxrwx 1 jcmint jcmint    0 Mar  2 22:21 linuxtextfile
-</code></pre>
+</div></code></pre>
+<h2 id="inspect-files-with-file">inspect files with <code>file</code></h2>
+<p>This describes a file's contents.</p>
+<pre><code><div>file linuxtextfile
+file todo.md
+linuxtextfile: empty
+todo.md: HTML document, ASCII text
+</div></code></pre>
+<h2 id="combine-file-contents-with-cat-concatenate">combine file contents with <code>cat</code> (concatenate)</h2>
+<p>Intended for short files. For two files containing <code>Hello</code> and <code>World</code> (without spaces):</p>
+<pre><code><div>cat test1 test2 
+HelloWorld
+</div></code></pre>
+<h2 id="get-truncated-preview-with-less">get truncated preview with <code>less</code></h2>
+<p>View large text files</p>
+<p><strong>Commands</strong>: <code>q</code> to quit, Arrow keys to navigate, <code>g</code> go to start, <code>G</code> go to end, search using /wordhere</p>
+<h2 id="past-commands-with-history">past commands with <code>history</code></h2>
+<ul>
+<li>returns a list of all past commands</li>
+<li>Besides using arrows, you can use <code>!!</code> to run past commands.</li>
+<li><code>ctrl-R</code> to search past commands</li>
+<li>clear this list with <code>clear</code></li>
+<li><strong>Tab Completion</strong>: when entering a file name, if there is only one that works then pressing tab will autocomplete the name (useful if long)</li>
+</ul>
+<ul>
+<li><a href="#command-line">Command Line</a>
+<ul>
+<li><a href="#echo-and-pwd">echo and pwd</a></li>
+<li><a href="#changing-directory-with-cd">Changing directory with <code>cd</code></a></li>
+<li><a href="#listing-directories-with-ls">Listing directories with <code>ls</code></a></li>
+<li><a href="#create-new-file-with-touch">create new file with <code>touch</code></a></li>
+<li><a href="#inspect-files-with-file">inspect files with <code>file</code></a></li>
+<li><a href="#combine-file-contents-with-cat-concatenate">combine file contents with <code>cat</code> (concatenate)</a></li>
+<li><a href="#get-truncated-preview-with-less">get truncated preview with <code>less</code></a></li>
+<li><a href="#past-commands-with-history">past commands with <code>history</code></a></li>
+</ul>
+</li>
+</ul>
+
+    </body>
+    </html>

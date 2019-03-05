@@ -1,8 +1,52 @@
-<p><a href="../../index.html">Go back to index</a></p>
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+        <title>Intro to using Github</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+        <link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        
+        <script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+    </head>
+    <body>
+        <p><a href="../../index.html">Go back to index</a></p>
 <head>
   <link rel="stylesheet" href="../../css_themes/github.css">
 </head>
-<h1>Intro to using Github</h1>
+<ul>
+<li><a href="#intro-to-using-github">Intro to using Github</a>
+<ul>
+<li><a href="#updating-an-existing-repository">Updating an existing repository</a></li>
+<li><a href="#the-confusion">The confusion</a></li>
+<li><a href="#git-add">git add</a></li>
+<li><a href="#git-status">git status</a></li>
+<li><a href="#git-commit">git commit</a></li>
+<li><a href="#git-checkout">git checkout</a></li>
+<li><a href="#git-push-to-a-new-branch">git push (to a new branch)</a></li>
+<li><a href="#adding-from-remote">Adding from remote</a></li>
+</ul>
+</li>
+<li><a href="#other-topics">Other topics</a>
+<ul>
+<li><a href="#good-to-know">Good to know:</a></li>
+<li><a href="#formatting">Formatting</a></li>
+<li><a href="#compiling-md-to-html-using-task-build-in-vscode">Compiling .md to html using task build in vscode</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="intro-to-using-github">Intro to using Github</h1>
 <ul>
 <li>create new respository on github</li>
 <li>create new folder under Notebooks</li>
@@ -10,61 +54,68 @@
 <li>create sample note md files</li>
 <li>follow directions on <a href="https://help.github.com/en/articles/adding-an-existing-project-to-github-using-the-command-line">this</a> link</li>
 </ul>
-<p><code># in console, cd to folder above</code></p>
-<p><code>git init</code></p>
-<p><code>git add.</code></p>
-<p><code>git commit -m &quot;First commit&quot;</code></p>
-<p>Then, <strong>copy</strong> the git url</p>
-<p><code>git remote add origin &lt;url&gt;</code></p>
-<p><code>git remote -v</code></p>
-<p><code>git push origin master</code></p>
-<h1>Updating an existing repository</h1>
+<pre><code><div># in console, cd to folder above
+git init
+git add.
+git commit -m &quot;First commit&quot;
+# Then, **copy** the git url
+git remote add origin &lt;url&gt;
+git remote -v
+git push origin master
+</div></code></pre>
+<h2 id="updating-an-existing-repository">Updating an existing repository</h2>
 <p><code>cd /../../media/jcmint/'Data Volume'/csjoshc.github.io</code></p>
-<h2>The confusion</h2>
+<h2 id="the-confusion">The confusion</h2>
 <p>I was having a lot of trouble managing the staging, commit and push to branch process. <a href="https://product.hubspot.com/blog/git-and-github-tutorial-for-beginners">This</a> <em>maybe</em> cleared it up for me.</p>
-<p><strong>As a summary</strong>, after any file change you want to eventually push, you must do
-`git add .</p>
-<p>git status</p>
-<p>git commit -a -m &quot;new change&quot;`</p>
+<p><strong>As a summary</strong>, after any file change you want to eventually push, you must do</p>
+<pre><code><div>git add .
+git status 
+git commit -a -m &quot;new change&quot;
+git push origin master
+</div></code></pre>
 <p><strong>the first and third must be used together after any change</strong></p>
-<h3>git add</h3>
+<h2 id="git-add">git add</h2>
 <p>git add stages the current version of a file, or the current version of all the files. Therefore, this needs to be run after all changes you are intending to package together are made.</p>
 <p><code>git add .</code></p>
-<h3>git status</h3>
+<h2 id="git-status">git status</h2>
 <p>This is good to run after git add .</p>
 <ul>
 <li>this will make sure you are committing what you think you are.</li>
 </ul>
-<h3>git commit</h3>
-<p><code>git commit</code> adds those changes to the index of changes to be sent off</p>
+<h2 id="git-commit">git commit</h2>
+<p>git commit adds those changes to the index of changes to be sent off</p>
 <p><code>git commit -a -m &quot;Message here&quot;</code></p>
 <ul>
 <li>change v1 as appropriate</li>
 <li>maybe dd.mm.yy branch name?</li>
 </ul>
-<h3>git checkout</h3>
-<p>This creates a new branch for tracking code changes that won't affect the state of the master or other branch (so you could switch back to that branch and push that branch as a separate project state from the new branch). At least that's how I understand it. This might not be that necessary, since I don't really have a dev vs production version of my notes.
-<code>git checkout -b v1</code></p>
-<h3>git push (to a new branch)</h3>
-<p>I guess I can push and automatically create a new remote branch at the same time
-<code>git push origin v1</code></p>
+<h2 id="git-checkout">git checkout</h2>
+<p>This creates a new branch for tracking code changes that won't affect the state of the master or other branch (so you could switch back to that branch and push that branch as a separate project state from the new branch). At least that's how I understand it. This might not be that necessary, since I don't really have a dev vs production version of my notes.</p>
+<p><code>git checkout -b v1</code></p>
+<h2 id="git-push-to-a-new-branch">git push (to a new branch)</h2>
+<p>I guess I can push and automatically create a new remote branch at the same time</p>
+<p><code>git push origin v1</code></p>
 <ul>
-<li>adding <code>-u</code> as an argument is questionable</li>
+<li>adding -u as an argument is questionable
+git push origin master - Pushes to master</li>
 </ul>
-<p><code>git push origin master</code> - Pushes to master</p>
-<h1>Adding from remote</h1>
+<h2 id="adding-from-remote">Adding from remote</h2>
 <p><code>git clone repo.url</code></p>
-<h1>Good to know:</h1>
-<p><code>url = git@github.com:csjoshc/csjoshc.github.io.git</code></p>
-<h2>Formatting</h2>
+<h1 id="other-topics">Other topics</h1>
+<h2 id="good-to-know">Good to know:</h2>
+<p>url = <a href="mailto:git@github.com">git@github.com</a>:csjoshc/csjoshc.github.io.git</p>
+<h2 id="formatting">Formatting</h2>
 <p>Now using <a href="https://gist.github.com/tuzz/3331384">premade css</a> in a folder in the root directory.</p>
-<h2>Compiling .md to html using task build in vscode</h2>
+<h2 id="compiling-md-to-html-using-task-build-in-vscode">Compiling .md to html using task build in vscode</h2>
 <p>Important step even though process isn't automated. Since I'm not changing too many .md too frequently, ctrl-shift-b and Build Task is ok.
-<code>tasks.json</code>:</p>
-<pre><code>&quot;command&quot;: &quot;markdown-it&quot;,
+tasks.json:</p>
+<pre><code><div>&quot;command&quot;: &quot;markdown-it&quot;,
 &quot;args&quot;: [
     &quot;${relativeFile}&quot;,
     &quot;-o&quot;,
     &quot;${fileDirname}/${fileBasenameNoExtension}.html&quot;
 ],
-</code></pre>
+</div></code></pre>
+
+    </body>
+    </html>

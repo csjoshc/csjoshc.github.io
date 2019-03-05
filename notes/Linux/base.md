@@ -3,6 +3,11 @@
   <link rel="stylesheet" href="../../css_themes/vscode.css">
 </head>
 
+- [Linux Portal page](#linux-portal-page)
+  - [Plan](#plan)
+  - [Self-service Resources](#self-service-resources)
+  - [Courses](#courses)
+
 # Linux Portal page
 
 ## Plan

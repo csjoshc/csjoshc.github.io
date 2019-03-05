@@ -5,6 +5,10 @@
   <link rel="stylesheet" href="../../../css_themes/vscode.css">
 </head>
 
+- [Basic topics](#basic-topics)
+- [Intermediate topics](#intermediate-topics)
+- [Networking topics](#networking-topics)
+
 # Basic topics
 1. [Command line](basic/01_comlin.html)
 2. Text manipulation 
