@@ -2,7 +2,7 @@
 
 <a href="../base.html">Go back to Linux portal page</a>
 <head>
-  <link rel="stylesheet" href="../../../css_themes/vscode.css">
+  <link rel="stylesheet" href="../../../css_themes/github.css">
 </head>
 
 - [Basic topics](#basic-topics)

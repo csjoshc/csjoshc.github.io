@@ -2,7 +2,7 @@
 
 <a href = "../linux_journey_toc.html"> Go back to Linux Journey topic portal </a>
 <head>
-  <link rel="stylesheet" href="../../../../css_themes/vscode.css">
+  <link rel="stylesheet" href="../../../../css_themes/github.css">
 </head>
 
 - [Command Line](#command-line)
