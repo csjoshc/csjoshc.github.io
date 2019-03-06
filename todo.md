@@ -32,3 +32,9 @@
 
 * html block links - haven't tried it out yet, but seems to default to relative to the .md as well 
 
+## Syntax highlighting test
+```python
+s = "Python syntax"
+print s
+for 2 
+```

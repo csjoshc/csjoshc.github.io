@@ -20,7 +20,7 @@ A list of mentioned topics:
 * Memory Storage
 * File Systems
 
-Resource list [in the Linux Portal](/notes/Linux/base.md)
+Resource list [in the Linux Portal](/notes/Linux/base.html)
 Going through the four resources (so far) listed under Linux should be enough. It might also cover some things under "Terminal".
 
 ## Learn to Live in Terminal 
