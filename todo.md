@@ -20,7 +20,7 @@
   * remapped preview output with `cntr-shift-v`, overriding default
 * use `ctrl+shift+P` to get command palette in vscode. Useful tasks - insert or update TOC, open persistent preview tools in sidepane like so:
 ![](https://i.imgur.com/BNdiun3.png)
-
+* [Style code blocks](http://web.simmons.edu/~grabiner/comm244/weekfour/code-test.html) 
 
 **This is relative to the .md file itself:**
 

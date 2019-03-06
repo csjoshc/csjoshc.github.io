@@ -1,7 +1,7 @@
 <a href="../../index.html">Go back to index</a>
 
 <head>
-  <link rel="stylesheet" href="../../css_themes/vscode.css">
+  <link rel="stylesheet" href="../../css_themes/github.css">
 </head>
 
 
