@@ -11,3 +11,5 @@ Using the insert/update Markdown TOC in VScode will cause a lot of bugs when use
 
 My thoughts on this are that a well designed web page probably shouldn't have or need a table of contents anyways - just break down topics into more modular pages and link to them where necessary. 
 
+
+
