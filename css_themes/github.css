@@ -80,49 +80,58 @@ h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:h
 
 h1 tt, h1 code {
   font-size: inherit;
+  color: rgb(252, 239, 127, 1);
+
 }
 
 h2 tt, h2 code {
   font-size: inherit;
+  color: rgb(252, 239, 127, 1);
+  padding-top: 5px;
 }
 
 h3 tt, h3 code {
   font-size: inherit;
+  color: rgb(252, 239, 127, 1)
 }
 
 h4 tt, h4 code {
   font-size: inherit;
+  color: rgb(252, 239, 127, 1)
 }
 
 h5 tt, h5 code {
   font-size: inherit;
+  color: rgb(252, 239, 127, 1)
 }
 
 h6 tt, h6 code {
   font-size: inherit;
+  color: rgb(252, 239, 127, 1)
 }
 
 h1 {
   font-size: 28px;
   color: rgba(40, 240, 67, 1);
+  border-bottom: 1px solid rgba(40, 240, 67, 1);
 }
 
 h2 {
   font-size: 24px;
-  border-bottom: 1px solid #cccccc;
+  border-bottom: 1px solid rgba(35, 165, 240, 1);
   color: rgba(35, 165, 240, 1);
 
 }
 
 h3 {
   font-size: 20px;
-  border-bottom: 1px solid #cccccc;
-  color: rgba(136, 73, 238, 1);
+  border-bottom: 1px solid #rgba(171, 128, 240, 1);
+  color: rgba(171, 128, 240, 1);
 }
 
 h4 {
   font-size: 16px;
-  border-bottom: 1px solid #cccccc;
+  border-bottom: 1px solid rgba(230, 81, 173, 1);
   color: rgba(230, 81, 173, 1);
 }
 
@@ -372,11 +381,11 @@ span.float-right > span {
 }
 
 code, tt {
-  margin: 0 2px;
+  margin: 0 5px;
   padding: 0 5px;
   white-space: nowrap;
   background-color: rgba(63, 62, 62, 1);
-  background-color: rgba(63, 62, 62, 1);
+  color: rgb(252, 239, 127, 1)
   border-radius: 3px;
 }
 
@@ -386,6 +395,7 @@ pre code {
   white-space: pre;
   border: none;
   background-color: rgba(64, 63, 63, 1);
+  color: rgb(252, 239, 127, 1)
 }
 
 .highlight pre {

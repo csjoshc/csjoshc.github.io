@@ -24,11 +24,10 @@
   - [`rm` and `rmdir` - delete files and directories](#rm-and-rmdir---delete-files-and-directories)
       - [Test](#test)
 
-# Command Line
+**Using linux mint based on ubuntu**
+# Command Line 
 
 ## `echo` and `pwd`
-
-* Using linux mint based on ubuntu
 * `echo Hello World` - prints out text arguments to display
 * `pwd` - prints working directory
 
