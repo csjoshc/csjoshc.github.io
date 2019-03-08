@@ -4,13 +4,11 @@
 <a href="index.html">Go back to index</a>
 
 # To do list for site
-* Need to add actual css although compiling md to html is ok for now
-* automate the html compile process, make it a task in json...Its already tedious to compile each .md to .html by going through all of them just to be sure with just 5-6 pages
+* Write bash script to compile every md to html for files that were modified since the last time the script was run 
 * add python notes from OneNote
-* floating toc makes better use of widescreen 
-* devops portal page has no href to return to index page
+* floating toc makes better use of widescreen. [try this?](https://afeld.github.io/bootstrap-toc/)
 * picture for index page
-* grid format for some portal pages like 
+* grid format for some portal pages 
 
 # Notes
 * adding links in markdown format are relative to the file itself if there is no backslash before the beginning of the folder directory:
