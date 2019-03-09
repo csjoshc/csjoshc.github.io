@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+        <title>Numpy</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+        <link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        
+        <script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+    </head>
+    <body>
+        <p><a href="../../../index.html">Go back to index</a></p>
+<p><a href="../base.html">Go back to Python Portal</a></p>
+<head>
+  <link rel="stylesheet" href="../../../css_themes/github.css">
+</head>
+<ul>
+<li><a href="#numpy">Numpy</a>
+<ul>
+<li><a href="#creating-column-array">Creating column array</a></li>
+<li><a href="#boolean-indexing">Boolean indexing</a>
+<ul>
+<li><a href="#multiple-conditionals-and-assigning-values-where-true">Multiple conditionals and assigning values where <code>True</code></a></li>
+</ul>
+</li>
+<li><a href="#nparray-data-types"><code>np.array</code> data types</a></li>
+<li><a href="#nparray-operations---arraydot-nparange-arrayt-arraywhere"><code>np.array</code> operations - <code>array.dot()</code>, <code>np.arange()</code>, <code>array.T</code>, <code>array.where()</code></a></li>
+<li><a href="#np-statistics-and-set-opperations---array-min-max-mean-sum-median">np statistics and set opperations - array.*: <code>min()</code>, <code>max()</code> ,<code>mean()</code>, <code>sum()</code>, <code>median()</code></a>
+<ul>
+<li><a href="#set-operations---intersect1d-setdiff1d-in1d">Set operations - <code>.intersect1d()</code>, <code>.setdiff1d()</code>, <code>.in1d()</code></a></li>
+</ul>
+</li>
+<li><a href="#broadcasting">Broadcasting</a></li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-python"><div><span class="hljs-keyword">import</span> sys
+print(sys.executable)
+</div></code></pre>
+<pre><code>/home/jcmint/anaconda3/envs/learningenv/bin/python
+</code></pre>
+<h1 id="numpy">Numpy</h1>
+<p>Numpy contains multidimensional arrays that have built-in functions based on compiled c code</p>
+<ul>
+<li>Arrays in Numpy are fixed in size, unlike Python lists which have changeable sizes</li>
+<li>Elements must all be the same type</li>
+<li>Well optimized and useful matrix operations</li>
+<li>Pandas are built on top of numpy</li>
+<li>Matrices - Rank 2 ndarrays are a key feature</li>
+</ul>
+<p>When creating an array using <code>=</code> instead of np.array, the new reference points to the same object in memory. Therefore, if either the original or copy is mutated, the other will be updated as well</p>
+<pre><code class="language-python"><div><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+a1 = np.array([[<span class="hljs-number">0</span>, <span class="hljs-number">5</span>, <span class="hljs-number">10</span>], [<span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">6</span>]])  
+
+<span class="hljs-comment"># Note that the col_slice is returned as a row. These are both 1D/Rank one arrays</span>
+row_slice = a1[<span class="hljs-number">0</span>,:]
+col_slice = a1[:,<span class="hljs-number">0</span>]
+print(a1, row_slice, col_slice)
+
+
+<span class="hljs-comment"># Note that the row and column slices were also mutated! </span>
+a1[<span class="hljs-number">0</span>,<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>
+print(a1, row_slice, col_slice)
+
+
+<span class="hljs-comment"># Since the slices are 1D you can extract with just one index value</span>
+print(row_slice[<span class="hljs-number">1</span>], col_slice[<span class="hljs-number">1</span>])
+</div></code></pre>
+<pre><code>[[ 0  5 10]
+ [ 2  4  6]] [ 0  5 10] [0 2]
+[[ 1  5 10]
+ [ 2  4  6]] [ 1  5 10] [1 2]
+5 2
+</code></pre>
+<h2 id="creating-column-array">Creating column array</h2>
+<pre><code class="language-python"><div><span class="hljs-comment"># Instead of: </span>
+long = np.array([[<span class="hljs-number">1</span>], [<span class="hljs-number">2</span>], [<span class="hljs-number">3</span>], [<span class="hljs-number">4</span>]]) 
+
+<span class="hljs-comment"># you can use `.T` (transposon) to easily create column array</span>
+long2 = np.array([[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>]]).T 
+print(long, long2)
+</div></code></pre>
+<pre><code>[[1]
+ [2]
+ [3]
+ [4]] [[1]
+ [2]
+ [3]
+ [4]]
+</code></pre>
+<h2 id="boolean-indexing">Boolean indexing</h2>
+<ul>
+<li>Use conditional indexing to access and permute arrays</li>
+</ul>
+<pre><code class="language-python"><div>a1 = np.array([[<span class="hljs-number">0</span>, <span class="hljs-number">5</span>, <span class="hljs-number">10</span>], [<span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">6</span>]])  
+
+<span class="hljs-comment"># Creating a boolean array using `=` operator - but the boolean isn't mutated when the original is.</span>
+small_num = a1 &gt; <span class="hljs-number">5</span>
+print(small_num)
+a1[<span class="hljs-number">1</span>,:] = [<span class="hljs-number">6</span>, <span class="hljs-number">7</span>, <span class="hljs-number">8</span>]
+print(a1)
+print(small_num)
+
+<span class="hljs-comment"># Get a list of values in the arrays for which conditional is TRUE</span>
+print(a1[a1 &gt; <span class="hljs-number">5</span>])
+</div></code></pre>
+<pre><code>[[False False  True]
+ [False False  True]]
+[[ 0  5 10]
+ [ 6  7  8]]
+[[False False  True]
+ [False False  True]]
+[10  6  7  8]
+</code></pre>
+<h3 id="multiple-conditionals-and-assigning-values-where-true">Multiple conditionals and assigning values where <code>True</code></h3>
+<pre><code class="language-python"><div>print(a1)
+<span class="hljs-comment"># Get a list of values in the arrays for which multiple conditionals are TRUE</span>
+print(a1[(a1 &gt; <span class="hljs-number">2</span>) &amp; (a1 &lt; <span class="hljs-number">8</span>)])
+
+<span class="hljs-comment"># Assigning new values using logical filter </span>
+a1[a1 % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>] += <span class="hljs-number">100</span> 
+print(a1)
+</div></code></pre>
+<pre><code>[[ 0  5 10]
+ [ 6  7  8]]
+[5 6 7]
+[[100   5 110]
+ [106   7 108]]
+</code></pre>
+<h2 id="nparray-data-types"><code>np.array</code> data types</h2>
+<ul>
+<li>Array types are explicit - you can't add in values of a different type from initialization time</li>
+<li>you can force int and float array to have each other's data type</li>
+</ul>
+<pre><code class="language-python"><div>ex1 = np.array([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>])
+ex2 = np.array([<span class="hljs-number">1.1</span>, <span class="hljs-number">2.2</span>])
+ex3 = np.array(ex1, dtype = np.float64)
+ex4 = np.array(ex2, dtype=np.int64)
+
+<span class="hljs-comment"># Coerced int array to fload, float to int (rounding DOWN to nearest int)</span>
+print(ex1.dtype, ex2.dtype, ex3.dtype, ex4.dtype)
+print(ex4)
+</div></code></pre>
+<pre><code>int64 float64 float64 int64
+[1 2]
+</code></pre>
+<p>In general, its preferable to have arrays in floating point, so Python won't give errors when assigning values and you avoid losing precision.</p>
+<ul>
+<li>Arrays will be upcast to higher precision types when performing operations</li>
+<li>Array operations are NOT matrix operations:</li>
+</ul>
+<pre><code class="language-python"><div>ex5 = np.array([[<span class="hljs-number">2</span>, <span class="hljs-number">2</span>], [<span class="hljs-number">3</span>, <span class="hljs-number">3</span>]]) 
+ex6 = np.array([[<span class="hljs-number">4</span>, <span class="hljs-number">4</span>], [<span class="hljs-number">5</span>, <span class="hljs-number">5</span>]]) 
+ex5 * ex6
+</div></code></pre>
+<pre><code>array([[ 8,  8],
+       [15, 15]])
+</code></pre>
+<h2 id="nparray-operations---arraydot-nparange-arrayt-arraywhere"><code>np.array</code> operations - <code>array.dot()</code>, <code>np.arange()</code>, <code>array.T</code>, <code>array.where()</code></h2>
+<ul>
+<li>For matrix math, use the <code>np.array.*</code> functions instead of generic operations (*)</li>
+</ul>
+<pre><code class="language-python"><div>print(ex5)
+print(ex6)
+
+<span class="hljs-comment"># Dot product (matrix product)</span>
+<span class="hljs-comment"># As expected, the result 18 = 2 * 4 + 2 * 5 </span>
+ex5.dot(ex6)
+</div></code></pre>
+<pre><code>[[2 2]
+ [3 3]]
+[[4 4]
+ [5 5]]
+
+
+
+
+
+array([[18, 18],
+       [27, 27]])
+</code></pre>
+<pre><code class="language-python"><div><span class="hljs-comment"># Get a sequence within a range by a certain step</span>
+np.arange(<span class="hljs-number">1</span>, <span class="hljs-number">10</span>, <span class="hljs-number">2</span>)
+
+<span class="hljs-comment"># Filter values from one of two matrices </span>
+<span class="hljs-comment"># If true, grab from the first matrix, else grab from second</span>
+filter = np.array([[<span class="hljs-keyword">True</span>, <span class="hljs-keyword">False</span>], [<span class="hljs-keyword">False</span>, <span class="hljs-keyword">True</span>]])
+np.where(filter, ex5, ex6)
+</div></code></pre>
+<pre><code>array([[2, 4],
+       [5, 3]])
+</code></pre>
+<h2 id="np-statistics-and-set-opperations---array-min-max-mean-sum-median">np statistics and set opperations - array.*: <code>min()</code>, <code>max()</code> ,<code>mean()</code>, <code>sum()</code>, <code>median()</code></h2>
+<p>For these functions, you can specify axis = 0 or 1 to get values by column or row</p>
+<pre><code class="language-python"><div>print(a1)
+print(a1.max(axis = <span class="hljs-number">0</span>), a1.max(axis = <span class="hljs-number">1</span>))
+print(a1.sum(axis = <span class="hljs-number">0</span>), a1.sum(axis = <span class="hljs-number">1</span>))
+</div></code></pre>
+<pre><code>[[100   5 110]
+ [106   7 108]]
+[106   7 110] [110 108]
+[206  12 218] [215 221]
+</code></pre>
+<pre><code class="language-python"><div><span class="hljs-comment">## Sorting Arrays and finding uniques - `array.sort()`, `np.unique(array)`</span>
+</div></code></pre>
+<pre><code class="language-python"><div><span class="hljs-comment"># If needed, create a new array to avoid modifying the original array</span>
+<span class="hljs-comment"># Sort by both rows and columns </span>
+sorted = np.array(a1)
+sorted.sort(axis = <span class="hljs-number">0</span>)
+print(sorted)
+sorted.sort(axis = <span class="hljs-number">1</span>)
+print(sorted)
+print(np.unique(a1))
+
+</div></code></pre>
+<pre><code>[[100   5 108]
+ [106   7 110]]
+[[  5 100 108]
+ [  7 106 110]]
+[  5   7 100 106 108 110]
+</code></pre>
+<h3 id="set-operations---intersect1d-setdiff1d-in1d">Set operations - <code>.intersect1d()</code>, <code>.setdiff1d()</code>, <code>.in1d()</code></h3>
+<pre><code class="language-python"><div>s1 = np.array([<span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</span>, <span class="hljs-string">'c'</span>]) 
+s2 = np.array([<span class="hljs-string">'b'</span>, <span class="hljs-string">'c'</span>, <span class="hljs-string">'d'</span>]) 
+print(np.intersect1d(s1, s2)) 
+
+<span class="hljs-comment"># ['a'], elements IN s1 but NOT in s2 </span>
+print(np.setdiff1d(s1, s2)) 
+
+<span class="hljs-comment"># ['d'], elements IN s2 but NOT in s1 </span>
+print(np.setdiff1d(s1, s2)) 
+
+<span class="hljs-comment"># [False  True  True] - which elements of s1 are in s2? boolean </span>
+print(np.in1d(s1, s2))  
+</div></code></pre>
+<pre><code>['b' 'c']
+['a']
+['a']
+[False  True  True]
+</code></pre>
+<h2 id="broadcasting">Broadcasting</h2>
+<p>Perform operations on differently sized arrays. Preset the values to be added, then spread them over another array. You can broadcast either a 1d array with appropriate dimensions in one dimension, or a scalar value.</p>
+<pre><code class="language-python"><div>start = np.zeros((<span class="hljs-number">4</span>,<span class="hljs-number">3</span>)) <span class="hljs-comment"># zeros array 4 rows 3 columns </span>
+add_rows = np.array([<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">2</span>]) 
+y = start + add_rows 
+print(y)
+</div></code></pre>
+<pre><code>[[1. 0. 2.]
+ [1. 0. 2.]
+ [1. 0. 2.]
+ [1. 0. 2.]]
+</code></pre>
+
+    </body>
+    </html>

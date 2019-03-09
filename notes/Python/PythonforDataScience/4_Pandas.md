@@ -1,0 +1,325 @@
+
+<a href="../../../index.html">Go back to index</a>
+
+<a href="../base.html">Go back to Python Portal</a>
+<head>
+  <link rel="stylesheet" href="../../../css_themes/github.css">
+</head>
+
+- [Pandas - Introduction](#pandas---introduction)
+- [Series](#series)
+  - [Accessing values by key or index:](#accessing-values-by-key-or-index)
+- [Dataframes](#dataframes)
+  - [Access & Operations](#access--operations)
+  - [Dictionary -> Dataframe](#dictionary---dataframe)
+
+```python
+import sys
+print(sys.executable)
+```
+
+    /home/jcmint/anaconda3/envs/learningenv/bin/python
+
+
+# Pandas - Introduction
+* Merge and join data sets
+* Better visualizations
+* Exploratory data analysis
+* Time series data
+* Data pivoting, sorting, cleaning
+
+# Series
+* One dimensional labeled array 
+* Similar to fixed size dictionary 
+
+Need to install pandas
+```
+conda activate learningenv
+conda install pandas
+```
+
+
+```python
+import pandas as pd
+ser = pd.Series([1, 2, 3, "letter", "word"],['a', 'b', 'c', 'd', 'e'])
+print(ser)
+```
+
+    a         1
+    b         2
+    c         3
+    d    letter
+    e      word
+    dtype: object
+
+
+## Accessing values by key or index:
+
+
+```python
+# Listing keys:
+print(ser.index)
+
+# Access value by key
+print(ser.loc['a'], ser['a'])
+
+# Access value by index
+print(ser.iloc[2])
+
+# Other
+print(1 in ser, 'a' in ser) # test if key is in Series
+print(ser*2) # double numbers and strings
+print(ser['b']**2) # square
+```
+
+    Index(['a', 'b', 'c', 'd', 'e'], dtype='object')
+    1 1
+    3
+    False True
+    a               2
+    b               4
+    c               6
+    d    letterletter
+    e        wordword
+    dtype: object
+    4
+
+
+# Dataframes
+* Contains axes and columns for heterogenous data storage. 
+* Easy way of creating a data table.
+* Create series first, then load them into a new dataframe
+
+
+```python
+s1 = pd.Series([1., 2., 3.], index=['apple', 'ball', 'clock']) 
+s2 = pd.Series([5., 10., 15., 20.], index=['apple', 'ball', 'cerill', 'nancy']) 
+df = pd.DataFrame({'one': s1, 'two' : s2} ) 
+print(df) 
+```
+
+            one   two
+    apple   1.0   5.0
+    ball    2.0  10.0
+    cerill  NaN  15.0
+    clock   3.0   NaN
+    nancy   NaN  20.0
+
+
+## Access & Operations
+
+
+```python
+# Columns
+print(df['one'])
+
+# Creating new columns
+df['product'] = df['one'] * df['two'] 
+df['big'] = df['two'] > 10 
+print(df)
+```
+
+    apple     1.0
+    ball      2.0
+    cerill    NaN
+    clock     3.0
+    nancy     NaN
+    Name: one, dtype: float64
+            one   two  product    big
+    apple   1.0   5.0      5.0  False
+    ball    2.0  10.0     20.0  False
+    cerill  NaN  15.0      NaN   True
+    clock   3.0   NaN      NaN  False
+    nancy   NaN  20.0      NaN   True
+
+
+
+```python
+# Removing columns - pop
+unneeded = df.pop('product')
+print(unneeded)
+print(df)
+```
+
+    apple      5.0
+    ball      20.0
+    cerill     NaN
+    clock      NaN
+    nancy      NaN
+    Name: product, dtype: float64
+            one   two    big
+    apple   1.0   5.0  False
+    ball    2.0  10.0  False
+    cerill  NaN  15.0   True
+    clock   3.0   NaN  False
+    nancy   NaN  20.0   True
+
+
+
+```python
+# Removing columns - del
+del(df['two'])
+print(df)
+```
+
+            one    big
+    apple   1.0  False
+    ball    2.0  False
+    cerill  NaN   True
+    clock   3.0  False
+    nancy   NaN   True
+
+
+
+```python
+# Inserting columnns
+df.insert(2, 'copy one', df['one'])
+print(df)
+```
+
+            one    big  copy one
+    apple   1.0  False       1.0
+    ball    2.0  False       2.0
+    cerill  NaN   True       NaN
+    clock   3.0  False       3.0
+    nancy   NaN   True       NaN
+
+
+
+```python
+# Accessing a subslice
+print(df.iloc[3:4], "\n", df['one'][:2]) # values in column 'one', rows under 2
+df[1:3]
+```
+
+           one    big  copy one
+    clock  3.0  False       3.0 
+     apple    1.0
+    ball     2.0
+    Name: one, dtype: float64
+
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>one</th>
+      <th>big</th>
+      <th>copy one</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>ball</th>
+      <td>2.0</td>
+      <td>False</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>cerill</th>
+      <td>NaN</td>
+      <td>True</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+## Dictionary -> Dataframe
+* Automatically alphabetized
+* All the keys become columns, each row in the new df represent the values of one of the dictionaries
+
+
+```python
+data = [{'alex': 1, 'joe': 2}, {'ema': 5, 'dora':10, 'alice': 20}] # a list
+data = pd.DataFrame(data, index  = ['orange', 'red']) 
+print(data)
+pd.DataFrame(data, columns = ['joe', 'dora', 'alice'] )
+```
+
+            alex  alice  dora  ema  joe
+    orange   1.0    NaN   NaN  NaN  2.0
+    red      NaN   20.0  10.0  5.0  NaN
+
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>joe</th>
+      <th>dora</th>
+      <th>alice</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>orange</th>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>red</th>
+      <td>NaN</td>
+      <td>10.0</td>
+      <td>20.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+```python
+print(data.head)
+data.columns
+```
+
+    <bound method NDFrame.head of         alex  alice  dora  ema  joe
+    orange   1.0    NaN   NaN  NaN  2.0
+    red      NaN   20.0  10.0  5.0  NaN>
+
+
+
+
+
+    Index(['alex', 'alice', 'dora', 'ema', 'joe'], dtype='object')
+
+

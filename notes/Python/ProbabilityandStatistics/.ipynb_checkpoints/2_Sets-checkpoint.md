@@ -18,9 +18,6 @@ print(sys.executable)
 [Sets](#sets)
   - [Convention - CAPITAL for sets, lowercase for its elements](#convention---capital-for-sets-lowercase-for-its-elements)
   - [Sets in Python](#sets-in-python)
-- [Sets](#sets)
-  - [Convention - CAPITAL for sets, lowercase for its elements](#convention---capital-for-sets-lowercase-for-its-elements)
-  - [Sets in Python](#sets-in-python)
 - [Set visualization](#set-visualization)
   - [Visualizing sets in Python - venn diagrams with numeric elements](#visualizing-sets-in-python---venn-diagrams-with-numeric-elements)
 - [Set Relations](#set-relations)
@@ -55,22 +52,16 @@ Different set types:
 
 
 ```python
-myset = set([1,2,3])
+myset = set([1,2,30])
 print(myset)
 
 # Create an empty set: set()  or set({})
 empty = set()
 print(empty) 
-
-myset.add((2, '2', 0))
-myset.discard(0)
-print(myset)
-# No way to add multiple elements to a set - instead, consider a union with a set that has the target elements
 ```
 
-    {1, 2, 3}
+    {1, 2, 30}
     set()
-    {1, 2, 3, (2, '2', 0)}
 
 
 
@@ -115,6 +106,7 @@ plt.show()
 ![png](output_6_0.png)
 
 
+
 ```python
 s1 = {0, 1} 
 s2 = {1, 0} 
@@ -135,6 +127,7 @@ print(s1 == s2, s1 == s3, s1 == s5)
 ```
 
     True True False
+
 
 Since all elements need to be in both sets for the sets to be equal, Equality is difficult to achieve. 
 
@@ -247,8 +240,8 @@ Basically, the Cartesian Product of two sets is the set of all combinations of t
 ![](https://i.imgur.com/mjwKPan.png)
 
 ![](https://i.imgur.com/lKz0EBu.png?1) 
-
 ## Generating Cartesian products in Python
+
 
 ```python
 from itertools import product 

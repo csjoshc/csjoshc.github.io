@@ -1,0 +1,148 @@
+
+<a href="../../../index.html">Go back to index</a>
+
+<a href="../base.html">Go back to Python Portal</a>
+<head>
+  <link rel="stylesheet" href="../../../css_themes/github.css">
+</head>
+
+- [Python Basics](#python-basics)
+  - [Mutating lists and dictionaries](#mutating-lists-and-dictionaries)
+  - [String & list functions](#string--list-functions)
+  - [Dictionaries](#dictionaries)
+  - [Iterating through dictionaries by key value pairs](#iterating-through-dictionaries-by-key-value-pairs)
+
+```python
+import sys
+print(sys.executable)
+```
+
+    /home/jcmint/anaconda3/envs/learningenv/bin/python
+
+
+# Python Basics 
+* Dynamic heap assignment, automatic garbage collection for objects with no pointers
+
+## Mutating lists and dictionaries
+List functions `list.append`, `list[index] = value`, `list.pop(index)`, `list.remove(value)`, `list.extend(value)`, `del(index)` all mutate the list. A list that was assigned as `newlist = list` before these functions are executed will point to the same mutated list.
+
+Dictionary funcitons `dict[('key')] = value`, `del(dict[('key')])` also mutate the dictionary similar as above. 
+
+## String & list functions
+
+
+```python
+# String functions
+word = 'Hello'
+print(word[1:3], 'He' in word, word.find('ll')) # The lowest index start point
+```
+
+    el True 2
+
+
+
+```python
+# List appending
+list = [1,2,3]
+newlist = list
+list.append(4)
+list[0] = 0
+print(list, newlist)
+
+list2 = list.pop(2)
+print( list2, list, newlist)
+type(list2)
+# Notice that list.pop(2) returns the element at position 2 in <list>, the int 3
+# 3 is removed from list, and assigned to list2
+```
+
+    [0, 2, 3, 4] [0, 2, 3, 4]
+    3 [0, 2, 4] [0, 2, 4]
+
+
+
+
+
+    int
+
+
+
+
+```python
+list3 = list.remove(2)
+print(list3, list, newlist)
+# list.remove(1) does not return a value - it just removes the value '1' (not the value at index = 1)
+
+list4 = [5, 6]
+list.extend(list4)
+print(list, newlist)
+```
+
+    None [0, 4] [0, 4]
+    [0, 4, 5, 6] [0, 4, 5, 6]
+
+
+
+```python
+# del deletes the value at an INDEX, and returns nothing.
+newlist = list
+del(list[2]) 
+print(list, newlist)
+```
+
+    [0, 4, 6] [0, 4, 6]
+
+
+## Dictionaries
+* unordered Key-value pairs
+* anything can be a value in a dictionary
+* a Key can be a tuple since it is immutable
+
+
+```python
+dict = {('String', 2000): 2} 
+dict[('string2', 2001)] = 3 
+dict[('mykey')] = 2
+dict[(2)] = 'myvalue'
+print(dict)
+```
+
+    {('String', 2000): 2, ('string2', 2001): 3, 'mykey': 2, 2: 'myvalue'}
+
+
+
+```python
+# Returning the value at specific key (tuple, int, string)
+x = dict.get(('string3', 2002))
+y = dict.get(2)
+print(x, x == None, y, y == None, 'myid' in dict)
+print(dict.pop(('string2', 2001)), dict)
+
+newdict = dict
+print(newdict, dict)
+
+del(dict[('mykey')])
+print(dict, newdict)
+```
+
+    None True myvalue False False
+    3 {('String', 2000): 2, 'mykey': 2, 2: 'myvalue'}
+    {('String', 2000): 2, 'mykey': 2, 2: 'myvalue'} {('String', 2000): 2, 'mykey': 2, 2: 'myvalue'}
+    {('String', 2000): 2, 2: 'myvalue'} {('String', 2000): 2, 2: 'myvalue'}
+
+
+## Iterating through dictionaries by key value pairs
+* don't mutate data structures through which you are iterating
+* instead, iterate through dictionary while appending to a to-do list
+* Then, iterate through the to-do list while mutating the dictionary
+* Therefore you never iterate and mutate the same data structure simultaneously 
+
+
+```python
+for key, value in dict.items(): 
+    print(key, ':', value) 
+```
+
+    ('String', 2000) : 2
+    2 : myvalue
+

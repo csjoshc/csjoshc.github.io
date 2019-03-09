@@ -31,7 +31,10 @@ print(sys.executable)
 </div></code></pre>
 <pre><code>/home/jcmint/anaconda3/envs/learningenv/bin/python
 </code></pre>
+<p><a href="#sets">Sets</a></p>
 <ul>
+<li><a href="#convention---capital-for-sets-lowercase-for-its-elements">Convention - CAPITAL for sets, lowercase for its elements</a></li>
+<li><a href="#sets-in-python">Sets in Python</a></li>
 <li><a href="#sets">Sets</a>
 <ul>
 <li><a href="#convention---capital-for-sets-lowercase-for-its-elements">Convention - CAPITAL for sets, lowercase for its elements</a></li>
@@ -67,8 +70,8 @@ print(sys.executable)
 <li><a href="#russells-paradox">Russell's Paradox</a></li>
 </ul>
 <h1 id="sets">Sets</h1>
-<p>Sets are defined as a collection of elements, and can be defined explicitly {heads, tails}, or implicitly {1:9}, {A:Z}.</p>
-<p><img src="https://i.imgur.com/zsEZlXr.png?1" alt=""></p>
+<p>Sets are defined as a collection of elements, and can be defined explicitly {heads, tails}, or implicitly {1:9}, {A:Z}.
+<img src="https://i.imgur.com/zsEZlXr.png?1" alt=""></p>
 <h2 id="convention---capital-for-sets-lowercase-for-its-elements">Convention - CAPITAL for sets, lowercase for its elements</h2>
 <ul>
 <li>An element can belong to (∈) or not belong to(∉) a  set</li>
@@ -78,15 +81,21 @@ Different set types:</li>
 </ul>
 <p><img src="https://i.imgur.com/jNsXSFF.png?1" alt=""></p>
 <h2 id="sets-in-python">Sets in Python</h2>
-<pre><code class="language-python"><div>myset = set([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">30</span>])
+<pre><code class="language-python"><div>myset = set([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>])
 print(myset)
 
 <span class="hljs-comment"># Create an empty set: set()  or set({})</span>
 empty = set()
 print(empty) 
+
+myset.add((<span class="hljs-number">2</span>, <span class="hljs-string">'2'</span>, <span class="hljs-number">0</span>))
+myset.discard(<span class="hljs-number">0</span>)
+print(myset)
+<span class="hljs-comment"># No way to add multiple elements to a set - instead, consider a union with a set that has the target elements</span>
 </div></code></pre>
-<pre><code>{1, 2, 30}
+<pre><code>{1, 2, 3}
 set()
+{1, 2, 3, (2, '2', 0)}
 </code></pre>
 <pre><code class="language-python"><div><span class="hljs-comment"># Test emptiness</span>
 print(<span class="hljs-keyword">not</span> myset) <span class="hljs-comment"># does myset contain no elements?</span>
@@ -115,7 +124,7 @@ T = {<span class="hljs-number">0</span>, <span class="hljs-number">22</span>, <s
 venn.venn2([S, T], set_labels = {<span class="hljs-string">'S'</span>, <span class="hljs-string">'T'</span>}) 
 plt.show()
 </div></code></pre>
-<p><img src="https://raw.githubusercontent.com/csjoshc/csjoshc.github.io/master/notes/Python/ProbabilityandStatistics/output_6_0.png" alt="output_6_0.png"></p>
+<p><img src="file:///media/jcmint/Data Volume/csjoshc.github.io/notes/Python/ProbabilityandStatistics/output_6_0.png" alt="png"></p>
 <pre><code class="language-python"><div>s1 = {<span class="hljs-number">0</span>, <span class="hljs-number">1</span>} 
 s2 = {<span class="hljs-number">1</span>, <span class="hljs-number">0</span>} 
 s3 = {<span class="hljs-number">1</span>, <span class="hljs-number">0</span> , <span class="hljs-number">1</span>} 
@@ -136,7 +145,7 @@ s5 = {<span class="hljs-number">3</span>, <span class="hljs-number">4</span>}
 <p><img src="https://i.imgur.com/3NsZnOc.png" alt=""></p>
 <pre><code class="language-python"><div>print(s1 != s2, s1.isdisjoint(s4))
 </div></code></pre>
-<pre><code>False False True
+<pre><code>False False
 </code></pre>
 <h2 id="subset-issubset--strict">Subset: <code>issubset()</code>, <code>&lt;=</code>; strict: <code>&lt;</code></h2>
 <p>If every element in a set is in another set, then it is a subset of that set. {0} is a subset of every set.
@@ -210,12 +219,12 @@ suits = set({<span class="hljs-string">'Dia'</span>, <span class="hljs-string">'
 <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> product(faces, suits): 
     print(i) 
 </div></code></pre>
-<pre><code>('K', 'Dia')
-('K', 'Spa')
+<pre><code>('Q', 'Dia')
+('Q', 'Spa')
 ('J', 'Dia')
 ('J', 'Spa')
-('Q', 'Dia')
-('Q', 'Spa')
+('K', 'Dia')
+('K', 'Spa')
 </code></pre>
 <h1 id="russells-paradox">Russell's Paradox</h1>
 <ul>
