@@ -29,6 +29,8 @@
 <pre><code class="language-python"><div><span class="hljs-keyword">import</span> sys
 print(sys.executable)
 </div></code></pre>
+<pre><code>/home/jcmint/anaconda3/envs/learningenv/bin/python
+</code></pre>
 <ul>
 <li><a href="#sets">Sets</a>
 <ul>
@@ -65,8 +67,8 @@ print(sys.executable)
 <li><a href="#russells-paradox">Russell's Paradox</a></li>
 </ul>
 <h1 id="sets">Sets</h1>
-<p>Sets are defined as a collection of elements, and can be defined explicitly {heads, tails}, or implicitly {1:9}, {A:Z}.
-<img src="https://i.imgur.com/zsEZlXr.png?1" alt=""></p>
+<p>Sets are defined as a collection of elements, and can be defined explicitly {heads, tails}, or implicitly {1:9}, {A:Z}.</p>
+<p><img src="https://i.imgur.com/zsEZlXr.png?1" alt=""></p>
 <h2 id="convention---capital-for-sets-lowercase-for-its-elements">Convention - CAPITAL for sets, lowercase for its elements</h2>
 <ul>
 <li>An element can belong to (∈) or not belong to(∉) a  set</li>
@@ -94,8 +96,8 @@ print(len(myset))
 3
 </code></pre>
 <h1 id="set-visualization">Set visualization</h1>
-<p>Venn diagrams can represent set members - elements appear in or out of a set.
-<img src="https://i.imgur.com/NkaVztK.png?1" alt=""></p>
+<p>Venn diagrams can represent set members - elements appear in or out of a set.</p>
+<p><img src="https://i.imgur.com/NkaVztK.png?1" alt=""></p>
 <h2 id="visualizing-sets-in-python---venn-diagrams-with-numeric-elements">Visualizing sets in Python - venn diagrams with numeric elements</h2>
 <ul>
 <li>Necessary to install matplotlib and matplotlib-venn</li>
@@ -113,7 +115,7 @@ T = {<span class="hljs-number">0</span>, <span class="hljs-number">22</span>, <s
 venn.venn2([S, T], set_labels = {<span class="hljs-string">'S'</span>, <span class="hljs-string">'T'</span>}) 
 plt.show()
 </div></code></pre>
-<p><img src="file:///media/jcmint/Data Volume/csjoshc.github.io/notes/Python/ProbabilityandStatistics/output_6_0.png" alt="png"></p>
+<p><img src="https://raw.githubusercontent.com/csjoshc/csjoshc.github.io/master/notes/Python/ProbabilityandStatistics/output_6_0.png" alt="output_6_0.png"></p>
 <pre><code class="language-python"><div>s1 = {<span class="hljs-number">0</span>, <span class="hljs-number">1</span>} 
 s2 = {<span class="hljs-number">1</span>, <span class="hljs-number">0</span>} 
 s3 = {<span class="hljs-number">1</span>, <span class="hljs-number">0</span> , <span class="hljs-number">1</span>} 
@@ -214,20 +216,6 @@ suits = set({<span class="hljs-string">'Dia'</span>, <span class="hljs-string">'
 ('J', 'Spa')
 ('Q', 'Dia')
 ('Q', 'Spa')
-
-
-
----------------------------------------------------------------------------
-
-TypeError                                 Traceback (most recent call last)
-
-&lt;ipython-input-61-a62606d72ba7&gt; in &lt;module&gt;
-      4 for i in product(faces, suits):
-      5     print(i)
-----&gt; 6 {0,1} * {0,1}
-
-
-TypeError: unsupported operand type(s) for *: 'set' and 'set'
 </code></pre>
 <h1 id="russells-paradox">Russell's Paradox</h1>
 <ul>

@@ -385,7 +385,7 @@ code, tt {
   padding: 0 5px;
   white-space: nowrap;
   background-color: rgba(63, 62, 62, 1);
-  color: rgb(252, 239, 127, 1)
+  color: rgba(252, 239, 127, 1);
   border-radius: 3px;
 }
 
@@ -395,12 +395,13 @@ pre code {
   white-space: pre;
   border: none;
   background-color: rgba(64, 63, 63, 1);
-  color: rgb(252, 239, 127, 1)
+  color: rgba(252, 239, 127, 1)
 }
 
 .highlight pre {
   background-color: rgba(63, 62, 62, 1);
   border: 1px solid rgba(204, 204, 204, 1);
+  color: rgba(252, 239, 127, 1);
   font-size: 13px;
   line-height: 19px;
   overflow: auto;
@@ -411,6 +412,7 @@ pre code {
 pre {
   background-color: rgba(63, 62, 62, 1);
   border: 1px solid rgba(204, 204, 204, 1);
+  color: rgba(252, 239, 127, 1);
   font-size: 13px;
   line-height: 19px;
   overflow: auto;

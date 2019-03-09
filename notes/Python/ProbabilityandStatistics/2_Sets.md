@@ -6,11 +6,12 @@
   <link rel="stylesheet" href="../../../css_themes/github.css">
 </head>
 
-
 ```python
 import sys
 print(sys.executable)
 ```
+    /home/jcmint/anaconda3/envs/learningenv/bin/python
+    
 - [Sets](#sets)
   - [Convention - CAPITAL for sets, lowercase for its elements](#convention---capital-for-sets-lowercase-for-its-elements)
   - [Sets in Python](#sets-in-python)
@@ -33,6 +34,7 @@ print(sys.executable)
 # Sets
 
 Sets are defined as a collection of elements, and can be defined explicitly {heads, tails}, or implicitly {1:9}, {A:Z}. 
+
 ![](https://i.imgur.com/zsEZlXr.png?1)
 
 ## Convention - CAPITAL for sets, lowercase for its elements 
@@ -74,6 +76,7 @@ print(len(myset))
 # Set visualization 
 
 Venn diagrams can represent set members - elements appear in or out of a set.
+
 ![](https://i.imgur.com/NkaVztK.png?1)
 
 ## Visualizing sets in Python - venn diagrams with numeric elements 
@@ -98,7 +101,7 @@ plt.show()
 ```
 
 
-![png](output_6_0.png)
+![output_6_0.png](https://raw.githubusercontent.com/csjoshc/csjoshc.github.io/master/notes/Python/ProbabilityandStatistics/output_6_0.png)
 
 
 
