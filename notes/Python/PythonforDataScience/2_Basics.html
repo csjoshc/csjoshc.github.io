@@ -38,6 +38,11 @@
 </ul>
 <pre><code class="language-python"><div><span class="hljs-keyword">import</span> sys
 print(sys.executable)
+<span class="hljs-keyword">from</span> IPython.core.interactiveshell <span class="hljs-keyword">import</span> InteractiveShell
+InteractiveShell.ast_node_interactivity = <span class="hljs-string">"all"</span>
+InteractiveShell.colors = <span class="hljs-string">"Linux"</span>
+InteractiveShell.separate_in = <span class="hljs-number">0</span>
+<span class="hljs-keyword">from</span> tabulate <span class="hljs-keyword">import</span> tabulate
 </div></code></pre>
 <pre><code>/home/jcmint/anaconda3/envs/learningenv/bin/python
 </code></pre>
@@ -51,49 +56,51 @@ print(sys.executable)
 <h2 id="string--list-functions">String &amp; list functions</h2>
 <pre><code class="language-python"><div><span class="hljs-comment"># String functions</span>
 word = <span class="hljs-string">'Hello'</span>
-print(word[<span class="hljs-number">1</span>:<span class="hljs-number">3</span>], <span class="hljs-string">'He'</span> <span class="hljs-keyword">in</span> word, word.find(<span class="hljs-string">'ll'</span>)) <span class="hljs-comment"># The lowest index start point</span>
+word[<span class="hljs-number">1</span>:<span class="hljs-number">3</span>], <span class="hljs-string">'He'</span> <span class="hljs-keyword">in</span> word, word.find(<span class="hljs-string">'ll'</span>) <span class="hljs-comment"># The lowest index start point</span>
 </div></code></pre>
-<pre><code>el True 2
+<pre><code>('el', True, 2)
 </code></pre>
-<pre><code class="language-python"><div><span class="hljs-comment"># List appending</span>
-list = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>]
+<h3 id="adding-to-lists---append">Adding to lists - <code>append</code></h3>
+<pre><code class="language-python"><div>list = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>]
 newlist = list
 list.append(<span class="hljs-number">4</span>)
 list[<span class="hljs-number">0</span>] = <span class="hljs-number">0</span>
-print(list, newlist)
-
-list2 = list.pop(<span class="hljs-number">2</span>)
-print( list2, list, newlist)
-type(list2)
-<span class="hljs-comment"># Notice that list.pop(2) returns the element at position 2 in &lt;list&gt;, the int 3</span>
-<span class="hljs-comment"># 3 is removed from list, and assigned to list2</span>
+list, newlist
 </div></code></pre>
-<pre><code>[0, 2, 3, 4] [0, 2, 3, 4]
-3 [0, 2, 4] [0, 2, 4]
-
-
-
-
-
-int
+<pre><code>([0, 2, 3, 4], [0, 2, 3, 4])
 </code></pre>
+<h3 id="removing-elements---pop">Removing elements - <code>pop</code></h3>
+<ul>
+<li>Notice that list.pop(2) returns the element at position 2 in <code>list</code></li>
+<li>The int 3 is removed from list, and assigned to list2</li>
+</ul>
+<pre><code class="language-python"><div>list2 = list.pop(<span class="hljs-number">2</span>)
+list2, list, type(list2)
+</div></code></pre>
+<pre><code>(3, [0, 2, 4], int)
+</code></pre>
+<h3 id="removing-elements---remove">Removing elements - <code>remove</code></h3>
+<p>list.remove(2) does not return a value - it just removes the value '1' (not the value at index = 1)</p>
 <pre><code class="language-python"><div>list3 = list.remove(<span class="hljs-number">2</span>)
-print(list3, list, newlist)
-<span class="hljs-comment"># list.remove(1) does not return a value - it just removes the value '1' (not the value at index = 1)</span>
-
-list4 = [<span class="hljs-number">5</span>, <span class="hljs-number">6</span>]
-list.extend(list4)
-print(list, newlist)
+list3, list, newlist
 </div></code></pre>
-<pre><code>None [0, 4] [0, 4]
-[0, 4, 5, 6] [0, 4, 5, 6]
+<pre><code>(None, [0, 4], [0, 4])
 </code></pre>
-<pre><code class="language-python"><div><span class="hljs-comment"># del deletes the value at an INDEX, and returns nothing.</span>
-newlist = list
-<span class="hljs-keyword">del</span>(list[<span class="hljs-number">2</span>]) 
-print(list, newlist)
+<h3 id="adding-to-list---extend">Adding to list - <code>extend</code></h3>
+<p><code>newlist</code> continues to be mutated along with <code>list</code></p>
+<pre><code class="language-python"><div>list4 = [<span class="hljs-number">5</span>, <span class="hljs-number">6</span>]
+list.extend(list4)
+list, newlist
 </div></code></pre>
-<pre><code>[0, 4, 6] [0, 4, 6]
+<pre><code>([0, 4, 5, 6], [0, 4, 5, 6])
+</code></pre>
+<h3 id="removing-elements---del">Removing elements - <code>del</code></h3>
+<p><code>del</code> deletes the value at an INDEX, and returns nothing.</p>
+<pre><code class="language-python"><div>newlist = list
+<span class="hljs-keyword">del</span>(list[<span class="hljs-number">2</span>]) 
+list, newlist
+</div></code></pre>
+<pre><code>([0, 4, 6], [0, 4, 6])
 </code></pre>
 <h2 id="dictionaries">Dictionaries</h2>
 <ul>
@@ -101,30 +108,35 @@ print(list, newlist)
 <li>anything can be a value in a dictionary</li>
 <li>a Key can be a tuple since it is immutable</li>
 </ul>
+<h3 id="adding-dictionary-pair">Adding dictionary pair</h3>
 <pre><code class="language-python"><div>dict = {(<span class="hljs-string">'String'</span>, <span class="hljs-number">2000</span>): <span class="hljs-number">2</span>} 
 dict[(<span class="hljs-string">'string2'</span>, <span class="hljs-number">2001</span>)] = <span class="hljs-number">3</span> 
 dict[(<span class="hljs-string">'mykey'</span>)] = <span class="hljs-number">2</span>
 dict[(<span class="hljs-number">2</span>)] = <span class="hljs-string">'myvalue'</span>
-print(dict)
+dict
 </div></code></pre>
 <pre><code>{('String', 2000): 2, ('string2', 2001): 3, 'mykey': 2, 2: 'myvalue'}
 </code></pre>
 <pre><code class="language-python"><div><span class="hljs-comment"># Returning the value at specific key (tuple, int, string)</span>
 x = dict.get((<span class="hljs-string">'string3'</span>, <span class="hljs-number">2002</span>))
 y = dict.get(<span class="hljs-number">2</span>)
-print(x, x == <span class="hljs-keyword">None</span>, y, y == <span class="hljs-keyword">None</span>, <span class="hljs-string">'myid'</span> <span class="hljs-keyword">in</span> dict)
-print(dict.pop((<span class="hljs-string">'string2'</span>, <span class="hljs-number">2001</span>)), dict)
-
-newdict = dict
-print(newdict, dict)
-
-<span class="hljs-keyword">del</span>(dict[(<span class="hljs-string">'mykey'</span>)])
-print(dict, newdict)
+x, x == <span class="hljs-keyword">None</span>, y, y == <span class="hljs-keyword">None</span>, <span class="hljs-string">'myid'</span> <span class="hljs-keyword">in</span> dict
 </div></code></pre>
-<pre><code>None True myvalue False False
-3 {('String', 2000): 2, 'mykey': 2, 2: 'myvalue'}
-{('String', 2000): 2, 'mykey': 2, 2: 'myvalue'} {('String', 2000): 2, 'mykey': 2, 2: 'myvalue'}
-{('String', 2000): 2, 2: 'myvalue'} {('String', 2000): 2, 2: 'myvalue'}
+<pre><code>(None, True, 'myvalue', False, False)
+</code></pre>
+<h3 id="removing-dictionary-pair---pop">Removing Dictionary pair - <code>pop</code></h3>
+<p><code>3</code> is the value, the rest is <code>dict</code></p>
+<pre><code class="language-python"><div>dict.pop((<span class="hljs-string">'string2'</span>, <span class="hljs-number">2001</span>)), dict
+</div></code></pre>
+<pre><code>(3, {('String', 2000): 2, 'mykey': 2, 2: 'myvalue'})
+</code></pre>
+<h3 id="removing-dictionary-pair---del">Removing dictionary pair - <code>del</code></h3>
+<p>newdict similar to newlist is mutated along with the original object</p>
+<pre><code class="language-python"><div>newdict = dict
+<span class="hljs-keyword">del</span>(dict[(<span class="hljs-string">'mykey'</span>)])
+dict, newdict
+</div></code></pre>
+<pre><code>({('String', 2000): 2, 2: 'myvalue'}, {('String', 2000): 2, 2: 'myvalue'})
 </code></pre>
 <h2 id="iterating-through-dictionaries-by-key-value-pairs">Iterating through dictionaries by key value pairs</h2>
 <ul>
@@ -134,10 +146,10 @@ print(dict, newdict)
 <li>Therefore you never iterate and mutate the same data structure simultaneously</li>
 </ul>
 <pre><code class="language-python"><div><span class="hljs-keyword">for</span> key, value <span class="hljs-keyword">in</span> dict.items(): 
-    print(key, <span class="hljs-string">':'</span>, value) 
+    print(key, value)
 </div></code></pre>
-<pre><code>('String', 2000) : 2
-2 : myvalue
+<pre><code>('String', 2000) 2
+2 myvalue
 </code></pre>
 
     </body>

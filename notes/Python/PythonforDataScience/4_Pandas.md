@@ -8,14 +8,23 @@
 
 - [Pandas - Introduction](#pandas---introduction)
 - [Series](#series)
-  - [Accessing values by key or index:](#accessing-values-by-key-or-index)
+  - [Accessing values by key or index](#accessing-values-by-key-or-index)
+    - [Listing keys](#listing-keys)
+    - [Multiply numbers and strings](#multiply-numbers-and-strings)
 - [Dataframes](#dataframes)
   - [Access & Operations](#access--operations)
   - [Dictionary -> Dataframe](#dictionary---dataframe)
 
+
+
 ```python
 import sys
 print(sys.executable)
+from IPython.core.interactiveshell import InteractiveShell
+InteractiveShell.ast_node_interactivity = "all"
+InteractiveShell.colors = "Linux"
+InteractiveShell.separate_in = 0
+from tabulate import tabulate
 ```
 
     /home/jcmint/anaconda3/envs/learningenv/bin/python
@@ -42,8 +51,11 @@ conda install pandas
 ```python
 import pandas as pd
 ser = pd.Series([1, 2, 3, "letter", "word"],['a', 'b', 'c', 'd', 'e'])
-print(ser)
+ser
 ```
+
+
+
 
     a         1
     b         2
@@ -53,36 +65,84 @@ print(ser)
     dtype: object
 
 
-## Accessing values by key or index:
+
+## Accessing values by key or index
+
+### Listing keys
 
 
 ```python
-# Listing keys:
-print(ser.index)
-
-# Access value by key
-print(ser.loc['a'], ser['a'])
-
-# Access value by index
-print(ser.iloc[2])
-
-# Other
-print(1 in ser, 'a' in ser) # test if key is in Series
-print(ser*2) # double numbers and strings
-print(ser['b']**2) # square
+ser.index
 ```
 
+
+
+
     Index(['a', 'b', 'c', 'd', 'e'], dtype='object')
+
+
+
+
+```python
+# Access value by key or Index
+```
+
+
+```python
+print(ser.loc['a'], ser['a']) #key
+print(ser.iloc[2]) #Index
+```
+
     1 1
     3
-    False True
+
+
+
+```python
+### Test if key is in Series
+```
+
+
+```python
+1 in ser, 'a' in ser # test if key is in Series
+```
+
+
+
+
+    (False, True)
+
+
+
+### Multiply numbers and strings
+
+
+```python
+ser*2 # Multiply
+```
+
+
+
+
     a               2
     b               4
     c               6
     d    letterletter
     e        wordword
     dtype: object
+
+
+
+
+```python
+ser['b']**2 # Square
+```
+
+
+
+
     4
+
 
 
 # Dataframes
@@ -95,15 +155,18 @@ print(ser['b']**2) # square
 s1 = pd.Series([1., 2., 3.], index=['apple', 'ball', 'clock']) 
 s2 = pd.Series([5., 10., 15., 20.], index=['apple', 'ball', 'cerill', 'nancy']) 
 df = pd.DataFrame({'one': s1, 'two' : s2} ) 
-print(df) 
+print(tabulate(df, headers=df.columns, tablefmt='psql'))
 ```
 
-            one   two
-    apple   1.0   5.0
-    ball    2.0  10.0
-    cerill  NaN  15.0
-    clock   3.0   NaN
-    nancy   NaN  20.0
+    +--------+-------+-------+
+    |        |   one |   two |
+    |--------+-------+-------|
+    | apple  |     1 |     5 |
+    | ball   |     2 |    10 |
+    | cerill |   nan |    15 |
+    | clock  |     3 |   nan |
+    | nancy  |   nan |    20 |
+    +--------+-------+-------+
 
 
 ## Access & Operations
@@ -111,13 +174,16 @@ print(df)
 
 ```python
 # Columns
-print(df['one'])
+df['one']
 
 # Creating new columns
 df['product'] = df['one'] * df['two'] 
 df['big'] = df['two'] > 10 
-print(df)
+print(tabulate(df, headers=df.columns, tablefmt='psql'))
 ```
+
+
+
 
     apple     1.0
     ball      2.0
@@ -125,21 +191,30 @@ print(df)
     clock     3.0
     nancy     NaN
     Name: one, dtype: float64
-            one   two  product    big
-    apple   1.0   5.0      5.0  False
-    ball    2.0  10.0     20.0  False
-    cerill  NaN  15.0      NaN   True
-    clock   3.0   NaN      NaN  False
-    nancy   NaN  20.0      NaN   True
+
+
+
+    +--------+-------+-------+-----------+-------+
+    |        |   one |   two |   product | big   |
+    |--------+-------+-------+-----------+-------|
+    | apple  |     1 |     5 |         5 | False |
+    | ball   |     2 |    10 |        20 | False |
+    | cerill |   nan |    15 |       nan | True  |
+    | clock  |     3 |   nan |       nan | False |
+    | nancy  |   nan |    20 |       nan | True  |
+    +--------+-------+-------+-----------+-------+
 
 
 
 ```python
 # Removing columns - pop
 unneeded = df.pop('product')
-print(unneeded)
-print(df)
+unneeded
+print(tabulate(df, headers=df.columns, tablefmt='psql'))
 ```
+
+
+
 
     apple      5.0
     ball      20.0
@@ -147,101 +222,82 @@ print(df)
     clock      NaN
     nancy      NaN
     Name: product, dtype: float64
-            one   two    big
-    apple   1.0   5.0  False
-    ball    2.0  10.0  False
-    cerill  NaN  15.0   True
-    clock   3.0   NaN  False
-    nancy   NaN  20.0   True
+
+
+
+    +--------+-------+-------+-------+
+    |        |   one |   two | big   |
+    |--------+-------+-------+-------|
+    | apple  |     1 |     5 | False |
+    | ball   |     2 |    10 | False |
+    | cerill |   nan |    15 | True  |
+    | clock  |     3 |   nan | False |
+    | nancy  |   nan |    20 | True  |
+    +--------+-------+-------+-------+
 
 
 
 ```python
 # Removing columns - del
 del(df['two'])
-print(df)
+print(tabulate(df, headers=df.columns, tablefmt='psql'))
 ```
 
-            one    big
-    apple   1.0  False
-    ball    2.0  False
-    cerill  NaN   True
-    clock   3.0  False
-    nancy   NaN   True
+    +--------+-------+-------+
+    |        |   one | big   |
+    |--------+-------+-------|
+    | apple  |     1 | False |
+    | ball   |     2 | False |
+    | cerill |   nan | True  |
+    | clock  |     3 | False |
+    | nancy  |   nan | True  |
+    +--------+-------+-------+
 
 
 
 ```python
 # Inserting columnns
 df.insert(2, 'copy one', df['one'])
-print(df)
+print(tabulate(df, headers=df.columns, tablefmt='psql'))
 ```
 
-            one    big  copy one
-    apple   1.0  False       1.0
-    ball    2.0  False       2.0
-    cerill  NaN   True       NaN
-    clock   3.0  False       3.0
-    nancy   NaN   True       NaN
+    +--------+-------+-------+------------+
+    |        |   one | big   |   copy one |
+    |--------+-------+-------+------------|
+    | apple  |     1 | False |          1 |
+    | ball   |     2 | False |          2 |
+    | cerill |   nan | True  |        nan |
+    | clock  |     3 | False |          3 |
+    | nancy  |   nan | True  |        nan |
+    +--------+-------+-------+------------+
 
 
 
 ```python
 # Accessing a subslice
-print(df.iloc[3:4], "\n", df['one'][:2]) # values in column 'one', rows under 2
-df[1:3]
+a = df.iloc[3:4]
+b = df['one'][:2] # values in column 'one', rows under 2
+c = df[1:3] 
+
+print(tabulate(a, headers=a.columns, tablefmt='psql'))
+print(b)
+print(tabulate(c, headers=c.columns, tablefmt='psql'))
 ```
 
-           one    big  copy one
-    clock  3.0  False       3.0 
-     apple    1.0
+    +-------+-------+-------+------------+
+    |       |   one | big   |   copy one |
+    |-------+-------+-------+------------|
+    | clock |     3 | False |          3 |
+    +-------+-------+-------+------------+
+    apple    1.0
     ball     2.0
     Name: one, dtype: float64
-
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>one</th>
-      <th>big</th>
-      <th>copy one</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>ball</th>
-      <td>2.0</td>
-      <td>False</td>
-      <td>2.0</td>
-    </tr>
-    <tr>
-      <th>cerill</th>
-      <td>NaN</td>
-      <td>True</td>
-      <td>NaN</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
+    +--------+-------+-------+------------+
+    |        |   one | big   |   copy one |
+    |--------+-------+-------+------------|
+    | ball   |     2 | False |          2 |
+    | cerill |   nan | True  |        nan |
+    +--------+-------+-------+------------+
 
 
 ## Dictionary -> Dataframe
@@ -252,74 +308,39 @@ df[1:3]
 ```python
 data = [{'alex': 1, 'joe': 2}, {'ema': 5, 'dora':10, 'alice': 20}] # a list
 data = pd.DataFrame(data, index  = ['orange', 'red']) 
-print(data)
-pd.DataFrame(data, columns = ['joe', 'dora', 'alice'] )
+print(tabulate(data, headers=data.columns, tablefmt='psql'))
+
+d = pd.DataFrame(data, columns = ['joe', 'dora', 'alice'] )
+print(tabulate(d, headers=d.columns, tablefmt='psql'))
 ```
 
-            alex  alice  dora  ema  joe
-    orange   1.0    NaN   NaN  NaN  2.0
-    red      NaN   20.0  10.0  5.0  NaN
-
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>joe</th>
-      <th>dora</th>
-      <th>alice</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>orange</th>
-      <td>2.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>red</th>
-      <td>NaN</td>
-      <td>10.0</td>
-      <td>20.0</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
+    +--------+--------+---------+--------+-------+-------+
+    |        |   alex |   alice |   dora |   ema |   joe |
+    |--------+--------+---------+--------+-------+-------|
+    | orange |      1 |     nan |    nan |   nan |     2 |
+    | red    |    nan |      20 |     10 |     5 |   nan |
+    +--------+--------+---------+--------+-------+-------+
+    +--------+-------+--------+---------+
+    |        |   joe |   dora |   alice |
+    |--------+-------+--------+---------|
+    | orange |     2 |    nan |     nan |
+    | red    |   nan |     10 |      20 |
+    +--------+-------+--------+---------+
 
 
 
 ```python
-print(data.head)
-data.columns
+data.head
+print("\n")
+print(data.columns)
 ```
+
+
+
 
     <bound method NDFrame.head of         alex  alice  dora  ema  joe
     orange   1.0    NaN   NaN  NaN  2.0
     red      NaN   20.0  10.0  5.0  NaN>
-
-
-
-
-
+    
     Index(['alex', 'alice', 'dora', 'ema', 'joe'], dtype='object')
-
 

@@ -10,15 +10,27 @@
   - [Creating column array](#creating-column-array)
   - [Boolean indexing](#boolean-indexing)
     - [Multiple conditionals and assigning values where `True`](#multiple-conditionals-and-assigning-values-where-true)
+    - [Assigning new values using logical filter](#assigning-new-values-using-logical-filter)
   - [`np.array` data types](#nparray-data-types)
   - [`np.array` operations - `array.dot()`, `np.arange()`, `array.T`, `array.where()`](#nparray-operations---arraydot-nparange-arrayt-arraywhere)
-  - [np statistics and set opperations - array.*: `min()`, `max()` ,`mean()`, `sum()`, `median()`](#np-statistics-and-set-opperations---array-min-max-mean-sum-median)
-    - [Set operations - `.intersect1d()`, `.setdiff1d()`, `.in1d()`](#set-operations---intersect1d-setdiff1d-in1d)
+    - [Get a sequence within a range by a certain step](#get-a-sequence-within-a-range-by-a-certain-step)
+    - [Filter values from one of two matrices](#filter-values-from-one-of-two-matrices)
+  - [np statistics and set operations - array.*: `min()`, `max()` ,`mean()`, `sum()`, `median()`](#np-statistics-and-set-operations---array-min-max-mean-sum-median)
+  - [Set operations on arrays - `.intersect1d()`, `.setdiff1d()`, `.in1d()`](#set-operations-on-arrays---intersect1d-setdiff1d-in1d)
+    - [`intersect1d`](#intersect1d)
+    - [`setdiff1d`](#setdiff1d)
+    - [`in1d`](#in1d)
   - [Broadcasting](#broadcasting)
+
 
 ```python
 import sys
 print(sys.executable)
+from IPython.core.interactiveshell import InteractiveShell
+InteractiveShell.ast_node_interactivity = "all"
+InteractiveShell.colors = "Linux"
+InteractiveShell.separate_in = 0
+from tabulate import tabulate
 ```
 
     /home/jcmint/anaconda3/envs/learningenv/bin/python
@@ -43,21 +55,31 @@ a1 = np.array([[0, 5, 10], [2, 4, 6]])
 row_slice = a1[0,:]
 col_slice = a1[:,0]
 print(a1, row_slice, col_slice)
-
-
-# Note that the row and column slices were also mutated! 
-a1[0,0] = 1
-print(a1, row_slice, col_slice)
-
-
-# Since the slices are 1D you can extract with just one index value
-print(row_slice[1], col_slice[1])
 ```
 
     [[ 0  5 10]
      [ 2  4  6]] [ 0  5 10] [0 2]
+
+
+Row and column slices will mutate along with the original array 
+
+
+```python
+a1[0,0] = 1
+print(a1, row_slice, col_slice)
+```
+
     [[ 1  5 10]
      [ 2  4  6]] [ 1  5 10] [1 2]
+
+
+Since the slices are 1D you can extract with just one index value
+
+
+```python
+print(row_slice[1], col_slice[1])
+```
+
     5 2
 
 
@@ -70,16 +92,17 @@ long = np.array([[1], [2], [3], [4]])
 
 # you can use `.T` (transposon) to easily create column array
 long2 = np.array([[1,2,3,4]]).T 
-print(long, long2)
+long2
 ```
 
-    [[1]
-     [2]
-     [3]
-     [4]] [[1]
-     [2]
-     [3]
-     [4]]
+
+
+
+    array([[1],
+           [2],
+           [3],
+           [4]])
+
 
 
 ## Boolean indexing
@@ -91,22 +114,43 @@ a1 = np.array([[0, 5, 10], [2, 4, 6]])
 
 # Creating a boolean array using `=` operator - but the boolean isn't mutated when the original is.
 small_num = a1 > 5
-print(small_num)
-a1[1,:] = [6, 7, 8]
-print(a1)
-print(small_num)
-
-# Get a list of values in the arrays for which conditional is TRUE
-print(a1[a1 > 5])
+small_num
 ```
 
-    [[False False  True]
-     [False False  True]]
+
+
+
+    array([[False, False,  True],
+           [False, False,  True]])
+
+
+
+The boolean array doesn't get mutated along with the original one
+
+
+```python
+a1[1,:] = [6, 7, 8]
+print(a1, "\n", small_num)
+```
+
     [[ 0  5 10]
-     [ 6  7  8]]
-    [[False False  True]
+     [ 6  7  8]] 
+     [[False False  True]
      [False False  True]]
-    [10  6  7  8]
+
+
+Get a list of values in the arrays for which conditional is TRUE
+
+
+```python
+a1[a1 > 5]
+```
+
+
+
+
+    array([10,  6,  7,  8])
+
 
 
 ### Multiple conditionals and assigning values where `True`
@@ -115,18 +159,30 @@ print(a1[a1 > 5])
 ```python
 print(a1)
 # Get a list of values in the arrays for which multiple conditionals are TRUE
-print(a1[(a1 > 2) & (a1 < 8)])
-
-# Assigning new values using logical filter 
-a1[a1 % 2 == 0] += 100 
-print(a1)
+a1[(a1 > 2) & (a1 < 8)]
 ```
 
     [[ 0  5 10]
      [ 6  7  8]]
-    [5 6 7]
-    [[100   5 110]
-     [106   7 108]]
+
+    array([5, 6, 7])
+
+
+
+### Assigning new values using logical filter 
+
+
+```python
+a1[a1 % 2 == 0] += 100 
+a1
+```
+
+
+
+
+    array([[100,   5, 110],
+           [106,   7, 108]])
+
 
 
 ## `np.array` data types 
@@ -141,12 +197,10 @@ ex3 = np.array(ex1, dtype = np.float64)
 ex4 = np.array(ex2, dtype=np.int64)
 
 # Coerced int array to fload, float to int (rounding DOWN to nearest int)
-print(ex1.dtype, ex2.dtype, ex3.dtype, ex4.dtype)
-print(ex4)
+print(ex1.dtype, ex2.dtype, ex3.dtype, ex4.dtype, ex4)
 ```
 
-    int64 float64 float64 int64
-    [1 2]
+    int64 float64 float64 int64 [1 2]
 
 
 In general, its preferable to have arrays in floating point, so Python won't give errors when assigning values and you avoid losing precision.
@@ -173,8 +227,7 @@ ex5 * ex6
 
 
 ```python
-print(ex5)
-print(ex6)
+print(ex5, "\n", ex6)
 
 # Dot product (matrix product)
 # As expected, the result 18 = 2 * 4 + 2 * 5 
@@ -182,26 +235,34 @@ ex5.dot(ex6)
 ```
 
     [[2 2]
-     [3 3]]
-    [[4 4]
+     [3 3]] 
+     [[4 4]
      [5 5]]
-
-
-
-
 
     array([[18, 18],
            [27, 27]])
 
 
 
+### Get a sequence within a range by a certain step
+
 
 ```python
-# Get a sequence within a range by a certain step
 np.arange(1, 10, 2)
+```
 
-# Filter values from one of two matrices 
-# If true, grab from the first matrix, else grab from second
+
+
+
+    array([1, 3, 5, 7, 9])
+
+
+
+### Filter values from one of two matrices 
+If true, grab from the first matrix, else grab from second
+
+
+```python
 filter = np.array([[True, False], [False, True]])
 np.where(filter, ex5, ex6)
 ```
@@ -214,20 +275,20 @@ np.where(filter, ex5, ex6)
 
 
 
-## np statistics and set opperations - array.*: `min()`, `max()` ,`mean()`, `sum()`, `median()`
+## np statistics and set operations - array.*: `min()`, `max()` ,`mean()`, `sum()`, `median()`
 For these functions, you can specify axis = 0 or 1 to get values by column or row
 
 
 ```python
-print(a1)
-print(a1.max(axis = 0), a1.max(axis = 1))
-print(a1.sum(axis = 0), a1.sum(axis = 1))
+a1, a1.max(axis = 0), a1.max(axis = 1)
 ```
 
-    [[100   5 110]
-     [106   7 108]]
-    [106   7 110] [110 108]
-    [206  12 218] [215 221]
+
+
+
+    (array([[100,   5, 110],
+            [106,   7, 108]]), array([106,   7, 110]), array([110, 108]))
+
 
 
 
@@ -244,7 +305,7 @@ sorted.sort(axis = 0)
 print(sorted)
 sorted.sort(axis = 1)
 print(sorted)
-print(np.unique(a1))
+np.unique(a1)
 
 ```
 
@@ -252,31 +313,76 @@ print(np.unique(a1))
      [106   7 110]]
     [[  5 100 108]
      [  7 106 110]]
-    [  5   7 100 106 108 110]
+
+    array([  5,   7, 100, 106, 108, 110])
 
 
-### Set operations - `.intersect1d()`, `.setdiff1d()`, `.in1d()`
+
+## Set operations on arrays - `.intersect1d()`, `.setdiff1d()`, `.in1d()`
 
 
 ```python
 s1 = np.array(['a', 'b', 'c']) 
 s2 = np.array(['b', 'c', 'd']) 
-print(np.intersect1d(s1, s2)) 
-
-# ['a'], elements IN s1 but NOT in s2 
-print(np.setdiff1d(s1, s2)) 
-
-# ['d'], elements IN s2 but NOT in s1 
-print(np.setdiff1d(s1, s2)) 
-
-# [False  True  True] - which elements of s1 are in s2? boolean 
-print(np.in1d(s1, s2))  
 ```
 
-    ['b' 'c']
-    ['a']
-    ['a']
-    [False  True  True]
+### `intersect1d`
+Values that are in both
+
+
+```python
+np.intersect1d(s1, s2)
+```
+
+
+
+
+    array(['b', 'c'], dtype='<U1')
+
+
+
+### `setdiff1d`
+`['a']`, elements IN s1 but NOT in s2
+
+
+```python
+np.setdiff1d(s1, s2)
+```
+
+
+
+
+    array(['a'], dtype='<U1')
+
+
+
+`['d']`, elements IN s2 but NOT in s1 
+
+
+```python
+np.setdiff1d(s1, s2)
+```
+
+
+
+
+    array(['a'], dtype='<U1')
+
+
+
+### `in1d`
+`[False  True  True] `- which elements of s1 are in s2? boolean 
+
+
+```python
+np.in1d(s1, s2)
+```
+
+
+
+
+    array([False,  True,  True])
+
 
 
 ## Broadcasting
@@ -287,11 +393,15 @@ Perform operations on differently sized arrays. Preset the values to be added, t
 start = np.zeros((4,3)) # zeros array 4 rows 3 columns 
 add_rows = np.array([1, 0, 2]) 
 y = start + add_rows 
-print(y)
+y
 ```
 
-    [[1. 0. 2.]
-     [1. 0. 2.]
-     [1. 0. 2.]
-     [1. 0. 2.]]
+
+
+
+    array([[1., 0., 2.],
+           [1., 0., 2.],
+           [1., 0., 2.],
+           [1., 0., 2.]])
+
 

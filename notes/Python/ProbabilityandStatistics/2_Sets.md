@@ -10,15 +10,14 @@
 ```python
 import sys
 print(sys.executable)
+from IPython.core.interactiveshell import InteractiveShell
+InteractiveShell.ast_node_interactivity = "all"
 ```
 
     /home/jcmint/anaconda3/envs/learningenv/bin/python
 
 
 [Sets](#sets)
-  - [Convention - CAPITAL for sets, lowercase for its elements](#convention---capital-for-sets-lowercase-for-its-elements)
-  - [Sets in Python](#sets-in-python)
-- [Sets](#sets)
   - [Convention - CAPITAL for sets, lowercase for its elements](#convention---capital-for-sets-lowercase-for-its-elements)
   - [Sets in Python](#sets-in-python)
 - [Set visualization](#set-visualization)
@@ -40,6 +39,7 @@ print(sys.executable)
 # Sets
 
 Sets are defined as a collection of elements, and can be defined explicitly {heads, tails}, or implicitly {1:9}, {A:Z}. 
+
 ![](https://i.imgur.com/zsEZlXr.png?1)
 
 ## Convention - CAPITAL for sets, lowercase for its elements 
@@ -60,28 +60,40 @@ print(myset)
 
 # Create an empty set: set()  or set({})
 empty = set()
-print(empty) 
+print(empty)
 
 myset.add((2, '2', 0))
 myset.discard(0)
-print(myset)
+myset
 # No way to add multiple elements to a set - instead, consider a union with a set that has the target elements
 ```
 
     {1, 2, 3}
     set()
-    {1, 2, 3, (2, '2', 0)}
+
+
+
+
+
+    {(2, '2', 0), 1, 2, 3}
+
 
 
 
 ```python
 # Test emptiness
 print(not myset) # does myset contain no elements?
-print(len(myset))
+len(myset)
 ```
 
     False
-    3
+
+
+
+
+
+    4
+
 
 
 # Set visualization 
@@ -112,7 +124,15 @@ plt.show()
 ```
 
 
-![png](output_6_0.png)
+
+
+    <matplotlib_venn._common.VennDiagram at 0x7f4e3f4399e8>
+
+
+
+
+    <Figure size 640x480 with 1 Axes>
+
 
 
 ```python
@@ -131,10 +151,15 @@ Two sets are equal if they have exactly the same elements:
 
 
 ```python
-print(s1 == s2, s1 == s3, s1 == s5)
+s1 == s2, s1 == s3, s1 == s5
 ```
 
-    True True False
+
+
+
+    (True, True, False)
+
+
 
 Since all elements need to be in both sets for the sets to be equal, Equality is difficult to achieve. 
 
@@ -145,10 +170,14 @@ Two sets are disjoint if they share NO values - overlap region is EMPTY. Empty s
 
 
 ```python
-print(s1 != s2, s1.isdisjoint(s4))
+s1 != s2, s1.isdisjoint(s4)
 ```
 
-    False False
+
+
+
+    (False, False)
+
 
 
 ## Subset: `issubset()`, `<=`; strict: `<`
@@ -163,12 +192,18 @@ A strict subset - a subset that is NOT equal to its superset.
 
 
 ```python
-print(s1 <= s2 , s1.issubset(s4))
+s1 <= s2 , s1.issubset(s4)
 # Check for STRICT subset: using `<`
 print(s1 < s2, s1 < {0, 1, 2})
 ```
 
-    True False
+
+
+
+    (True, False)
+
+
+
     False True
 
 
@@ -191,10 +226,14 @@ Obtain a set that is the result of an operation between sets.
 
 
 ```python
-print(s1.intersection(s1), s1.intersection(s4), s1.intersection(s5))
+s1.intersection(s1), s1.intersection(s4), s1.intersection(s5)
 ```
 
-    {0, 1} {0} set()
+
+
+
+    ({0, 1}, {0}, set())
+
 
 
 ## Union: `union`, `|`
@@ -203,10 +242,14 @@ Union is a non repetitive collection of elements in multiple sets.
 
 
 ```python
-print(s1 | s2, s1.union(s5))
+s1 | s2, s1.union(s5)
 ```
 
-    {0, 1} {0, 1, 3, 4}
+
+
+
+    ({0, 1}, {0, 1, 3, 4})
+
 
 
 ## Set difference: `.difference`, `-`
@@ -216,10 +259,14 @@ A - B is the set of elements in A but not B:
 
 
 ```python
-print(s1 - s2, s1 - s4, s4 - s1)
+s1 - s2, s1 - s4, s4 - s1
 ```
 
-    set() {1} {2}
+
+
+
+    (set(), {1}, {2})
+
 
 
 ## Symmetric Difference (OR): `symmetric_difference()`, `^`
@@ -229,10 +276,14 @@ The set of elements that are in one but NOT BOTH sets:
 
 
 ```python
-print(s1 ^ s2, s1 ^ s4, s5.symmetric_difference(s4))
+s1 ^ s2, s1 ^ s4, s5.symmetric_difference(s4)
 ```
 
-    set() {1, 2} {0, 2, 3, 4}
+
+
+
+    (set(), {1, 2}, {0, 2, 3, 4})
+
 
 
 # Cartesian Products
@@ -247,23 +298,23 @@ Basically, the Cartesian Product of two sets is the set of all combinations of t
 ![](https://i.imgur.com/mjwKPan.png)
 
 ![](https://i.imgur.com/lKz0EBu.png?1) 
-
 ## Generating Cartesian products in Python
+
 
 ```python
 from itertools import product 
 faces = set({'J', 'Q', 'K'}) # Jack, queen, King 
 suits = set({'Dia', 'Spa'}) #diamond, spade 
 for i in product(faces, suits): 
-    print(i) 
+    print(i)
 ```
 
-    ('Q', 'Dia')
-    ('Q', 'Spa')
-    ('J', 'Dia')
-    ('J', 'Spa')
-    ('K', 'Dia')
     ('K', 'Spa')
+    ('K', 'Dia')
+    ('J', 'Spa')
+    ('J', 'Dia')
+    ('Q', 'Spa')
+    ('Q', 'Dia')
 
 
 # Russell's Paradox 

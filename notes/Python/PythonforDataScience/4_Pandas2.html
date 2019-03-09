@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+        <title>Dataframes</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+        <link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        
+        <script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+    </head>
+    <body>
+        <p><a href="../../../index.html">Go back to index</a></p>
+<p><a href="../base.html">Go back to Python Portal</a></p>
+<head>
+  <link rel="stylesheet" href="../../../css_themes/github.css">
+</head>
+<pre><code class="language-python"><div><span class="hljs-keyword">import</span> sys
+print(sys.executable)
+<span class="hljs-keyword">from</span> IPython.core.interactiveshell <span class="hljs-keyword">import</span> InteractiveShell
+InteractiveShell.ast_node_interactivity = <span class="hljs-string">"all"</span>
+InteractiveShell.colors = <span class="hljs-string">"Linux"</span>
+InteractiveShell.separate_in = <span class="hljs-number">0</span>
+<span class="hljs-keyword">from</span> tabulate <span class="hljs-keyword">import</span> tabulate
+</div></code></pre>
+<pre><code>/home/jcmint/anaconda3/envs/learningenv/bin/python
+</code></pre>
+<h1 id="dataframes">Dataframes</h1>
+<p>Starting out with data in .csv form, with several files for this unit. Just putting the dataframe to terminal doesn't properly print when exporting to .md or .html (although it works fine in .iypnb) so I have to use <code>tabulate</code></p>
+<pre><code class="language-python"><div><span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd
+<span class="hljs-keyword">import</span> os, sys
+
+os.chdir(sys.path[<span class="hljs-number">0</span>]) <span class="hljs-comment"># Change dir to the folder this .ipynb file is in</span>
+print(os.listdir(<span class="hljs-string">'../../../../data/w4pd'</span>))
+movies = pd.read_csv(<span class="hljs-string">'../../../../data/w4pd/movies.csv'</span>)
+print(tabulate(movies.head(), headers=movies.columns, tablefmt=<span class="hljs-string">'psql'</span>))
+</div></code></pre>
+<pre><code>['genome-scores.csv', 'genome-tags.csv', 'Icon\r', 'links.csv', 'movies.csv', 'ratings.csv', 'README.txt', 'tags.csv']
++----+-----------+------------------------------------+---------------------------------------------+
+|    |   movieId | title                              | genres                                      |
+|----+-----------+------------------------------------+---------------------------------------------|
+|  0 |         1 | Toy Story (1995)                   | Adventure|Animation|Children|Comedy|Fantasy |
+|  1 |         2 | Jumanji (1995)                     | Adventure|Children|Fantasy                  |
+|  2 |         3 | Grumpier Old Men (1995)            | Comedy|Romance                              |
+|  3 |         4 | Waiting to Exhale (1995)           | Comedy|Drama|Romance                        |
+|  4 |         5 | Father of the Bride Part II (1995) | Comedy                                      |
++----+-----------+------------------------------------+---------------------------------------------+
+</code></pre>
+
+    </body>
+    </html>
