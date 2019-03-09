@@ -20,7 +20,10 @@ Introduction: [Virtual environments and Jupyter (html)](General/virtenv_jupyter_
 * **[Python Basics](PythonforDataScience/2_Basics.html)**
 * **[Numpy](PythonforDataScience/3_Numpy.html)**
 * **[Pandas](PythonforDataScience/4_Pandas.html)**
-* 
+  
+
+
+
 ### Probability and Statistics
 [EdX Course link](https://www.edx.org/course/probability-and-statistics-in-data-science-using-python-2)
 
