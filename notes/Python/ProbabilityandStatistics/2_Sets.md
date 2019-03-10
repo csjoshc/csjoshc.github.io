@@ -3,7 +3,7 @@
 
 <a href="../base.html">Go back to Python Portal</a>
 <head>
-  <link rel="stylesheet" href="../../../css_themes/github.css">
+  <link rel="stylesheet" href="../../../cssthemes/github.css">
 </head>
 
 
@@ -238,6 +238,7 @@ s1.intersection(s1), s1.intersection(s4), s1.intersection(s5)
 
 ## Union: `union`, `|`
 Union is a non repetitive collection of elements in multiple sets. 
+
 ![](https://i.imgur.com/WYjQZea.png?1)
 
 

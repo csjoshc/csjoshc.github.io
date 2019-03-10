@@ -1,90 +1,61 @@
-<pre><code>! cd</code></pre>
-<pre><code>! pwd</code></pre>
-<pre><code>! pwd
-! cd ../../..</code></pre>
-<pre><code>! pwd
-! cd ../../..
-! pwd</code></pre>
-<pre><code>! pwd
-!cd &quot;..&quot;
-! pwd</code></pre>
-<pre><code>! pwd
-!cd /
-! pwd</code></pre>
-<pre><code>! pwd
-!cd / ls
-! pwd</code></pre>
-<pre><code>! pwd
-!{cd / ls}
-! pwd</code></pre>
-<pre><code>! pwd
-! cd ../cssthemes
-! pwd</code></pre>
-<pre><code>! pwd
-! cd ../cssthemes
-! ls ..</code></pre>
-<pre><code>! pwd
-! cd .. ls
-! ls ..</code></pre>
-<pre><code>! pwd
-! cd .. ls</code></pre>
-<pre><code>! pwd
-! cd ..; ls</code></pre>
-<pre><code>! cd ..; ls
-
-! cd ..;  find ./ -iname &quot;*.md&quot; -mtime -1 -ls -exec sh -c &#39;pandoc ${0} -f markdown -t html  -o  ${0%.md}.html&#39; {} \;</code></pre>
-<pre><code>!find . -name &quot;*.ipynb&quot; -mtime -1 -exec jupyter nbconvert --to html {} \;</code></pre>
-<pre><code>! cd ..; find . -name &quot;*.ipynb&quot; -mtime -1 -exec jupyter nbconvert --to html {} \;</code></pre>
-<pre><code>! cd ..; find . -name &quot;*.ipynb&quot; -mtime -1 -exec jupyter nbconvert --to md {} \;</code></pre>
-<pre><code>! cd ..; find . -name &quot;*.ipynb&quot; -mtime -1 -exec jupyter nbconvert --to markdown {} \;</code></pre>
-<pre><code>! cd ..;  &#39;find ./ -iname &quot;*.md&quot; -mtime -1 -ls -exec sh -c&#39; &#39;pandoc ${0} -f markdown -t html  -o  ${0%.md}.html&#39; {} \;</code></pre>
-<pre><code>! cd ..;  find ./ -iname &quot;*.md&quot; -mtime -1 -ls -exec sh -c &#39;pandoc ${0} -f markdown -t html  -o  ${0%.md}.html&#39; {} \;</code></pre>
-<pre><code>import sys
-print(sys.executable)
-from IPython.core.interactiveshell import InteractiveShell
-InteractiveShell.ast_node_interactivity = &quot;all&quot;</code></pre>
-<pre><code>! cd ..; find . -name &quot;*.ipynb&quot; -mtime -1 -exec jupyter nbconvert --to markdown {} \;</code></pre>
-<pre><code>! cd ..;  find ./ -iname &quot;*.md&quot; -mtime -1 -ls -exec sh -c &#39;pandoc ${0} -f markdown -t html  -o  ${0%.md}.html&#39; {} \;</code></pre>
-<pre><code>!jupyter nbconvert --to markdown {}
-!pandoc 01_BatchConversions.md -f markdown -t html  -o  01_BatchConversions.html</code></pre>
-<pre><code>!jupyter nbconvert --to markdown &quot;01_BatchConversions.md&quot;
-!pandoc 01_BatchConversions.md -f markdown -t html  -o  01_BatchConversions.html</code></pre>
-<pre><code>!jupyter nbconvert --to markdown &quot;01_BatchConversions.md&quot;
-!pandoc &quot;01_BatchConversions.md&quot; -f markdown -t html  -o  &quot;01_BatchConversions.html&quot;</code></pre>
-<pre><code>!jupyter nbconvert --to markdown &quot;01_BatchConversions.md&quot;</code></pre>
-<pre><code>!jupyter nbconvert --to markdown &quot;01_BatchConversions.ipynb&quot;
-!pandoc &quot;01_BatchConversions.md&quot; -f markdown -t html  -o  &quot;01_BatchConversions.html&quot;</code></pre>
-<pre><code>!jupyter nbconvert --to markdown &quot;01_BatchConversions.ipynb&quot;
-!pandoc &quot;01_BatchConversions.md&quot; -f markdown -t html  -o  &quot;01_BatchConversions.html&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="op">%%</span>javascript
-<span class="va">IPython</span>.<span class="va">notebook</span>.<span class="at">save_notebook</span>()
-
-<span class="op">!</span>jupyter nbconvert <span class="op">--</span>to markdown <span class="st">&quot;01_BatchConversions.ipynb&quot;</span>
-<span class="op">!</span>pandoc <span class="st">&quot;01_BatchConversions.md&quot;</span> <span class="op">-</span>f markdown <span class="op">-</span>t html  <span class="op">-</span>o  <span class="st">&quot;01_BatchConversions.html&quot;</span></code></pre></div>
-<pre><code>
-IPython.notebook.save_notebook()
-
-!jupyter nbconvert --to markdown &quot;01_BatchConversions.ipynb&quot;
-!pandoc &quot;01_BatchConversions.md&quot; -f markdown -t html  -o  &quot;01_BatchConversions.html&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="op">%%</span>javascript
-<span class="va">IPython</span>.<span class="va">notebook</span>.<span class="at">save_notebook</span>()</code></pre></div>
-<pre><code>import sys, IPython
-print(sys.executable)
-from IPython.core.interactiveshell import InteractiveShell
-InteractiveShell.ast_node_interactivity = &quot;all&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="op">%%</span>javascript
-<span class="va">IPython</span>.<span class="va">notebook</span>.<span class="at">save_notebook</span>()</code></pre></div>
-<pre><code>%notebook 01_BatchConversions.ipynb
-
-!jupyter nbconvert --to markdown &quot;01_BatchConversions.ipynb&quot;
-!pandoc &quot;01_BatchConversions.md&quot; -f markdown -t html  -o  &quot;01_BatchConversions.html&quot;</code></pre>
-<pre><code>%notebook 01_BatchConversions.ipynb
-!jupyter nbconvert --to markdown &quot;01_BatchConversions.ipynb&quot;
-!pandoc &quot;01_BatchConversions.md&quot; -f markdown -t html  -o  &quot;01_BatchConversions.html&quot;</code></pre>
-<pre><code>! git add .; git status; git commit -a -m &quot;%Y_%m_%d__%H_%M&quot;; git push origin master</code></pre>
-<pre><code>import sys, IPython
-print(sys.executable)
-from IPython.core.interactiveshell import InteractiveShell
-InteractiveShell.ast_node_interactivity = &quot;all&quot;</code></pre>
-<pre><code>! cd ..; find . -name &quot;*.ipynb&quot; -mtime -1 -exec jupyter nbconvert --to markdown {} \;</code></pre>
-<pre><code>! cd ..;  find ./ -iname &quot;*.md&quot; -mtime -1 -ls -exec sh -c &#39;pandoc ${0} -f markdown -t html  -o  ${0%.md}.html&#39; {} \;</code></pre>
+<a href="../index.html">Go back to index</a>
+<head>
+<link rel="stylesheet" href="../cssthemes/github.css">
+</head>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> sys, IPython
+<span class="bu">print</span>(sys.executable)
+<span class="im">from</span> IPython.core.interactiveshell <span class="im">import</span> InteractiveShell
+InteractiveShell.ast_node_interactivity <span class="op">=</span> <span class="st">&quot;all&quot;</span></code></pre></div>
+<pre><code>/home/jcmint/anaconda3/envs/learningenv/bin/python</code></pre>
+<h1 id="batch-compiling">Batch compiling</h1>
+<p>Some simple bash commands to compile whatever file formats into html</p>
+<h2 id="converting-from-.ipynb-to-.md">Converting from <code>.ipynb</code> to <code>.md</code></h2>
+<p>First step is to convert all <code>.ipynb</code> files in the main directory and its subdirectories. This is necessary because nbconvert straight to html doesn't keep the page background color (solid black). Here I filter by file extension and recent modification date (past day)</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="op">!</span> cd ..<span class="op">;</span> find . <span class="op">-</span>name <span class="st">&quot;*.ipynb&quot;</span> <span class="op">-</span>mtime <span class="op">-</span><span class="dv">1</span> <span class="op">-</span><span class="bu">exec</span> jupyter nbconvert <span class="op">--</span>to markdown {} <span class="op">\;</span></code></pre></div>
+<pre><code>[NbConvertApp] Converting notebook ./notes/Python/General/virtenv_jupyter_nb.ipynb to markdown
+[NbConvertApp] Writing 3977 bytes to ./notes/Python/General/virtenv_jupyter_nb.md
+[NbConvertApp] Converting notebook ./notes/Python/ProbabilityandStatistics/1_Introduction.ipynb to markdown
+[NbConvertApp] Writing 1645 bytes to ./notes/Python/ProbabilityandStatistics/1_Introduction.md
+[NbConvertApp] Converting notebook ./notes/Python/ProbabilityandStatistics/2_Sets.ipynb to markdown
+[NbConvertApp] Writing 7509 bytes to ./notes/Python/ProbabilityandStatistics/2_Sets.md
+[NbConvertApp] Converting notebook ./notes/Python/PythonforDataScience/1_Introduction.ipynb to markdown
+[NbConvertApp] Writing 3733 bytes to ./notes/Python/PythonforDataScience/1_Introduction.md
+[NbConvertApp] Converting notebook ./notes/Python/PythonforDataScience/2_Basics.ipynb to markdown
+[NbConvertApp] Writing 3963 bytes to ./notes/Python/PythonforDataScience/2_Basics.md
+[NbConvertApp] Converting notebook ./notes/Python/PythonforDataScience/3_Numpy.ipynb to markdown
+[NbConvertApp] Writing 7336 bytes to ./notes/Python/PythonforDataScience/3_Numpy.md
+[NbConvertApp] Converting notebook ./notes/Python/PythonforDataScience/4_Pandas.ipynb to markdown
+[NbConvertApp] Writing 7192 bytes to ./notes/Python/PythonforDataScience/4_Pandas.md
+[NbConvertApp] Converting notebook ./notes/Python/PythonforDataScience/4_Pandas2.ipynb to markdown
+[NbConvertApp] Writing 2111 bytes to ./notes/Python/PythonforDataScience/4_Pandas2.md
+[NbConvertApp] Converting notebook ./notes/Python/PythonforDataScience/5_visualization.ipynb to markdown
+[NbConvertApp] Writing 1011 bytes to ./notes/Python/PythonforDataScience/5_visualization.md
+[NbConvertApp] Converting notebook ./utils/01_BatchConversions.ipynb to markdown
+[NbConvertApp] Writing 9531 bytes to ./utils/01_BatchConversions.md</code></pre>
+<h2 id="converting-from-.md-to-.html">Converting from <code>.md</code> to <code>.html</code></h2>
+<p>The final step is convering all <code>.md</code> files that were recently modified.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">
+<span class="op">!</span> cd ..<span class="op">;</span>  find .<span class="op">/</span> <span class="op">-</span>iname <span class="st">&quot;*.md&quot;</span> <span class="op">-</span>mtime <span class="op">-</span><span class="dv">1</span> <span class="op">-</span>ls <span class="op">-</span><span class="bu">exec</span> sh <span class="op">-</span>c <span class="st">&#39;pandoc $</span><span class="sc">{0}</span><span class="st"> -f markdown -t html  -o  ${0%.md}.html&#39;</span> {} <span class="op">\;</span></code></pre></div>
+<pre><code>  1157163      1 -rwxrwxrwx   1 jcmint   jcmint        464 Mar 10 15:14 ./notes/Devops/base.md
+  1157165      4 -rwxrwxrwx   1 jcmint   jcmint       2531 Mar 10 15:14 ./notes/Devops/roadmap_notes.md
+  1157168      4 -rwxrwxrwx   1 jcmint   jcmint        687 Mar 10 15:14 ./notes/Github/bugs_gh.md
+  1157170      4 -rwxrwxrwx   1 jcmint   jcmint       2913 Mar 10 15:14 ./notes/Github/intro_gh.md
+  1157173      4 -rwxrwxrwx   1 jcmint   jcmint       1241 Mar 10 15:14 ./notes/Linux/base.md
+  1157177     12 -rwxrwxrwx   1 jcmint   jcmint       8258 Mar 10 15:14 ./notes/Linux/linux_journey/basic/01_comlin.md
+  1157179      4 -rwxrwxrwx   1 jcmint   jcmint        681 Mar 10 15:14 ./notes/Linux/linux_journey/linux_journey_toc.md
+  1157236      4 -rwxrwxrwx   1 jcmint   jcmint        927 Mar 10 18:20 ./notes/Python/base.md
+  1157198      4 -rwxrwxrwx   1 jcmint   jcmint       3981 Mar 10 18:36 ./notes/Python/General/virtenv_jupyter_nb.md
+  1157206      4 -rwxrwxrwx   1 jcmint   jcmint       1649 Mar 10 18:36 ./notes/Python/ProbabilityandStatistics/1_Introduction.md
+  1157209      8 -rwxrwxrwx   1 jcmint   jcmint       7523 Mar 10 18:36 ./notes/Python/ProbabilityandStatistics/2_Sets.md
+  1157456      4 -rwxrwxrwx   1 jcmint   jcmint       3733 Mar 10 18:36 ./notes/Python/PythonforDataScience/1_Introduction.md
+  1157223      4 -rwxrwxrwx   1 jcmint   jcmint       3963 Mar 10 18:36 ./notes/Python/PythonforDataScience/2_Basics.md
+  1157226      8 -rwxrwxrwx   1 jcmint   jcmint       7336 Mar 10 18:36 ./notes/Python/PythonforDataScience/3_Numpy.md
+  1157229      8 -rwxrwxrwx   1 jcmint   jcmint       7192 Mar 10 18:36 ./notes/Python/PythonforDataScience/4_Pandas.md
+  1157232      4 -rwxrwxrwx   1 jcmint   jcmint       2111 Mar 10 18:36 ./notes/Python/PythonforDataScience/4_Pandas2.md
+  1157457      4 -rwxrwxrwx   1 jcmint   jcmint       1011 Mar 10 18:36 ./notes/Python/PythonforDataScience/5_visualization.md
+  1157240      4 -rwxrwxrwx   1 jcmint   jcmint        866 Mar 10 15:14 ./site_updates/3_2019/2_3_2019.md
+  1157241      1 -rwxrwxrwx   1 jcmint   jcmint        509 Mar 10 17:23 ./site_updates/3_2019/9_3_2019.md
+  1157243      1 -rwxrwxrwx   1 jcmint   jcmint        255 Mar 10 15:14 ./site_updates/base.md
+  1157245      4 -rwxrwxrwx   1 jcmint   jcmint       1419 Mar 10 15:14 ./todo.md
+  1157554     12 -rwxrwxrwx   1 jcmint   jcmint       9531 Mar 10 18:36 ./utils/01_BatchConversions.md
+  1157584      1 -rwxrwxrwx   1 jcmint   jcmint        497 Mar 10 17:25 ./utils/base.md</code></pre>

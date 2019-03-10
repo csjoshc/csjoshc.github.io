@@ -1,250 +1,64 @@
 
+<a href="../index.html">Go back to index</a>
 
-```
-! cd
-```
+<a href="base.html">Go back to Utilities Portal</a>
 
+<head>
+  <link rel="stylesheet" href="../cssthemes/github.css">
+</head>
 
-```
-! pwd
-```
 
 
-```
-! pwd
-! cd ../../..
-```
-
-
-```
-! pwd
-! cd ../../..
-! pwd
-```
-
-
-```
-! pwd
-!cd ".."
-! pwd
-```
-
-
-```
-! pwd
-!cd /
-! pwd
-```
-
-
-```
-! pwd
-!cd / ls
-! pwd
-```
-
-
-```
-! pwd
-!{cd / ls}
-! pwd
-```
-
-
-```
-! pwd
-! cd ../cssthemes
-! pwd
-```
-
-
-```
-! pwd
-! cd ../cssthemes
-! ls ..
-```
-
-
-```
-! pwd
-! cd .. ls
-! ls ..
-```
-
-
-```
-! pwd
-! cd .. ls
-```
-
-
-```
-! pwd
-! cd ..; ls
-```
-
-
-```
-! cd ..; ls
-
-! cd ..;  find ./ -iname "*.md" -mtime -1 -ls -exec sh -c 'pandoc ${0} -f markdown -t html  -o  ${0%.md}.html' {} \;
-```
-
-
-```
-!find . -name "*.ipynb" -mtime -1 -exec jupyter nbconvert --to html {} \;
-```
-
-
-```
-! cd ..; find . -name "*.ipynb" -mtime -1 -exec jupyter nbconvert --to html {} \;
-```
-
-
-```
-! cd ..; find . -name "*.ipynb" -mtime -1 -exec jupyter nbconvert --to md {} \;
-```
-
-
-```
-! cd ..; find . -name "*.ipynb" -mtime -1 -exec jupyter nbconvert --to markdown {} \;
-```
-
-
-```
-! cd ..;  'find ./ -iname "*.md" -mtime -1 -ls -exec sh -c' 'pandoc ${0} -f markdown -t html  -o  ${0%.md}.html' {} \;
-```
-
-
-```
-! cd ..;  find ./ -iname "*.md" -mtime -1 -ls -exec sh -c 'pandoc ${0} -f markdown -t html  -o  ${0%.md}.html' {} \;
-```
-
-
-```
-import sys
-print(sys.executable)
-from IPython.core.interactiveshell import InteractiveShell
-InteractiveShell.ast_node_interactivity = "all"
-```
-
-
-```
-! cd ..; find . -name "*.ipynb" -mtime -1 -exec jupyter nbconvert --to markdown {} \;
-```
-
-
-```
-! cd ..;  find ./ -iname "*.md" -mtime -1 -ls -exec sh -c 'pandoc ${0} -f markdown -t html  -o  ${0%.md}.html' {} \;
-```
-
-
-```
-!jupyter nbconvert --to markdown {}
-!pandoc 01_BatchConversions.md -f markdown -t html  -o  01_BatchConversions.html
-```
-
-
-```
-!jupyter nbconvert --to markdown "01_BatchConversions.md"
-!pandoc 01_BatchConversions.md -f markdown -t html  -o  01_BatchConversions.html
-```
-
-
-```
-!jupyter nbconvert --to markdown "01_BatchConversions.md"
-!pandoc "01_BatchConversions.md" -f markdown -t html  -o  "01_BatchConversions.html"
-```
-
-
-```
-!jupyter nbconvert --to markdown "01_BatchConversions.md"
-```
-
-
-```
-!jupyter nbconvert --to markdown "01_BatchConversions.ipynb"
-!pandoc "01_BatchConversions.md" -f markdown -t html  -o  "01_BatchConversions.html"
-```
-
-
-```
-!jupyter nbconvert --to markdown "01_BatchConversions.ipynb"
-!pandoc "01_BatchConversions.md" -f markdown -t html  -o  "01_BatchConversions.html"
-```
-
-
-```javascript
-%%javascript
-IPython.notebook.save_notebook()
-
-!jupyter nbconvert --to markdown "01_BatchConversions.ipynb"
-!pandoc "01_BatchConversions.md" -f markdown -t html  -o  "01_BatchConversions.html"
-```
-
-
-```
-
-IPython.notebook.save_notebook()
-
-!jupyter nbconvert --to markdown "01_BatchConversions.ipynb"
-!pandoc "01_BatchConversions.md" -f markdown -t html  -o  "01_BatchConversions.html"
-```
-
-
-```javascript
-%%javascript
-IPython.notebook.save_notebook()
-```
-
-
-```
+```python
 import sys, IPython
 print(sys.executable)
 from IPython.core.interactiveshell import InteractiveShell
 InteractiveShell.ast_node_interactivity = "all"
 ```
 
-
-```javascript
-%%javascript
-IPython.notebook.save_notebook()
-```
+    /home/jcmint/anaconda3/envs/learningenv/bin/python
 
 
-```
-%notebook 01_BatchConversions.ipynb
+# Batch compiling 
+Some simple bash commands to compile whatever file formats into html
 
-!jupyter nbconvert --to markdown "01_BatchConversions.ipynb"
-!pandoc "01_BatchConversions.md" -f markdown -t html  -o  "01_BatchConversions.html"
-```
-
-
-```
-%notebook 01_BatchConversions.ipynb
-!jupyter nbconvert --to markdown "01_BatchConversions.ipynb"
-!pandoc "01_BatchConversions.md" -f markdown -t html  -o  "01_BatchConversions.html"
-```
+## Converting from `.ipynb` to `.md`
+First step is to convert all `.ipynb` files in the main directory and its subdirectories. This is necessary because nbconvert straight to html doesn't keep the page background color (solid black). Here I filter by file extension and recent modification date (past day)
 
 
-```
-! git add .; git status; git commit -a -m "%Y_%m_%d__%H_%M"; git push origin master
-```
-
-
-```
-import sys, IPython
-print(sys.executable)
-from IPython.core.interactiveshell import InteractiveShell
-InteractiveShell.ast_node_interactivity = "all"
-```
-
-
-```
+```python
 ! cd ..; find . -name "*.ipynb" -mtime -1 -exec jupyter nbconvert --to markdown {} \;
 ```
 
+    [NbConvertApp] Converting notebook ./notes/Python/General/virtenv_jupyter_nb.ipynb to markdown
+    [NbConvertApp] Writing 3977 bytes to ./notes/Python/General/virtenv_jupyter_nb.md
+    [NbConvertApp] Converting notebook ./notes/Python/ProbabilityandStatistics/1_Introduction.ipynb to markdown
+    [NbConvertApp] Writing 1645 bytes to ./notes/Python/ProbabilityandStatistics/1_Introduction.md
+    [NbConvertApp] Converting notebook ./notes/Python/ProbabilityandStatistics/2_Sets.ipynb to markdown
+    [NbConvertApp] Writing 7509 bytes to ./notes/Python/ProbabilityandStatistics/2_Sets.md
+    [NbConvertApp] Converting notebook ./notes/Python/PythonforDataScience/1_Introduction.ipynb to markdown
+    [NbConvertApp] Writing 3733 bytes to ./notes/Python/PythonforDataScience/1_Introduction.md
+    [NbConvertApp] Converting notebook ./notes/Python/PythonforDataScience/2_Basics.ipynb to markdown
+    [NbConvertApp] Writing 3963 bytes to ./notes/Python/PythonforDataScience/2_Basics.md
+    [NbConvertApp] Converting notebook ./notes/Python/PythonforDataScience/3_Numpy.ipynb to markdown
+    [NbConvertApp] Writing 7336 bytes to ./notes/Python/PythonforDataScience/3_Numpy.md
+    [NbConvertApp] Converting notebook ./notes/Python/PythonforDataScience/4_Pandas.ipynb to markdown
+    [NbConvertApp] Writing 7192 bytes to ./notes/Python/PythonforDataScience/4_Pandas.md
+    [NbConvertApp] Converting notebook ./notes/Python/PythonforDataScience/4_Pandas2.ipynb to markdown
+    [NbConvertApp] Writing 2111 bytes to ./notes/Python/PythonforDataScience/4_Pandas2.md
+    [NbConvertApp] Converting notebook ./notes/Python/PythonforDataScience/5_visualization.ipynb to markdown
+    [NbConvertApp] Writing 1011 bytes to ./notes/Python/PythonforDataScience/5_visualization.md
+    [NbConvertApp] Converting notebook ./utils/.ipynb_checkpoints/01_BatchConversions-checkpoint.ipynb to markdown
+    [NbConvertApp] Writing 5607 bytes to ./utils/.ipynb_checkpoints/01_BatchConversions-checkpoint.md
+    [NbConvertApp] Converting notebook ./utils/01_BatchConversions.ipynb to markdown
+    [NbConvertApp] Writing 5607 bytes to ./utils/01_BatchConversions.md
 
-```
+
+## Converting from `.md` to `.html`
+
+The final step is convering all `.md` files that were recently modified. 
+
+
+```python
 ! cd ..;  find ./ -iname "*.md" -mtime -1 -ls -exec sh -c 'pandoc ${0} -f markdown -t html  -o  ${0%.md}.html' {} \;
 ```

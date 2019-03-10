@@ -3,7 +3,7 @@
 
 <a href="../base.html">Go back to Python Portal</a>
 <head>
-  <link rel="stylesheet" href="../../../css_themes/github.css">
+  <link rel="stylesheet" href="../../../cssthemes/github.css">
 </head>
 
 - [Pandas - Introduction](#pandas---introduction)
@@ -328,21 +328,17 @@ print(tabulate(d, headers=d.columns, tablefmt='psql'))
 
 
 ```python
-data.head
-print("\n")
+print(data.head)
 print(data.columns)
 ```
-
-
-
 
     <bound method NDFrame.head of         alex  alice  dora  ema  joe
     orange   1.0    NaN   NaN  NaN  2.0
     red      NaN   20.0  10.0  5.0  NaN>
-
-
-
-    
-    
     Index(['alex', 'alice', 'dora', 'ema', 'joe'], dtype='object')
 
+
+
+```python
+
+```
