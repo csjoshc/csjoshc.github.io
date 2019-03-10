@@ -218,3 +218,33 @@ IPython.notebook.save_notebook()
 !jupyter nbconvert --to markdown "01_BatchConversions.ipynb"
 !pandoc "01_BatchConversions.md" -f markdown -t html  -o  "01_BatchConversions.html"
 ```
+
+
+```
+%notebook 01_BatchConversions.ipynb
+!jupyter nbconvert --to markdown "01_BatchConversions.ipynb"
+!pandoc "01_BatchConversions.md" -f markdown -t html  -o  "01_BatchConversions.html"
+```
+
+
+```
+! git add .; git status; git commit -a -m "%Y_%m_%d__%H_%M"; git push origin master
+```
+
+
+```
+import sys, IPython
+print(sys.executable)
+from IPython.core.interactiveshell import InteractiveShell
+InteractiveShell.ast_node_interactivity = "all"
+```
+
+
+```
+! cd ..; find . -name "*.ipynb" -mtime -1 -exec jupyter nbconvert --to markdown {} \;
+```
+
+
+```
+! cd ..;  find ./ -iname "*.md" -mtime -1 -ls -exec sh -c 'pandoc ${0} -f markdown -t html  -o  ${0%.md}.html' {} \;
+```

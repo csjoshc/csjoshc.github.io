@@ -78,3 +78,13 @@ InteractiveShell.ast_node_interactivity = &quot;all&quot;</code></pre>
 
 !jupyter nbconvert --to markdown &quot;01_BatchConversions.ipynb&quot;
 !pandoc &quot;01_BatchConversions.md&quot; -f markdown -t html  -o  &quot;01_BatchConversions.html&quot;</code></pre>
+<pre><code>%notebook 01_BatchConversions.ipynb
+!jupyter nbconvert --to markdown &quot;01_BatchConversions.ipynb&quot;
+!pandoc &quot;01_BatchConversions.md&quot; -f markdown -t html  -o  &quot;01_BatchConversions.html&quot;</code></pre>
+<pre><code>! git add .; git status; git commit -a -m &quot;%Y_%m_%d__%H_%M&quot;; git push origin master</code></pre>
+<pre><code>import sys, IPython
+print(sys.executable)
+from IPython.core.interactiveshell import InteractiveShell
+InteractiveShell.ast_node_interactivity = &quot;all&quot;</code></pre>
+<pre><code>! cd ..; find . -name &quot;*.ipynb&quot; -mtime -1 -exec jupyter nbconvert --to markdown {} \;</code></pre>
+<pre><code>! cd ..;  find ./ -iname &quot;*.md&quot; -mtime -1 -ls -exec sh -c &#39;pandoc ${0} -f markdown -t html  -o  ${0%.md}.html&#39; {} \;</code></pre>
