@@ -2,7 +2,7 @@
 
 <a href="base.html">Go back to devops resource page</a>
 <head>
-  <link rel="stylesheet" href="../../css_themes/github.css">
+  <link rel="stylesheet" href="../../cssthemes/github.css">
 </head>
 
 # Roadmap overview 

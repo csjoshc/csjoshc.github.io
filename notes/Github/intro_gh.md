@@ -2,7 +2,7 @@
 <a href="../../index.html">Go back to index</a>
 
 <head>
-  <link rel="stylesheet" href="../../css_themes/github.css">
+  <link rel="stylesheet" href="../../cssthemes/github.css">
 </head>
 
 - [Intro to using Github](#intro-to-using-github)

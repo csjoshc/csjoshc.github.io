@@ -3,7 +3,7 @@
 
 <a href="../base.html">Go back to Python Portal</a>
 <head>
-  <link rel="stylesheet" href="../../../css_themes/github.css">
+  <link rel="stylesheet" href="../../../cssthemes/github.css">
 </head>
 
 
@@ -18,6 +18,9 @@ InteractiveShell.ast_node_interactivity = "all"
 
 
 [Sets](#sets)
+  - [Convention - CAPITAL for sets, lowercase for its elements](#convention---capital-for-sets-lowercase-for-its-elements)
+  - [Sets in Python](#sets-in-python)
+- [Sets](#sets)
   - [Convention - CAPITAL for sets, lowercase for its elements](#convention---capital-for-sets-lowercase-for-its-elements)
   - [Sets in Python](#sets-in-python)
 - [Set visualization](#set-visualization)
