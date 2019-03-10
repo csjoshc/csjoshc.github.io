@@ -3,21 +3,13 @@
 
 <a href="../base.html">Go back to Python Portal</a>
 <head>
-  <link rel="stylesheet" href="../../../cssthemes/github.css">
+  <link rel="stylesheet" href="../../../css_themes/github.css">
 </head>
 
 - [Python Basics](#python-basics)
   - [Mutating lists and dictionaries](#mutating-lists-and-dictionaries)
   - [String & list functions](#string--list-functions)
-    - [Adding to lists - `append`](#adding-to-lists---append)
-    - [Removing elements - `pop`](#removing-elements---pop)
-    - [Removing elements - `remove`](#removing-elements---remove)
-    - [Adding to list - `extend`](#adding-to-list---extend)
-    - [Removing elements - `del`](#removing-elements---del)
   - [Dictionaries](#dictionaries)
-    - [Adding dictionary pair](#adding-dictionary-pair)
-    - [Removing Dictionary pair - `pop`](#removing-dictionary-pair---pop)
-    - [Removing dictionary pair - `del`](#removing-dictionary-pair---del)
   - [Iterating through dictionaries by key value pairs](#iterating-through-dictionaries-by-key-value-pairs)
 
 

@@ -1,55 +1,24 @@
-<!DOCTYPE html>
-    <html>
-    <head>
-        <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
-        <title>Pandas - Introduction</title>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
-        <link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
-        <style>
-.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
-</style>
-        <style>
-            body {
-                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'Ubuntu', 'Droid Sans', sans-serif;
-                font-size: 14px;
-                line-height: 1.6;
-            }
-        </style>
-        
-        <script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
-    </head>
-    <body>
-        <p><a href="../../../index.html">Go back to index</a></p>
-<p><a href="../base.html">Go back to Python Portal</a></p>
+<p><a href="../../../index.html">Go back to index</a></p>
+<a href="../base.html">Go back to Python Portal</a>
 <head>
-  <link rel="stylesheet" href="../../../css_themes/github.css">
+<link rel="stylesheet" href="../../../css_themes/github.css">
 </head>
 <ul>
 <li><a href="#pandas---introduction">Pandas - Introduction</a></li>
-<li><a href="#series">Series</a>
-<ul>
+<li><a href="#series">Series</a></li>
 <li><a href="#accessing-values-by-key-or-index">Accessing values by key or index:</a></li>
-</ul>
-</li>
-<li><a href="#dataframes">Dataframes</a>
-<ul>
+<li><a href="#dataframes">Dataframes</a></li>
 <li><a href="#access--operations">Access &amp; Operations</a></li>
 <li><a href="#dictionary---dataframe">Dictionary -&gt; Dataframe</a></li>
 </ul>
-</li>
-</ul>
-<pre><code class="language-python"><div><span class="hljs-keyword">import</span> sys
-print(sys.executable)
-<span class="hljs-keyword">from</span> IPython.core.interactiveshell <span class="hljs-keyword">import</span> InteractiveShell
-InteractiveShell.ast_node_interactivity = <span class="hljs-string">"all"</span>
-InteractiveShell.colors = <span class="hljs-string">"Linux"</span>
-InteractiveShell.separate_in = <span class="hljs-number">0</span>
-<span class="hljs-keyword">from</span> tabulate <span class="hljs-keyword">import</span> tabulate
-</div></code></pre>
-<pre><code>/home/jcmint/anaconda3/envs/learningenv/bin/python
-</code></pre>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> sys
+<span class="bu">print</span>(sys.executable)
+<span class="im">from</span> IPython.core.interactiveshell <span class="im">import</span> InteractiveShell
+InteractiveShell.ast_node_interactivity <span class="op">=</span> <span class="st">&quot;all&quot;</span>
+InteractiveShell.colors <span class="op">=</span> <span class="st">&quot;Linux&quot;</span>
+InteractiveShell.separate_in <span class="op">=</span> <span class="dv">0</span>
+<span class="im">from</span> tabulate <span class="im">import</span> tabulate</code></pre></div>
+<pre><code>/home/jcmint/anaconda3/envs/learningenv/bin/python</code></pre>
 <h1 id="pandas---introduction">Pandas - Introduction</h1>
 <ul>
 <li>Merge and join data sets</li>
@@ -64,65 +33,49 @@ InteractiveShell.separate_in = <span class="hljs-number">0</span>
 <li>Similar to fixed size dictionary</li>
 </ul>
 <p>Need to install pandas</p>
-<pre><code><div>conda activate learningenv
-conda install pandas
-</div></code></pre>
-<pre><code class="language-python"><div><span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd
-ser = pd.Series([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-string">"letter"</span>, <span class="hljs-string">"word"</span>],[<span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</span>, <span class="hljs-string">'c'</span>, <span class="hljs-string">'d'</span>, <span class="hljs-string">'e'</span>])
-ser
-</div></code></pre>
+<pre><code>conda activate learningenv
+conda install pandas</code></pre>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> pandas <span class="im">as</span> pd
+ser <span class="op">=</span> pd.Series([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="st">&quot;letter&quot;</span>, <span class="st">&quot;word&quot;</span>],[<span class="st">&#39;a&#39;</span>, <span class="st">&#39;b&#39;</span>, <span class="st">&#39;c&#39;</span>, <span class="st">&#39;d&#39;</span>, <span class="st">&#39;e&#39;</span>])
+ser</code></pre></div>
 <pre><code>a         1
 b         2
 c         3
 d    letter
 e      word
-dtype: object
-</code></pre>
+dtype: object</code></pre>
 <h2 id="accessing-values-by-key-or-index">Accessing values by key or index</h2>
 <h3 id="listing-keys">Listing keys</h3>
-<pre><code class="language-python"><div>ser.index
-</div></code></pre>
-<pre><code>Index(['a', 'b', 'c', 'd', 'e'], dtype='object')
-</code></pre>
-<pre><code class="language-python"><div><span class="hljs-comment"># Access value by key or Index</span>
-</div></code></pre>
-<pre><code class="language-python"><div>print(ser.loc[<span class="hljs-string">'a'</span>], ser[<span class="hljs-string">'a'</span>]) <span class="hljs-comment">#key</span>
-print(ser.iloc[<span class="hljs-number">2</span>]) <span class="hljs-comment">#Index</span>
-</div></code></pre>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">ser.index</code></pre></div>
+<pre><code>Index([&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;], dtype=&#39;object&#39;)</code></pre>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Access value by key or Index</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span>(ser.loc[<span class="st">&#39;a&#39;</span>], ser[<span class="st">&#39;a&#39;</span>]) <span class="co">#key</span>
+<span class="bu">print</span>(ser.iloc[<span class="dv">2</span>]) <span class="co">#Index</span></code></pre></div>
 <pre><code>1 1
-3
-</code></pre>
-<pre><code class="language-python"><div><span class="hljs-comment">### Test if key is in Series</span>
-</div></code></pre>
-<pre><code class="language-python"><div><span class="hljs-number">1</span> <span class="hljs-keyword">in</span> ser, <span class="hljs-string">'a'</span> <span class="hljs-keyword">in</span> ser <span class="hljs-comment"># test if key is in Series</span>
-</div></code></pre>
-<pre><code>(False, True)
-</code></pre>
+3</code></pre>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co">### Test if key is in Series</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="dv">1</span> <span class="kw">in</span> ser, <span class="st">&#39;a&#39;</span> <span class="kw">in</span> ser <span class="co"># test if key is in Series</span></code></pre></div>
+<pre><code>(False, True)</code></pre>
 <h3 id="multiply-numbers-and-strings">Multiply numbers and strings</h3>
-<pre><code class="language-python"><div>ser*<span class="hljs-number">2</span> <span class="hljs-comment"># Multiply</span>
-</div></code></pre>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">ser<span class="op">*</span><span class="dv">2</span> <span class="co"># Multiply</span></code></pre></div>
 <pre><code>a               2
 b               4
 c               6
 d    letterletter
 e        wordword
-dtype: object
-</code></pre>
-<pre><code class="language-python"><div>ser[<span class="hljs-string">'b'</span>]**<span class="hljs-number">2</span> <span class="hljs-comment"># Square</span>
-</div></code></pre>
-<pre><code>4
-</code></pre>
+dtype: object</code></pre>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">ser[<span class="st">&#39;b&#39;</span>]<span class="op">**</span><span class="dv">2</span> <span class="co"># Square</span></code></pre></div>
+<pre><code>4</code></pre>
 <h1 id="dataframes">Dataframes</h1>
 <ul>
 <li>Contains axes and columns for heterogenous data storage.</li>
 <li>Easy way of creating a data table.</li>
 <li>Create series first, then load them into a new dataframe</li>
 </ul>
-<pre><code class="language-python"><div>s1 = pd.Series([<span class="hljs-number">1.</span>, <span class="hljs-number">2.</span>, <span class="hljs-number">3.</span>], index=[<span class="hljs-string">'apple'</span>, <span class="hljs-string">'ball'</span>, <span class="hljs-string">'clock'</span>]) 
-s2 = pd.Series([<span class="hljs-number">5.</span>, <span class="hljs-number">10.</span>, <span class="hljs-number">15.</span>, <span class="hljs-number">20.</span>], index=[<span class="hljs-string">'apple'</span>, <span class="hljs-string">'ball'</span>, <span class="hljs-string">'cerill'</span>, <span class="hljs-string">'nancy'</span>]) 
-df = pd.DataFrame({<span class="hljs-string">'one'</span>: s1, <span class="hljs-string">'two'</span> : s2} ) 
-print(tabulate(df, headers=df.columns, tablefmt=<span class="hljs-string">'psql'</span>))
-</div></code></pre>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">s1 <span class="op">=</span> pd.Series([<span class="dv">1</span>., <span class="dv">2</span>., <span class="dv">3</span>.], index<span class="op">=</span>[<span class="st">&#39;apple&#39;</span>, <span class="st">&#39;ball&#39;</span>, <span class="st">&#39;clock&#39;</span>]) 
+s2 <span class="op">=</span> pd.Series([<span class="dv">5</span>., <span class="dv">10</span>., <span class="dv">15</span>., <span class="dv">20</span>.], index<span class="op">=</span>[<span class="st">&#39;apple&#39;</span>, <span class="st">&#39;ball&#39;</span>, <span class="st">&#39;cerill&#39;</span>, <span class="st">&#39;nancy&#39;</span>]) 
+df <span class="op">=</span> pd.DataFrame({<span class="st">&#39;one&#39;</span>: s1, <span class="st">&#39;two&#39;</span> : s2} ) 
+<span class="bu">print</span>(tabulate(df, headers<span class="op">=</span>df.columns, tablefmt<span class="op">=</span><span class="st">&#39;psql&#39;</span>))</code></pre></div>
 <pre><code>+--------+-------+-------+
 |        |   one |   two |
 |--------+-------+-------|
@@ -131,17 +84,15 @@ print(tabulate(df, headers=df.columns, tablefmt=<span class="hljs-string">'psql'
 | cerill |   nan |    15 |
 | clock  |     3 |   nan |
 | nancy  |   nan |    20 |
-+--------+-------+-------+
-</code></pre>
-<h2 id="access--operations">Access &amp; Operations</h2>
-<pre><code class="language-python"><div><span class="hljs-comment"># Columns</span>
-df[<span class="hljs-string">'one'</span>]
++--------+-------+-------+</code></pre>
+<h2 id="access-operations">Access &amp; Operations</h2>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Columns</span>
+df[<span class="st">&#39;one&#39;</span>]
 
-<span class="hljs-comment"># Creating new columns</span>
-df[<span class="hljs-string">'product'</span>] = df[<span class="hljs-string">'one'</span>] * df[<span class="hljs-string">'two'</span>] 
-df[<span class="hljs-string">'big'</span>] = df[<span class="hljs-string">'two'</span>] &gt; <span class="hljs-number">10</span> 
-print(tabulate(df, headers=df.columns, tablefmt=<span class="hljs-string">'psql'</span>))
-</div></code></pre>
+<span class="co"># Creating new columns</span>
+df[<span class="st">&#39;product&#39;</span>] <span class="op">=</span> df[<span class="st">&#39;one&#39;</span>] <span class="op">*</span> df[<span class="st">&#39;two&#39;</span>] 
+df[<span class="st">&#39;big&#39;</span>] <span class="op">=</span> df[<span class="st">&#39;two&#39;</span>] <span class="op">&gt;</span> <span class="dv">10</span> 
+<span class="bu">print</span>(tabulate(df, headers<span class="op">=</span>df.columns, tablefmt<span class="op">=</span><span class="st">&#39;psql&#39;</span>))</code></pre></div>
 <pre><code>apple     1.0
 ball      2.0
 cerill    NaN
@@ -159,13 +110,11 @@ Name: one, dtype: float64
 | cerill |   nan |    15 |       nan | True  |
 | clock  |     3 |   nan |       nan | False |
 | nancy  |   nan |    20 |       nan | True  |
-+--------+-------+-------+-----------+-------+
-</code></pre>
-<pre><code class="language-python"><div><span class="hljs-comment"># Removing columns - pop</span>
-unneeded = df.pop(<span class="hljs-string">'product'</span>)
++--------+-------+-------+-----------+-------+</code></pre>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Removing columns - pop</span>
+unneeded <span class="op">=</span> df.pop(<span class="st">&#39;product&#39;</span>)
 unneeded
-print(tabulate(df, headers=df.columns, tablefmt=<span class="hljs-string">'psql'</span>))
-</div></code></pre>
+<span class="bu">print</span>(tabulate(df, headers<span class="op">=</span>df.columns, tablefmt<span class="op">=</span><span class="st">&#39;psql&#39;</span>))</code></pre></div>
 <pre><code>apple      5.0
 ball      20.0
 cerill     NaN
@@ -183,12 +132,10 @@ Name: product, dtype: float64
 | cerill |   nan |    15 | True  |
 | clock  |     3 |   nan | False |
 | nancy  |   nan |    20 | True  |
-+--------+-------+-------+-------+
-</code></pre>
-<pre><code class="language-python"><div><span class="hljs-comment"># Removing columns - del</span>
-<span class="hljs-keyword">del</span>(df[<span class="hljs-string">'two'</span>])
-print(tabulate(df, headers=df.columns, tablefmt=<span class="hljs-string">'psql'</span>))
-</div></code></pre>
++--------+-------+-------+-------+</code></pre>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Removing columns - del</span>
+<span class="kw">del</span>(df[<span class="st">&#39;two&#39;</span>])
+<span class="bu">print</span>(tabulate(df, headers<span class="op">=</span>df.columns, tablefmt<span class="op">=</span><span class="st">&#39;psql&#39;</span>))</code></pre></div>
 <pre><code>+--------+-------+-------+
 |        |   one | big   |
 |--------+-------+-------|
@@ -197,12 +144,10 @@ print(tabulate(df, headers=df.columns, tablefmt=<span class="hljs-string">'psql'
 | cerill |   nan | True  |
 | clock  |     3 | False |
 | nancy  |   nan | True  |
-+--------+-------+-------+
-</code></pre>
-<pre><code class="language-python"><div><span class="hljs-comment"># Inserting columnns</span>
-df.insert(<span class="hljs-number">2</span>, <span class="hljs-string">'copy one'</span>, df[<span class="hljs-string">'one'</span>])
-print(tabulate(df, headers=df.columns, tablefmt=<span class="hljs-string">'psql'</span>))
-</div></code></pre>
++--------+-------+-------+</code></pre>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Inserting columnns</span>
+df.insert(<span class="dv">2</span>, <span class="st">&#39;copy one&#39;</span>, df[<span class="st">&#39;one&#39;</span>])
+<span class="bu">print</span>(tabulate(df, headers<span class="op">=</span>df.columns, tablefmt<span class="op">=</span><span class="st">&#39;psql&#39;</span>))</code></pre></div>
 <pre><code>+--------+-------+-------+------------+
 |        |   one | big   |   copy one |
 |--------+-------+-------+------------|
@@ -211,17 +156,15 @@ print(tabulate(df, headers=df.columns, tablefmt=<span class="hljs-string">'psql'
 | cerill |   nan | True  |        nan |
 | clock  |     3 | False |          3 |
 | nancy  |   nan | True  |        nan |
-+--------+-------+-------+------------+
-</code></pre>
-<pre><code class="language-python"><div><span class="hljs-comment"># Accessing a subslice</span>
-a = df.iloc[<span class="hljs-number">3</span>:<span class="hljs-number">4</span>]
-b = df[<span class="hljs-string">'one'</span>][:<span class="hljs-number">2</span>] <span class="hljs-comment"># values in column 'one', rows under 2</span>
-c = df[<span class="hljs-number">1</span>:<span class="hljs-number">3</span>] 
++--------+-------+-------+------------+</code></pre>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Accessing a subslice</span>
+a <span class="op">=</span> df.iloc[<span class="dv">3</span>:<span class="dv">4</span>]
+b <span class="op">=</span> df[<span class="st">&#39;one&#39;</span>][:<span class="dv">2</span>] <span class="co"># values in column &#39;one&#39;, rows under 2</span>
+c <span class="op">=</span> df[<span class="dv">1</span>:<span class="dv">3</span>] 
 
-print(tabulate(a, headers=a.columns, tablefmt=<span class="hljs-string">'psql'</span>))
-print(b)
-print(tabulate(c, headers=c.columns, tablefmt=<span class="hljs-string">'psql'</span>))
-</div></code></pre>
+<span class="bu">print</span>(tabulate(a, headers<span class="op">=</span>a.columns, tablefmt<span class="op">=</span><span class="st">&#39;psql&#39;</span>))
+<span class="bu">print</span>(b)
+<span class="bu">print</span>(tabulate(c, headers<span class="op">=</span>c.columns, tablefmt<span class="op">=</span><span class="st">&#39;psql&#39;</span>))</code></pre></div>
 <pre><code>+-------+-------+-------+------------+
 |       |   one | big   |   copy one |
 |-------+-------+-------+------------|
@@ -235,20 +178,18 @@ Name: one, dtype: float64
 |--------+-------+-------+------------|
 | ball   |     2 | False |          2 |
 | cerill |   nan | True  |        nan |
-+--------+-------+-------+------------+
-</code></pre>
++--------+-------+-------+------------+</code></pre>
 <h2 id="dictionary---dataframe">Dictionary -&gt; Dataframe</h2>
 <ul>
 <li>Automatically alphabetized</li>
 <li>All the keys become columns, each row in the new df represent the values of one of the dictionaries</li>
 </ul>
-<pre><code class="language-python"><div>data = [{<span class="hljs-string">'alex'</span>: <span class="hljs-number">1</span>, <span class="hljs-string">'joe'</span>: <span class="hljs-number">2</span>}, {<span class="hljs-string">'ema'</span>: <span class="hljs-number">5</span>, <span class="hljs-string">'dora'</span>:<span class="hljs-number">10</span>, <span class="hljs-string">'alice'</span>: <span class="hljs-number">20</span>}] <span class="hljs-comment"># a list</span>
-data = pd.DataFrame(data, index  = [<span class="hljs-string">'orange'</span>, <span class="hljs-string">'red'</span>]) 
-print(tabulate(data, headers=data.columns, tablefmt=<span class="hljs-string">'psql'</span>))
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">data <span class="op">=</span> [{<span class="st">&#39;alex&#39;</span>: <span class="dv">1</span>, <span class="st">&#39;joe&#39;</span>: <span class="dv">2</span>}, {<span class="st">&#39;ema&#39;</span>: <span class="dv">5</span>, <span class="st">&#39;dora&#39;</span>:<span class="dv">10</span>, <span class="st">&#39;alice&#39;</span>: <span class="dv">20</span>}] <span class="co"># a list</span>
+data <span class="op">=</span> pd.DataFrame(data, index  <span class="op">=</span> [<span class="st">&#39;orange&#39;</span>, <span class="st">&#39;red&#39;</span>]) 
+<span class="bu">print</span>(tabulate(data, headers<span class="op">=</span>data.columns, tablefmt<span class="op">=</span><span class="st">&#39;psql&#39;</span>))
 
-d = pd.DataFrame(data, columns = [<span class="hljs-string">'joe'</span>, <span class="hljs-string">'dora'</span>, <span class="hljs-string">'alice'</span>] )
-print(tabulate(d, headers=d.columns, tablefmt=<span class="hljs-string">'psql'</span>))
-</div></code></pre>
+d <span class="op">=</span> pd.DataFrame(data, columns <span class="op">=</span> [<span class="st">&#39;joe&#39;</span>, <span class="st">&#39;dora&#39;</span>, <span class="st">&#39;alice&#39;</span>] )
+<span class="bu">print</span>(tabulate(d, headers<span class="op">=</span>d.columns, tablefmt<span class="op">=</span><span class="st">&#39;psql&#39;</span>))</code></pre></div>
 <pre><code>+--------+--------+---------+--------+-------+-------+
 |        |   alex |   alice |   dora |   ema |   joe |
 |--------+--------+---------+--------+-------+-------|
@@ -260,12 +201,10 @@ print(tabulate(d, headers=d.columns, tablefmt=<span class="hljs-string">'psql'</
 |--------+-------+--------+---------|
 | orange |     2 |    nan |     nan |
 | red    |   nan |     10 |      20 |
-+--------+-------+--------+---------+
-</code></pre>
-<pre><code class="language-python"><div>data.head
-print(<span class="hljs-string">"\n"</span>)
-print(data.columns)
-</div></code></pre>
++--------+-------+--------+---------+</code></pre>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">data.head
+<span class="bu">print</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)
+<span class="bu">print</span>(data.columns)</code></pre></div>
 <pre><code>&lt;bound method NDFrame.head of         alex  alice  dora  ema  joe
 orange   1.0    NaN   NaN  NaN  2.0
 red      NaN   20.0  10.0  5.0  NaN&gt;
@@ -274,8 +213,4 @@ red      NaN   20.0  10.0  5.0  NaN&gt;
 
 
 
-Index(['alex', 'alice', 'dora', 'ema', 'joe'], dtype='object')
-</code></pre>
-
-    </body>
-    </html>
+Index([&#39;alex&#39;, &#39;alice&#39;, &#39;dora&#39;, &#39;ema&#39;, &#39;joe&#39;], dtype=&#39;object&#39;)</code></pre>

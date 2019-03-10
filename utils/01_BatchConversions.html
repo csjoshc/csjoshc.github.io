@@ -1,0 +1,80 @@
+<pre><code>! cd</code></pre>
+<pre><code>! pwd</code></pre>
+<pre><code>! pwd
+! cd ../../..</code></pre>
+<pre><code>! pwd
+! cd ../../..
+! pwd</code></pre>
+<pre><code>! pwd
+!cd &quot;..&quot;
+! pwd</code></pre>
+<pre><code>! pwd
+!cd /
+! pwd</code></pre>
+<pre><code>! pwd
+!cd / ls
+! pwd</code></pre>
+<pre><code>! pwd
+!{cd / ls}
+! pwd</code></pre>
+<pre><code>! pwd
+! cd ../cssthemes
+! pwd</code></pre>
+<pre><code>! pwd
+! cd ../cssthemes
+! ls ..</code></pre>
+<pre><code>! pwd
+! cd .. ls
+! ls ..</code></pre>
+<pre><code>! pwd
+! cd .. ls</code></pre>
+<pre><code>! pwd
+! cd ..; ls</code></pre>
+<pre><code>! cd ..; ls
+
+! cd ..;  find ./ -iname &quot;*.md&quot; -mtime -1 -ls -exec sh -c &#39;pandoc ${0} -f markdown -t html  -o  ${0%.md}.html&#39; {} \;</code></pre>
+<pre><code>!find . -name &quot;*.ipynb&quot; -mtime -1 -exec jupyter nbconvert --to html {} \;</code></pre>
+<pre><code>! cd ..; find . -name &quot;*.ipynb&quot; -mtime -1 -exec jupyter nbconvert --to html {} \;</code></pre>
+<pre><code>! cd ..; find . -name &quot;*.ipynb&quot; -mtime -1 -exec jupyter nbconvert --to md {} \;</code></pre>
+<pre><code>! cd ..; find . -name &quot;*.ipynb&quot; -mtime -1 -exec jupyter nbconvert --to markdown {} \;</code></pre>
+<pre><code>! cd ..;  &#39;find ./ -iname &quot;*.md&quot; -mtime -1 -ls -exec sh -c&#39; &#39;pandoc ${0} -f markdown -t html  -o  ${0%.md}.html&#39; {} \;</code></pre>
+<pre><code>! cd ..;  find ./ -iname &quot;*.md&quot; -mtime -1 -ls -exec sh -c &#39;pandoc ${0} -f markdown -t html  -o  ${0%.md}.html&#39; {} \;</code></pre>
+<pre><code>import sys
+print(sys.executable)
+from IPython.core.interactiveshell import InteractiveShell
+InteractiveShell.ast_node_interactivity = &quot;all&quot;</code></pre>
+<pre><code>! cd ..; find . -name &quot;*.ipynb&quot; -mtime -1 -exec jupyter nbconvert --to markdown {} \;</code></pre>
+<pre><code>! cd ..;  find ./ -iname &quot;*.md&quot; -mtime -1 -ls -exec sh -c &#39;pandoc ${0} -f markdown -t html  -o  ${0%.md}.html&#39; {} \;</code></pre>
+<pre><code>!jupyter nbconvert --to markdown {}
+!pandoc 01_BatchConversions.md -f markdown -t html  -o  01_BatchConversions.html</code></pre>
+<pre><code>!jupyter nbconvert --to markdown &quot;01_BatchConversions.md&quot;
+!pandoc 01_BatchConversions.md -f markdown -t html  -o  01_BatchConversions.html</code></pre>
+<pre><code>!jupyter nbconvert --to markdown &quot;01_BatchConversions.md&quot;
+!pandoc &quot;01_BatchConversions.md&quot; -f markdown -t html  -o  &quot;01_BatchConversions.html&quot;</code></pre>
+<pre><code>!jupyter nbconvert --to markdown &quot;01_BatchConversions.md&quot;</code></pre>
+<pre><code>!jupyter nbconvert --to markdown &quot;01_BatchConversions.ipynb&quot;
+!pandoc &quot;01_BatchConversions.md&quot; -f markdown -t html  -o  &quot;01_BatchConversions.html&quot;</code></pre>
+<pre><code>!jupyter nbconvert --to markdown &quot;01_BatchConversions.ipynb&quot;
+!pandoc &quot;01_BatchConversions.md&quot; -f markdown -t html  -o  &quot;01_BatchConversions.html&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="op">%%</span>javascript
+<span class="va">IPython</span>.<span class="va">notebook</span>.<span class="at">save_notebook</span>()
+
+<span class="op">!</span>jupyter nbconvert <span class="op">--</span>to markdown <span class="st">&quot;01_BatchConversions.ipynb&quot;</span>
+<span class="op">!</span>pandoc <span class="st">&quot;01_BatchConversions.md&quot;</span> <span class="op">-</span>f markdown <span class="op">-</span>t html  <span class="op">-</span>o  <span class="st">&quot;01_BatchConversions.html&quot;</span></code></pre></div>
+<pre><code>
+IPython.notebook.save_notebook()
+
+!jupyter nbconvert --to markdown &quot;01_BatchConversions.ipynb&quot;
+!pandoc &quot;01_BatchConversions.md&quot; -f markdown -t html  -o  &quot;01_BatchConversions.html&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="op">%%</span>javascript
+<span class="va">IPython</span>.<span class="va">notebook</span>.<span class="at">save_notebook</span>()</code></pre></div>
+<pre><code>import sys, IPython
+print(sys.executable)
+from IPython.core.interactiveshell import InteractiveShell
+InteractiveShell.ast_node_interactivity = &quot;all&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="op">%%</span>javascript
+<span class="va">IPython</span>.<span class="va">notebook</span>.<span class="at">save_notebook</span>()</code></pre></div>
+<pre><code>%notebook 01_BatchConversions.ipynb
+
+!jupyter nbconvert --to markdown &quot;01_BatchConversions.ipynb&quot;
+!pandoc &quot;01_BatchConversions.md&quot; -f markdown -t html  -o  &quot;01_BatchConversions.html&quot;</code></pre>

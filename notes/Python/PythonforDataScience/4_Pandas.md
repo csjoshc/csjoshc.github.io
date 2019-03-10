@@ -3,14 +3,12 @@
 
 <a href="../base.html">Go back to Python Portal</a>
 <head>
-  <link rel="stylesheet" href="../../../cssthemes/github.css">
+  <link rel="stylesheet" href="../../../css_themes/github.css">
 </head>
 
 - [Pandas - Introduction](#pandas---introduction)
 - [Series](#series)
-  - [Accessing values by key or index](#accessing-values-by-key-or-index)
-    - [Listing keys](#listing-keys)
-    - [Multiply numbers and strings](#multiply-numbers-and-strings)
+  - [Accessing values by key or index:](#accessing-values-by-key-or-index)
 - [Dataframes](#dataframes)
   - [Access & Operations](#access--operations)
   - [Dictionary -> Dataframe](#dictionary---dataframe)
@@ -341,6 +339,10 @@ print(data.columns)
     <bound method NDFrame.head of         alex  alice  dora  ema  joe
     orange   1.0    NaN   NaN  NaN  2.0
     red      NaN   20.0  10.0  5.0  NaN>
+
+
+
+    
     
     Index(['alex', 'alice', 'dora', 'ema', 'joe'], dtype='object')
 
