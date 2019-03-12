@@ -80,10 +80,7 @@ ser.index
 
 
 
-
-```python
-# Access value by key or Index
-```
+### Access value by key or Index
 
 
 ```python
@@ -95,10 +92,7 @@ print(ser.iloc[2]) #Index
     3
 
 
-
-```python
 ### Test if key is in Series
-```
 
 
 ```python
@@ -169,15 +163,11 @@ print(tabulate(df, headers=df.columns, tablefmt='psql'))
 
 ## Access & Operations
 
+### Accessing Columns
+
 
 ```python
-# Columns
 df['one']
-
-# Creating new columns
-df['product'] = df['one'] * df['two'] 
-df['big'] = df['two'] > 10 
-print(tabulate(df, headers=df.columns, tablefmt='psql'))
 ```
 
 
@@ -191,6 +181,15 @@ print(tabulate(df, headers=df.columns, tablefmt='psql'))
     Name: one, dtype: float64
 
 
+
+### Creating new columns
+
+
+```python
+df['product'] = df['one'] * df['two'] 
+df['big'] = df['two'] > 10 
+print(tabulate(df, headers=df.columns, tablefmt='psql'))
+```
 
     +--------+-------+-------+-----------+-------+
     |        |   one |   two |   product | big   |
@@ -234,9 +233,10 @@ print(tabulate(df, headers=df.columns, tablefmt='psql'))
     +--------+-------+-------+-------+
 
 
+### Removing columns - del
+
 
 ```python
-# Removing columns - del
 del(df['two'])
 print(tabulate(df, headers=df.columns, tablefmt='psql'))
 ```
@@ -252,9 +252,10 @@ print(tabulate(df, headers=df.columns, tablefmt='psql'))
     +--------+-------+-------+
 
 
+### Inserting columnns
+
 
 ```python
-# Inserting columnns
 df.insert(2, 'copy one', df['one'])
 print(tabulate(df, headers=df.columns, tablefmt='psql'))
 ```
@@ -270,9 +271,10 @@ print(tabulate(df, headers=df.columns, tablefmt='psql'))
     +--------+-------+-------+------------+
 
 
+### Accessing a subslice
+
 
 ```python
-# Accessing a subslice
 a = df.iloc[3:4]
 b = df['one'][:2] # values in column 'one', rows under 2
 c = df[1:3] 

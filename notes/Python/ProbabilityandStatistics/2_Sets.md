@@ -56,7 +56,7 @@ Different set types:
 
 ```python
 myset = set([1,2,3])
-print(myset)
+print("1.", myset)
 
 # Create an empty set: set()  or set({})
 empty = set()
@@ -64,36 +64,24 @@ print(empty)
 
 myset.add((2, '2', 0))
 myset.discard(0)
-myset
+print("3.", myset)
 # No way to add multiple elements to a set - instead, consider a union with a set that has the target elements
 ```
 
-    {1, 2, 3}
+    1. {1, 2, 3}
     set()
-
-
-
-
-
-    {(2, '2', 0), 1, 2, 3}
-
+    3. {1, 2, 3, (2, '2', 0)}
 
 
 
 ```python
 # Test emptiness
 print(not myset) # does myset contain no elements?
-len(myset)
+print(len(myset))
 ```
 
     False
-
-
-
-
-
     4
-
 
 
 # Set visualization 
@@ -126,12 +114,12 @@ plt.show()
 
 
 
-    <matplotlib_venn._common.VennDiagram at 0x7f4e3f4399e8>
+    <matplotlib_venn._common.VennDiagram at 0x7ff80182c470>
 
 
 
 
-    <Figure size 640x480 with 1 Axes>
+![png](2_Sets_files/2_Sets_6_1.png)
 
 
 
@@ -192,19 +180,13 @@ A strict subset - a subset that is NOT equal to its superset.
 
 
 ```python
-s1 <= s2 , s1.issubset(s4)
+print("1.", s1 <= s2 , s1.issubset(s4))
 # Check for STRICT subset: using `<`
-print(s1 < s2, s1 < {0, 1, 2})
+print("2.", s1 < s2, s1 < {0, 1, 2})
 ```
 
-
-
-
-    (True, False)
-
-
-
-    False True
+    1. True False
+    2. False True
 
 
 # Set Operations
@@ -310,12 +292,12 @@ for i in product(faces, suits):
     print(i)
 ```
 
-    ('K', 'Spa')
-    ('K', 'Dia')
-    ('J', 'Spa')
-    ('J', 'Dia')
-    ('Q', 'Spa')
     ('Q', 'Dia')
+    ('Q', 'Spa')
+    ('K', 'Dia')
+    ('K', 'Spa')
+    ('J', 'Dia')
+    ('J', 'Spa')
 
 
 # Russell's Paradox 

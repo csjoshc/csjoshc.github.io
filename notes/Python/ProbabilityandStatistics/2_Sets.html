@@ -27,7 +27,7 @@ InteractiveShell.ast_node_interactivity <span class="op">=</span> <span class="s
 </div>
 <h2 id="sets-in-python">Sets in Python</h2>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">myset <span class="op">=</span> <span class="bu">set</span>([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>])
-<span class="bu">print</span>(myset)
+<span class="bu">print</span>(<span class="st">&quot;1.&quot;</span>, myset)
 
 <span class="co"># Create an empty set: set()  or set({})</span>
 empty <span class="op">=</span> <span class="bu">set</span>()
@@ -35,25 +35,15 @@ empty <span class="op">=</span> <span class="bu">set</span>()
 
 myset.add((<span class="dv">2</span>, <span class="st">&#39;2&#39;</span>, <span class="dv">0</span>))
 myset.discard(<span class="dv">0</span>)
-myset
+<span class="bu">print</span>(<span class="st">&quot;3.&quot;</span>, myset)
 <span class="co"># No way to add multiple elements to a set - instead, consider a union with a set that has the target elements</span></code></pre></div>
-<pre><code>{1, 2, 3}
+<pre><code>1. {1, 2, 3}
 set()
-
-
-
-
-
-{(2, &#39;2&#39;, 0), 1, 2, 3}</code></pre>
+3. {1, 2, 3, (2, &#39;2&#39;, 0)}</code></pre>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Test emptiness</span>
 <span class="bu">print</span>(<span class="kw">not</span> myset) <span class="co"># does myset contain no elements?</span>
-<span class="bu">len</span>(myset)</code></pre></div>
+<span class="bu">print</span>(<span class="bu">len</span>(myset))</code></pre></div>
 <pre><code>False
-
-
-
-
-
 4</code></pre>
 <h1 id="set-visualization">Set visualization</h1>
 <p>Venn diagrams can represent set members - elements appear in or out of a set.</p>
@@ -76,12 +66,11 @@ S <span class="op">=</span> {<span class="dv">1</span>, <span class="dv">2</span
 T <span class="op">=</span> {<span class="dv">0</span>, <span class="dv">22</span>, <span class="dv">1</span>, <span class="dv">3</span>} 
 venn.venn2([S, T], set_labels <span class="op">=</span> {<span class="st">&#39;S&#39;</span>, <span class="st">&#39;T&#39;</span>}) 
 plt.show()</code></pre></div>
-<pre><code>&lt;matplotlib_venn._common.VennDiagram at 0x7f4e3f4399e8&gt;
-
-
-
-
-&lt;Figure size 640x480 with 1 Axes&gt;</code></pre>
+<pre><code>&lt;matplotlib_venn._common.VennDiagram at 0x7ff80182c470&gt;</code></pre>
+<div class="figure">
+<img src="2_Sets_files/2_Sets_6_1.png" alt="png" />
+<p class="caption">png</p>
+</div>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">s1 <span class="op">=</span> {<span class="dv">0</span>, <span class="dv">1</span>} 
 s2 <span class="op">=</span> {<span class="dv">1</span>, <span class="dv">0</span>} 
 s3 <span class="op">=</span> {<span class="dv">1</span>, <span class="dv">0</span> , <span class="dv">1</span>} 
@@ -113,14 +102,11 @@ s5 <span class="op">=</span> {<span class="dv">3</span>, <span class="dv">4</spa
 <img src="https://i.imgur.com/09KLgkv.png?1" />
 
 </div>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">s1 <span class="op">&lt;=</span> s2 , s1.issubset(s4)
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span>(<span class="st">&quot;1.&quot;</span>, s1 <span class="op">&lt;=</span> s2 , s1.issubset(s4))
 <span class="co"># Check for STRICT subset: using `&lt;`</span>
-<span class="bu">print</span>(s1 <span class="op">&lt;</span> s2, s1 <span class="op">&lt;</span> {<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>})</code></pre></div>
-<pre><code>(True, False)
-
-
-
-False True</code></pre>
+<span class="bu">print</span>(<span class="st">&quot;2.&quot;</span>, s1 <span class="op">&lt;</span> s2, s1 <span class="op">&lt;</span> {<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>})</code></pre></div>
+<pre><code>1. True False
+2. False True</code></pre>
 <h1 id="set-operations">Set Operations</h1>
 <p>Obtain a set that is the result of an operation between sets.</p>
 <h2 id="complement">Complement</h2>
@@ -184,12 +170,12 @@ faces <span class="op">=</span> <span class="bu">set</span>({<span class="st">&#
 suits <span class="op">=</span> <span class="bu">set</span>({<span class="st">&#39;Dia&#39;</span>, <span class="st">&#39;Spa&#39;</span>}) <span class="co">#diamond, spade </span>
 <span class="cf">for</span> i <span class="kw">in</span> product(faces, suits): 
     <span class="bu">print</span>(i)</code></pre></div>
-<pre><code>(&#39;K&#39;, &#39;Spa&#39;)
-(&#39;K&#39;, &#39;Dia&#39;)
-(&#39;J&#39;, &#39;Spa&#39;)
-(&#39;J&#39;, &#39;Dia&#39;)
+<pre><code>(&#39;Q&#39;, &#39;Dia&#39;)
 (&#39;Q&#39;, &#39;Spa&#39;)
-(&#39;Q&#39;, &#39;Dia&#39;)</code></pre>
+(&#39;K&#39;, &#39;Dia&#39;)
+(&#39;K&#39;, &#39;Spa&#39;)
+(&#39;J&#39;, &#39;Dia&#39;)
+(&#39;J&#39;, &#39;Spa&#39;)</code></pre>
 <h1 id="russells-paradox">Russell's Paradox</h1>
 <ul>
 <li>Sets can be elements and subsets of sets</li>

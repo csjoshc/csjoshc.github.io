@@ -293,10 +293,7 @@ a1, a1.max(axis = 0), a1.max(axis = 1)
 
 
 
-
-```python
 ## Sorting Arrays and finding uniques - `array.sort()`, `np.unique(array)`
-```
 
 
 ```python
