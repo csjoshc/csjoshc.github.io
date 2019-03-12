@@ -1,4 +1,5 @@
-<a href="../index.html">Go back to index</a>
+<p><a href="../index.html">Go back to index</a></p>
+<p><a href="base.html">Go back to Utilities Portal</a></p>
 <head>
 <link rel="stylesheet" href="../cssthemes/github.css">
 </head>
@@ -12,50 +13,33 @@ InteractiveShell.ast_node_interactivity <span class="op">=</span> <span class="s
 <h2 id="converting-from-.ipynb-to-.md">Converting from <code>.ipynb</code> to <code>.md</code></h2>
 <p>First step is to convert all <code>.ipynb</code> files in the main directory and its subdirectories. This is necessary because nbconvert straight to html doesn't keep the page background color (solid black). Here I filter by file extension and recent modification date (past day)</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="op">!</span> cd ..<span class="op">;</span> find . <span class="op">-</span>name <span class="st">&quot;*.ipynb&quot;</span> <span class="op">-</span>mtime <span class="op">-</span><span class="dv">1</span> <span class="op">-</span><span class="bu">exec</span> jupyter nbconvert <span class="op">--</span>to markdown {} <span class="op">\;</span></code></pre></div>
-<pre><code>[NbConvertApp] Converting notebook ./notes/Python/General/virtenv_jupyter_nb.ipynb to markdown
-[NbConvertApp] Writing 3977 bytes to ./notes/Python/General/virtenv_jupyter_nb.md
-[NbConvertApp] Converting notebook ./notes/Python/ProbabilityandStatistics/1_Introduction.ipynb to markdown
-[NbConvertApp] Writing 1645 bytes to ./notes/Python/ProbabilityandStatistics/1_Introduction.md
-[NbConvertApp] Converting notebook ./notes/Python/ProbabilityandStatistics/2_Sets.ipynb to markdown
-[NbConvertApp] Writing 7509 bytes to ./notes/Python/ProbabilityandStatistics/2_Sets.md
-[NbConvertApp] Converting notebook ./notes/Python/PythonforDataScience/1_Introduction.ipynb to markdown
-[NbConvertApp] Writing 3733 bytes to ./notes/Python/PythonforDataScience/1_Introduction.md
+<pre><code>[NbConvertApp] Converting notebook ./notes/Python/ProbabilityandStatistics/2_Sets.ipynb to markdown
+[NbConvertApp] Support files will be in 2_Sets_files/
+[NbConvertApp] Making directory ./notes/Python/ProbabilityandStatistics/2_Sets_files
+[NbConvertApp] Writing 7545 bytes to ./notes/Python/ProbabilityandStatistics/2_Sets.md
+[NbConvertApp] Converting notebook ./notes/Python/PythonforDataScience/.ipynb_checkpoints/4_Pandas3-checkpoint.ipynb to markdown
+[NbConvertApp] Writing 0 bytes to ./notes/Python/PythonforDataScience/.ipynb_checkpoints/4_Pandas3-checkpoint.md
 [NbConvertApp] Converting notebook ./notes/Python/PythonforDataScience/2_Basics.ipynb to markdown
-[NbConvertApp] Writing 3963 bytes to ./notes/Python/PythonforDataScience/2_Basics.md
+[NbConvertApp] Writing 4475 bytes to ./notes/Python/PythonforDataScience/2_Basics.md
 [NbConvertApp] Converting notebook ./notes/Python/PythonforDataScience/3_Numpy.ipynb to markdown
-[NbConvertApp] Writing 7336 bytes to ./notes/Python/PythonforDataScience/3_Numpy.md
+[NbConvertApp] Writing 7857 bytes to ./notes/Python/PythonforDataScience/3_Numpy.md
 [NbConvertApp] Converting notebook ./notes/Python/PythonforDataScience/4_Pandas.ipynb to markdown
-[NbConvertApp] Writing 7192 bytes to ./notes/Python/PythonforDataScience/4_Pandas.md
+[NbConvertApp] Writing 7689 bytes to ./notes/Python/PythonforDataScience/4_Pandas.md
 [NbConvertApp] Converting notebook ./notes/Python/PythonforDataScience/4_Pandas2.ipynb to markdown
-[NbConvertApp] Writing 2111 bytes to ./notes/Python/PythonforDataScience/4_Pandas2.md
-[NbConvertApp] Converting notebook ./notes/Python/PythonforDataScience/5_visualization.ipynb to markdown
-[NbConvertApp] Writing 1011 bytes to ./notes/Python/PythonforDataScience/5_visualization.md
+[NbConvertApp] Writing 5224 bytes to ./notes/Python/PythonforDataScience/4_Pandas2.md
+[NbConvertApp] Converting notebook ./notes/Python/PythonforDataScience/4_Pandas3.ipynb to markdown
+[NbConvertApp] Writing 4235 bytes to ./notes/Python/PythonforDataScience/4_Pandas3.md
 [NbConvertApp] Converting notebook ./utils/01_BatchConversions.ipynb to markdown
-[NbConvertApp] Writing 9531 bytes to ./utils/01_BatchConversions.md</code></pre>
+[NbConvertApp] Writing 3956 bytes to ./utils/01_BatchConversions.md</code></pre>
 <h2 id="converting-from-.md-to-.html">Converting from <code>.md</code> to <code>.html</code></h2>
 <p>The final step is convering all <code>.md</code> files that were recently modified.</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">
-<span class="op">!</span> cd ..<span class="op">;</span>  find .<span class="op">/</span> <span class="op">-</span>iname <span class="st">&quot;*.md&quot;</span> <span class="op">-</span>mtime <span class="op">-</span><span class="dv">1</span> <span class="op">-</span>ls <span class="op">-</span><span class="bu">exec</span> sh <span class="op">-</span>c <span class="st">&#39;pandoc $</span><span class="sc">{0}</span><span class="st"> -f markdown -t html  -o  ${0%.md}.html&#39;</span> {} <span class="op">\;</span></code></pre></div>
-<pre><code>  1157163      1 -rwxrwxrwx   1 jcmint   jcmint        464 Mar 10 15:14 ./notes/Devops/base.md
-  1157165      4 -rwxrwxrwx   1 jcmint   jcmint       2531 Mar 10 15:14 ./notes/Devops/roadmap_notes.md
-  1157168      4 -rwxrwxrwx   1 jcmint   jcmint        687 Mar 10 15:14 ./notes/Github/bugs_gh.md
-  1157170      4 -rwxrwxrwx   1 jcmint   jcmint       2913 Mar 10 15:14 ./notes/Github/intro_gh.md
-  1157173      4 -rwxrwxrwx   1 jcmint   jcmint       1241 Mar 10 15:14 ./notes/Linux/base.md
-  1157177     12 -rwxrwxrwx   1 jcmint   jcmint       8258 Mar 10 15:14 ./notes/Linux/linux_journey/basic/01_comlin.md
-  1157179      4 -rwxrwxrwx   1 jcmint   jcmint        681 Mar 10 15:14 ./notes/Linux/linux_journey/linux_journey_toc.md
-  1157236      4 -rwxrwxrwx   1 jcmint   jcmint        927 Mar 10 18:20 ./notes/Python/base.md
-  1157198      4 -rwxrwxrwx   1 jcmint   jcmint       3981 Mar 10 18:36 ./notes/Python/General/virtenv_jupyter_nb.md
-  1157206      4 -rwxrwxrwx   1 jcmint   jcmint       1649 Mar 10 18:36 ./notes/Python/ProbabilityandStatistics/1_Introduction.md
-  1157209      8 -rwxrwxrwx   1 jcmint   jcmint       7523 Mar 10 18:36 ./notes/Python/ProbabilityandStatistics/2_Sets.md
-  1157456      4 -rwxrwxrwx   1 jcmint   jcmint       3733 Mar 10 18:36 ./notes/Python/PythonforDataScience/1_Introduction.md
-  1157223      4 -rwxrwxrwx   1 jcmint   jcmint       3963 Mar 10 18:36 ./notes/Python/PythonforDataScience/2_Basics.md
-  1157226      8 -rwxrwxrwx   1 jcmint   jcmint       7336 Mar 10 18:36 ./notes/Python/PythonforDataScience/3_Numpy.md
-  1157229      8 -rwxrwxrwx   1 jcmint   jcmint       7192 Mar 10 18:36 ./notes/Python/PythonforDataScience/4_Pandas.md
-  1157232      4 -rwxrwxrwx   1 jcmint   jcmint       2111 Mar 10 18:36 ./notes/Python/PythonforDataScience/4_Pandas2.md
-  1157457      4 -rwxrwxrwx   1 jcmint   jcmint       1011 Mar 10 18:36 ./notes/Python/PythonforDataScience/5_visualization.md
-  1157240      4 -rwxrwxrwx   1 jcmint   jcmint        866 Mar 10 15:14 ./site_updates/3_2019/2_3_2019.md
-  1157241      1 -rwxrwxrwx   1 jcmint   jcmint        509 Mar 10 17:23 ./site_updates/3_2019/9_3_2019.md
-  1157243      1 -rwxrwxrwx   1 jcmint   jcmint        255 Mar 10 15:14 ./site_updates/base.md
-  1157245      4 -rwxrwxrwx   1 jcmint   jcmint       1419 Mar 10 15:14 ./todo.md
-  1157554     12 -rwxrwxrwx   1 jcmint   jcmint       9531 Mar 10 18:36 ./utils/01_BatchConversions.md
-  1157584      1 -rwxrwxrwx   1 jcmint   jcmint        497 Mar 10 17:25 ./utils/base.md</code></pre>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="op">!</span> cd ..<span class="op">;</span>  find .<span class="op">/</span> <span class="op">-</span>iname <span class="st">&quot;*.md&quot;</span> <span class="op">-</span>mtime <span class="op">-</span><span class="dv">1</span> <span class="op">-</span>ls <span class="op">-</span><span class="bu">exec</span> sh <span class="op">-</span>c <span class="st">&#39;pandoc $</span><span class="sc">{0}</span><span class="st"> -f markdown -t html  -o  ${0%.md}.html&#39;</span> {} <span class="op">\;</span></code></pre></div>
+<pre><code>  1157236      4 -rwxrwxrwx   1 jcmint   jcmint       1016 Mar 11 21:53 ./notes/Python/base.md
+  1157209      8 -rwxrwxrwx   1 jcmint   jcmint       7559 Mar 11 22:53 ./notes/Python/ProbabilityandStatistics/2_Sets.md
+  1157384      0 -rwxrwxrwx   1 jcmint   jcmint          0 Mar 11 22:53 ./notes/Python/PythonforDataScience/.ipynb_checkpoints/4_Pandas3-checkpoint.md
+  1157223      8 -rwxrwxrwx   1 jcmint   jcmint       4475 Mar 11 22:53 ./notes/Python/PythonforDataScience/2_Basics.md
+  1157226      8 -rwxrwxrwx   1 jcmint   jcmint       7857 Mar 11 22:53 ./notes/Python/PythonforDataScience/3_Numpy.md
+  1157229      8 -rwxrwxrwx   1 jcmint   jcmint       7689 Mar 11 22:53 ./notes/Python/PythonforDataScience/4_Pandas.md
+  1157232      8 -rwxrwxrwx   1 jcmint   jcmint       5224 Mar 11 22:53 ./notes/Python/PythonforDataScience/4_Pandas2.md
+  1157386      8 -rwxrwxrwx   1 jcmint   jcmint       4235 Mar 11 22:53 ./notes/Python/PythonforDataScience/4_Pandas3.md
+  1157554      4 -rwxrwxrwx   1 jcmint   jcmint       3956 Mar 11 22:53 ./utils/01_BatchConversions.md</code></pre>

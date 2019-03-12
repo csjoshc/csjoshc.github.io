@@ -16,11 +16,13 @@ Introduction: [Virtual environments and Jupyter (html)](General/virtenv_jupyter_
 [EdX Course link](https://www.edx.org/course/python-for-data-science-1)
 
 **Notes**
+
 * **[Introduction](PythonforDataScience/1_Introduction.html)**
 * **[Python Basics](PythonforDataScience/2_Basics.html)**
 * **[Numpy](PythonforDataScience/3_Numpy.html)**
 * **[Pandas](PythonforDataScience/4_Pandas.html)**
-* **[Dataframes](PythonforDataScience/4_Pandas2.html)**
+* **[Dataframes - Introduction](PythonforDataScience/4_Pandas2.html)**
+* **[Dataframes - Transformations](PythonforDataScience/4_Pandas3.html)**
 
 
 

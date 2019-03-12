@@ -3,12 +3,31 @@
 <head>
 <link rel="stylesheet" href="../../../cssthemes/github.css">
 </head>
+<ul>
+<li><a href="#sets">Sets</a></li>
+<li><a href="#convention---capital-for-sets-lowercase-for-its-elements">Convention - CAPITAL for sets, lowercase for its elements</a></li>
+<li><a href="#sets-in-python">Sets in Python</a></li>
+<li><a href="#set-visualization">Set visualization</a></li>
+<li><a href="#visualizing-sets-in-python---venn-diagrams-with-numeric-elements">Visualizing sets in Python - venn diagrams with numeric elements</a></li>
+<li><a href="#set-relations">Set Relations</a></li>
+<li><a href="#equality">Equality, <code>==</code></a></li>
+<li><a href="#disjoint-isdisjoint">Disjoint: <code>isdisjoint()</code>, <code>!=</code></a></li>
+<li><a href="#subset-issubset--strict">Subset: <code>issubset()</code>, <code>&lt;=</code>; strict: <code>&lt;</code></a></li>
+<li><a href="#set-operations">Set Operations</a></li>
+<li><a href="#complement">Complement</a></li>
+<li><a href="#intersection-intersection">Intersection: <code>intersection()</code>, <code>&amp;</code></a></li>
+<li><a href="#union-union">Union: <code>union</code>, <code>|</code></a></li>
+<li><a href="#set-difference-difference">Set difference: <code>.difference</code>, <code>-</code></a></li>
+<li><a href="#symmetric-difference-or-symmetricdifference">Symmetric Difference (OR): <code>symmetric_difference()</code>, <code>^</code></a></li>
+<li><a href="#cartesian-products">Cartesian Products</a></li>
+<li><a href="#generating-cartesian-products-in-python">Generating Cartesian products in Python</a></li>
+<li><a href="#russells-paradox">Russell's Paradox</a></li>
+</ul>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> sys
 <span class="bu">print</span>(sys.executable)
 <span class="im">from</span> IPython.core.interactiveshell <span class="im">import</span> InteractiveShell
 InteractiveShell.ast_node_interactivity <span class="op">=</span> <span class="st">&quot;all&quot;</span></code></pre></div>
 <pre><code>/home/jcmint/anaconda3/envs/learningenv/bin/python</code></pre>
-<p><a href="#sets">Sets</a> - <a href="#convention---capital-for-sets-lowercase-for-its-elements">Convention - CAPITAL for sets, lowercase for its elements</a> - <a href="#sets-in-python">Sets in Python</a> - <a href="#set-visualization">Set visualization</a> - <a href="#visualizing-sets-in-python---venn-diagrams-with-numeric-elements">Visualizing sets in Python - venn diagrams with numeric elements</a> - <a href="#set-relations">Set Relations</a> - <a href="#equality">Equality, <code>==</code></a> - <a href="#disjoint-isdisjoint">Disjoint: <code>isdisjoint()</code>, <code>!=</code></a> - <a href="#subset-issubset--strict">Subset: <code>issubset()</code>, <code>&lt;=</code>; strict: <code>&lt;</code></a> - <a href="#set-operations">Set Operations</a> - <a href="#complement">Complement</a> - <a href="#intersection-intersection">Intersection: <code>intersection()</code>, <code>&amp;</code></a> - <a href="#union-union">Union: <code>union</code>, <code>|</code></a> - <a href="#set-difference-difference">Set difference: <code>.difference</code>, <code>-</code></a> - <a href="#symmetric-difference-or-symmetricdifference">Symmetric Difference (OR): <code>symmetric_difference()</code>, <code>^</code></a> - <a href="#cartesian-products">Cartesian Products</a> - <a href="#generating-cartesian-products-in-python">Generating Cartesian products in Python</a> - <a href="#russells-paradox">Russell's Paradox</a></p>
 <h1 id="sets">Sets</h1>
 <p>Sets are defined as a collection of elements, and can be defined explicitly {heads, tails}, or implicitly {1:9}, {A:Z}.</p>
 <div class="figure">

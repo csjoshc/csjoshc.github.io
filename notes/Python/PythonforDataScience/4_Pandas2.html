@@ -3,6 +3,17 @@
 <head>
 <link rel="stylesheet" href="../../../cssthemes/github.css">
 </head>
+<ul>
+<li><a href="#dataframes---introduction">Dataframes - Introduction</a></li>
+<li><a href="#dfilocn---accessing-rows"><code>df.iloc(n)</code> - Accessing rows</a></li>
+<li><a href="#dfcolumns---listing-columns"><code>df.columns</code> - Listing columns</a></li>
+<li><a href="#dfdescribe---list-summary-statistics-count-std-quartiles"><code>df.describe()</code> - List summary statistics (count, std, quartiles)</a></li>
+<li><a href="#dfcorr---list-correlations-amongst-variables"><code>df.corr()</code> - List correlations amongst variables</a></li>
+<li><a href="#other-aggregate-functions-df-min-max-std-mean">Other aggregate functions: <code>df.</code> <code>min()</code>, <code>max()</code>, <code>std()</code>, <code>mean()</code></a></li>
+<li><a href="#anydfcol1--n-alldfcol1--n"><code>any(df['col1'] &gt; n)</code>, <code>all(df['col1'] &gt; n)</code></a></li>
+<li><a href="#filtering-columns-return-boolean-col">Filtering columns (return boolean col)</a></li>
+<li><a href="#other-useful-commands">Other useful commands</a></li>
+</ul>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> sys
 <span class="bu">print</span>(sys.executable)
 <span class="im">from</span> IPython.core.interactiveshell <span class="im">import</span> InteractiveShell
@@ -11,8 +22,8 @@ InteractiveShell.colors <span class="op">=</span> <span class="st">&quot;Linux&q
 InteractiveShell.separate_in <span class="op">=</span> <span class="dv">0</span>
 <span class="im">from</span> tabulate <span class="im">import</span> tabulate</code></pre></div>
 <pre><code>/home/jcmint/anaconda3/envs/learningenv/bin/python</code></pre>
-<h1 id="dataframes">Dataframes</h1>
-<p>Starting out with data in .csv form, with several files for this unit. Just putting the dataframe to terminal doesn't properly print when exporting to .md or .html (although it works fine in .iypnb) so I have to use <code>tabulate</code></p>
+<h1 id="dataframes---introduction">Dataframes - Introduction</h1>
+<p>Starting out with data in .csv form, with several files for this unit. Just putting the dataframe to terminal doesn't properly print when exporting to .md or .html (although it works fine in .iypnb) so I have to use <code>tabulate</code> or the default print.</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> pandas <span class="im">as</span> pd
 <span class="im">import</span> os, sys
 
@@ -32,17 +43,17 @@ ratings <span class="op">=</span> pd.read_csv(<span class="st">&#39;../../../../
 |  3 |         4 | Waiting to Exhale (1995)           | Comedy|Drama|Romance                        |
 |  4 |         5 | Father of the Bride Part II (1995) | Comedy                                      |
 +----+-----------+------------------------------------+---------------------------------------------+</code></pre>
-<h2 id="pd.ilocn---accessing-rows"><code>pd.iloc(n)</code> - Accessing rows</h2>
+<h2 id="df.ilocn---accessing-rows"><code>df.iloc(n)</code> - Accessing rows</h2>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">row_0 <span class="op">=</span> movies.iloc[<span class="dv">0</span>]
 row_0</code></pre></div>
 <pre><code>movieId                                              1
 title                                 Toy Story (1995)
 genres     Adventure|Animation|Children|Comedy|Fantasy
 Name: 0, dtype: object</code></pre>
-<h2 id="pd.columns---listing-columns"><code>pd.columns</code> - Listing columns</h2>
+<h2 id="df.columns---listing-columns"><code>df.columns</code> - Listing columns</h2>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">tags.columns</code></pre></div>
 <pre><code>Index([&#39;userId&#39;, &#39;movieId&#39;, &#39;tag&#39;, &#39;timestamp&#39;], dtype=&#39;object&#39;)</code></pre>
-<h2 id="pd.describe---list-summary-statistics-count-std-quartiles"><code>pd.describe()</code> - List summary statistics (count, std, quartiles)</h2>
+<h2 id="df.describe---list-summary-statistics-count-std-quartiles"><code>df.describe()</code> - List summary statistics (count, std, quartiles)</h2>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span>(ratings.describe())</code></pre></div>
 <pre><code>             userId       movieId        rating     timestamp
 count  2.000026e+07  2.000026e+07  2.000026e+07  2.000026e+07
@@ -53,18 +64,18 @@ min    1.000000e+00  1.000000e+00  5.000000e-01  7.896520e+08
 50%    6.914100e+04  2.167000e+03  3.500000e+00  1.103556e+09
 75%    1.036370e+05  4.770000e+03  4.000000e+00  1.225642e+09
 max    1.384930e+05  1.312620e+05  5.000000e+00  1.427784e+09</code></pre>
-<h2 id="pd.corr---list-correlations-amongst-variables"><code>pd.corr()</code> - List correlations amongst variables</h2>
+<h2 id="df.corr---list-correlations-amongst-variables"><code>df.corr()</code> - List correlations amongst variables</h2>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span>(ratings.corr())</code></pre></div>
 <pre><code>             userId   movieId    rating  timestamp
 userId     1.000000 -0.000850  0.001175  -0.003101
 movieId   -0.000850  1.000000  0.002606   0.459096
 rating     0.001175  0.002606  1.000000  -0.000512
 timestamp -0.003101  0.459096 -0.000512   1.000000</code></pre>
-<h2 id="other-aggregate-functions-pd.-min-max-std-mean">Other aggregate functions: <code>pd.</code> <code>min()</code>, <code>max()</code>, <code>std()</code>, <code>mean()</code></h2>
+<h2 id="other-aggregate-functions-df.-min-max-std-mean">Other aggregate functions: <code>df.</code> <code>min()</code>, <code>max()</code>, <code>std()</code>, <code>mean()</code></h2>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span>(ratings.mode())</code></pre></div>
 <pre><code>   userId  movieId  rating  timestamp
 0  118205      296     4.0  825638400</code></pre>
-<h2 id="anypdcol1-n-allpdcol1-n"><code>any(pd['col1'] &gt; n)</code>, <code>all(pd['col1'] &gt; n)</code></h2>
+<h2 id="anydfcol1-n-alldfcol1-n"><code>any(df['col1'] &gt; n)</code>, <code>all(df['col1'] &gt; n)</code></h2>
 <p>Test if any or all cells in a column fit a logical condition</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">any</span>(ratings[<span class="st">&#39;rating&#39;</span>] <span class="op">==</span> <span class="dv">0</span>), <span class="bu">all</span>(ratings[<span class="st">&#39;rating&#39;</span>] <span class="op">&gt;</span> <span class="dv">0</span>)</code></pre></div>
 <pre><code>(False, True)</code></pre>

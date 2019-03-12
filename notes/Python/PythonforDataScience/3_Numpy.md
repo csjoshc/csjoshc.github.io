@@ -6,14 +6,21 @@
   <link rel="stylesheet" href="../../../cssthemes/github.css">
 </head>
 
-- [Numpy](#numpy)
+-- [Numpy](#numpy)
   - [Creating column array](#creating-column-array)
   - [Boolean indexing](#boolean-indexing)
     - [Multiple conditionals and assigning values where `True`](#multiple-conditionals-and-assigning-values-where-true)
+    - [Assigning new values using logical filter](#assigning-new-values-using-logical-filter)
   - [`np.array` data types](#nparray-data-types)
   - [`np.array` operations - `array.dot()`, `np.arange()`, `array.T`, `array.where()`](#nparray-operations---arraydot-nparange-arrayt-arraywhere)
-  - [np statistics and set opperations - array.*: `min()`, `max()` ,`mean()`, `sum()`, `median()`](#np-statistics-and-set-opperations---array-min-max-mean-sum-median)
-    - [Set operations - `.intersect1d()`, `.setdiff1d()`, `.in1d()`](#set-operations---intersect1d-setdiff1d-in1d)
+    - [Get a sequence within a range by a certain step](#get-a-sequence-within-a-range-by-a-certain-step)
+    - [Filter values from one of two matrices](#filter-values-from-one-of-two-matrices)
+  - [np statistics and set operations - array.*: `min()`, `max()` ,`mean()`, `sum()`, `median()`](#np-statistics-and-set-operations---array-min-max-mean-sum-median)
+  - [Sorting Arrays and finding uniques - `array.sort()`, `np.unique(array)`](#sorting-arrays-and-finding-uniques---arraysort-npuniquearray)
+  - [Set operations on arrays - `.intersect1d()`, `.setdiff1d()`, `.in1d()`](#set-operations-on-arrays---intersect1d-setdiff1d-in1d)
+    - [`intersect1d`](#intersect1d)
+    - [`setdiff1d`](#setdiff1d)
+    - [`in1d`](#in1d)
   - [Broadcasting](#broadcasting)
 
 

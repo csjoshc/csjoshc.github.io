@@ -6,18 +6,7 @@
   <link rel="stylesheet" href="../../../cssthemes/github.css">
 </head>
 
-
-```python
-import sys
-print(sys.executable)
-from IPython.core.interactiveshell import InteractiveShell
-InteractiveShell.ast_node_interactivity = "all"
-```
-
-    /home/jcmint/anaconda3/envs/learningenv/bin/python
-
-
-[Sets](#sets)
+- [Sets](#sets)
   - [Convention - CAPITAL for sets, lowercase for its elements](#convention---capital-for-sets-lowercase-for-its-elements)
   - [Sets in Python](#sets-in-python)
 - [Set visualization](#set-visualization)
@@ -35,6 +24,17 @@ InteractiveShell.ast_node_interactivity = "all"
 - [Cartesian Products](#cartesian-products)
   - [Generating Cartesian products in Python](#generating-cartesian-products-in-python)
 - [Russell's Paradox](#russells-paradox)
+
+
+```python
+import sys
+print(sys.executable)
+from IPython.core.interactiveshell import InteractiveShell
+InteractiveShell.ast_node_interactivity = "all"
+```
+
+    /home/jcmint/anaconda3/envs/learningenv/bin/python
+
 
 # Sets
 
