@@ -7,12 +7,12 @@
 </head>
 
 - [Dataframes - Introduction](#dataframes---introduction)
-  - [`df.iloc(n)` - Accessing rows](#dfilocn---accessing-rows)
-  - [`df.columns` - Listing columns](#dfcolumns---listing-columns)
-  - [`df.describe()` - List summary statistics (count, std, quartiles)](#dfdescribe---list-summary-statistics-count-std-quartiles)
-  - [`df.corr()` - List correlations amongst variables](#dfcorr---list-correlations-amongst-variables)
-  - [Other aggregate functions: `df.` `min()`, `max()`, `std()`, `mean()`](#other-aggregate-functions-df-min-max-std-mean)
-  - [`any(df['col1'] > n)`, `all(df['col1'] > n)`](#anydfcol1--n-alldfcol1--n)
+  - [**df.iloc(n)** - Accessing rows](#dfilocn---accessing-rows)
+  - [**df.columns** - Listing columns](#dfcolumns---listing-columns)
+  - [**df.describe()** - List summary statistics (count, std, quartiles)](#dfdescribe---list-summary-statistics-count-std-quartiles)
+  - [**df.corr()** - List correlations amongst variables](#dfcorr---list-correlations-amongst-variables)
+  - [Other aggregate functions: **df. min(), max(), std(), mean()**](#other-aggregate-functions-df-min-max-std-mean)
+  - [**any(df['col1'] > n), all(df['col1'] > n)**](#anydfcol1--n-alldfcol1--n)
   - [Filtering columns (return boolean col)](#filtering-columns-return-boolean-col)
   - [Other useful commands](#other-useful-commands)
 
@@ -59,7 +59,7 @@ print(tabulate(movies.head(), headers=movies.columns, tablefmt='psql'))
     +----+-----------+------------------------------------+---------------------------------------------+
 
 
-## `df.iloc(n)` - Accessing rows
+## **df.iloc(n)** - Accessing rows
 
 
 ```python
@@ -77,7 +77,7 @@ row_0
 
 
 
-## `df.columns` - Listing columns
+## **df.columns** - Listing columns
 
 
 ```python
@@ -91,7 +91,7 @@ tags.columns
 
 
 
-## `df.describe()` - List summary statistics (count, std, quartiles)
+## **df.describe()** - List summary statistics (count, std, quartiles)
 
 
 ```python
@@ -109,7 +109,7 @@ print(ratings.describe())
     max    1.384930e+05  1.312620e+05  5.000000e+00  1.427784e+09
 
 
-## `df.corr()` - List correlations amongst variables
+## **df.corr()** - List correlations amongst variables
 
 
 ```python
@@ -123,7 +123,7 @@ print(ratings.corr())
     timestamp -0.003101  0.459096 -0.000512   1.000000
 
 
-## Other aggregate functions: `df.` `min()`, `max()`, `std()`, `mean()`
+## Other aggregate functions: **df. min(), max(), std(), mean()**
 
 
 ```python
@@ -134,7 +134,7 @@ print(ratings.mode())
     0  118205      296     4.0  825638400
 
 
-## `any(df['col1'] > n)`, `all(df['col1'] > n)`
+## **any(df['col1'] > n), all(df['col1'] > n)**
 Test if any or all cells in a column fit a logical condition
 
 

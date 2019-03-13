@@ -1,3 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #232629; color: #cfcfc2; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; background-color: #232629; color: #7a7c7d; border-right: 1px solid #7a7c7d; }
+td.sourceCode { padding-left: 5px; }
+pre, code { color: #cfcfc2; background-color: #232629; }
+code > span.kw { color: #cfcfc2; } /* Keyword */
+code > span.dt { color: #2980b9; } /* DataType */
+code > span.dv { color: #f67400; } /* DecVal */
+code > span.bn { color: #f67400; } /* BaseN */
+code > span.fl { color: #f67400; } /* Float */
+code > span.cn { color: #27aeae; } /* Constant */
+code > span.ch { color: #3daee9; } /* Char */
+code > span.sc { color: #3daee9; } /* SpecialChar */
+code > span.st { color: #f44f4f; } /* String */
+code > span.vs { color: #da4453; } /* VerbatimString */
+code > span.ss { color: #da4453; } /* SpecialString */
+code > span.im { color: #27ae60; } /* Import */
+code > span.co { color: #7a7c7d; } /* Comment */
+code > span.do { color: #a43340; } /* Documentation */
+code > span.an { color: #3f8058; } /* Annotation */
+code > span.cv { color: #7f8c8d; } /* CommentVar */
+code > span.ot { color: #27ae60; } /* Other */
+code > span.fu { color: #8e44ad; } /* Function */
+code > span.va { color: #27aeae; } /* Variable */
+code > span.cf { color: #fdbc4b; } /* ControlFlow */
+code > span.op { color: #cfcfc2; } /* Operator */
+code > span.bu { color: #7f8c8d; } /* BuiltIn */
+code > span.ex { color: #0099ff; } /* Extension */
+code > span.pp { color: #27ae60; } /* Preprocessor */
+code > span.at { color: #2980b9; } /* Attribute */
+code > span.re { color: #2980b9; } /* RegionMarker */
+code > span.in { color: #c45b00; } /* Information */
+code > span.wa { color: #da4453; } /* Warning */
+code > span.al { color: #95da4c; } /* Alert */
+code > span.er { color: #da4453; } /* Error */
+code > span. { color: #cfcfc2; } /* Normal */
+  </style>
+</head>
+<body>
 <p><a href="../../../index.html">Go back to index</a></p>
 <a href="../base.html">Go back to Python Portal</a>
 <head>
@@ -5,17 +55,17 @@
 </head>
 <ul>
 <li><a href="#manipulating-data">Manipulating Data</a></li>
-<li><a href="#dfcol1-col2groupbycol1---aggregating-and-grouping"><code>df[['col1', 'col2']].groupby('col1')</code> - Aggregating and Grouping</a></li>
+<li><a href="#dfcol1-col2groupbycol1---aggregating-and-grouping"><strong>df[['col1', 'col2']].groupby('col1')</strong> - Aggregating and Grouping</a></li>
 <li><a href="#plotting-aggregated-data">Plotting aggregated data</a></li>
 <li><a href="#filtering">Filtering</a>
 <ul>
 <li><a href="#filtering-based-on-string-matching">Filtering based on string matching</a></li>
 </ul></li>
 <li><a href="#joining-data">Joining Data</a></li>
-<li><a href="#pdconcatdf1-df2---stack-dataframes"><code>pd.concat([df1, df2])</code> - Stack dataframes</a></li>
-<li><a href="#df1appenddf2---stack-dataframes"><code>df1.append(df2)</code> - Stack dataframes</a></li>
-<li><a href="#inner-join---using-pdconcat-with-axis--1-join--%22inner%22"><strong>Inner join</strong> - using <code>pd.concat</code> with <code>axis = 1, join = &quot;inner&quot;</code></a></li>
-<li><a href="#df1mergedf2-on--col1-howinner---the-actual-inner-join">`df1.merge(df2, on = 'col1', how='inner') - The actual inner join</a></li>
+<li><a href="#pdconcatdf1-df2---stack-dataframes"><strong>pd.concat([df1, df2])</strong> - Stack dataframes</a></li>
+<li><a href="#df1appenddf2---stack-dataframes"><strong>df1.append(df2)</strong> - Stack dataframes</a></li>
+<li><a href="#inner-join---using-pdconcat-with-axis--1-join--%22inner%22"><strong>Inner join</strong> - using <strong>pd.concat</strong> with <strong>axis = 1, join = &quot;inner&quot;</strong></a></li>
+<li><a href="#df1mergedf2-on--col1-howinner---the-actual-inner-join"><strong>df1.merge(df2, on = 'col1', how='inner')</strong> - The actual inner join</a></li>
 <li><a href="#chaining-together-merges">Chaining together merges</a></li>
 <li><a href="#combining-everything">Combining everything</a></li>
 </ul>
@@ -45,7 +95,7 @@ ratings <span class="op">=</span> pd.read_csv(<span class="st">&#39;../../../../
 2       1       32     3.5  1112484819
 3       1       47     3.5  1112484727
 4       1       50     3.5  1112484580</code></pre>
-<h2 id="dfcol1-col2.groupbycol1---aggregating-and-grouping"><code>df[['col1', 'col2']].groupby('col1')</code> - Aggregating and Grouping</h2>
+<h2 id="dfcol1-col2.groupbycol1---aggregating-and-grouping"><strong>df[['col1', 'col2']].groupby('col1')</strong> - Aggregating and Grouping</h2>
 <p>It makes sense to calculate different aggregate stats for different groupings. <code>groupby</code> doesn't do any aggregate calculations by default - it just reorders the df so that the same values in the grouping column are all consecutive. You can also use .count() on a grouping.</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">user_ratings <span class="op">=</span> ratings[[<span class="st">&#39;userId&#39;</span>, <span class="st">&#39;rating&#39;</span>]].groupby(<span class="st">&#39;userId&#39;</span>).mean() 
 <span class="bu">print</span>(user_ratings.head(<span class="dv">5</span>))
@@ -137,7 +187,7 @@ the_anime <span class="op">=</span> movies[is_anime]
 +-----+-----------+-------------------------+---------------------------------------------+</code></pre>
 <h1 id="joining-data">Joining Data</h1>
 <p>Combining data from multiple dataframes or sources.</p>
-<h2 id="pd.concatdf1-df2---stack-dataframes"><code>pd.concat([df1, df2])</code> - Stack dataframes</h2>
+<h2 id="pd.concatdf1-df2---stack-dataframes"><strong>pd.concat([df1, df2])</strong> - Stack dataframes</h2>
 <p>The stacking is not really ideal in this scenario - it would be better to stack df's that have matched columns and data types.</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">stack_1 <span class="op">=</span> pd.concat([tags.head(), movies.head()])
 <span class="bu">print</span>(tabulate(stack_1, headers<span class="op">=</span>stack_1.columns, tablefmt<span class="op">=</span><span class="st">&#39;psql&#39;</span>))</code></pre></div>
@@ -165,7 +215,7 @@ To accept the future behavior, pass &#39;sort=False&#39;.
 To retain the current behavior and silence the warning, pass &#39;sort=True&#39;.
 
   &quot;&quot;&quot;Entry point for launching an IPython kernel.</code></pre>
-<h2 id="df1.appenddf2---stack-dataframes"><code>df1.append(df2)</code> - Stack dataframes</h2>
+<h2 id="df1.appenddf2---stack-dataframes"><strong>df1.append(df2)</strong> - Stack dataframes</h2>
 <p>This gives the same results as using stack.</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">append_1 <span class="op">=</span> tags.head().append(movies.head())
 <span class="bu">print</span>(tabulate(append_1 , headers<span class="op">=</span>append_1.columns, tablefmt<span class="op">=</span><span class="st">&#39;psql&#39;</span>))</code></pre></div>
@@ -183,7 +233,7 @@ To retain the current behavior and silence the warning, pass &#39;sort=True&#39;
 |  3 | Comedy|Drama|Romance                        |         4 | nan           | nan           | Waiting to Exhale (1995)           |      nan |
 |  4 | Comedy                                      |         5 | nan           | nan           | Father of the Bride Part II (1995) |      nan |
 +----+---------------------------------------------+-----------+---------------+---------------+------------------------------------+----------+</code></pre>
-<h2 id="inner-join---using-pd.concat-with-axis-1-join-inner"><strong>Inner join</strong> - using <code>pd.concat</code> with <code>axis = 1, join = &quot;inner&quot;</code></h2>
+<h2 id="inner-join---using-pd.concat-with-axis-1-join-inner"><strong>Inner join</strong> - using <strong>pd.concat</strong> with <strong>axis = 1, join = &quot;inner&quot;</strong></h2>
 <p>This is NOT the same as an INNER JOIN ON tb1.field1 = tbl2.field1 as it would be in SQL As a result, this isn't particularly useful since you're not matching as you combine data.</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">joined <span class="op">=</span> pd.concat([tags.head(), movies.head()], axis <span class="op">=</span> <span class="dv">1</span>, join <span class="op">=</span> <span class="st">&quot;inner&quot;</span>)
 <span class="bu">print</span>(tabulate(joined , headers<span class="op">=</span>joined.columns, tablefmt<span class="op">=</span><span class="st">&#39;psql&#39;</span>))</code></pre></div>
@@ -196,7 +246,7 @@ To retain the current behavior and silence the warning, pass &#39;sort=True&#39;
 |  3 |       65 |       521 | noir thriller |  1368149983 |         4 | Waiting to Exhale (1995)           | Comedy|Drama|Romance                        |
 |  4 |       65 |       592 | dark hero     |  1368150078 |         5 | Father of the Bride Part II (1995) | Comedy                                      |
 +----+----------+-----------+---------------+-------------+-----------+------------------------------------+---------------------------------------------+</code></pre>
-<h2 id="df1.mergedf2-on-col1-howinner---the-actual-inner-join">`df1.merge(df2, on = 'col1', how='inner') - The actual inner join</h2>
+<h2 id="df1.mergedf2-on-col1-howinner---the-actual-inner-join"><strong>df1.merge(df2, on = 'col1', how='inner')</strong> - The actual inner join</h2>
 <p>The <strong>actual</strong> INNER JOIN</p>
 <p>Below, inner jon the aggregated mean movie_ratings and a new movie_counts (the number of ratings per movie). Then inner join again to <code>movies</code> dataframe.</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">movie_counts <span class="op">=</span> ratings[[<span class="st">&#39;movieId&#39;</span>, <span class="st">&#39;rating&#39;</span>]].groupby(<span class="st">&#39;movieId&#39;</span>).count() 
@@ -250,7 +300,6 @@ merged_3 <span class="op">=</span> movie_ratings.merge(movie_counts, on <span cl
 |  4 |         5 |    3.06459 |      12161 | Father of the Bride Part II (1995) | Comedy                                      |
 +----+-----------+------------+------------+------------------------------------+---------------------------------------------+</code></pre>
 <h1 id="combining-everything">Combining everything</h1>
-<p>df[(df['col1'] &gt;= 1) &amp; (df['col1'] &lt;=1 )]</p>
 <p>After merging three dataframes with aggregated ratings and rating counts data, we can apply a filter - the <code>is_anime</code> which was a string filter, as well as a new filter for movies that were both highly rated (more than 4) and actively rated (more than 2000 ratings).</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">ani_summary <span class="op">=</span> merged_3[is_anime <span class="op">&amp;</span> (merged_3[<span class="st">&#39;rating_x&#39;</span>] <span class="op">&gt;</span> <span class="dv">4</span>) <span class="op">&amp;</span> (merged_3[<span class="st">&#39;rating_y&#39;</span>] <span class="op">&gt;</span> <span class="dv">2000</span>)]
 <span class="bu">print</span>(tabulate(ani_summary, headers<span class="op">=</span>ani_summary.columns, tablefmt<span class="op">=</span><span class="st">&#39;psql&#39;</span>))
@@ -276,3 +325,5 @@ merged_3 <span class="op">=</span> movie_ratings.merge(movie_counts, on <span cl
 /home/jcmint/anaconda3/envs/learningenv/lib/python3.7/site-packages/ipykernel_launcher.py:4: UserWarning: Boolean Series key will be reindexed to match DataFrame index.
   after removing the cwd from sys.path.</code></pre>
 <p>In conclusion, it seems that the two big categories were Wallance &amp; Gromit and Anime, which makes sense, although it misses some Pixar and Disney films which I would've expected to make the cut.</p>
+</body>
+</html>

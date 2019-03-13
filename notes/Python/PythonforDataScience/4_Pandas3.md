@@ -6,19 +6,17 @@
   <link rel="stylesheet" href="../../../cssthemes/github.css">
 </head>
 
-
-- [Dataframes - Transformations](#dataframes---transformations)
-  - [`df.copy()`](#dfcopy)
-  - [`df.shape`, `df.isnull().any()`, `df.dropna()`](#dfshape-dfisnullany-dfdropna)
+- [Dataframes - Subsetting & Cleaning](#dataframes---subsetting--cleaning)
+  - [**df.copy()**](#dfcopy)
+  - [**df.shape, df.isnull().any(), df.dropna()**](#dfshape-dfisnullany-dfdropna)
   - [Filling, Replacing, Imputations](#filling-replacing-imputations)
   - [Data Operations - Slicing](#data-operations---slicing)
     - [Subset rows](#subset-rows)
-    - [`df.value_counts()` - Frequency table](#dfvaluecounts---frequency-table)
+    - [**df.value_counts()** - Frequency table](#dfvaluecounts---frequency-table)
     - [Create derived variable column](#create-derived-variable-column)
     - [Add row by index location](#add-row-by-index-location)
     - [Drop row by index location](#drop-row-by-index-location)
-    - [Drop column - `del`](#drop-column---del)
-
+    - [Drop column - **del**](#drop-column---del)
 
 
 ```python
@@ -46,10 +44,10 @@ ratings = pd.read_csv('../../../../data/w4pd/ratings.csv')
 
 # Dataframes - Subsetting & Cleaning
 
-## `df.copy()` 
+## **df.copy()** 
 Certain ways of indexing will return a reference to the original object instead of a copy of an object. To make this explicit use `.copy()` when subsetting a df. 
 
-## `df.shape`, `df.isnull().any()`, `df.dropna()`
+## **df.shape, df.isnull().any(), df.dropna()**
 * Find the shape
 * Test if any values in each column are NA
 * Drop ROWS with null values. 
@@ -113,7 +111,7 @@ print(first_df, "\n", last_df)
     20000262  138493    71619     2.5  1255811136
 
 
-### `df.value_counts()` - Frequency table
+### **df.value_counts()** - Frequency table
 One column frequency table.
 
 
@@ -182,7 +180,7 @@ print(first_df)
     4      1      50    3.5  1112484580        0.7
 
 
-### Drop column - `del`
+### Drop column - **del**
 
 
 ```python

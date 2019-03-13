@@ -4,8 +4,8 @@
 <a href="index.html">Go back to index</a>
 
 # To do list for site
-* Write bash script to compile every md to html for files that were modified since the last time the script was run 
-* add python notes from OneNote
+* matplotlib image axes missing
+* rewrite headers to not have code - this breaks the TOC
 * floating toc makes better use of widescreen. [try this?](https://afeld.github.io/bootstrap-toc/)
 * picture for index page
 * grid format for some portal pages 
@@ -29,10 +29,3 @@
 `[rest link](/foldername/filename.extension)`
 
 * html block links - haven't tried it out yet, but seems to default to relative to the .md as well 
-
-## Syntax highlighting test
-```python
-s = "Python syntax"
-print s
-for 2 
-```

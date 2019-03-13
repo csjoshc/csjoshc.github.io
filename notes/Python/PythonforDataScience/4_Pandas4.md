@@ -6,19 +6,19 @@
   <link rel="stylesheet" href="../../../cssthemes/github.css">
 </head>
 
-
 - [Manipulating Data](#manipulating-data)
-  - [`df[['col1', 'col2']].groupby('col1')` - Aggregating and Grouping](#dfcol1-col2groupbycol1---aggregating-and-grouping)
+  - [**df[['col1', 'col2']].groupby('col1')** - Aggregating and Grouping](#dfcol1-col2groupbycol1---aggregating-and-grouping)
   - [Plotting aggregated data](#plotting-aggregated-data)
   - [Filtering](#filtering)
     - [Filtering based on string matching](#filtering-based-on-string-matching)
 - [Joining Data](#joining-data)
-  - [`pd.concat([df1, df2])` - Stack dataframes](#pdconcatdf1-df2---stack-dataframes)
-  - [`df1.append(df2)` - Stack dataframes](#df1appenddf2---stack-dataframes)
-  - [**Inner join** - using `pd.concat` with `axis = 1, join = "inner"`](#inner-join---using-pdconcat-with-axis--1-join--%22inner%22)
-  - [`df1.merge(df2, on = 'col1', how='inner') - The actual inner join](#df1mergedf2-on--col1-howinner---the-actual-inner-join)
+  - [**pd.concat([df1, df2])** - Stack dataframes](#pdconcatdf1-df2---stack-dataframes)
+  - [**df1.append(df2)** - Stack dataframes](#df1appenddf2---stack-dataframes)
+  - [**Inner join** - using **pd.concat** with **axis = 1, join = "inner"**](#inner-join---using-pdconcat-with-axis--1-join--%22inner%22)
+  - [**df1.merge(df2, on = 'col1', how='inner')** - The actual inner join](#df1mergedf2-on--col1-howinner---the-actual-inner-join)
   - [Chaining together merges](#chaining-together-merges)
 - [Combining everything](#combining-everything)
+
 
 
 ```python
@@ -59,7 +59,7 @@ print(ratings.head(5))
     4       1       50     3.5  1112484580
 
 
-## `df[['col1', 'col2']].groupby('col1')` - Aggregating and Grouping 
+## **df[['col1', 'col2']].groupby('col1')** - Aggregating and Grouping 
 It makes sense to calculate different aggregate stats for different groupings. `groupby` doesn't do any aggregate calculations by default - it just reorders the df so that the same values in the grouping column are all consecutive. You can also use .count() on a grouping. 
 
 
@@ -183,7 +183,7 @@ print(tabulate(the_anime.head(), headers=the_anime.columns, tablefmt='psql'))
 # Joining Data
 Combining data from multiple dataframes or sources. 
 
-## `pd.concat([df1, df2])` - Stack dataframes
+## **pd.concat([df1, df2])** - Stack dataframes
 The stacking is not really ideal in this scenario - it would be better to stack df's that have matched columns and data types.
 
 
@@ -218,7 +218,7 @@ print(tabulate(stack_1, headers=stack_1.columns, tablefmt='psql'))
       """Entry point for launching an IPython kernel.
 
 
-## `df1.append(df2)` - Stack dataframes
+## **df1.append(df2)** - Stack dataframes
 This gives the same results as using stack. 
 
 
@@ -243,7 +243,7 @@ print(tabulate(append_1 , headers=append_1.columns, tablefmt='psql'))
     +----+---------------------------------------------+-----------+---------------+---------------+------------------------------------+----------+
 
 
-## **Inner join** - using `pd.concat` with `axis = 1, join = "inner"`
+## **Inner join** - using **pd.concat** with **axis = 1, join = "inner"**
 This is NOT the same as an INNER JOIN ON tb1.field1 = tbl2.field1 as it would be in SQL
 As a result, this isn't particularly useful since you're not matching as you combine data. 
 
@@ -264,7 +264,7 @@ print(tabulate(joined , headers=joined.columns, tablefmt='psql'))
     +----+----------+-----------+---------------+-------------+-----------+------------------------------------+---------------------------------------------+
 
 
-## `df1.merge(df2, on = 'col1', how='inner') - The actual inner join
+## **df1.merge(df2, on = 'col1', how='inner')** - The actual inner join
 The **actual** INNER JOIN
 
 Below, inner jon the aggregated mean movie_ratings and a new movie_counts (the number of ratings per movie). Then inner join again to `movies` dataframe.
@@ -333,7 +333,6 @@ print(tabulate(merged_3.head(), headers=merged_3.columns, tablefmt='psql'))
 
 
 # Combining everything
-df[(df['col1'] >= 1) & (df['col1'] <=1 )]
 
 After merging three dataframes with aggregated ratings and rating counts data, we can apply a filter - the `is_anime` which was a string filter, as well as a new filter for movies that were both highly rated (more than 4) and actively rated (more than 2000 ratings). 
 

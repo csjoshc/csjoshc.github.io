@@ -12,15 +12,15 @@
 - [Set visualization](#set-visualization)
   - [Visualizing sets in Python - venn diagrams with numeric elements](#visualizing-sets-in-python---venn-diagrams-with-numeric-elements)
 - [Set Relations](#set-relations)
-  - [Equality, `==`](#equality)
-  - [Disjoint: `isdisjoint()`, `!=`](#disjoint-isdisjoint)
-  - [Subset: `issubset()`, `<=`; strict: `<`](#subset-issubset--strict)
+  - [Equality, **==**](#equality)
+  - [Disjoint: **isdisjoint(), !=**](#disjoint-isdisjoint)
+  - [Subset: **issubset(), <=**; strict: **<**](#subset-issubset--strict)
 - [Set Operations](#set-operations)
   - [Complement](#complement)
-  - [Intersection: `intersection()`, `&`](#intersection-intersection)
-  - [Union: `union`, `|`](#union-union)
-  - [Set difference: `.difference`, `-`](#set-difference-difference)
-  - [Symmetric Difference (OR): `symmetric_difference()`, `^`](#symmetric-difference-or-symmetricdifference)
+  - [Intersection: **intersection(), &**](#intersection-intersection)
+  - [Union: **union, |**](#union-union)
+  - [Set difference: **.difference, -**](#set-difference-difference)
+  - [Symmetric Difference (OR): **symmetric_difference(), ^**](#symmetric-difference-or-symmetricdifference)
 - [Cartesian Products](#cartesian-products)
   - [Generating Cartesian products in Python](#generating-cartesian-products-in-python)
 - [Russell's Paradox](#russells-paradox)
@@ -134,7 +134,7 @@ s5 = {3, 4}
 # Set Relations
 Return a logical value that describes the relations between sets. 
 
-## Equality, `==`
+## Equality, **==**
 Two sets are equal if they have exactly the same elements:
 
 
@@ -151,7 +151,7 @@ s1 == s2, s1 == s3, s1 == s5
 
 Since all elements need to be in both sets for the sets to be equal, Equality is difficult to achieve. 
 
-## Disjoint: `isdisjoint()`, `!=`
+## Disjoint: **isdisjoint(), !=**
 Two sets are disjoint if they share NO values - overlap region is EMPTY. Empty set is disjoint with all sets except all other empty sets. 
 
 ![](https://i.imgur.com/3NsZnOc.png)
@@ -168,7 +168,7 @@ s1 != s2, s1.isdisjoint(s4)
 
 
 
-## Subset: `issubset()`, `<=`; strict: `<`
+## Subset: **issubset(), <=**; strict: **<**
 If every element in a set is in another set, then it is a subset of that set. {0} is a subset of every set. 
 If two sets are subsets of each other, then they are equal (A <- B & B <- A means A == B)
 
@@ -199,7 +199,7 @@ Obtain a set that is the result of an operation between sets.
 
 ![](https://i.imgur.com/4AVqEgU.png)
 
-## Intersection: `intersection()`, `&`
+## Intersection: **intersection(), &**
 * Intersection is a set of the common elements between sets. 
 * The infinte set intersects every set.
 
@@ -218,7 +218,7 @@ s1.intersection(s1), s1.intersection(s4), s1.intersection(s5)
 
 
 
-## Union: `union`, `|`
+## Union: **union, |**
 Union is a non repetitive collection of elements in multiple sets. 
 
 ![](https://i.imgur.com/WYjQZea.png?1)
@@ -235,7 +235,7 @@ s1 | s2, s1.union(s5)
 
 
 
-## Set difference: `.difference`, `-`
+## Set difference: **.difference, -**
 A - B is the set of elements in A but not B: 
 
 ![](https://i.imgur.com/HSVLpwH.png)
@@ -252,7 +252,7 @@ s1 - s2, s1 - s4, s4 - s1
 
 
 
-## Symmetric Difference (OR): `symmetric_difference()`, `^`
+## Symmetric Difference (OR): **symmetric_difference(), ^**
 The set of elements that are in one but NOT BOTH sets:
 
 ![](https://i.imgur.com/iO57Gkh.png)
