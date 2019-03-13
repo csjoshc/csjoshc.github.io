@@ -44,7 +44,7 @@ ratings = pd.read_csv('../../../../data/w4pd/ratings.csv')
     ['genome-scores.csv', 'genome-tags.csv', 'Icon\r', 'links.csv', 'movies.csv', 'ratings.csv', 'README.txt', 'tags.csv']
 
 
-# Dataframes - Transformations
+# Dataframes - Subsetting & Cleaning
 
 ## `df.copy()` 
 Certain ways of indexing will return a reference to the original object instead of a copy of an object. To make this explicit use `.copy()` when subsetting a df. 

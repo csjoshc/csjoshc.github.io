@@ -30,22 +30,18 @@ First step is to convert all `.ipynb` files in the main directory and its subdir
 ! cd ..; find . -name "*.ipynb" -mtime -1 -exec jupyter nbconvert --to markdown {} \;
 ```
 
-    [NbConvertApp] Converting notebook ./notes/Python/ProbabilityandStatistics/2_Sets.ipynb to markdown
-    [NbConvertApp] Support files will be in 2_Sets_files/
-    [NbConvertApp] Making directory ./notes/Python/ProbabilityandStatistics/2_Sets_files
-    [NbConvertApp] Writing 7545 bytes to ./notes/Python/ProbabilityandStatistics/2_Sets.md
-    [NbConvertApp] Converting notebook ./notes/Python/PythonforDataScience/.ipynb_checkpoints/4_Pandas3-checkpoint.ipynb to markdown
-    [NbConvertApp] Writing 0 bytes to ./notes/Python/PythonforDataScience/.ipynb_checkpoints/4_Pandas3-checkpoint.md
-    [NbConvertApp] Converting notebook ./notes/Python/PythonforDataScience/2_Basics.ipynb to markdown
-    [NbConvertApp] Writing 4475 bytes to ./notes/Python/PythonforDataScience/2_Basics.md
-    [NbConvertApp] Converting notebook ./notes/Python/PythonforDataScience/3_Numpy.ipynb to markdown
-    [NbConvertApp] Writing 7857 bytes to ./notes/Python/PythonforDataScience/3_Numpy.md
-    [NbConvertApp] Converting notebook ./notes/Python/PythonforDataScience/4_Pandas.ipynb to markdown
-    [NbConvertApp] Writing 7689 bytes to ./notes/Python/PythonforDataScience/4_Pandas.md
     [NbConvertApp] Converting notebook ./notes/Python/PythonforDataScience/4_Pandas2.ipynb to markdown
     [NbConvertApp] Writing 5224 bytes to ./notes/Python/PythonforDataScience/4_Pandas2.md
     [NbConvertApp] Converting notebook ./notes/Python/PythonforDataScience/4_Pandas3.ipynb to markdown
-    [NbConvertApp] Writing 4235 bytes to ./notes/Python/PythonforDataScience/4_Pandas3.md
+    [NbConvertApp] Writing 4902 bytes to ./notes/Python/PythonforDataScience/4_Pandas3.md
+    [NbConvertApp] Converting notebook ./notes/Python/PythonforDataScience/4_Pandas4.ipynb to markdown
+    [NbConvertApp] Support files will be in 4_Pandas4_files/
+    [NbConvertApp] Making directory ./notes/Python/PythonforDataScience/4_Pandas4_files
+    [NbConvertApp] Writing 20271 bytes to ./notes/Python/PythonforDataScience/4_Pandas4.md
+    [NbConvertApp] Converting notebook ./notes/Python/PythonforDataScience/4_pandas5.ipynb to markdown
+    [NbConvertApp] Writing 6371 bytes to ./notes/Python/PythonforDataScience/4_pandas5.md
+    [NbConvertApp] Converting notebook ./notes/Python/PythonforDataScience/5_visualization.ipynb to markdown
+    [NbConvertApp] Writing 1026 bytes to ./notes/Python/PythonforDataScience/5_visualization.md
     [NbConvertApp] Converting notebook ./utils/01_BatchConversions.ipynb to markdown
     [NbConvertApp] Writing 3956 bytes to ./utils/01_BatchConversions.md
 
@@ -59,13 +55,16 @@ The final step is convering all `.md` files that were recently modified.
 ! cd ..;  find ./ -iname "*.md" -mtime -1 -ls -exec sh -c 'pandoc ${0} -f markdown -t html  -o  ${0%.md}.html' {} \;
 ```
 
-      1157236      4 -rwxrwxrwx   1 jcmint   jcmint       1016 Mar 11 21:53 ./notes/Python/base.md
-      1157209      8 -rwxrwxrwx   1 jcmint   jcmint       7559 Mar 11 22:53 ./notes/Python/ProbabilityandStatistics/2_Sets.md
-      1157384      0 -rwxrwxrwx   1 jcmint   jcmint          0 Mar 11 22:53 ./notes/Python/PythonforDataScience/.ipynb_checkpoints/4_Pandas3-checkpoint.md
-      1157223      8 -rwxrwxrwx   1 jcmint   jcmint       4475 Mar 11 22:53 ./notes/Python/PythonforDataScience/2_Basics.md
-      1157226      8 -rwxrwxrwx   1 jcmint   jcmint       7857 Mar 11 22:53 ./notes/Python/PythonforDataScience/3_Numpy.md
-      1157229      8 -rwxrwxrwx   1 jcmint   jcmint       7689 Mar 11 22:53 ./notes/Python/PythonforDataScience/4_Pandas.md
-      1157232      8 -rwxrwxrwx   1 jcmint   jcmint       5224 Mar 11 22:53 ./notes/Python/PythonforDataScience/4_Pandas2.md
-      1157386      8 -rwxrwxrwx   1 jcmint   jcmint       4235 Mar 11 22:53 ./notes/Python/PythonforDataScience/4_Pandas3.md
-      1157554      4 -rwxrwxrwx   1 jcmint   jcmint       3956 Mar 11 22:53 ./utils/01_BatchConversions.md
+      1157236      4 -rwxrwxrwx   1 jcmint   jcmint       1017 Mar 11 22:56 ./notes/Python/base.md
+      1157209      8 -rwxrwxrwx   1 jcmint   jcmint       7559 Mar 11 22:57 ./notes/Python/ProbabilityandStatistics/2_Sets.md
+      1157223      8 -rwxrwxrwx   1 jcmint   jcmint       4475 Mar 11 22:57 ./notes/Python/PythonforDataScience/2_Basics.md
+      1157226      8 -rwxrwxrwx   1 jcmint   jcmint       7857 Mar 11 22:57 ./notes/Python/PythonforDataScience/3_Numpy.md
+      1157229      8 -rwxrwxrwx   1 jcmint   jcmint       7689 Mar 11 22:57 ./notes/Python/PythonforDataScience/4_Pandas.md
+      1157232      8 -rwxrwxrwx   1 jcmint   jcmint       5224 Mar 12 22:39 ./notes/Python/PythonforDataScience/4_Pandas2.md
+      1157386      8 -rwxrwxrwx   1 jcmint   jcmint       4902 Mar 12 22:39 ./notes/Python/PythonforDataScience/4_Pandas3.md
+      1154906     20 -rwxrwxrwx   1 jcmint   jcmint      20273 Mar 12 22:39 ./notes/Python/PythonforDataScience/4_Pandas4.md
+      1154907      8 -rwxrwxrwx   1 jcmint   jcmint       6371 Mar 12 22:39 ./notes/Python/PythonforDataScience/4_pandas5.md
+      1157457      4 -rwxrwxrwx   1 jcmint   jcmint       1026 Mar 12 22:39 ./notes/Python/PythonforDataScience/5_visualization.md
+      1157554      4 -rwxrwxrwx   1 jcmint   jcmint       3956 Mar 12 22:39 ./utils/01_BatchConversions.md
+      1157584      1 -rwxrwxrwx   1 jcmint   jcmint        252 Mar 11 23:12 ./utils/base.md
 
