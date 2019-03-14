@@ -4,6 +4,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
+  <meta name="date" content="2019-03-13" />
   <title></title>
   <style type="text/css">code{white-space: pre;}</style>
   <style type="text/css">
@@ -48,32 +49,34 @@ code > span. { color: #cfcfc2; } /* Normal */
   </style>
 </head>
 <body>
-<p><a href="../../../index.html">Go back to index</a></p>
-<a href="../base.html">Go back to Python Portal</a>
-<head>
-<link rel="stylesheet" href="../../../cssthemes/github.css">
-</head>
+<div id="TOC">
 <ul>
 <li><a href="#pandas---introduction">Pandas - Introduction</a></li>
-<li><a href="#series">Series</a></li>
-<li><a href="#accessing-values-by-key-or-index">Accessing values by key or index</a>
-<ul>
+<li><a href="#series">Series</a><ul>
+<li><a href="#accessing-values-by-key-or-index">Accessing values by key or index</a><ul>
 <li><a href="#listing-keys">Listing keys</a></li>
 <li><a href="#access-value-by-key-or-index">Access value by key or Index</a></li>
 <li><a href="#test-if-key-is-in-series">Test if key is in Series</a></li>
 <li><a href="#multiply-numbers-and-strings">Multiply numbers and strings</a></li>
 </ul></li>
-<li><a href="#dataframes">Dataframes</a></li>
-<li><a href="#access--operations">Access &amp; Operations</a>
-<ul>
+</ul></li>
+<li><a href="#dataframes">Dataframes</a><ul>
+<li><a href="#access-operations">Access &amp; Operations</a><ul>
 <li><a href="#accessing-columns">Accessing Columns</a></li>
 <li><a href="#creating-new-columns">Creating new columns</a></li>
-<li><a href="#removing-columns---del">Removing columns - del</a></li>
+<li><a href="#removing-columns---del">Removing columns - <code>del</code></a></li>
 <li><a href="#inserting-columnns">Inserting columnns</a></li>
 <li><a href="#accessing-a-subslice">Accessing a subslice</a></li>
 </ul></li>
 <li><a href="#dictionary---dataframe">Dictionary -&gt; Dataframe</a></li>
+</ul></li>
 </ul>
+</div>
+<p><a href="../../../index.html">Go back to index</a></p>
+<a href="../base.html">Go back to Python Portal</a>
+<head>
+<link rel="stylesheet" href="../../../cssthemes/github.css">
+</head>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> sys
 <span class="bu">print</span>(sys.executable)
 <span class="im">from</span> IPython.core.interactiveshell <span class="im">import</span> InteractiveShell
@@ -192,7 +195,7 @@ Name: product, dtype: float64
 | clock  |     3 |   nan | False |
 | nancy  |   nan |    20 | True  |
 +--------+-------+-------+-------+</code></pre>
-<h3 id="removing-columns---del">Removing columns - del</h3>
+<h3 id="removing-columns---del">Removing columns - <code>del</code></h3>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">del</span>(df[<span class="st">&#39;two&#39;</span>])
 <span class="bu">print</span>(tabulate(df, headers<span class="op">=</span>df.columns, tablefmt<span class="op">=</span><span class="st">&#39;psql&#39;</span>))</code></pre></div>
 <pre><code>+--------+-------+-------+

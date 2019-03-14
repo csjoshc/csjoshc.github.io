@@ -20,6 +20,14 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
+div #TOC {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 200px;
+  height: 100%;
+  overflow:auto;
+}
 
 body {
   font-family: Helvetica, arial, sans-serif;
@@ -112,8 +120,8 @@ h6 tt, h6 code {
 
 h1 {
   font-size: 28px;
-  color: rgba(40, 240, 67, 1);
-  border-bottom: 2px solid rgba(40, 240, 67, 1);
+  color: rgba(25, 114, 37, 1);
+  border-bottom: 2px solid rgba(25, 114, 37, 1);
 }
 
 h2 {
@@ -381,11 +389,11 @@ span.float-right > span {
 }
 
 code, tt {
-  margin: 0 5px;
-  padding: 0 5px;
+  margin: 0 0px;
+  padding: 0 0px;
   white-space: nowrap;
-  background-color: rgba(39, 38, 38, 1);
-  
+  background-color: rgba(0, 0, 0, 1);
+  color: rgb(207, 203, 172);
   border-radius: 3px;
 }
 
@@ -394,14 +402,15 @@ pre code {
   padding: 0;
   white-space: pre;
   border: none;
-  background-color: rgba(39, 38, 38, 1);
-  
+  background-color: rgba(0, 0, 0, 1);
+  /* background-color: rgb(27, 27, 27);*/
+
 }
 
 .highlight pre {
-  background-color: rgba(39, 38, 38, 1);
+
   border: 1px solid rgba(204, 204, 204, 1);
-  
+   color: rgb(207, 203, 172);
   font-size: 13px;
   line-height: 19px;
   overflow: auto;
@@ -410,14 +419,14 @@ pre code {
 }
 
 pre {
-  background-color: rgba(39, 38, 38, 1);
-  border: 1px solid rgba(204, 204, 204, 1);
-  
+
+ /*   background-color: rgb(27, 27, 27);*/
+ border: 1px solid rgba(66, 65, 65, 1);
   font-size: 13px;
   line-height: 19px;
   overflow: auto;
   padding: 6px 10px;
-  border-radius: 3px;
+  border-radius: 1px;
 }
 
 pre code, pre tt {

@@ -6,22 +6,6 @@
   <link rel="stylesheet" href="../../../cssthemes/github.css">
 </head>
 
-- [Numpy](#numpy)
-  - [Creating column array](#creating-column-array)
-  - [Boolean indexing](#boolean-indexing)
-    - [Multiple conditionals and assigning values where **True**](#multiple-conditionals-and-assigning-values-where-true)
-    - [Assigning new values using logical filter](#assigning-new-values-using-logical-filter)
-  - [**np.array** data types](#nparray-data-types)
-  - [**np.array** operations - **array.dot(), np.arange(), array.T, array.where()**](#nparray-operations---arraydot-nparange-arrayt-arraywhere)
-    - [Get a sequence within a range by a certain step](#get-a-sequence-within-a-range-by-a-certain-step)
-    - [Filter values from one of two matrices](#filter-values-from-one-of-two-matrices)
-  - [np statistics and set operations - array. **min(), max() ,mean(), sum(), median()**](#np-statistics-and-set-operations---array-min-max-mean-sum-median)
-  - [Sorting Arrays and finding uniques - **array.sort(), np.unique(array)**](#sorting-arrays-and-finding-uniques---arraysort-npuniquearray)
-  - [Set operations on arrays - **.intersect1d(), .setdiff1d(), .in1d()**](#set-operations-on-arrays---intersect1d-setdiff1d-in1d)
-    - [**intersect1d**](#intersect1d)
-    - [**setdiff1d**](#setdiff1d)
-    - [**in1d**](#in1d)
-  - [Broadcasting](#broadcasting)
 
 
 ```python
@@ -190,7 +174,7 @@ a1
 
 
 
-## **np.array** data types 
+## `np.array` data types 
 * Array types are explicit - you can't add in values of a different type from initialization time
 * you can force int and float array to have each other's data type 
 
@@ -201,7 +185,7 @@ ex2 = np.array([1.1, 2.2])
 ex3 = np.array(ex1, dtype = np.float64)
 ex4 = np.array(ex2, dtype=np.int64)
 
-# Coerced int array to fload, float to int (rounding DOWN to nearest int)
+# Coerced int array to float, float to int (rounding DOWN to nearest int)
 print(ex1.dtype, ex2.dtype, ex3.dtype, ex4.dtype, ex4)
 ```
 
@@ -227,7 +211,7 @@ ex5 * ex6
 
 
 
-## **np.array** operations - **array.dot(), np.arange(), array.T, array.where()**
+## `np.array` operations - `array.dot(), np.arange(), array.T, array.where()`
 * For matrix math, use the `np.array.*` functions instead of generic operations (*)
 
 
@@ -284,7 +268,7 @@ np.where(filter, ex5, ex6)
 
 
 
-## np statistics and set operations - array. **min(), max() ,mean(), sum(), median()**
+## np statistics and set operations - array. `min(), max() ,mean(), sum(), median()`
 For these functions, you can specify axis = 0 or 1 to get values by column or row
 
 
@@ -311,7 +295,7 @@ sorted.sort(axis = 0)
 print(sorted)
 sorted.sort(axis = 1)
 print(sorted)
-np.unique(a1)
+print(np.unique(a1))
 
 ```
 
@@ -328,7 +312,7 @@ np.unique(a1)
 
 
 
-## Set operations on arrays - **.intersect1d(), .setdiff1d(), .in1d()**
+## Set operations on arrays - `.intersect1d(), .setdiff1d(), .in1d()`
 
 
 ```python
@@ -336,7 +320,7 @@ s1 = np.array(['a', 'b', 'c'])
 s2 = np.array(['b', 'c', 'd']) 
 ```
 
-### **intersect1d**
+### `intersect1d`
 Values that are in both
 
 
@@ -351,7 +335,7 @@ np.intersect1d(s1, s2)
 
 
 
-### **setdiff1d**
+### `setdiff1d*`
 `['a']`, elements IN s1 but NOT in s2
 
 
@@ -380,7 +364,7 @@ np.setdiff1d(s1, s2)
 
 
 
-### **in1d**
+### `in1d`
 `[False  True  True] `- which elements of s1 are in s2? boolean 
 
 

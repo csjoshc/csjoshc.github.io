@@ -6,19 +6,6 @@
   <link rel="stylesheet" href="../../../cssthemes/github.css">
 </head>
 
-- [Python Basics](#python-basics)
-  - [Mutating lists and dictionaries](#mutating-lists-and-dictionaries)
-  - [String & list functions](#string--list-functions)
-    - [Adding to lists - **append**](#adding-to-lists---append)
-    - [Removing elements - **pop**](#removing-elements---pop)
-    - [Removing elements - **remove**](#removing-elements---remove)
-    - [Adding to list - **extend**](#adding-to-list---extend)
-    - [Removing elements - **del**](#removing-elements---del)
-  - [Dictionaries](#dictionaries)
-    - [Adding dictionary pair](#adding-dictionary-pair)
-    - [Removing Dictionary pair - **pop**](#removing-dictionary-pair---pop)
-    - [Removing dictionary pair - **del**](#removing-dictionary-pair---del)
-  - [Iterating through dictionaries by key value pairs](#iterating-through-dictionaries-by-key-value-pairs)
 
 
 ```python
@@ -58,7 +45,7 @@ word[1:3], 'He' in word, word.find('ll') # The lowest index start point
 
 
 
-### Adding to lists - **append**
+### Adding to lists - `append`
 
 
 ```python
@@ -76,7 +63,7 @@ list, newlist
 
 
 
-### Removing elements - **pop**
+### Removing elements - `pop`
 * Notice that list.pop(2) returns the element at position 2 in `list`
 * The int 3 is removed from list, and assigned to list2
 
@@ -93,7 +80,7 @@ list2, list, type(list2)
 
 
 
-### Removing elements - **remove**
+### Removing elements - `remove`
 list.remove(2) does not return a value - it just removes the value '1' (not the value at index = 1)
 
 
@@ -109,7 +96,7 @@ list3, list, newlist
 
 
 
-### Adding to list - **extend**
+### Adding to list - `extend`
 `newlist` continues to be mutated along with `list`
 
 
@@ -126,7 +113,7 @@ list, newlist
 
 
 
-### Removing elements - **del**
+### Removing elements - `del`
 `del` deletes the value at an INDEX, and returns nothing.
 
 
@@ -181,7 +168,7 @@ x, x == None, y, y == None, 'myid' in dict
 
 
 
-### Removing Dictionary pair - **pop**
+### Removing Dictionary pair - `pop`
 `3` is the value, the rest is `dict`
 
 
@@ -196,7 +183,7 @@ dict.pop(('string2', 2001)), dict
 
 
 
-### Removing dictionary pair - **del**
+### Removing dictionary pair - `del`
 newdict similar to newlist is mutated along with the original object
 
 

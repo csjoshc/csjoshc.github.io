@@ -6,18 +6,6 @@
   <link rel="stylesheet" href="../../../cssthemes/github.css">
 </head>
 
-- [Dataframe data types - strings & timestamps](#dataframe-data-types---strings--timestamps)
-  - [String functions](#string-functions)
-    - [**df['col1'].str.split(' ')** - Splitting columns of dataframe](#dfcol1strsplit----splitting-columns-of-dataframe)
-    - [**df['col'].str.contains(' ')** - Testing for string contents](#dfcolstrcontains----testing-for-string-contents)
-    - [**df['col1].str.replace('dark', 'light')** - Replace strings with other strings](#dfcol1strreplacedark-light---replace-strings-with-other-strings)
-    - [**df['col1'].str.extract('*')** - Match regex](#dfcol1strextract---match-regex)
-    - [**df['col1'].str.split(' ', expand = True)** - Split str column](#dfcol1strsplit--expand--true---split-str-column)
-    - [Cleanup](#cleanup)
-  - [Dealing with timestamps](#dealing-with-timestamps)
-    - [**pd.to_datetime(df['col1'], unit = 's')** - Convert timestamp](#pdtodatetimedfcol1-unit--s---convert-timestamp)
-    - [Using timestamp to filter](#using-timestamp-to-filter)
-    - [**df.sort_values(by ='col1', ascending = False)** Sort based on time](#dfsortvaluesby-col1-ascending--false-sort-based-on-time)
 
 
 ```python
@@ -44,7 +32,7 @@ tags = pd.read_csv('../../../../data/w4pd/tags.csv')
 ## String functions
 Str functions don't seem to mutate the original dataframe
 
-### **df['col1'].str.split(' ')** - Splitting columns of dataframe
+### `df['col1'].str.split(' ')` - Splitting columns of dataframe
 
 
 ```python
@@ -63,7 +51,7 @@ tags['tag'].str.split(' ').head()
 
 
 
-### **df['col'].str.contains(' ')** - Testing for string contents
+### `df['col'].str.contains(' ')` - Testing for string contents
 
 
 ```python
@@ -79,7 +67,7 @@ print(tags.head())
     4      65      592      dark hero  1368150078   True
 
 
-### **df['col1].str.replace('dark', 'light')** - Replace strings with other strings
+### `df['col1].str.replace('from', 'to')` - Replace strings with other strings
 
 
 ```python
@@ -95,7 +83,7 @@ print(tags.head())
     4      65      592      dark hero  1368150078   True     light hero
 
 
-### **df['col1'].str.extract('*')** - Match regex
+### `df['col1'].str.extract('*')` - Match regex
 Get the string that matches the reg expression
 
 
@@ -112,7 +100,7 @@ print(tags.head())
     4      65      592      dark hero  1368150078   True     light hero        da
 
 
-### **df['col1'].str.split(' ', expand = True)** - Split str column
+### `df['col1'].str.split(' ', expand = True)` - Split str column
 
 
 ```python
@@ -139,7 +127,7 @@ print(tags.head())
 ## Dealing with timestamps
 Need to convert UNIX POSIX timestamp to Python format before using it. 
 
-### **pd.to_datetime(df['col1'], unit = 's')** - Convert timestamp
+### `pd.to_datetime(df['col1'], unit = 's')` - Convert timestamp
 
 
 ```python
@@ -174,7 +162,7 @@ print(tabulate(tags.head(), headers=tags.columns, tablefmt='psql'))
     +----+----------+-----------+---------------+-------------+---------------------+---------------------+
 
 
-### **df.sort_values(by ='col1', ascending = False)** Sort based on time 
+### `df.sort_values(by ='col1', ascending = False)` Sort based on time 
 
 
 ```python

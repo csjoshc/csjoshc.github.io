@@ -6,21 +6,6 @@
   <link rel="stylesheet" href="../../../cssthemes/github.css">
 </head>
 
-- [Pandas - Introduction](#pandas---introduction)
-- [Series](#series)
-  - [Accessing values by key or index](#accessing-values-by-key-or-index)
-    - [Listing keys](#listing-keys)
-    - [Access value by key or Index](#access-value-by-key-or-index)
-    - [Test if key is in Series](#test-if-key-is-in-series)
-    - [Multiply numbers and strings](#multiply-numbers-and-strings)
-- [Dataframes](#dataframes)
-  - [Access & Operations](#access--operations)
-    - [Accessing Columns](#accessing-columns)
-    - [Creating new columns](#creating-new-columns)
-    - [Removing columns - del](#removing-columns---del)
-    - [Inserting columnns](#inserting-columnns)
-    - [Accessing a subslice](#accessing-a-subslice)
-  - [Dictionary -> Dataframe](#dictionary---dataframe)
 
 
 
@@ -242,7 +227,7 @@ print(tabulate(df, headers=df.columns, tablefmt='psql'))
     +--------+-------+-------+-------+
 
 
-### Removing columns - del
+### Removing columns - `del`
 
 
 ```python

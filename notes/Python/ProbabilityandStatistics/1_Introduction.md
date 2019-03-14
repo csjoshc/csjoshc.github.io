@@ -6,9 +6,6 @@
   <link rel="stylesheet" href="../../../css_themes/github.css">
 </head>
 
-- [Probability Theory](#probability-theory)
-- [Statistics](#statistics)
-- [Three Card Puzzle example](#three-card-puzzle-example)
 
 # Probability Theory
 

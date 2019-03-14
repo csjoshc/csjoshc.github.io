@@ -7,13 +7,6 @@
 </head>
 
 
-- [Introduction](#introduction)
-- [Steps for Data Analysis](#steps-for-data-analysis)
-  - [Acquisition](#acquisition)
-  - [Preparation](#preparation)
-  - [Analysis](#analysis)
-  - [Report results and then act](#report-results-and-then-act)
-
 Sources of data have massively grown, as well as advances in storage and computing at scale, increasing the demand for its processing to provide data driven predictions for a variety of industries. 
 
 # Introduction
