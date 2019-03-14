@@ -9,10 +9,11 @@
 This is just a simple summary of topic areas I want to cover, based on [this](https://hackernoon.com/the-2018-devops-roadmap-31588d8670cb) website. I've only looked up resources for Linux so far, since I feel I can better evaluate the value of resources once I start getting exposed to more of them. 
 
 ## Learn a Programming Language
-The website suggested either Java, Python or JavaScript. I am putting Python as one of several priorities, but probably not the top one right now - I really need to start moving down the DevOps roadmap, and I can take my time to fill in harder concepts like algorithms, advanced OOP or __these_special_functions__...
+The website suggested either Java, Python or JavaScript. I am putting Python as one of several priorities, but probably not the top one right now - I really need to start moving down the DevOps roadmap, and I can take my time to fill in harder concepts like algorithms, advanced OOP or __special_functions__
 
 ## Understand different OS concepts
 A list of mentioned topics: 
+
 * process management
 * Threads & Concurrency
 * I/O management
@@ -21,6 +22,7 @@ A list of mentioned topics:
 * File Systems
 
 Resource list [in the Linux Portal](/notes/Linux/base.html)
+
 Going through the four resources (so far) listed under Linux should be enough. It might also cover some things under "Terminal".
 
 ## Learn to Live in Terminal 
