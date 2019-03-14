@@ -5,25 +5,6 @@
   <link rel="stylesheet" href="../../../../cssthemes/github.css">
 </head>
 
-- [Command Line](#command-line)
-  - [`echo` and `pwd`](#echo-and-pwd)
-  - [`cd` - changing directory](#cd---changing-directory)
-  - [`ls` - listing directories](#ls---listing-directories)
-  - [`touch` - create new files](#touch---create-new-files)
-  - [`file` - inspect files](#file---inspect-files)
-  - [`cat` (concatenate) - combine file contents](#cat-concatenate---combine-file-contents)
-  - [`less` - get truncated preview](#less---get-truncated-preview)
-  - [`history` - past commands](#history---past-commands)
-  - [`cp` - Copy](#cp---copy)
-    - [Regex `cp` with `*`, `?` and `[]`](#regex-cp-with---and)
-    - [Recursive & interactive `cp` with `-i` and `-r`](#recursive--interactive-cp-with--i-and--r)
-  - [`mv` - Move & rename files](#mv---move--rename-files)
-    - [Renaming](#renaming)
-    - [Moving](#moving)
-  - [`mkdir` - make directories and subdirectories](#mkdir---make-directories-and-subdirectories)
-  - [`rm` and `rmdir` - delete files and directories](#rm-and-rmdir---delete-files-and-directories)
-      - [Test](#test)
-
 **Using linux mint based on ubuntu**
 # Command Line 
 

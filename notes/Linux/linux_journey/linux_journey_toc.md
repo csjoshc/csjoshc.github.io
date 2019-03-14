@@ -5,9 +5,7 @@
   <link rel="stylesheet" href="../../../cssthemes/github.css">
 </head>
 
-- [Basic topics](#basic-topics)
-- [Intermediate topics](#intermediate-topics)
-- [Networking topics](#networking-topics)
+
 
 # Basic topics
 1. [Command line](basic/01_comlin.html)

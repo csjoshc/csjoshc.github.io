@@ -5,12 +5,7 @@
   <link rel="stylesheet" href="../../cssthemes/github.css">
 </head>
 
-- [Intro to using Github](#intro-to-using-github)
-  - [Updating an existing repository](#updating-an-existing-repository)
-  - [Adding from remote](#adding-from-remote)
-  - [git checkout](#git-checkout)
-  - [Formatting](#formatting)
-  - [Compiling .md to html using task build in vscode](#compiling-md-to-html-using-task-build-in-vscode)
+
 
 
 # Intro to using Github

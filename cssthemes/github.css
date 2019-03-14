@@ -120,8 +120,9 @@ h6 tt, h6 code {
 
 h1 {
   font-size: 28px;
-  color: rgba(25, 114, 37, 1);
-  border-bottom: 2px solid rgba(25, 114, 37, 1);
+  border-bottom: 2px solid rgba(31, 151, 47, 1);
+  color: rgba(31, 151, 47, 1);
+  
 }
 
 h2 {
@@ -420,7 +421,8 @@ pre code {
 
 pre {
 
- /*   background-color: rgb(27, 27, 27);*/
+ /*   background-color: rgb(27, 27, 27);
+ or 	51	50	50 */
  border: 1px solid rgba(66, 65, 65, 1);
   font-size: 13px;
   line-height: 19px;

@@ -3,11 +3,6 @@
   <link rel="stylesheet" href="../../cssthemes/github.css">
 </head>
 
-- [Linux Portal page](#linux-portal-page)
-  - [Plan](#plan)
-  - [Self-service Resources](#self-service-resources)
-  - [Courses](#courses)
-
 # Linux Portal page
 
 ## Plan
