@@ -13,4 +13,4 @@
 
 # Devops plan
 
-[My notes based on the links above](/notes/Devops/roadmap_notes.html)
+[My notes based on the links above](roadmap_notes.html)

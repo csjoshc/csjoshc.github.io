@@ -56,15 +56,82 @@ tags['tag'].str.split(' ').head()
 
 ```python
 tags['isdark'] = tags['tag'].str.contains('dark') 
-print(tags.head())
+tags.head()
 ```
 
-       userId  movieId            tag   timestamp isdark
-    0      18     4141    Mark Waters  1240597180  False
-    1      65      208      dark hero  1368150078   True
-    2      65      353      dark hero  1368150079   True
-    3      65      521  noir thriller  1368149983  False
-    4      65      592      dark hero  1368150078   True
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>userId</th>
+      <th>movieId</th>
+      <th>tag</th>
+      <th>timestamp</th>
+      <th>isdark</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>18</td>
+      <td>4141</td>
+      <td>Mark Waters</td>
+      <td>1240597180</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>65</td>
+      <td>208</td>
+      <td>dark hero</td>
+      <td>1368150078</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>65</td>
+      <td>353</td>
+      <td>dark hero</td>
+      <td>1368150079</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>65</td>
+      <td>521</td>
+      <td>noir thriller</td>
+      <td>1368149983</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>65</td>
+      <td>592</td>
+      <td>dark hero</td>
+      <td>1368150078</td>
+      <td>True</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
 
 
 ### `df['col1].str.replace('from', 'to')` - Replace strings with other strings
@@ -72,15 +139,88 @@ print(tags.head())
 
 ```python
 tags['light tag'] = tags['tag'].str.replace('dark', 'light').head()
-print(tags.head())
+tags.head()
 ```
 
-       userId  movieId            tag   timestamp isdark      light tag
-    0      18     4141    Mark Waters  1240597180  False    Mark Waters
-    1      65      208      dark hero  1368150078   True     light hero
-    2      65      353      dark hero  1368150079   True     light hero
-    3      65      521  noir thriller  1368149983  False  noir thriller
-    4      65      592      dark hero  1368150078   True     light hero
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>userId</th>
+      <th>movieId</th>
+      <th>tag</th>
+      <th>timestamp</th>
+      <th>isdark</th>
+      <th>light tag</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>18</td>
+      <td>4141</td>
+      <td>Mark Waters</td>
+      <td>1240597180</td>
+      <td>False</td>
+      <td>Mark Waters</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>65</td>
+      <td>208</td>
+      <td>dark hero</td>
+      <td>1368150078</td>
+      <td>True</td>
+      <td>light hero</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>65</td>
+      <td>353</td>
+      <td>dark hero</td>
+      <td>1368150079</td>
+      <td>True</td>
+      <td>light hero</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>65</td>
+      <td>521</td>
+      <td>noir thriller</td>
+      <td>1368149983</td>
+      <td>False</td>
+      <td>noir thriller</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>65</td>
+      <td>592</td>
+      <td>dark hero</td>
+      <td>1368150078</td>
+      <td>True</td>
+      <td>light hero</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
 
 
 ### `df['col1'].str.extract('*')` - Match regex
@@ -89,15 +229,94 @@ Get the string that matches the reg expression
 
 ```python
 tags['first tag'] = tags['tag'].str.extract('([a-zA-Z][A-Za-z])') 
-print(tags.head())
+tags.head()
 ```
 
-       userId  movieId            tag   timestamp isdark      light tag first tag
-    0      18     4141    Mark Waters  1240597180  False    Mark Waters        Ma
-    1      65      208      dark hero  1368150078   True     light hero        da
-    2      65      353      dark hero  1368150079   True     light hero        da
-    3      65      521  noir thriller  1368149983  False  noir thriller        no
-    4      65      592      dark hero  1368150078   True     light hero        da
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>userId</th>
+      <th>movieId</th>
+      <th>tag</th>
+      <th>timestamp</th>
+      <th>isdark</th>
+      <th>light tag</th>
+      <th>first tag</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>18</td>
+      <td>4141</td>
+      <td>Mark Waters</td>
+      <td>1240597180</td>
+      <td>False</td>
+      <td>Mark Waters</td>
+      <td>Ma</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>65</td>
+      <td>208</td>
+      <td>dark hero</td>
+      <td>1368150078</td>
+      <td>True</td>
+      <td>light hero</td>
+      <td>da</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>65</td>
+      <td>353</td>
+      <td>dark hero</td>
+      <td>1368150079</td>
+      <td>True</td>
+      <td>light hero</td>
+      <td>da</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>65</td>
+      <td>521</td>
+      <td>noir thriller</td>
+      <td>1368149983</td>
+      <td>False</td>
+      <td>noir thriller</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>65</td>
+      <td>592</td>
+      <td>dark hero</td>
+      <td>1368150078</td>
+      <td>True</td>
+      <td>light hero</td>
+      <td>da</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
 
 
 ### `df['col1'].str.split(' ', expand = True)` - Split str column
@@ -105,15 +324,64 @@ print(tags.head())
 
 ```python
 output = tags['light tag'].str.split(' ', expand =True) 
-print(output.head())
+output.head()
 ```
 
-           0         1
-    0   Mark    Waters
-    1  light      hero
-    2  light      hero
-    3   noir  thriller
-    4  light      hero
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Mark</td>
+      <td>Waters</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>light</td>
+      <td>hero</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>light</td>
+      <td>hero</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>noir</td>
+      <td>thriller</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>light</td>
+      <td>hero</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
 
 
 ### Cleanup
@@ -121,8 +389,77 @@ print(output.head())
 
 ```python
 tags.drop(tags.columns[4:7], axis = 1, inplace=True)
-print(tags.head())
+tags.head()
 ```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>userId</th>
+      <th>movieId</th>
+      <th>tag</th>
+      <th>timestamp</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>18</td>
+      <td>4141</td>
+      <td>Mark Waters</td>
+      <td>1240597180</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>65</td>
+      <td>208</td>
+      <td>dark hero</td>
+      <td>1368150078</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>65</td>
+      <td>353</td>
+      <td>dark hero</td>
+      <td>1368150079</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>65</td>
+      <td>521</td>
+      <td>noir thriller</td>
+      <td>1368149983</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>65</td>
+      <td>592</td>
+      <td>dark hero</td>
+      <td>1368150078</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
 
 ## Dealing with timestamps
 Need to convert UNIX POSIX timestamp to Python format before using it. 
@@ -132,15 +469,82 @@ Need to convert UNIX POSIX timestamp to Python format before using it.
 
 ```python
 tags['parsed time'] = pd.to_datetime(tags['timestamp'], unit='s') 
-print(tags.head())
+tags.head()
 ```
 
-       userId  movieId            tag   timestamp         parsed time
-    0      18     4141    Mark Waters  1240597180 2009-04-24 18:19:40
-    1      65      208      dark hero  1368150078 2013-05-10 01:41:18
-    2      65      353      dark hero  1368150079 2013-05-10 01:41:19
-    3      65      521  noir thriller  1368149983 2013-05-10 01:39:43
-    4      65      592      dark hero  1368150078 2013-05-10 01:41:18
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>userId</th>
+      <th>movieId</th>
+      <th>tag</th>
+      <th>timestamp</th>
+      <th>parsed time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>18</td>
+      <td>4141</td>
+      <td>Mark Waters</td>
+      <td>1240597180</td>
+      <td>2009-04-24 18:19:40</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>65</td>
+      <td>208</td>
+      <td>dark hero</td>
+      <td>1368150078</td>
+      <td>2013-05-10 01:41:18</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>65</td>
+      <td>353</td>
+      <td>dark hero</td>
+      <td>1368150079</td>
+      <td>2013-05-10 01:41:19</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>65</td>
+      <td>521</td>
+      <td>noir thriller</td>
+      <td>1368149983</td>
+      <td>2013-05-10 01:39:43</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>65</td>
+      <td>592</td>
+      <td>dark hero</td>
+      <td>1368150078</td>
+      <td>2013-05-10 01:41:18</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
 
 
 ### Using timestamp to filter
@@ -148,18 +552,88 @@ print(tags.head())
 
 ```python
 tags['After Dec 31 2013'] = tags['parsed time'] > '2013-12-31' 
-print(tabulate(tags.head(), headers=tags.columns, tablefmt='psql'))
+tags.head()
 ```
 
-    +----+----------+-----------+---------------+-------------+---------------------+---------------------+
-    |    |   userId |   movieId | tag           |   timestamp | parsed time         | After Dec 31 2013   |
-    |----+----------+-----------+---------------+-------------+---------------------+---------------------|
-    |  0 |       18 |      4141 | Mark Waters   |  1240597180 | 2009-04-24 18:19:40 | False               |
-    |  1 |       65 |       208 | dark hero     |  1368150078 | 2013-05-10 01:41:18 | False               |
-    |  2 |       65 |       353 | dark hero     |  1368150079 | 2013-05-10 01:41:19 | False               |
-    |  3 |       65 |       521 | noir thriller |  1368149983 | 2013-05-10 01:39:43 | False               |
-    |  4 |       65 |       592 | dark hero     |  1368150078 | 2013-05-10 01:41:18 | False               |
-    +----+----------+-----------+---------------+-------------+---------------------+---------------------+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>userId</th>
+      <th>movieId</th>
+      <th>tag</th>
+      <th>timestamp</th>
+      <th>parsed time</th>
+      <th>After Dec 31 2013</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>18</td>
+      <td>4141</td>
+      <td>Mark Waters</td>
+      <td>1240597180</td>
+      <td>2009-04-24 18:19:40</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>65</td>
+      <td>208</td>
+      <td>dark hero</td>
+      <td>1368150078</td>
+      <td>2013-05-10 01:41:18</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>65</td>
+      <td>353</td>
+      <td>dark hero</td>
+      <td>1368150079</td>
+      <td>2013-05-10 01:41:19</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>65</td>
+      <td>521</td>
+      <td>noir thriller</td>
+      <td>1368149983</td>
+      <td>2013-05-10 01:39:43</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>65</td>
+      <td>592</td>
+      <td>dark hero</td>
+      <td>1368150078</td>
+      <td>2013-05-10 01:41:18</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
 
 
 ### `df.sort_values(by ='col1', ascending = False)` Sort based on time 
@@ -167,16 +641,86 @@ print(tabulate(tags.head(), headers=tags.columns, tablefmt='psql'))
 
 ```python
 tags = tags.sort_values(by = 'parsed time', ascending =False) 
-print(tabulate(tags.head(), headers=tags.columns, tablefmt='psql'))
+tags.head()
 ```
 
-    +--------+----------+-----------+---------------+-------------+---------------------+---------------------+
-    |        |   userId |   movieId | tag           |   timestamp | parsed time         | After Dec 31 2013   |
-    |--------+----------+-----------+---------------+-------------+---------------------+---------------------|
-    | 339178 |   102853 |    115149 | russian mafia |  1427771352 | 2015-03-31 03:09:12 | True                |
-    | 158780 |    46072 |      6058 | premonition   |  1427760764 | 2015-03-31 00:12:44 | True                |
-    | 158763 |    46072 |      3409 | premonition   |  1427760726 | 2015-03-31 00:12:06 | True                |
-    | 288375 |    87797 |       215 | Vienna        |  1427755801 | 2015-03-30 22:50:01 | True                |
-    | 290535 |    88044 |    106782 | profanity     |  1427754096 | 2015-03-30 22:21:36 | True                |
-    +--------+----------+-----------+---------------+-------------+---------------------+---------------------+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>userId</th>
+      <th>movieId</th>
+      <th>tag</th>
+      <th>timestamp</th>
+      <th>parsed time</th>
+      <th>After Dec 31 2013</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>339178</th>
+      <td>102853</td>
+      <td>115149</td>
+      <td>russian mafia</td>
+      <td>1427771352</td>
+      <td>2015-03-31 03:09:12</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>158780</th>
+      <td>46072</td>
+      <td>6058</td>
+      <td>premonition</td>
+      <td>1427760764</td>
+      <td>2015-03-31 00:12:44</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>158763</th>
+      <td>46072</td>
+      <td>3409</td>
+      <td>premonition</td>
+      <td>1427760726</td>
+      <td>2015-03-31 00:12:06</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>288375</th>
+      <td>87797</td>
+      <td>215</td>
+      <td>Vienna</td>
+      <td>1427755801</td>
+      <td>2015-03-30 22:50:01</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>290535</th>
+      <td>88044</td>
+      <td>106782</td>
+      <td>profanity</td>
+      <td>1427754096</td>
+      <td>2015-03-30 22:21:36</td>
+      <td>True</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
 

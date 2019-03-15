@@ -84,20 +84,139 @@ Linear interpolation (numeric)
 ```python
 first_df = ratings[1:5]
 last_df = ratings[-5:]
-print(first_df, "\n", last_df)
+first_df
+last_df
 ```
 
-       userId  movieId  rating   timestamp
-    1       1       29     3.5  1112484676
-    2       1       32     3.5  1112484819
-    3       1       47     3.5  1112484727
-    4       1       50     3.5  1112484580 
-               userId  movieId  rating   timestamp
-    20000258  138493    68954     4.5  1258126920
-    20000259  138493    69526     4.5  1259865108
-    20000260  138493    69644     3.0  1260209457
-    20000261  138493    70286     5.0  1258126944
-    20000262  138493    71619     2.5  1255811136
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>userId</th>
+      <th>movieId</th>
+      <th>rating</th>
+      <th>timestamp</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>29</td>
+      <td>3.5</td>
+      <td>1112484676</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>32</td>
+      <td>3.5</td>
+      <td>1112484819</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>47</td>
+      <td>3.5</td>
+      <td>1112484727</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>50</td>
+      <td>3.5</td>
+      <td>1112484580</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>userId</th>
+      <th>movieId</th>
+      <th>rating</th>
+      <th>timestamp</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>20000258</th>
+      <td>138493</td>
+      <td>68954</td>
+      <td>4.5</td>
+      <td>1258126920</td>
+    </tr>
+    <tr>
+      <th>20000259</th>
+      <td>138493</td>
+      <td>69526</td>
+      <td>4.5</td>
+      <td>1259865108</td>
+    </tr>
+    <tr>
+      <th>20000260</th>
+      <td>138493</td>
+      <td>69644</td>
+      <td>3.0</td>
+      <td>1260209457</td>
+    </tr>
+    <tr>
+      <th>20000261</th>
+      <td>138493</td>
+      <td>70286</td>
+      <td>5.0</td>
+      <td>1258126944</td>
+    </tr>
+    <tr>
+      <th>20000262</th>
+      <td>138493</td>
+      <td>71619</td>
+      <td>2.5</td>
+      <td>1255811136</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
 
 
 ### `df.value_counts()` - Frequency table
@@ -130,14 +249,67 @@ ratings['rating'].value_counts()
 
 ```python
 first_df['normalized'] = first_df['rating']/5
-print(first_df[['rating', 'normalized']])
+first_df[['rating', 'normalized']]
 ```
 
-       rating  normalized
-    1     3.5         0.7
-    2     3.5         0.7
-    3     3.5         0.7
-    4     3.5         0.7
+    /home/jcmint/anaconda3/envs/learningenv/lib/python3.7/site-packages/ipykernel_launcher.py:1: SettingWithCopyWarning: 
+    A value is trying to be set on a copy of a slice from a DataFrame.
+    Try using .loc[row_indexer,col_indexer] = value instead
+    
+    See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stable/indexing.html#indexing-view-versus-copy
+      """Entry point for launching an IPython kernel.
+
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>rating</th>
+      <th>normalized</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>3.5</td>
+      <td>0.7</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3.5</td>
+      <td>0.7</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3.5</td>
+      <td>0.7</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>3.5</td>
+      <td>0.7</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
 
 
 ### Add row by index location
@@ -145,14 +317,74 @@ print(first_df[['rating', 'normalized']])
 
 ```python
 first_df.loc[3] = ["test", "test2", "test3", False, True]
-print(first_df)
+first_df
 ```
 
-      userId movieId rating   timestamp normalized
-    1      1      29    3.5  1112484676        0.7
-    2      1      32    3.5  1112484819        0.7
-    3   test   test2  test3       False       True
-    4      1      50    3.5  1112484580        0.7
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>userId</th>
+      <th>movieId</th>
+      <th>rating</th>
+      <th>timestamp</th>
+      <th>normalized</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>29</td>
+      <td>3.5</td>
+      <td>1112484676</td>
+      <td>0.7</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>32</td>
+      <td>3.5</td>
+      <td>1112484819</td>
+      <td>0.7</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>test</td>
+      <td>test2</td>
+      <td>test3</td>
+      <td>False</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>50</td>
+      <td>3.5</td>
+      <td>1112484580</td>
+      <td>0.7</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
 
 
 ### Drop row by index location
@@ -160,13 +392,66 @@ print(first_df)
 
 ```python
 first_df = first_df.drop(3)
-print(first_df)
+first_df
 ```
 
-      userId movieId rating   timestamp normalized
-    1      1      29    3.5  1112484676        0.7
-    2      1      32    3.5  1112484819        0.7
-    4      1      50    3.5  1112484580        0.7
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>userId</th>
+      <th>movieId</th>
+      <th>rating</th>
+      <th>timestamp</th>
+      <th>normalized</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>29</td>
+      <td>3.5</td>
+      <td>1112484676</td>
+      <td>0.7</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>32</td>
+      <td>3.5</td>
+      <td>1112484819</td>
+      <td>0.7</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>50</td>
+      <td>3.5</td>
+      <td>1112484580</td>
+      <td>0.7</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
 
 
 ### Drop column - **del**
@@ -174,11 +459,60 @@ print(first_df)
 
 ```python
 del first_df['timestamp']
-print(first_df)
+first_df
 ```
 
-      userId movieId rating normalized
-    1      1      29    3.5        0.7
-    2      1      32    3.5        0.7
-    4      1      50    3.5        0.7
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>userId</th>
+      <th>movieId</th>
+      <th>rating</th>
+      <th>normalized</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>29</td>
+      <td>3.5</td>
+      <td>0.7</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>32</td>
+      <td>3.5</td>
+      <td>0.7</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>50</td>
+      <td>3.5</td>
+      <td>0.7</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
 

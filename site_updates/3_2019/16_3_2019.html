@@ -1,37 +1,50 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta http-equiv="Content-Style-Type" content="text/css" />
-  <meta name="generator" content="pandoc" />
-  <meta name="date" content="2019-03-13" />
-  <title></title>
-  <style type="text/css">code{white-space: pre;}</style>
-</head>
-<body>
-<div id="TOC">
-<ul>
-<li><a href="#march-16-2019">March 16, 2019</a></li>
-<li><a href="#to-do">To do</a></li>
-</ul>
-</div>
-<p><a href="../../index.html">Go back to index</a></p>
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+        <title>March 16, 2019</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+        <link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        
+        <script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+    </head>
+    <body>
+        <p><a href="../../index.html">Go back to index</a></p>
 <p><a href="../base.html">Go back to site update portal</a></p>
 <head>
-<link rel="stylesheet" href="../../cssthemes/github.css">
+  <link rel="stylesheet" href="../../cssthemes/github.css">
 </head>
 <h2 id="march-16-2019">March 16, 2019</h2>
 <ul>
 <li>added simple batch compile to automate site updates for recently edited files</li>
 <li>finished adding all edx python notes from onenote</li>
 <li>Added Python portal page and ipynb -&gt; md -&gt; html as first page.</li>
+<li>add several options to pandoc html compiling:
+<ul>
+<li>table of contents (no need to insert in .md)</li>
+<li><code>--highlight-style breezedark</code> for syntax highligthing</li>
+<li><code>-f markdown_strict+backtick_code_blocks+auto_identifiers</code> instead of just <code>-f markdown</code> so that pandoc doesn't break my pandas dataframe table output, which was a <code>&lt;div&gt;&lt;table&gt;&lt;/table&gt;&lt;/div&gt;</code> element</li>
+<li>custom css styling for tables: clean outer border (left to top), no borders except a thin box around the entire table. shade rows with grayscale similar to how pandas df renders in jupyter, column names are slightly golden</li>
+</ul>
+</li>
 </ul>
 <h2 id="to-do">To do</h2>
 <ul>
-<li>Focus on expanding Linux notes</li>
+<li>Focus on expanding Python notes - I anticipate being able to work on linux at work in a month or so.</li>
 <li>Look at MIT edx course notes - these are all python scripts</li>
-<li>fix toc links for python. It seems to break when the bolded section is right after the bullet point? or if there are multiple sections</li>
-<li>pandoc toc??</li>
 </ul>
-</body>
-</html>
+
+    </body>
+    </html>

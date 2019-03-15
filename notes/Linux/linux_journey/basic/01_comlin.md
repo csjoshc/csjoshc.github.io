@@ -152,6 +152,7 @@ css_themes  index.html  notes  site_updates  testing  todo.html  todo.md
 ```
 
 * Similar process for moving directories - no `-r` required:
+
 ```
 jcmint@jcmint:.../testing$ ls
 index.html  mynote  one  test1  test2  todo.html  todo.md  two
@@ -166,6 +167,7 @@ Devops  Github  Linux  Python
 ```
 
 * `-b`: Move and backup files that would've been overwritten:
+
 ```
 jcmint@jcmint:.../csjoshc.github.io$ cd testing
 jcmint@jcmint:.../testing$ ls
@@ -182,6 +184,7 @@ index.html  test1  test2  three  three~  todo.html  todo.md
 ## `mkdir` - make directories and subdirectories
 * use `-p` to allow making subdirectories
 * multiple at once
+
 ```
 jcmint@jcmint:.../mynote$ ls
 Devops  Github  Linux  Python
@@ -197,6 +200,7 @@ four
 * Be careful deleting files
 * `-f` flag forces removal of protected files without prompting 
 * `-i` will prompt at each file being removed
+  
 ```
 jcmint@jcmint:.../testing$ ls
 index.html  mynote  test1  test2  three  three~  todo.html  todo.md
@@ -215,6 +219,7 @@ jcmint@jcmint:.../testing$ rm -r mynote
 ```
 
 * `rmdir` can remove directories without additional flags:
+  
 ```
 jcmint@jcmint:.../testing$ cd ..
 jcmint@jcmint:.../csjoshc.github.io$ ls
@@ -223,4 +228,3 @@ jcmint@jcmint:.../csjoshc.github.io$ rmdir testing
 jcmint@jcmint:.../csjoshc.github.io$ ls
 css_themes  index.html  notes  site_updates  todo.html  todo.md
 ```
-#### Test

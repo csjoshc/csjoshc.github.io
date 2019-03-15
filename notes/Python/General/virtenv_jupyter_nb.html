@@ -4,7 +4,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
-  <meta name="date" content="2019-03-13" />
+  <meta name="date" content="2019-03-15" />
   <title></title>
   <style type="text/css">code{white-space: pre;}</style>
   <style type="text/css">
@@ -61,18 +61,12 @@ code > span. { color: #cfcfc2; } /* Normal */
 </ul>
 </div>
 <p><a href="../../../index.html">Go back to index</a></p>
-<a href="../base.html">Go back to Python Portal</a>
-<head>
-<link rel="stylesheet" href="../../../cssthemes/github.css">
-</head>
+<p><a href="../base.html">Go back to Python Portal</a> <head> <link rel="stylesheet" href="../../../cssthemes/github.css"> </head></p>
 <h1 id="introduction">Introduction</h1>
 <p>Having coded in Python for 6 months or so already, I had always used Spyder and pip install mindlessly (so I guess no virtual env either). I heard about virtual env from a colleague and looked into it, and then decided to implement it on my Linux machine.</p>
 <h2 id="setting-up-a-virtual-env-anaconda-navigator">Setting up a virtual env (Anaconda Navigator)</h2>
 <p>After Anaconda was installed, I created a new virtual env for learning purposes using the GUI:</p>
-<div class="figure">
-<img src="https://i.imgur.com/VyaA3yh.png" />
-
-</div>
+<p><img src="https://i.imgur.com/VyaA3yh.png" /></p>
 <p>Options included python 3.7 and MRO for R</p>
 <h2 id="setting-up-jupyter-with-my-new-env">Setting up Jupyter with my new env</h2>
 <pre><code>conda activate learningenv
@@ -112,16 +106,10 @@ print(sys.executable)
 sys.executable</code></pre></div>
 <pre><code>&#39;/home/jcmint/anaconda3/envs/learningenv/bin/python&#39;</code></pre>
 <p>The code block above should match the image below:</p>
-<div class="figure">
-<img src="https://i.imgur.com/n8J3HcA.png" />
-
-</div>
+<p><img src="https://i.imgur.com/n8J3HcA.png" /></p>
 <h2 id="other-points-about-jupyter-kernel-and-virtual-env">Other points about Jupyter, kernel and virtual env</h2>
 <p>You can see the list of available kernels in a jupyter notebook session in the <code>Conda</code> tab. Notebooks are not created within an environment, really. Rather, they can be created and run in any environment (although dependent code will obviously break if the package dependencies are unmet in different environments).</p>
-<div class="figure">
-<img src="https://i.imgur.com/Wo2Q3lT.png" />
-
-</div>
+<p><img src="https://i.imgur.com/Wo2Q3lT.png" /></p>
 <p>Basically, the kernel and environment that a jupyter session are in are not persistent once you close the session. It's therefore necessary to be disciplined and use <code>source activate learningenv</code> before <code>jupyter notebook</code> on the Terminal.</p>
 <h2 id="previews-and-formatting">Previews and formatting</h2>
 <p>The in-session formatting of jupyter has nothing to do with css. Also, downloading as HTML also doesn't use the embedded CSS stylesheet. Converting to markdown, then to html, will use the stylesheet. However, this means that I will need to copy and paste each .md from Downloads to the repository and then compile into HTML using vscode. The only way to get the formatting right for good is to override the default css by adding a file to the directory below <a href="https://stackoverflow.com/questions/32156248/how-do-i-set-custom-css-for-my-ipython-ihaskell-jupyter-notebook/32158550#32158550">(according to this guide)</a></p>

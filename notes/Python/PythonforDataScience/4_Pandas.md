@@ -17,6 +17,7 @@ InteractiveShell.ast_node_interactivity = "all"
 InteractiveShell.colors = "Linux"
 InteractiveShell.separate_in = 0
 from tabulate import tabulate
+# print(tabulate(df, headers=df.columns, tablefmt='psql'))
 ```
 
     /home/jcmint/anaconda3/envs/learningenv/bin/python
@@ -141,18 +142,64 @@ ser['b']**2 # Square
 s1 = pd.Series([1., 2., 3.], index=['apple', 'ball', 'clock']) 
 s2 = pd.Series([5., 10., 15., 20.], index=['apple', 'ball', 'cerill', 'nancy']) 
 df = pd.DataFrame({'one': s1, 'two' : s2} ) 
-print(tabulate(df, headers=df.columns, tablefmt='psql'))
+df
 ```
 
-    +--------+-------+-------+
-    |        |   one |   two |
-    |--------+-------+-------|
-    | apple  |     1 |     5 |
-    | ball   |     2 |    10 |
-    | cerill |   nan |    15 |
-    | clock  |     3 |   nan |
-    | nancy  |   nan |    20 |
-    +--------+-------+-------+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>one</th>
+      <th>two</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>apple</th>
+      <td>1.0</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>ball</th>
+      <td>2.0</td>
+      <td>10.0</td>
+    </tr>
+    <tr>
+      <th>cerill</th>
+      <td>NaN</td>
+      <td>15.0</td>
+    </tr>
+    <tr>
+      <th>clock</th>
+      <td>3.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>nancy</th>
+      <td>NaN</td>
+      <td>20.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
 
 
 ## Access & Operations
@@ -182,18 +229,76 @@ df['one']
 ```python
 df['product'] = df['one'] * df['two'] 
 df['big'] = df['two'] > 10 
-print(tabulate(df, headers=df.columns, tablefmt='psql'))
+df
 ```
 
-    +--------+-------+-------+-----------+-------+
-    |        |   one |   two |   product | big   |
-    |--------+-------+-------+-----------+-------|
-    | apple  |     1 |     5 |         5 | False |
-    | ball   |     2 |    10 |        20 | False |
-    | cerill |   nan |    15 |       nan | True  |
-    | clock  |     3 |   nan |       nan | False |
-    | nancy  |   nan |    20 |       nan | True  |
-    +--------+-------+-------+-----------+-------+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>one</th>
+      <th>two</th>
+      <th>product</th>
+      <th>big</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>apple</th>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>ball</th>
+      <td>2.0</td>
+      <td>10.0</td>
+      <td>20.0</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>cerill</th>
+      <td>NaN</td>
+      <td>15.0</td>
+      <td>NaN</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>clock</th>
+      <td>3.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>nancy</th>
+      <td>NaN</td>
+      <td>20.0</td>
+      <td>NaN</td>
+      <td>True</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
 
 
 
@@ -201,7 +306,7 @@ print(tabulate(df, headers=df.columns, tablefmt='psql'))
 # Removing columns - pop
 unneeded = df.pop('product')
 unneeded
-print(tabulate(df, headers=df.columns, tablefmt='psql'))
+df
 ```
 
 
@@ -216,15 +321,67 @@ print(tabulate(df, headers=df.columns, tablefmt='psql'))
 
 
 
-    +--------+-------+-------+-------+
-    |        |   one |   two | big   |
-    |--------+-------+-------+-------|
-    | apple  |     1 |     5 | False |
-    | ball   |     2 |    10 | False |
-    | cerill |   nan |    15 | True  |
-    | clock  |     3 |   nan | False |
-    | nancy  |   nan |    20 | True  |
-    +--------+-------+-------+-------+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>one</th>
+      <th>two</th>
+      <th>big</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>apple</th>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>ball</th>
+      <td>2.0</td>
+      <td>10.0</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>cerill</th>
+      <td>NaN</td>
+      <td>15.0</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>clock</th>
+      <td>3.0</td>
+      <td>NaN</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>nancy</th>
+      <td>NaN</td>
+      <td>20.0</td>
+      <td>True</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
 
 
 ### Removing columns - `del`
@@ -232,18 +389,64 @@ print(tabulate(df, headers=df.columns, tablefmt='psql'))
 
 ```python
 del(df['two'])
-print(tabulate(df, headers=df.columns, tablefmt='psql'))
+df
 ```
 
-    +--------+-------+-------+
-    |        |   one | big   |
-    |--------+-------+-------|
-    | apple  |     1 | False |
-    | ball   |     2 | False |
-    | cerill |   nan | True  |
-    | clock  |     3 | False |
-    | nancy  |   nan | True  |
-    +--------+-------+-------+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>one</th>
+      <th>big</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>apple</th>
+      <td>1.0</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>ball</th>
+      <td>2.0</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>cerill</th>
+      <td>NaN</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>clock</th>
+      <td>3.0</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>nancy</th>
+      <td>NaN</td>
+      <td>True</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
 
 
 ### Inserting columnns
@@ -251,18 +454,70 @@ print(tabulate(df, headers=df.columns, tablefmt='psql'))
 
 ```python
 df.insert(2, 'copy one', df['one'])
-print(tabulate(df, headers=df.columns, tablefmt='psql'))
+df
 ```
 
-    +--------+-------+-------+------------+
-    |        |   one | big   |   copy one |
-    |--------+-------+-------+------------|
-    | apple  |     1 | False |          1 |
-    | ball   |     2 | False |          2 |
-    | cerill |   nan | True  |        nan |
-    | clock  |     3 | False |          3 |
-    | nancy  |   nan | True  |        nan |
-    +--------+-------+-------+------------+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>one</th>
+      <th>big</th>
+      <th>copy one</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>apple</th>
+      <td>1.0</td>
+      <td>False</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>ball</th>
+      <td>2.0</td>
+      <td>False</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>cerill</th>
+      <td>NaN</td>
+      <td>True</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>clock</th>
+      <td>3.0</td>
+      <td>False</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>nancy</th>
+      <td>NaN</td>
+      <td>True</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
 
 
 ### Accessing a subslice
@@ -273,25 +528,102 @@ a = df.iloc[3:4]
 b = df['one'][:2] # values in column 'one', rows under 2
 c = df[1:3] 
 
-print(tabulate(a, headers=a.columns, tablefmt='psql'))
-print(b)
-print(tabulate(c, headers=c.columns, tablefmt='psql'))
+a
+b
+c
 ```
 
-    +-------+-------+-------+------------+
-    |       |   one | big   |   copy one |
-    |-------+-------+-------+------------|
-    | clock |     3 | False |          3 |
-    +-------+-------+-------+------------+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>one</th>
+      <th>big</th>
+      <th>copy one</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>clock</th>
+      <td>3.0</td>
+      <td>False</td>
+      <td>3.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+
+
     apple    1.0
     ball     2.0
     Name: one, dtype: float64
-    +--------+-------+-------+------------+
-    |        |   one | big   |   copy one |
-    |--------+-------+-------+------------|
-    | ball   |     2 | False |          2 |
-    | cerill |   nan | True  |        nan |
-    +--------+-------+-------+------------+
+
+
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>one</th>
+      <th>big</th>
+      <th>copy one</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>ball</th>
+      <td>2.0</td>
+      <td>False</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>cerill</th>
+      <td>NaN</td>
+      <td>True</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
 
 
 ## Dictionary -> Dataframe
@@ -302,24 +634,106 @@ print(tabulate(c, headers=c.columns, tablefmt='psql'))
 ```python
 data = [{'alex': 1, 'joe': 2}, {'ema': 5, 'dora':10, 'alice': 20}] # a list
 data = pd.DataFrame(data, index  = ['orange', 'red']) 
-print(tabulate(data, headers=data.columns, tablefmt='psql'))
+data
 
 d = pd.DataFrame(data, columns = ['joe', 'dora', 'alice'] )
-print(tabulate(d, headers=d.columns, tablefmt='psql'))
+d
 ```
 
-    +--------+--------+---------+--------+-------+-------+
-    |        |   alex |   alice |   dora |   ema |   joe |
-    |--------+--------+---------+--------+-------+-------|
-    | orange |      1 |     nan |    nan |   nan |     2 |
-    | red    |    nan |      20 |     10 |     5 |   nan |
-    +--------+--------+---------+--------+-------+-------+
-    +--------+-------+--------+---------+
-    |        |   joe |   dora |   alice |
-    |--------+-------+--------+---------|
-    | orange |     2 |    nan |     nan |
-    | red    |   nan |     10 |      20 |
-    +--------+-------+--------+---------+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>alex</th>
+      <th>alice</th>
+      <th>dora</th>
+      <th>ema</th>
+      <th>joe</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>orange</th>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>red</th>
+      <td>NaN</td>
+      <td>20.0</td>
+      <td>10.0</td>
+      <td>5.0</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>joe</th>
+      <th>dora</th>
+      <th>alice</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>orange</th>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>red</th>
+      <td>NaN</td>
+      <td>10.0</td>
+      <td>20.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
 
 
 

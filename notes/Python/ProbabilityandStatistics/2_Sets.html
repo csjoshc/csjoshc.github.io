@@ -4,7 +4,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
-  <meta name="date" content="2019-03-13" />
+  <meta name="date" content="2019-03-15" />
   <title></title>
   <style type="text/css">code{white-space: pre;}</style>
   <style type="text/css">
@@ -70,15 +70,14 @@ code > span. { color: #cfcfc2; } /* Normal */
 <li><a href="#set-difference-.difference--">Set difference: <code>.difference, -</code></a></li>
 <li><a href="#symmetric-difference-or-symmetric_difference">Symmetric Difference (OR): <code>symmetric_difference(), ^</code></a></li>
 </ul></li>
-<li><a href="#cartesian-products">Cartesian Products</a></li>
+<li><a href="#cartesian-products">Cartesian Products</a><ul>
+<li><a href="#generating-cartesian-products-in-python">Generating Cartesian products in Python</a></li>
+</ul></li>
 <li><a href="#russells-paradox">Russell's Paradox</a></li>
 </ul>
 </div>
 <p><a href="../../../index.html">Go back to index</a></p>
-<a href="../base.html">Go back to Python Portal</a>
-<head>
-<link rel="stylesheet" href="../../../cssthemes/github.css">
-</head>
+<p><a href="../base.html">Go back to Python Portal</a> <head> <link rel="stylesheet" href="../../../cssthemes/github.css"> </head></p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> sys
 <span class="bu">print</span>(sys.executable)
 <span class="im">from</span> IPython.core.interactiveshell <span class="im">import</span> InteractiveShell
@@ -86,20 +85,14 @@ InteractiveShell.ast_node_interactivity <span class="op">=</span> <span class="s
 <pre><code>/home/jcmint/anaconda3/envs/learningenv/bin/python</code></pre>
 <h1 id="sets">Sets</h1>
 <p>Sets are defined as a collection of elements, and can be defined explicitly {heads, tails}, or implicitly {1:9}, {A:Z}.</p>
-<div class="figure">
-<img src="https://i.imgur.com/zsEZlXr.png?1" />
-
-</div>
+<p><img src="https://i.imgur.com/zsEZlXr.png?1" /></p>
 <h2 id="convention---capital-for-sets-lowercase-for-its-elements">Convention - CAPITAL for sets, lowercase for its elements</h2>
 <ul>
 <li>An element can belong to (∈) or not belong to(∉) a set</li>
 <li>A set can contain (∋) or lack a member (∌)</li>
 <li>Repetition may or may not matter Different set types:</li>
 </ul>
-<div class="figure">
-<img src="https://i.imgur.com/jNsXSFF.png?1" />
-
-</div>
+<p><img src="https://i.imgur.com/jNsXSFF.png?1" /></p>
 <h2 id="sets-in-python">Sets in Python</h2>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">myset <span class="op">=</span> <span class="bu">set</span>([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>])
 <span class="bu">print</span>(<span class="st">&quot;1.&quot;</span>, myset)
@@ -122,10 +115,7 @@ set()
 4</code></pre>
 <h1 id="set-visualization">Set visualization</h1>
 <p>Venn diagrams can represent set members - elements appear in or out of a set.</p>
-<div class="figure">
-<img src="https://i.imgur.com/NkaVztK.png?1" />
-
-</div>
+<p><img src="https://i.imgur.com/NkaVztK.png?1" /></p>
 <h2 id="visualizing-sets-in-python---venn-diagrams-with-numeric-elements">Visualizing sets in Python - venn diagrams with numeric elements</h2>
 <ul>
 <li><p>Necessary to install matplotlib and matplotlib-venn</p>
@@ -142,10 +132,7 @@ T <span class="op">=</span> {<span class="dv">0</span>, <span class="dv">22</spa
 venn.venn2([S, T], set_labels <span class="op">=</span> {<span class="st">&#39;S&#39;</span>, <span class="st">&#39;T&#39;</span>}) 
 plt.show()</code></pre></div>
 <pre><code>&lt;matplotlib_venn._common.VennDiagram at 0x7ff80182c470&gt;</code></pre>
-<div class="figure">
-<img src="2_Sets_files/2_Sets_6_1.png" alt="png" />
-<p class="caption">png</p>
-</div>
+<p><img src="2_Sets_files/2_Sets_6_1.png" alt="png" /></p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">s1 <span class="op">=</span> {<span class="dv">0</span>, <span class="dv">1</span>} 
 s2 <span class="op">=</span> {<span class="dv">1</span>, <span class="dv">0</span>} 
 s3 <span class="op">=</span> {<span class="dv">1</span>, <span class="dv">0</span> , <span class="dv">1</span>} 
@@ -160,23 +147,14 @@ s5 <span class="op">=</span> {<span class="dv">3</span>, <span class="dv">4</spa
 <p>Since all elements need to be in both sets for the sets to be equal, Equality is difficult to achieve.</p>
 <h2 id="disjoint-isdisjoint">Disjoint: <code>isdisjoint(), !=</code></h2>
 <p>Two sets are disjoint if they share NO values - overlap region is EMPTY. Empty set is disjoint with all sets except all other empty sets.</p>
-<div class="figure">
-<img src="https://i.imgur.com/3NsZnOc.png" />
-
-</div>
+<p><img src="https://i.imgur.com/3NsZnOc.png" /></p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">s1 <span class="op">!=</span> s2, s1.isdisjoint(s4)</code></pre></div>
 <pre><code>(False, False)</code></pre>
 <h2 id="subset-issubset-strict">Subset: <code>issubset(), &lt;=</code>; strict: <code>&lt;</code></h2>
 <p>If every element in a set is in another set, then it is a subset of that set. {0} is a subset of every set. If two sets are subsets of each other, then they are equal (A &lt;- B &amp; B &lt;- A means A == B)</p>
-<div class="figure">
-<img src="https://i.imgur.com/mXWCR5S.png" />
-
-</div>
+<p><img src="https://i.imgur.com/mXWCR5S.png" /></p>
 <p>A strict subset - a subset that is NOT equal to its superset.</p>
-<div class="figure">
-<img src="https://i.imgur.com/09KLgkv.png?1" />
-
-</div>
+<p><img src="https://i.imgur.com/09KLgkv.png?1" /></p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span>(<span class="st">&quot;1.&quot;</span>, s1 <span class="op">&lt;=</span> s2 , s1.issubset(s4))
 <span class="co"># Check for STRICT subset: using `&lt;`</span>
 <span class="bu">print</span>(<span class="st">&quot;2.&quot;</span>, s1 <span class="op">&lt;</span> s2, s1 <span class="op">&lt;</span> {<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>})</code></pre></div>
@@ -190,10 +168,7 @@ s5 <span class="op">=</span> {<span class="dv">3</span>, <span class="dv">4</spa
 <li>Not definable in python without defining the 'Universe' first.</li>
 <li>De Morgan's Law: The Complement of the Intersection of two sets.</li>
 </ul>
-<div class="figure">
-<img src="https://i.imgur.com/4AVqEgU.png" />
-
-</div>
+<p><img src="https://i.imgur.com/4AVqEgU.png" /></p>
 <h2 id="intersection-intersection">Intersection: <code>intersection(), &amp;</code></h2>
 <ul>
 <li>Intersection is a set of the common elements between sets.</li>
@@ -204,26 +179,17 @@ s5 <span class="op">=</span> {<span class="dv">3</span>, <span class="dv">4</spa
 <pre><code>({0, 1}, {0}, set())</code></pre>
 <h2 id="union-union">Union: <code>union, |</code></h2>
 <p>Union is a non repetitive collection of elements in multiple sets.</p>
-<div class="figure">
-<img src="https://i.imgur.com/WYjQZea.png?1" />
-
-</div>
+<p><img src="https://i.imgur.com/WYjQZea.png?1" /></p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">s1 <span class="op">|</span> s2, s1.union(s5)</code></pre></div>
 <pre><code>({0, 1}, {0, 1, 3, 4})</code></pre>
 <h2 id="set-difference-.difference--">Set difference: <code>.difference, -</code></h2>
 <p>A - B is the set of elements in A but not B:</p>
-<div class="figure">
-<img src="https://i.imgur.com/HSVLpwH.png" />
-
-</div>
+<p><img src="https://i.imgur.com/HSVLpwH.png" /></p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">s1 <span class="op">-</span> s2, s1 <span class="op">-</span> s4, s4 <span class="op">-</span> s1</code></pre></div>
 <pre><code>(set(), {1}, {2})</code></pre>
 <h2 id="symmetric-difference-or-symmetric_difference">Symmetric Difference (OR): <code>symmetric_difference(), ^</code></h2>
 <p>The set of elements that are in one but NOT BOTH sets:</p>
-<div class="figure">
-<img src="https://i.imgur.com/iO57Gkh.png" />
-
-</div>
+<p><img src="https://i.imgur.com/iO57Gkh.png" /></p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">s1 <span class="op">^</span> s2, s1 <span class="op">^</span> s4, s5.symmetric_difference(s4)</code></pre></div>
 <pre><code>(set(), {1, 2}, {0, 2, 3, 4})</code></pre>
 <h1 id="cartesian-products">Cartesian Products</h1>
@@ -235,11 +201,9 @@ s5 <span class="op">=</span> {<span class="dv">3</span>, <span class="dv">4</spa
 <li>Likewise, if A and B are sets with real numbers, then A x B will produce a rectangle in the cartesian plane.</li>
 <li>Tables are essentially cartesian products, as are 3D cubes (A x B x C)</li>
 </ul>
-<div class="figure">
-<img src="https://i.imgur.com/mjwKPan.png" />
-
-</div>
-<p><img src="https://i.imgur.com/lKz0EBu.png?1" /> ## Generating Cartesian products in Python</p>
+<p><img src="https://i.imgur.com/mjwKPan.png" /></p>
+<p><img src="https://i.imgur.com/lKz0EBu.png?1" /></p>
+<h2 id="generating-cartesian-products-in-python">Generating Cartesian products in Python</h2>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">from</span> itertools <span class="im">import</span> product 
 faces <span class="op">=</span> <span class="bu">set</span>({<span class="st">&#39;J&#39;</span>, <span class="st">&#39;Q&#39;</span>, <span class="st">&#39;K&#39;</span>}) <span class="co"># Jack, queen, King </span>
 suits <span class="op">=</span> <span class="bu">set</span>({<span class="st">&#39;Dia&#39;</span>, <span class="st">&#39;Spa&#39;</span>}) <span class="co">#diamond, spade </span>

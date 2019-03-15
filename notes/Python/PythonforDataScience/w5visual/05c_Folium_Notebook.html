@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="date" content="2019-03-15" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #232629; color: #cfcfc2; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; background-color: #232629; color: #7a7c7d; border-right: 1px solid #7a7c7d; }
+td.sourceCode { padding-left: 5px; }
+pre, code { color: #cfcfc2; background-color: #232629; }
+code > span.kw { color: #cfcfc2; } /* Keyword */
+code > span.dt { color: #2980b9; } /* DataType */
+code > span.dv { color: #f67400; } /* DecVal */
+code > span.bn { color: #f67400; } /* BaseN */
+code > span.fl { color: #f67400; } /* Float */
+code > span.cn { color: #27aeae; } /* Constant */
+code > span.ch { color: #3daee9; } /* Char */
+code > span.sc { color: #3daee9; } /* SpecialChar */
+code > span.st { color: #f44f4f; } /* String */
+code > span.vs { color: #da4453; } /* VerbatimString */
+code > span.ss { color: #da4453; } /* SpecialString */
+code > span.im { color: #27ae60; } /* Import */
+code > span.co { color: #7a7c7d; } /* Comment */
+code > span.do { color: #a43340; } /* Documentation */
+code > span.an { color: #3f8058; } /* Annotation */
+code > span.cv { color: #7f8c8d; } /* CommentVar */
+code > span.ot { color: #27ae60; } /* Other */
+code > span.fu { color: #8e44ad; } /* Function */
+code > span.va { color: #27aeae; } /* Variable */
+code > span.cf { color: #fdbc4b; } /* ControlFlow */
+code > span.op { color: #cfcfc2; } /* Operator */
+code > span.bu { color: #7f8c8d; } /* BuiltIn */
+code > span.ex { color: #0099ff; } /* Extension */
+code > span.pp { color: #27ae60; } /* Preprocessor */
+code > span.at { color: #2980b9; } /* Attribute */
+code > span.re { color: #2980b9; } /* RegionMarker */
+code > span.in { color: #c45b00; } /* Information */
+code > span.wa { color: #da4453; } /* Warning */
+code > span.al { color: #95da4c; } /* Alert */
+code > span.er { color: #da4453; } /* Error */
+code > span. { color: #cfcfc2; } /* Normal */
+  </style>
+</head>
+<body>
+<div id="TOC">
+<ul>
+<li><a href="#using-folium-library-for-geographic-overlays">Using Folium Library for Geographic Overlays</a><ul>
+<li><a href="#further-exploring-co2-emissions-per-capita-in-the-world-development-indicators-dataset">Further exploring CO2 Emissions per capita in the World Development Indicators Dataset</a></li>
+<li><a href="#country-coordinates-for-plotting">Country coordinates for plotting</a></li>
+<li><a href="#setup-our-data-for-plotting.">Setup our data for plotting.</a></li>
+<li><a href="#visualize-co2-emissions-per-capita-using-folium">Visualize CO2 emissions per capita using Folium</a></li>
+</ul></li>
+</ul>
+</div>
+<p>Data Source: https://www.kaggle.com/worldbank/world-development-indicators <br> Folder: 'world-development-indicators'</p>
+<h1 id="using-folium-library-for-geographic-overlays">Using Folium Library for Geographic Overlays</h1>
+<h3 id="further-exploring-co2-emissions-per-capita-in-the-world-development-indicators-dataset">Further exploring CO2 Emissions per capita in the World Development Indicators Dataset</h3>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> folium
+<span class="im">import</span> pandas <span class="im">as</span> pd</code></pre></div>
+<h3 id="country-coordinates-for-plotting">Country coordinates for plotting</h3>
+<p>source: https://github.com/python-visualization/folium/blob/master/examples/data/world-countries.json Download the raw form: https://raw.githubusercontent.com/python-visualization/folium/588670cf1e9518f159b0eee02f75185301327342/examples/data/world-countries.json</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">country_geo <span class="op">=</span> <span class="st">&#39;geo/world-countries.json&#39;</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Read in the World Development Indicators Database</span>
+data <span class="op">=</span> pd.read_csv(<span class="st">&#39;world-development-indicators/Indicators.csv&#39;</span>)
+data.shape</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">data.head()</code></pre></div>
+<p>Pull out CO2 emisions for every country in 2011</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># select CO2 emissions for all countries in 2011</span>
+hist_indicator <span class="op">=</span> <span class="st">&#39;CO2 emissions \(metric&#39;</span>
+hist_year <span class="op">=</span> <span class="dv">2011</span>
+
+mask1 <span class="op">=</span> data[<span class="st">&#39;IndicatorName&#39;</span>].<span class="bu">str</span>.contains(hist_indicator) 
+mask2 <span class="op">=</span> data[<span class="st">&#39;Year&#39;</span>].isin([hist_year])
+
+<span class="co"># apply our mask</span>
+stage <span class="op">=</span> data[mask1 <span class="op">&amp;</span> mask2]
+stage.head()</code></pre></div>
+<h3 id="setup-our-data-for-plotting.">Setup our data for plotting.</h3>
+<p>Create a data frame with just the country codes and the values we want plotted.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">plot_data <span class="op">=</span> stage[[<span class="st">&#39;CountryCode&#39;</span>,<span class="st">&#39;Value&#39;</span>]]
+plot_data.head()</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># label for the legend</span>
+hist_indicator <span class="op">=</span> stage.iloc[<span class="dv">0</span>][<span class="st">&#39;IndicatorName&#39;</span>]</code></pre></div>
+<h2 id="visualize-co2-emissions-per-capita-using-folium">Visualize CO2 emissions per capita using Folium</h2>
+<p>Folium provides interactive maps with the ability to create sophisticated overlays for data visualization</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Setup a folium map at a high-level zoom @Alok - what is the 100,0, doesn&#39;t seem like lat long</span>
+<span class="bu">map</span> <span class="op">=</span> folium.Map(location<span class="op">=</span>[<span class="dv">100</span>, <span class="dv">0</span>], zoom_start<span class="op">=</span><span class="fl">1.5</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># choropleth maps bind Pandas Data Frames and json geometries.  This allows us to quickly visualize data combinations</span>
+<span class="bu">map</span>.choropleth(geo_data<span class="op">=</span>country_geo, data<span class="op">=</span>plot_data,
+             columns<span class="op">=</span>[<span class="st">&#39;CountryCode&#39;</span>, <span class="st">&#39;Value&#39;</span>],
+             key_on<span class="op">=</span><span class="st">&#39;feature.id&#39;</span>,
+             fill_color<span class="op">=</span><span class="st">&#39;YlGnBu&#39;</span>, fill_opacity<span class="op">=</span><span class="fl">0.7</span>, line_opacity<span class="op">=</span><span class="fl">0.2</span>,
+             legend_name<span class="op">=</span>hist_indicator)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Create Folium plot</span>
+<span class="bu">map</span>.save(<span class="st">&#39;plot_data.html&#39;</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Import the Folium interactive html file</span>
+<span class="im">from</span> IPython.display <span class="im">import</span> HTML
+HTML(<span class="st">&#39;&lt;iframe src=plot_data.html width=700 height=450&gt;&lt;/iframe&gt;&#39;</span>)</code></pre></div>
+<p>More Folium Examples can be found at:<br> http://python-visualization.github.io/folium/docs-v0.5.0/quickstart.html#Getting-Started <br></p>
+<p>Documentation at:<br> http://python-visualization.github.io/folium/docs-v0.5.0/modules.html</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+</body>
+</html>
