@@ -25,6 +25,7 @@ Introduction: [Virtual environments and Jupyter (html)](General/virtenv_jupyter_
 * **[Dataframes - Subsetting & Cleaning](PythonforDataScience/4_Pandas3.html)**
 * **[Dataframes - Manipulations](PythonforDataScience/4_Pandas4.html)**
 * **[Dataframes - Strings & Timestamps](PythonforDataScience/4_Pandas5.html)**
+* **[Matplotlib](PythonforDataScience/5_Matplotlib.html)**
 
 ### Probability and Statistics
 [EdX Course link](https://www.edx.org/course/probability-and-statistics-in-data-science-using-python-2)

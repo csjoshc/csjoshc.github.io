@@ -58,21 +58,25 @@ print(ratings.isnull().any())
 ## Filling, Replacing, Imputations
 
 Filling in Data
+
 * Forward filling - take prior values to fill forward into missing values
  * `df.fillna(method = 'ffill')`
 * Backward filling
  * `df.fillna(method = 'backfill')`
 
 Replacing
+
 * Replace one value with another
  * `df = pd.replace(9999, 0)`
  * Replace 9999 with 0
 
 Dropping rows with missing values
+
 * `df.dropna(axis = 0)`
  * default 0 drops rows
  
 Linear interpolation (numeric) 
+
 * fill in missing values based on averaging the value before and after
 * `df.interpolate()`
 

@@ -4,7 +4,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
-  <meta name="date" content="2019-03-15" />
+  <meta name="date" content="2019-03-16" />
   <title></title>
   <style type="text/css">code{white-space: pre;}</style>
   <style type="text/css">
@@ -104,10 +104,29 @@ rating       False
 timestamp    False
 dtype: bool</code></pre>
 <h2 id="filling-replacing-imputations">Filling, Replacing, Imputations</h2>
-<p>Filling in Data * Forward filling - take prior values to fill forward into missing values * <code>df.fillna(method = 'ffill')</code> * Backward filling * <code>df.fillna(method = 'backfill')</code></p>
-<p>Replacing * Replace one value with another * <code>df = pd.replace(9999, 0)</code> * Replace 9999 with 0</p>
-<p>Dropping rows with missing values * <code>df.dropna(axis = 0)</code> * default 0 drops rows</p>
-<p>Linear interpolation (numeric) * fill in missing values based on averaging the value before and after * <code>df.interpolate()</code></p>
+<p>Filling in Data</p>
+<ul>
+<li>Forward filling - take prior values to fill forward into missing values</li>
+<li><code>df.fillna(method = 'ffill')</code></li>
+<li>Backward filling</li>
+<li><code>df.fillna(method = 'backfill')</code></li>
+</ul>
+<p>Replacing</p>
+<ul>
+<li>Replace one value with another</li>
+<li><code>df = pd.replace(9999, 0)</code></li>
+<li>Replace 9999 with 0</li>
+</ul>
+<p>Dropping rows with missing values</p>
+<ul>
+<li><code>df.dropna(axis = 0)</code></li>
+<li>default 0 drops rows</li>
+</ul>
+<p>Linear interpolation (numeric)</p>
+<ul>
+<li>fill in missing values based on averaging the value before and after</li>
+<li><code>df.interpolate()</code></li>
+</ul>
 <h2 id="data-operations---slicing">Data Operations - Slicing</h2>
 <h3 id="subset-rows">Subset rows</h3>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">first_df <span class="op">=</span> ratings[<span class="dv">1</span>:<span class="dv">5</span>]
