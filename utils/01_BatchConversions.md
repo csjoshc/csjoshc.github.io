@@ -27,55 +27,47 @@ First step is to convert all `.ipynb` files in the main directory and its subdir
 
 
 ```python
-! cd ..; find . -name "*.ipynb" -mtime -1  -exec jupyter nbconvert --to markdown {} \;
+! cd ..; find . -name "*.ipynb" -mtime -7  -exec jupyter nbconvert --to markdown {} \;
 #  ipynb
 ```
 
-    [NbConvertApp] Converting notebook ./notes/Python/PythonforDataScience/.ipynb_checkpoints/5_visualization-checkpoint.ipynb to markdown
-    [NbConvertApp] Support files will be in 5_visualization-checkpoint_files/
-    [NbConvertApp] Making directory ./notes/Python/PythonforDataScience/.ipynb_checkpoints/5_visualization-checkpoint_files
-    [NbConvertApp] Making directory ./notes/Python/PythonforDataScience/.ipynb_checkpoints/5_visualization-checkpoint_files
-    [NbConvertApp] Making directory ./notes/Python/PythonforDataScience/.ipynb_checkpoints/5_visualization-checkpoint_files
-    [NbConvertApp] Making directory ./notes/Python/PythonforDataScience/.ipynb_checkpoints/5_visualization-checkpoint_files
-    [NbConvertApp] Writing 13683 bytes to ./notes/Python/PythonforDataScience/.ipynb_checkpoints/5_visualization-checkpoint.md
     [NbConvertApp] Converting notebook ./notes/Python/PythonforDataScience/4_Pandas3.ipynb to markdown
     [NbConvertApp] Writing 9008 bytes to ./notes/Python/PythonforDataScience/4_Pandas3.md
-    [NbConvertApp] Converting notebook ./notes/Python/PythonforDataScience/5_visualization.ipynb to markdown
-    [NbConvertApp] Support files will be in 5_visualization_files/
-    [NbConvertApp] Making directory ./notes/Python/PythonforDataScience/5_visualization_files
-    [NbConvertApp] Making directory ./notes/Python/PythonforDataScience/5_visualization_files
-    [NbConvertApp] Making directory ./notes/Python/PythonforDataScience/5_visualization_files
-    [NbConvertApp] Making directory ./notes/Python/PythonforDataScience/5_visualization_files
-    [NbConvertApp] Writing 13423 bytes to ./notes/Python/PythonforDataScience/5_visualization.md
-    [NbConvertApp] Converting notebook ./notes/Python/PythonforDataScience/w5visual/.ipynb_checkpoints/05b_Exploring Indicator's Across Countries-checkpoint.ipynb to markdown
-    [NbConvertApp] Support files will be in 05b_Exploring Indicator's Across Countries-checkpoint_files/
-    [NbConvertApp] Making directory ./notes/Python/PythonforDataScience/w5visual/.ipynb_checkpoints/05b_Exploring Indicator's Across Countries-checkpoint_files
-    [NbConvertApp] Making directory ./notes/Python/PythonforDataScience/w5visual/.ipynb_checkpoints/05b_Exploring Indicator's Across Countries-checkpoint_files
-    [NbConvertApp] Making directory ./notes/Python/PythonforDataScience/w5visual/.ipynb_checkpoints/05b_Exploring Indicator's Across Countries-checkpoint_files
-    [NbConvertApp] Making directory ./notes/Python/PythonforDataScience/w5visual/.ipynb_checkpoints/05b_Exploring Indicator's Across Countries-checkpoint_files
-    [NbConvertApp] Making directory ./notes/Python/PythonforDataScience/w5visual/.ipynb_checkpoints/05b_Exploring Indicator's Across Countries-checkpoint_files
-    [NbConvertApp] Making directory ./notes/Python/PythonforDataScience/w5visual/.ipynb_checkpoints/05b_Exploring Indicator's Across Countries-checkpoint_files
-    [NbConvertApp] Writing 16924 bytes to ./notes/Python/PythonforDataScience/w5visual/.ipynb_checkpoints/05b_Exploring Indicator's Across Countries-checkpoint.md
-    [NbConvertApp] Converting notebook ./notes/Python/PythonforDataScience/w5visual/05a_Matplotlib_Notebook.ipynb to markdown
-    [NbConvertApp] Support files will be in 05a_Matplotlib_Notebook_files/
-    [NbConvertApp] Making directory ./notes/Python/PythonforDataScience/w5visual/05a_Matplotlib_Notebook_files
-    [NbConvertApp] Making directory ./notes/Python/PythonforDataScience/w5visual/05a_Matplotlib_Notebook_files
-    [NbConvertApp] Making directory ./notes/Python/PythonforDataScience/w5visual/05a_Matplotlib_Notebook_files
-    [NbConvertApp] Making directory ./notes/Python/PythonforDataScience/w5visual/05a_Matplotlib_Notebook_files
-    [NbConvertApp] Making directory ./notes/Python/PythonforDataScience/w5visual/05a_Matplotlib_Notebook_files
-    [NbConvertApp] Making directory ./notes/Python/PythonforDataScience/w5visual/05a_Matplotlib_Notebook_files
-    [NbConvertApp] Writing 21142 bytes to ./notes/Python/PythonforDataScience/w5visual/05a_Matplotlib_Notebook.md
-    [NbConvertApp] Converting notebook ./notes/Python/PythonforDataScience/w5visual/05b_Exploring Indicator's Across Countries.ipynb to markdown
-    [NbConvertApp] Support files will be in 05b_Exploring Indicator's Across Countries_files/
-    [NbConvertApp] Making directory ./notes/Python/PythonforDataScience/w5visual/05b_Exploring Indicator's Across Countries_files
-    [NbConvertApp] Making directory ./notes/Python/PythonforDataScience/w5visual/05b_Exploring Indicator's Across Countries_files
-    [NbConvertApp] Making directory ./notes/Python/PythonforDataScience/w5visual/05b_Exploring Indicator's Across Countries_files
-    [NbConvertApp] Making directory ./notes/Python/PythonforDataScience/w5visual/05b_Exploring Indicator's Across Countries_files
-    [NbConvertApp] Making directory ./notes/Python/PythonforDataScience/w5visual/05b_Exploring Indicator's Across Countries_files
-    [NbConvertApp] Making directory ./notes/Python/PythonforDataScience/w5visual/05b_Exploring Indicator's Across Countries_files
-    [NbConvertApp] Writing 16792 bytes to ./notes/Python/PythonforDataScience/w5visual/05b_Exploring Indicator's Across Countries.md
+    [NbConvertApp] Converting notebook ./notes/Python/PythonforDataScience/1_Introduction.ipynb to markdown
+    [NbConvertApp] Writing 3532 bytes to ./notes/Python/PythonforDataScience/1_Introduction.md
+    [NbConvertApp] Converting notebook ./notes/Python/PythonforDataScience/4_Pandas.ipynb to markdown
+    [NbConvertApp] Writing 10915 bytes to ./notes/Python/PythonforDataScience/4_Pandas.md
+    [NbConvertApp] Converting notebook ./notes/Python/PythonforDataScience/4_Pandas2.ipynb to markdown
+    [NbConvertApp] Writing 6952 bytes to ./notes/Python/PythonforDataScience/4_Pandas2.md
+    [NbConvertApp] Converting notebook ./notes/Python/PythonforDataScience/4_Pandas4.ipynb to markdown
+    [NbConvertApp] Support files will be in 4_Pandas4_files/
+    [NbConvertApp] Making directory ./notes/Python/PythonforDataScience/4_Pandas4_files
+    [NbConvertApp] Writing 25861 bytes to ./notes/Python/PythonforDataScience/4_Pandas4.md
+    [NbConvertApp] Converting notebook ./notes/Python/PythonforDataScience/4_Pandas5.ipynb to markdown
+    [NbConvertApp] Writing 12749 bytes to ./notes/Python/PythonforDataScience/4_Pandas5.md
+    [NbConvertApp] Converting notebook ./notes/Python/PythonforDataScience/5_Matplotlib.ipynb to markdown
+    [NbConvertApp] Support files will be in 5_Matplotlib_files/
+    [NbConvertApp] Making directory ./notes/Python/PythonforDataScience/5_Matplotlib_files
+    [NbConvertApp] Making directory ./notes/Python/PythonforDataScience/5_Matplotlib_files
+    [NbConvertApp] Making directory ./notes/Python/PythonforDataScience/5_Matplotlib_files
+    [NbConvertApp] Making directory ./notes/Python/PythonforDataScience/5_Matplotlib_files
+    [NbConvertApp] Making directory ./notes/Python/PythonforDataScience/5_Matplotlib_files
+    [NbConvertApp] Writing 14271 bytes to ./notes/Python/PythonforDataScience/5_Matplotlib.md
+    [NbConvertApp] Converting notebook ./notes/Python/PythonforDataScience/7_ML.ipynb to markdown
+    [NbConvertApp] Writing 3025 bytes to ./notes/Python/PythonforDataScience/7_ML.md
+    [NbConvertApp] Converting notebook ./notes/Python/PythonforDataScience/7_ML_DT.ipynb to markdown
+    [NbConvertApp] Support files will be in 7_ML_DT_files/
+    [NbConvertApp] Making directory ./notes/Python/PythonforDataScience/7_ML_DT_files
+    [NbConvertApp] Making directory ./notes/Python/PythonforDataScience/7_ML_DT_files
+    [NbConvertApp] Writing 19994 bytes to ./notes/Python/PythonforDataScience/7_ML_DT.md
+    [NbConvertApp] Converting notebook ./notes/Python/PythonforDataScience/Week-7-MachineLearning/European Soccer Regression Analysis using scikit-learn.ipynb to markdown
+    [NbConvertApp] Writing 4974 bytes to ./notes/Python/PythonforDataScience/Week-7-MachineLearning/European Soccer Regression Analysis using scikit-learn.md
+    [NbConvertApp] Converting notebook ./notes/Python/PythonforDataScience/Week-7-MachineLearning/Weather Data Classification using Decision Trees.ipynb to markdown
+    [NbConvertApp] Writing 39084 bytes to ./notes/Python/PythonforDataScience/Week-7-MachineLearning/Weather Data Classification using Decision Trees.md
+    [NbConvertApp] Converting notebook ./utils/.ipynb_checkpoints/01_BatchConversions-checkpoint.ipynb to markdown
+    [NbConvertApp] Writing 8036 bytes to ./utils/.ipynb_checkpoints/01_BatchConversions-checkpoint.md
     [NbConvertApp] Converting notebook ./utils/01_BatchConversions.ipynb to markdown
-    [NbConvertApp] Writing 6878 bytes to ./utils/01_BatchConversions.md
+    [NbConvertApp] Writing 6531 bytes to ./utils/01_BatchConversions.md
 
 
 ## Converting from `.md` to `.html`
@@ -93,25 +85,16 @@ The final step is convering all `.md` files that were recently modified.
 # -mtime -1
 ```
 
-      1157198      4 -rwxrwxrwx   1 jcmint   jcmint       3981 Mar 16 19:29 ./notes/Python/General/virtenv_jupyter_nb.md
-      1157206      4 -rwxrwxrwx   1 jcmint   jcmint       1519 Mar 16 19:29 ./notes/Python/ProbabilityandStatistics/1_Introduction.md
-      1157209      8 -rwxrwxrwx   1 jcmint   jcmint       6467 Mar 16 19:29 ./notes/Python/ProbabilityandStatistics/2_Sets.md
-      1158726     16 -rwxrwxrwx   1 jcmint   jcmint      13683 Mar 16 19:52 ./notes/Python/PythonforDataScience/.ipynb_checkpoints/5_visualization-checkpoint.md
-      1157456      4 -rwxrwxrwx   1 jcmint   jcmint       3492 Mar 16 19:29 ./notes/Python/PythonforDataScience/1_Introduction.md
-      1157223      4 -rwxrwxrwx   1 jcmint   jcmint       3660 Mar 16 19:29 ./notes/Python/PythonforDataScience/2_Basics.md
-      1157226      8 -rwxrwxrwx   1 jcmint   jcmint       6568 Mar 16 19:29 ./notes/Python/PythonforDataScience/3_Numpy.md
-      1157229     12 -rwxrwxrwx   1 jcmint   jcmint      10915 Mar 16 19:29 ./notes/Python/PythonforDataScience/4_Pandas.md
-      1157232      8 -rwxrwxrwx   1 jcmint   jcmint       6952 Mar 16 19:29 ./notes/Python/PythonforDataScience/4_Pandas2.md
-      1157386     12 -rwxrwxrwx   1 jcmint   jcmint       9008 Mar 16 19:52 ./notes/Python/PythonforDataScience/4_Pandas3.md
-      1154906     28 -rwxrwxrwx   1 jcmint   jcmint      25863 Mar 16 19:29 ./notes/Python/PythonforDataScience/4_Pandas4.md
-      1155433     16 -rwxrwxrwx   1 jcmint   jcmint      12749 Mar 16 19:29 ./notes/Python/PythonforDataScience/4_Pandas5.md
-      1157457     16 -rwxrwxrwx   1 jcmint   jcmint      13423 Mar 16 19:52 ./notes/Python/PythonforDataScience/5_visualization.md
-      1158760     20 -rwxrwxrwx   1 jcmint   jcmint      16924 Mar 16 19:52 ./notes/Python/PythonforDataScience/w5visual/.ipynb_checkpoints/05b_Exploring\ Indicator's\ Across\ Countries-checkpoint.md
-    pandoc: ./notes/Python/PythonforDataScience/w5visual/.ipynb_checkpoints/05b_Exploring: openFile: does not exist (No such file or directory)
-       735941     24 -rwxrwxrwx   1 jcmint   jcmint      21142 Mar 16 19:52 ./notes/Python/PythonforDataScience/w5visual/05a_Matplotlib_Notebook.md
-       910780     20 -rwxrwxrwx   1 jcmint   jcmint      16792 Mar 16 19:52 ./notes/Python/PythonforDataScience/w5visual/05b_Exploring\ Indicator's\ Across\ Countries.md
-    pandoc: ./notes/Python/PythonforDataScience/w5visual/05b_Exploring: openFile: does not exist (No such file or directory)
-       916644      4 -rwxrwxrwx   1 jcmint   jcmint       2625 Mar 16 19:29 ./notes/Python/PythonforDataScience/w5visual/05c_Folium_Notebook.md
-       916648      8 -rwxrwxrwx   1 jcmint   jcmint       8036 Mar 16 19:29 ./utils/.ipynb_checkpoints/01_BatchConversions-checkpoint.md
-      1157554      8 -rwxrwxrwx   1 jcmint   jcmint       6878 Mar 16 19:52 ./utils/01_BatchConversions.md
+      1157236      4 -rwxrwxrwx   1 jcmint   jcmint       1380 Mar 21 22:59 ./notes/Python/base.md
+      1157456      4 -rwxrwxrwx   1 jcmint   jcmint       3532 Mar 21 23:02 ./notes/Python/PythonforDataScience/1_Introduction.md
+      1157229     12 -rwxrwxrwx   1 jcmint   jcmint      10915 Mar 21 23:02 ./notes/Python/PythonforDataScience/4_Pandas.md
+      1157232      8 -rwxrwxrwx   1 jcmint   jcmint       6952 Mar 21 23:02 ./notes/Python/PythonforDataScience/4_Pandas2.md
+      1157386     12 -rwxrwxrwx   1 jcmint   jcmint       9008 Mar 21 23:02 ./notes/Python/PythonforDataScience/4_Pandas3.md
+      1154906     28 -rwxrwxrwx   1 jcmint   jcmint      25863 Mar 21 23:02 ./notes/Python/PythonforDataScience/4_Pandas4.md
+      1155433     16 -rwxrwxrwx   1 jcmint   jcmint      12749 Mar 21 23:02 ./notes/Python/PythonforDataScience/4_Pandas5.md
+      1158996     16 -rwxrwxrwx   1 jcmint   jcmint      14271 Mar 21 23:02 ./notes/Python/PythonforDataScience/5_Matplotlib.md
+      1158777      4 -rwxrwxrwx   1 jcmint   jcmint       3025 Mar 21 23:02 ./notes/Python/PythonforDataScience/7_ML.md
+      1158781     20 -rwxrwxrwx   1 jcmint   jcmint      19994 Mar 21 23:02 ./notes/Python/PythonforDataScience/7_ML_DT.md
+       916648      8 -rwxrwxrwx   1 jcmint   jcmint       8036 Mar 21 23:02 ./utils/.ipynb_checkpoints/01_BatchConversions-checkpoint.md
+      1157554      8 -rwxrwxrwx   1 jcmint   jcmint       6531 Mar 21 23:02 ./utils/01_BatchConversions.md
 

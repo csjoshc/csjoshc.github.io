@@ -13,12 +13,12 @@ Sources of data have massively grown, as well as advances in storage and computi
 
 * Data science involves diverse skillsets in Math/Stats, Programming and so on, working in teams  
 * Python is a clear leader in many data sciences, as it offers a diverse libraries for data management, processing and visualization, all parts of pipeline 
- * Jupyter Notebooks make the process repeatable  
- * NumPy 
- * Pandas 
- * Matplotlib 
- * Scikit-learn 
- * BeautifulSoup
+     * Jupyter Notebooks make the process repeatable  
+     * NumPy 
+     * Pandas 
+     * Matplotlib 
+     * Scikit-learn 
+     * BeautifulSoup
  
 # Steps for Data Analysis
 
@@ -69,10 +69,10 @@ Work process
         * verify existence of predicted phenomena in the real world
 * Scikit-learn 
 * Sklearn-cluster -> kmeans clustering
- * Group observations into meaningful sets using those attributes
+     * Group observations into meaningful sets using those attributes
 * Interpreting cluster results
- * Similarities within each cluster and differences between clusters
- * Each group is unique in difereing from each other in at least one attribute
- * Customized improvement strategies for each group
+     * Similarities within each cluster and differences between clusters
+     * Each group is unique in difereing from each other in at least one attribute
+     * Customized improvement strategies for each group
 
 ## Report results and then act

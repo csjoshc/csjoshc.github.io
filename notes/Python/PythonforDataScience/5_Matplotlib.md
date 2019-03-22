@@ -15,9 +15,7 @@ from IPython.core.interactiveshell import InteractiveShell
 InteractiveShell.ast_node_interactivity = "all"
 InteractiveShell.colors = "Linux"
 InteractiveShell.separate_in = 0
-from tabulate import tabulate
 import pandas as pd
-import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib import style
@@ -297,7 +295,7 @@ plt.show();
 import re
 cond_gdp_worker_ppp = indicators['IndicatorName'] == 'GDP per person employed (constant 1990 PPP $)'
 cond_2014 = indicators['Year'] == 2014
-data_2 = indicators[cond_1 & cond_2014]
+data_2 = indicators[cond_gdp_worker_ppp & cond_2014]
 display(data_2.head())
 
 # add a semicolon to last plt in a cell to avoid printing extra info
@@ -396,8 +394,8 @@ Now, plot GDP per worker vs percent urbanization for all countries for all years
 
 * No need to aggregate - just use the 'World' CountryName 
 * 2 Filters: 
- * GDP per worker, GDP per person employed (constant 1990 PPP $)
- * percent urbanization, Urban population (% of total)
+     * GDP per worker, GDP per person employed (constant 1990 PPP $)
+     * percent urbanization, Urban population (% of total)
 * Only pull year and value - other columns aren't needed
 * Inner join tables on Year. Merge seems to automatically drop missing years where the first dataframe had no values
 * Plot urbanization on x, gdp per person on y
@@ -637,7 +635,7 @@ Compare distributions of life expectancy in 1960 vs 2013
 cond_2013, cond_1960 = indicators['Year'] == 2013, indicators['Year'] == 1960
 cond_life_exp = indicators['IndicatorName'] == 'Life expectancy at birth, total (years)'
 life_exp_1960 = indicators[cond_1960 & cond_life_exp]['Value']
-life_exp_2013 = indicators[cond_2013 & cond_life_exp]['Value']
+life_exp_2013 = indicators[conbd_2013 & cond_life_exp]['Value']
 life_exp_data = [life_exp_1960, life_exp_2013]
 
 fig, axes = plt.subplots()

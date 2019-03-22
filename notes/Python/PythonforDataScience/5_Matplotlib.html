@@ -4,7 +4,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
-  <meta name="date" content="2019-03-16" />
+  <meta name="date" content="2019-03-21" />
   <title></title>
   <style type="text/css">code{white-space: pre;}</style>
   <style type="text/css">
@@ -70,9 +70,7 @@ code > span. { color: #cfcfc2; } /* Normal */
 InteractiveShell.ast_node_interactivity <span class="op">=</span> <span class="st">&quot;all&quot;</span>
 InteractiveShell.colors <span class="op">=</span> <span class="st">&quot;Linux&quot;</span>
 InteractiveShell.separate_in <span class="op">=</span> <span class="dv">0</span>
-<span class="im">from</span> tabulate <span class="im">import</span> tabulate
 <span class="im">import</span> pandas <span class="im">as</span> pd
-<span class="im">import</span> matplotlib
 <span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt
 <span class="im">import</span> numpy <span class="im">as</span> np
 <span class="im">from</span> matplotlib <span class="im">import</span> style
@@ -295,7 +293,7 @@ plt.show()<span class="op">;</span></code></pre></div>
 <span class="im">import</span> re
 cond_gdp_worker_ppp <span class="op">=</span> indicators[<span class="st">&#39;IndicatorName&#39;</span>] <span class="op">==</span> <span class="st">&#39;GDP per person employed (constant 1990 PPP $)&#39;</span>
 cond_2014 <span class="op">=</span> indicators[<span class="st">&#39;Year&#39;</span>] <span class="op">==</span> <span class="dv">2014</span>
-data_2 <span class="op">=</span> indicators[cond_1 <span class="op">&amp;</span> cond_2014]
+data_2 <span class="op">=</span> indicators[cond_gdp_worker_ppp <span class="op">&amp;</span> cond_2014]
 display(data_2.head())
 
 <span class="co"># add a semicolon to last plt in a cell to avoid printing extra info</span>
@@ -384,9 +382,11 @@ plt.title(<span class="st">&#39;Histogram Example&#39;</span>)<span class="op">;
 <p>Now, plot GDP per worker vs percent urbanization for all countries for all years of data</p>
 <ul>
 <li>No need to aggregate - just use the 'World' CountryName</li>
-<li>2 Filters:</li>
+<li>2 Filters:
+<ul>
 <li>GDP per worker, GDP per person employed (constant 1990 PPP $)</li>
 <li>percent urbanization, Urban population (% of total)</li>
+</ul></li>
 <li>Only pull year and value - other columns aren't needed</li>
 <li>Inner join tables on Year. Merge seems to automatically drop missing years where the first dataframe had no values</li>
 <li>Plot urbanization on x, gdp per person on y</li>
@@ -584,7 +584,7 @@ plt.show()<span class="op">;</span></code></pre></div>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">cond_2013, cond_1960 <span class="op">=</span> indicators[<span class="st">&#39;Year&#39;</span>] <span class="op">==</span> <span class="dv">2013</span>, indicators[<span class="st">&#39;Year&#39;</span>] <span class="op">==</span> <span class="dv">1960</span>
 cond_life_exp <span class="op">=</span> indicators[<span class="st">&#39;IndicatorName&#39;</span>] <span class="op">==</span> <span class="st">&#39;Life expectancy at birth, total (years)&#39;</span>
 life_exp_1960 <span class="op">=</span> indicators[cond_1960 <span class="op">&amp;</span> cond_life_exp][<span class="st">&#39;Value&#39;</span>]
-life_exp_2013 <span class="op">=</span> indicators[cond_2013 <span class="op">&amp;</span> cond_life_exp][<span class="st">&#39;Value&#39;</span>]
+life_exp_2013 <span class="op">=</span> indicators[conbd_2013 <span class="op">&amp;</span> cond_life_exp][<span class="st">&#39;Value&#39;</span>]
 life_exp_data <span class="op">=</span> [life_exp_1960, life_exp_2013]
 
 fig, axes <span class="op">=</span> plt.subplots()

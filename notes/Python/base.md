@@ -26,6 +26,8 @@ Introduction: [Virtual environments and Jupyter (html)](General/virtenv_jupyter_
 * **[Dataframes - Manipulations](PythonforDataScience/4_Pandas4.html)**
 * **[Dataframes - Strings & Timestamps](PythonforDataScience/4_Pandas5.html)**
 * **[Matplotlib](PythonforDataScience/5_Matplotlib.html)**
+* **[Machine Learning - Overview](PythonforDataScience/7_ML.html)**
+* **[Decision Tree Classification extended](PythonforDataScience/7_ML_DT.html)**
 
 ### Probability and Statistics
 [EdX Course link](https://www.edx.org/course/probability-and-statistics-in-data-science-using-python-2)
