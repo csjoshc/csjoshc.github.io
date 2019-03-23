@@ -263,6 +263,8 @@ data.head()
 
 
 ```python
+fig, axis = plt.subplots()
+fig.set_size_inches(10, 6)
 plt.bar(data['Year'].values, data['Value'].values)
 plt.show();
 ```
@@ -275,6 +277,8 @@ plt.show();
 
 
 ```python
+fig, axis = plt.subplots()
+fig.set_size_inches(10, 6)
 plt.plot(data['Year'].values, data['Value'].values)
 plt.xlabel('Year')
 plt.ylabel(data['IndicatorName'].iloc[0], fontsize=10)
@@ -299,6 +303,8 @@ data_2 = indicators[cond_gdp_worker_ppp & cond_2014]
 display(data_2.head())
 
 # add a semicolon to last plt in a cell to avoid printing extra info
+fig, axis = plt.subplots()
+fig.set_size_inches(10, 6)
 plt.hist(data_2['Value'].values, 100, density=False, facecolor='green');
 plt.xlabel(data_2['IndicatorName'].iloc[0]);
 plt.ylabel('# of Countries');
@@ -598,7 +604,7 @@ axis.yaxis.grid(True)
 axis.set_title('GDP per person employed vs Urban population',fontsize=16)
 axis.set_xlabel('Urban population (% of total)',fontsize=10)
 axis.set_ylabel('GDP per person employed (constant 1990 PPP $)',fontsize=10)
-
+fig.set_size_inches(10, 6)
 
 X = data_3['Value_x']
 Y = data_3['Value_y']
@@ -635,10 +641,11 @@ Compare distributions of life expectancy in 1960 vs 2013
 cond_2013, cond_1960 = indicators['Year'] == 2013, indicators['Year'] == 1960
 cond_life_exp = indicators['IndicatorName'] == 'Life expectancy at birth, total (years)'
 life_exp_1960 = indicators[cond_1960 & cond_life_exp]['Value']
-life_exp_2013 = indicators[conbd_2013 & cond_life_exp]['Value']
+life_exp_2013 = indicators[cond_2013 & cond_life_exp]['Value']
 life_exp_data = [life_exp_1960, life_exp_2013]
 
 fig, axes = plt.subplots()
+
 axis.yaxis.grid(True)
 bplot = axes.boxplot(life_exp_data,
                     vert=True)     # vertical aligmnent

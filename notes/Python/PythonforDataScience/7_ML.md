@@ -32,11 +32,11 @@ find a label for the target variable
 * At the branches in between, the answers to test conditions decide which branch to traverse along. 
 * Each decision is made at the node point, in a **greedy algorithm** 
 
-Gini index -  a measure of impurity measure that is minimized in order to determine the best splits
+**Gini index** -  a measure of impurity measure that is minimized in order to determine the best splits
 
-* Test variables to split on
+* Test variables and thresholds to split on
 
-Stopping the node splitting process
+#### Stopping the node splitting process
 
 * Splitting stops once there is no longer a significant increase in classification results with further splitting
 * Or, when a threshold purity for a node is reached (for example, 90%)
@@ -47,15 +47,63 @@ Stopping the node splitting process
 * splitting on multiple variables simultanesously is computationally intensive 
 * relatively simple to understand
 * Greedy approach guarantees the best decision **at a node**, but not necessarily the best outcome for the dataset as a whole
-    
-### Naive Bayes
+
+
+## Clustering - organize similar items in data set into groups 
+
+* Segment data into similar groups - similar to classification, but with no objective class labels, so Unsupervised
+* Segmentation of existing observations, classifying new data, anomaly detection (observations that aren't outliers in any one variable, but their combination makes them fall outside of existing cluster)
+* Intracluster differences are minimized, intercluster differences are maximized 
+
+### Normalizing values
+
+* Since distance is used to assess similarity and dissimilarity, normalization of input variables is necessary to prevent any one from dominating the calculations. 
+
+### k-means clustering
+
+1. Select *k* initial centroids
+2. Assign each sample in the data set to the closest centroids
+    * This is based on a distance calculation between the point and the centroid
+3. Calculate cluster means, which become the new centroids
+4. Repeat 2 & 3 until some stopping criteria is reached 
+
+
+#### Choosing initial centroids
+
+* Final clusters are sensitive to initial centroids. In order to solve this, repeat algorithm with randomized initial centroids to generate aggregate results.
+
+#### Evaluating cluster results
+
+* Within cluster sum of squares
+    * Error is the distance between the sample and centroid - square this error 
+    * Errors for all points in a cluster are summed
+    * Clusters sums are summed 
+    * Within-Cluster Sum of Squared Error - WSSE
+
+* A cluster having a smaller WSSE is numerically better, but not more correct
+* Increasing k will always decrease WSSE 
+
+#### Choosing k
+
+* Visualize for natural clusters, or depend on intended application/domain specific knowledge
+* Data driven - generate metrics for a range of k values
+
+One method is the elbow plot - see where the dropoff in WSSE as k increases begins to plateau, suggesting little benefit to adding further centroids
+
+![](https://pythonprogramminglanguage.com/wp-content/uploads/2017/07/elbow-method.png)
+
+#### Stopping criteria 
+
+* No changes to centroids
+* Cluster assignment changes per cycle fall below a threshold (such as 1%) 
+
+
+## Naive Bayes
 
 * Probability of one event given another event
 
-
 ## Regression: Predict a numeric value
 
-## Clustering - organize similar items in data set into groups 
 
 ## Association Analysis - identify associations between items or events (co-occurence)
 
