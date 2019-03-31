@@ -7,8 +7,8 @@
 
 ## General Links
 
-Introduction: [Virtual environments and Jupyter (html)](General/virtenv_jupyter_nb.html)
-
+* [Virtual environments and Jupyter (html)](General/virtenv_jupyter_nb.html)
+* [Using `if __name__ == "__main__"](General/ifnameismain.html)
 
 ## Course Notes
 
@@ -37,3 +37,19 @@ Introduction: [Virtual environments and Jupyter (html)](General/virtenv_jupyter_
 
 * **[Introduction](ProbabilityandStatistics/1_Introduction.html)**
 * **[Sets](ProbabilityandStatistics/2_Sets.html)**
+
+### Introduction to Computer Science and Programming Using Python
+
+[EdX Course Link](https://courses.edx.org/courses/course-v1:MITx+6.00.1x+2T2018/course/)
+
+**Notes**
+
+* **[Unit 7 - Testing and Debugging](IntroCompSciPython/unit7.html)**
+
+### Introduction to Computational Thinking and Data Science
+
+**Notes**
+
+[EdX Course Link](https://courses.edx.org/courses/course-v1:MITx+6.00.2x+1T2019/course/)
+
+* **[Unit 1 - Optimization](IntroCompThinkDataSci/unit1.html)**

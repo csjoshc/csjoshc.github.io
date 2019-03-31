@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="date" content="2019-03-30" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #232629; color: #cfcfc2; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; background-color: #232629; color: #7a7c7d; border-right: 1px solid #7a7c7d; }
+td.sourceCode { padding-left: 5px; }
+pre, code { color: #cfcfc2; background-color: #232629; }
+code > span.kw { color: #cfcfc2; } /* Keyword */
+code > span.dt { color: #2980b9; } /* DataType */
+code > span.dv { color: #f67400; } /* DecVal */
+code > span.bn { color: #f67400; } /* BaseN */
+code > span.fl { color: #f67400; } /* Float */
+code > span.cn { color: #27aeae; } /* Constant */
+code > span.ch { color: #3daee9; } /* Char */
+code > span.sc { color: #3daee9; } /* SpecialChar */
+code > span.st { color: #f44f4f; } /* String */
+code > span.vs { color: #da4453; } /* VerbatimString */
+code > span.ss { color: #da4453; } /* SpecialString */
+code > span.im { color: #27ae60; } /* Import */
+code > span.co { color: #7a7c7d; } /* Comment */
+code > span.do { color: #a43340; } /* Documentation */
+code > span.an { color: #3f8058; } /* Annotation */
+code > span.cv { color: #7f8c8d; } /* CommentVar */
+code > span.ot { color: #27ae60; } /* Other */
+code > span.fu { color: #8e44ad; } /* Function */
+code > span.va { color: #27aeae; } /* Variable */
+code > span.cf { color: #fdbc4b; } /* ControlFlow */
+code > span.op { color: #cfcfc2; } /* Operator */
+code > span.bu { color: #7f8c8d; } /* BuiltIn */
+code > span.ex { color: #0099ff; } /* Extension */
+code > span.pp { color: #27ae60; } /* Preprocessor */
+code > span.at { color: #2980b9; } /* Attribute */
+code > span.re { color: #2980b9; } /* RegionMarker */
+code > span.in { color: #c45b00; } /* Information */
+code > span.wa { color: #da4453; } /* Warning */
+code > span.al { color: #95da4c; } /* Alert */
+code > span.er { color: #da4453; } /* Error */
+code > span. { color: #cfcfc2; } /* Normal */
+  </style>
+</head>
+<body>
+<div id="TOC">
+<ul>
+<li><a href="#optimization-models-the-knapsack-problem">Optimization models &amp; the Knapsack problem</a><ul>
+<li><a href="#knapsack-problem">Knapsack problem</a></li>
+<li><a href="#brute-force-algorithm">Brute force algorithm</a></li>
+<li><a href="#greedy-algorithm">Greedy algorithm</a></li>
+</ul></li>
+<li><a href="#decision-trees-and-dynamic-programming">Decision trees and dynamic programming</a></li>
+</ul>
+</div>
+<p><a href="../../../index.html">Go back to index</a></p>
+<p><a href="../base.html">Go back to Python Portal</a> <head> <link rel="stylesheet" href="../../../cssthemes/github.css"> </head></p>
+<h1 id="optimization-models-the-knapsack-problem">Optimization models &amp; the Knapsack problem</h1>
+<ul>
+<li>Objective function to maximize or minimize</li>
+<li>Constraints</li>
+<li>Often just approximate a solution with a greedy algorithm</li>
+</ul>
+<h2 id="knapsack-problem">Knapsack problem</h2>
+<p>In the knapsack problem, you have a capacity and have to decide how to fill it. Discrete contents are harder than continuous ones.</p>
+<ul>
+<li>Each item is a pair of value and weight</li>
+<li>Knapsack has a total capacity, <em>w</em></li>
+<li>A set of available items</li>
+<li>A list indicating whether an item has already been taken</li>
+<li>For each item in available items, choose those to take and multiply it by its value.</li>
+<li>The sum of chosen items' weights is less than <em>w</em></li>
+</ul>
+<p><img src="screenshot.png" width="300"></p>
+<h2 id="brute-force-algorithm">Brute force algorithm</h2>
+<ul>
+<li>Try every possible combination (every subset of subject set), remove those not under <em>w</em>, and choose the remaining with highest value.</li>
+<li>The algorithm is exponential, having 2^n complexity</li>
+<li>Find approximate and optimal solutions</li>
+</ul>
+<h2 id="greedy-algorithm">Greedy algorithm</h2>
+<ul>
+<li>while the knapsack is not full, put the best available item in.</li>
+<li>nlog(n) complexity</li>
+</ul>
+<p>What does 'best' mean? Based on the highest value, lowest weight, or the ratio?</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> greedy(items, maxCost, keyFunction):
+    <span class="co">&quot;&quot;&quot;Assumes items a list, maxCost &gt;= 0,</span>
+<span class="co">         keyFunction maps elements of items to numbers&quot;&quot;&quot;</span>
+    itemsCopy <span class="op">=</span> <span class="bu">sorted</span>(items, key <span class="op">=</span> keyFunction,
+                       reverse <span class="op">=</span> <span class="va">True</span>)
+    result <span class="op">=</span> []
+    totalValue, totalCost <span class="op">=</span> <span class="fl">0.0</span>, <span class="fl">0.0</span>
+    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(itemsCopy)):
+        <span class="cf">if</span> (totalCost<span class="op">+</span>itemsCopy[i].getCost()) <span class="op">&lt;=</span> maxCost:
+            result.append(itemsCopy[i])
+            totalCost <span class="op">+=</span> itemsCopy[i].getCost()
+            totalValue <span class="op">+=</span> itemsCopy[i].getValue()
+    <span class="cf">return</span> (result, totalValue)</code></pre></div>
+<p>Using the lambda function:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">f <span class="op">=</span> <span class="kw">lambda</span> x, y: <span class="st">&#39;yes&#39;</span> <span class="cf">if</span> (x<span class="op">%</span>y <span class="op">==</span> <span class="dv">0</span>) <span class="cf">else</span> <span class="st">&#39;no&#39;</span>
+f(<span class="dv">1</span>, <span class="dv">2</span>)
+<span class="co">&#39;no&#39;</span>
+f(<span class="dv">2</span>, <span class="dv">2</span>)
+<span class="co">&#39;yes&#39;</span></code></pre></div>
+<p>The keyfunction will define how the greedy algorithm makes choices. Different answers will result since locally optimal choices won't necessarily yield globally optimal solutions. * especially seen in local optima * performance will depend on constraints</p>
+<h1 id="decision-trees-and-dynamic-programming">Decision trees and dynamic programming</h1>
+<ul>
+<li>Select from the list of available items</li>
+<li>If an item fits, a node represents the decision to take (left) or not to take (right) that item.</li>
+<li>Recursively apply to nonleaf children</li>
+<li>complexity is exponential, 2^n</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> maxVal(toConsider, avail):
+<span class="co">&quot;&quot;&quot;Assumes toConsider a list of items, avail a weight</span>
+<span class="co">Returns a tuples of the total value of a solution to the 0/1 knapsack</span>
+<span class="co">problem and the items of that solution&quot;&quot;&quot;</span>
+<span class="cf">if</span> toConsider <span class="op">==</span> [] <span class="kw">or</span> avail <span class="op">==</span> <span class="dv">0</span>:
+    result <span class="op">=</span> (<span class="dv">0</span>, ())
+<span class="cf">elif</span> toConsider[<span class="dv">0</span>].getCost() <span class="op">&gt;</span> avail:
+    <span class="co"># Explore right branch only</span>
+    result <span class="op">=</span> maxVal(toConsider[<span class="dv">1</span>:], avail)
+<span class="cf">else</span>:
+    nextItem <span class="op">=</span> toConsider[<span class="dv">0</span>]
+    <span class="co"># Explore left branch</span>
+    withVal, withToTake <span class="op">=</span> maxVal(toConsider[<span class="dv">1</span>:], avail <span class="op">-</span> nextItem.getCost())
+    withVal <span class="op">+=</span> nextItem.getValue()
+    <span class="co"># Explore right branch</span>
+    withoutVal, withoutToTake <span class="op">=</span> maxVal(toConsider[<span class="dv">1</span>:], avail)
+    <span class="co"># Explore better branch</span>
+    <span class="cf">if</span> withVal <span class="op">&gt;</span> withoutVal:
+        result <span class="op">=</span> (withVal, withToTake <span class="op">+</span> (nextItem,))
+    <span class="cf">else</span>:
+        result <span class="op">=</span> (withoutVal, withoutToTake)
+<span class="cf">return</span> result</code></pre></div>
+<ul>
+<li>Consider the first item - if it exceeds the available space, recursively call itself to consider the rest of thelist</li>
+<li>Else - consider the cases where the item is <strong>taken</strong> or <strong>not taken</strong>; in both cases the item is <strong>removed</strong> from the items to take (<code>toConsider[1:]</code>).</li>
+<li>If the item is <strong>taken</strong>, then call the function recursively with the avaiable space minus that of the taken item (<code>avail - nextItem.getUnits()</code>).</li>
+<li>If the item is <strong>not taken</strong>, call the function recursively with the same available space, <code>avail</code>.</li>
+<li>Finally, evaluate both branches for the better outcome.</li>
+<li>Return <code>result</code>, a tuple of the value in a set, and a list of the items in a set. This is the best solution thus far.</li>
+</ul>
+</body>
+</html>
