@@ -4,7 +4,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
-  <meta name="date" content="2019-03-30" />
+  <meta name="date" content="2019-04-13" />
   <title></title>
   <style type="text/css">code{white-space: pre;}</style>
   <style type="text/css">
@@ -57,10 +57,14 @@ code > span. { color: #cfcfc2; } /* Normal */
 <li><a href="#greedy-algorithm">Greedy algorithm</a></li>
 </ul></li>
 <li><a href="#decision-trees-and-dynamic-programming">Decision trees and dynamic programming</a></li>
+<li><a href="#recursive-fibonacci">Recursive Fibonacci</a><ul>
+<li><a href="#memoization---dynamic-programming">Memoization - Dynamic Programming</a></li>
+</ul></li>
+<li><a href="#dynamic-programming">Dynamic Programming</a></li>
 </ul>
 </div>
-<p><a href="../../../index.html">Go back to index</a></p>
-<p><a href="../base.html">Go back to Python Portal</a> <head> <link rel="stylesheet" href="../../../cssthemes/github.css"> </head></p>
+<p><a href="../../../../index.html">Go back to index</a></p>
+<p><a href="../../base.html">Go back to Python Portal</a> <head> <link rel="stylesheet" href="../../../../cssthemes/github.css"> </head></p>
 <h1 id="optimization-models-the-knapsack-problem">Optimization models &amp; the Knapsack problem</h1>
 <ul>
 <li>Objective function to maximize or minimize</li>
@@ -77,7 +81,6 @@ code > span. { color: #cfcfc2; } /* Normal */
 <li>For each item in available items, choose those to take and multiply it by its value.</li>
 <li>The sum of chosen items' weights is less than <em>w</em></li>
 </ul>
-<p><img src="screenshot.png" width="300"></p>
 <h2 id="brute-force-algorithm">Brute force algorithm</h2>
 <ul>
 <li>Try every possible combination (every subset of subject set), remove those not under <em>w</em>, and choose the remaining with highest value.</li>
@@ -146,6 +149,41 @@ f(<span class="dv">2</span>, <span class="dv">2</span>)
 <li>If the item is <strong>not taken</strong>, call the function recursively with the same available space, <code>avail</code>.</li>
 <li>Finally, evaluate both branches for the better outcome.</li>
 <li>Return <code>result</code>, a tuple of the value in a set, and a list of the items in a set. This is the best solution thus far.</li>
+</ul>
+<h1 id="recursive-fibonacci">Recursive Fibonacci</h1>
+<p>The below implementation is simple but impossible to run for moderately sized numbers due to how inefficient it is, since the number of function calls is basically related to the growth in fibonacci value itself. For example fib(120) is about 8.7E24.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> fib(n):
+    <span class="cf">if</span> n <span class="op">==</span> <span class="dv">0</span> <span class="kw">or</span> n <span class="op">==</span> <span class="dv">1</span>:
+        <span class="cf">return</span> <span class="dv">1</span>
+    <span class="cf">else</span>:
+        <span class="cf">return</span> fib(n <span class="op">-</span> <span class="dv">1</span>) <span class="op">+</span> fib(n <span class="op">-</span> <span class="dv">2</span>)</code></pre></div>
+<h2 id="memoization---dynamic-programming">Memoization - Dynamic Programming</h2>
+<p>When repeating function calls for identical inputs, lookup the output value in a previously recorded table instead of recalculating it. If it hasn't been calculated yet, calculate it and add it to the table.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> fastFib(n, memo <span class="op">=</span> {}):
+    <span class="cf">if</span> n <span class="op">==</span> <span class="dv">0</span> <span class="kw">or</span> n <span class="op">==</span> <span class="dv">1</span>:
+        <span class="cf">return</span> <span class="dv">1</span>
+    <span class="co"># return the value at key in memo if n != 0,1</span>
+    <span class="cf">try</span>:
+        <span class="cf">return</span> memo[n]
+    <span class="co"># calculate new value and store in memo dict if unknown</span>
+    <span class="cf">except</span> <span class="pp">KeyError</span>:
+        result <span class="op">=</span> fastFib(n <span class="op">-</span> <span class="dv">1</span>, memo) <span class="op">+</span> fastFib(n <span class="op">-</span> <span class="dv">2</span>, memo)
+        memo[n] <span class="op">=</span> result
+        <span class="cf">return</span> result</code></pre></div>
+<p>Dynamic programming criteria:</p>
+<ul>
+<li><strong>Optimal Substructure</strong> - locally optimal solutions can be comebined for globally optimal solutions</li>
+<li><strong>Overlapping subproblems</strong> - identical subproblems use identical solutions</li>
+</ul>
+<h1 id="dynamic-programming">Dynamic Programming</h1>
+<p>For a bag problem, subproblems can be made to be overlapping by generalizing the problem to be solved as a function of remaining weight and the weight of taken items, regardless of the specific items taken. For example, two subproblems would overlap if the occupied weight and available items to choose from were identical, even if the items chosen so far were different.</p>
+<p>In defining a specific subproblem, pass a dictionary of previously encountered subproblems and optimal solutions: The key is a tuple of items left to be considered (length of the item list since items are removed after being considered) and the remaining weight.</p>
+<p>Overall, dynamic programming runs on low order polynomial in a best case scenario, and can be much, much faster than a comparable exponential algorithm.</p>
+<ul>
+<li>solve problems with exponential solution space</li>
+<li>find optimal solutions, not just approximate ones</li>
+<li>reduce sorting order below nlogn from merge sort</li>
+<li>Example: choosing step sizes (1, 2) for N steps to traverse is a problem with optimal substructure and overlapping subproblems.</li>
 </ul>
 </body>
 </html>

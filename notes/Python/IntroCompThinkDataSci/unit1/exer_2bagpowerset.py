@@ -37,8 +37,22 @@ def powerSet(items):
 # represent it as a list of 0, 1 and 2 - neither, list1, and list2
 
 def twoBag(items):
-    pass
+    N = len(items)
+    # enumerate the 3**N possible combinations
+    for i in range(3**N):
+        bag1 = []
+        bag2 = []
+        for j in range(N):
+            # test bit jth of integer i
+            #print(i, j)
+            if (i // (3**j)) % 2 == 1: # or == 0
+                bag1.append(items[j])
+            if (i // (3**j)) % 3 == 2: # or == 1
+                bag2.append(items[j])
+        yield (bag1, bag2)
 
-test = powerSet((0, 2, 3))
 
 
+test = twoBag((0, 2, 3))
+while True:
+        test.__next__()

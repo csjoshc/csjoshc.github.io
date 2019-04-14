@@ -1,8 +1,8 @@
-<a href="../../../index.html">Go back to index</a>
+<a href="../../../../index.html">Go back to index</a>
 
-<a href="../base.html">Go back to Python Portal</a>
+<a href="../../base.html">Go back to Python Portal</a>
 <head>
-  <link rel="stylesheet" href="../../../cssthemes/github.css">
+  <link rel="stylesheet" href="../../../../cssthemes/github.css">
 </head>
 
 # Optimization models & the Knapsack problem
@@ -21,8 +21,6 @@ In the knapsack problem, you have a capacity and have to decide how to fill it. 
 * A list indicating whether an item has already been taken
 * For each item in available items, choose those to take and multiply it by its value.
 * The sum of chosen items' weights is less than *w*
-
-<img src="screenshot.png" width="300">
 
 ## Brute force algorithm
 
@@ -105,3 +103,50 @@ return result
 * Finally, evaluate both branches for the better outcome. 
 * Return `result`, a tuple of the value in a set, and a list of the items in a set. This is the best solution thus far. 
 
+# Recursive Fibonacci 
+
+The below implementation is simple but impossible to run for moderately sized numbers due to how inefficient it is, since the number of function calls is basically related to the growth in fibonacci value itself. For example fib(120) is about 8.7E24.
+
+```python
+def fib(n):
+    if n == 0 or n == 1:
+        return 1
+    else:
+        return fib(n - 1) + fib(n - 2)
+```
+
+## Memoization - Dynamic Programming
+
+When repeating function calls for identical inputs, lookup the output value in a previously recorded table instead of recalculating it. If it hasn't been calculated yet, calculate it and add it to the table. 
+
+```python 
+def fastFib(n, memo = {}):
+    if n == 0 or n == 1:
+        return 1
+    # return the value at key in memo if n != 0,1
+    try:
+        return memo[n]
+    # calculate new value and store in memo dict if unknown
+    except KeyError:
+        result = fastFib(n - 1, memo) + fastFib(n - 2, memo)
+        memo[n] = result
+        return result
+```
+
+Dynamic programming criteria:
+
+* **Optimal Substructure** - locally optimal solutions can be comebined for globally optimal solutions
+* **Overlapping subproblems** - identical subproblems use identical solutions 
+
+# Dynamic Programming
+
+For a bag problem, subproblems can be made to be overlapping by generalizing the problem to be solved as a function of remaining weight and the weight of taken items, regardless of the specific items taken. For example, two subproblems would overlap if the occupied weight and available items to choose from were identical, even if the items chosen so far were different. 
+
+In defining a specific subproblem, pass a dictionary of previously encountered subproblems and optimal solutions: The key is a tuple of items left to be considered (length of the item list since items are removed after being considered) and the remaining weight. 
+
+Overall, dynamic programming runs on low order polynomial in a best case scenario, and can be much, much faster than a comparable exponential algorithm. 
+
+* solve problems with exponential solution space
+* find optimal solutions, not just approximate ones
+* reduce sorting order below nlogn from merge sort
+* Example: choosing step sizes (1, 2) for N steps to traverse is a problem with optimal substructure and overlapping subproblems. 

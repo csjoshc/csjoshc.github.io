@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="date" content="2019-04-13" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #232629; color: #cfcfc2; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; background-color: #232629; color: #7a7c7d; border-right: 1px solid #7a7c7d; }
+td.sourceCode { padding-left: 5px; }
+pre, code { color: #cfcfc2; background-color: #232629; }
+code > span.kw { color: #cfcfc2; } /* Keyword */
+code > span.dt { color: #2980b9; } /* DataType */
+code > span.dv { color: #f67400; } /* DecVal */
+code > span.bn { color: #f67400; } /* BaseN */
+code > span.fl { color: #f67400; } /* Float */
+code > span.cn { color: #27aeae; } /* Constant */
+code > span.ch { color: #3daee9; } /* Char */
+code > span.sc { color: #3daee9; } /* SpecialChar */
+code > span.st { color: #f44f4f; } /* String */
+code > span.vs { color: #da4453; } /* VerbatimString */
+code > span.ss { color: #da4453; } /* SpecialString */
+code > span.im { color: #27ae60; } /* Import */
+code > span.co { color: #7a7c7d; } /* Comment */
+code > span.do { color: #a43340; } /* Documentation */
+code > span.an { color: #3f8058; } /* Annotation */
+code > span.cv { color: #7f8c8d; } /* CommentVar */
+code > span.ot { color: #27ae60; } /* Other */
+code > span.fu { color: #8e44ad; } /* Function */
+code > span.va { color: #27aeae; } /* Variable */
+code > span.cf { color: #fdbc4b; } /* ControlFlow */
+code > span.op { color: #cfcfc2; } /* Operator */
+code > span.bu { color: #7f8c8d; } /* BuiltIn */
+code > span.ex { color: #0099ff; } /* Extension */
+code > span.pp { color: #27ae60; } /* Preprocessor */
+code > span.at { color: #2980b9; } /* Attribute */
+code > span.re { color: #2980b9; } /* RegionMarker */
+code > span.in { color: #c45b00; } /* Information */
+code > span.wa { color: #da4453; } /* Warning */
+code > span.al { color: #95da4c; } /* Alert */
+code > span.er { color: #da4453; } /* Error */
+code > span. { color: #cfcfc2; } /* Normal */
+  </style>
+</head>
+<body>
+<div id="TOC">
+<ul>
+<li><a href="#planning-for-problem-set-1">Planning for problem set 1</a><ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#problem-1---greedy-cow-transport">Problem 1 - Greedy Cow Transport</a><ul>
+<li><a href="#solution-for-problem-1">Solution for problem 1</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<p><a href="../../../../index.html">Go back to index</a></p>
+<p><a href="../../base.html">Go back to Python Portal</a> <head> <link rel="stylesheet" href="../../../../cssthemes/github.css"> </head></p>
+<h1 id="planning-for-problem-set-1">Planning for problem set 1</h1>
+<h2 id="overview">Overview</h2>
+<p>A problem of selecting items to fit in a bag based on the 'space' available</p>
+<p>Each possible entry has a name and a space consumption associated with it:</p>
+<pre><code>Maggie,3
+Herman,7
+Betsy,9
+Oreo,6
+Moo Moo,3
+Milkshake,2
+Millie,5
+Lola,2
+Florence,2
+Henrietta,9</code></pre>
+<h2 id="problem-1---greedy-cow-transport">Problem 1 - Greedy Cow Transport</h2>
+<ul>
+<li>pick the heaviest cow first</li>
+<li>don't mutate the dictionary that is passed in - make a <code>.copy()</code> of that dictionary?</li>
+<li>Order doesn't matter, break same weight ties arbitrarily, unique names</li>
+</ul>
+<p>Example: Running the function with two parameters: a list of cows to transport, and the weight limit per trip</p>
+<pre><code>`{&quot;Jesse&quot;: 6, &quot;Maybel&quot;: 3, &quot;Callie&quot;: 2, &quot;Maggie&quot;: 5}, 10`</code></pre>
+<p>The correct answer would be</p>
+<pre><code>`[[&quot;Jesse&quot;, &quot;Maybel&quot;], [&quot;Maggie&quot;, &quot;Callie&quot;]]`</code></pre>
+<p>Some thoughts: The algorithm always chooses the HEAVIEST cow first. This means that we sometimes get nonoptimal solutions, such as the fact with a weight limit of 10 you could'vce fit 3 cows in the first trip (5, 3, and 2 units) if you had avoided choosing weight 6 first.</p>
+<p>The logic would be</p>
+<ol>
+<li>While there are cows left to transport:</li>
+<li>While there is space in the current trip</li>
+<li>Choose the heaviest cow and add it</li>
+<li>If there is no space, begin a new trip</li>
+</ol>
+<p>I think I'll try implementing this as nested loops before trying recursion</p>
+<h3 id="solution-for-problem-1">Solution for problem 1</h3>
+<p>Spoilers below.</p>
+<p>My way of dealing with dictionaries and finding the correct key to append to the trip list was a little crude, but it works overall.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> greedy_cow_transport(cows,limit<span class="op">=</span><span class="dv">10</span>):
+    cowsleft <span class="op">=</span> cows.copy()
+    triplist <span class="op">=</span> []
+    index <span class="op">=</span> <span class="dv">0</span>
+    <span class="cf">while</span> <span class="bu">len</span>(cowsleft) <span class="op">!=</span> <span class="dv">0</span>:
+        space <span class="op">=</span> limit
+        triplist.append([])
+        <span class="cf">while</span> <span class="bu">len</span>(cowsleft) <span class="op">!=</span> <span class="dv">0</span> <span class="kw">and</span> space <span class="op">&gt;=</span> cowsleft[<span class="bu">min</span>(cowsleft, key<span class="op">=</span>cowsleft.get)]:
+        <span class="co"># filling a trip can empty the remaining cow list - need to prevent ValueError when trying to find min of empty dict</span>
+            <span class="co"># While there is space for the smallest cow, try putting in all the cows</span>
+            keys <span class="op">=</span> []
+            weight <span class="op">=</span> <span class="bu">max</span>(v <span class="cf">for</span> k, v <span class="kw">in</span> cowsleft.items() <span class="cf">if</span> v <span class="op">&lt;=</span> space)
+            <span class="cf">for</span> key, val <span class="kw">in</span> cowsleft.items():
+                <span class="cf">if</span> val <span class="op">==</span> weight:
+                    keys.append(key)
+            triplist[index].append(keys[<span class="dv">0</span>])
+            cowsleft.pop(keys[<span class="dv">0</span>], <span class="va">None</span>)
+            space <span class="op">=</span> space <span class="op">-</span> weight
+            <span class="co"># still filling up the same trip here</span>
+        <span class="co"># exiting to the first while loop means the trip became full.  </span>
+        <span class="co"># therefore we need to increase trip index by one</span>
+        index <span class="op">+=</span><span class="dv">1</span>
+        <span class="co"># now we can loop again to begin loading for the next trip</span>
+    <span class="cf">return</span> triplist</code></pre></div>
+</body>
+</html>
