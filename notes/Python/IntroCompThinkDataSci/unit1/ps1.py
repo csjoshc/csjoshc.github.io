@@ -7,7 +7,7 @@ import time
 #================================
 # Part A: Transporting Space Cows
 #================================
-import os
+import os, time
 #print(os.getcwd())
 os.chdir('notes/Python/IntroCompThinkDataSci/unit1')
 
@@ -85,6 +85,37 @@ def greedy_cow_transport(cows,limit=10):
 
 # Problem 2
 def brute_force_cow_transport(cows,limit=10):
+    cowgen = get_partitions(cows)
+    mypartitions = []
+    for item in cowgen:
+        mypartitions.append(item)
+    mypartitions.sort(key=len)
+
+    for item in mypartitions:
+        
+        for trip in item:
+            tripweight = 0
+            fits = True
+            # the 'trip fits' flag is True by default and is changed w/ break
+            
+            for cow in trip:
+                tripweight += cows[cow]
+            # compare summed weight to limit
+            #print(tripweight)
+            
+            if tripweight > limit:
+                # break out of current set parition (for trip in item)
+                # print("Is greater:", trip, tripweight, limit)
+                #print("Breaking on trip:", trip, tripweight)
+                fits = False
+                break
+            
+        #print(item, "break", fits)
+        # if "fits" flag is True, that means all trips were tested and were not broken out of because of excessive weight
+        # therefore we can use it to trigger a return for the current item
+        
+        if fits:
+            return item
     """
     Finds the allocation of cows that minimizes the number of spaceship trips
     via brute force.  The brute force algorithm should follow the following method:
@@ -104,8 +135,6 @@ def brute_force_cow_transport(cows,limit=10):
     transported on a particular trip and the overall list containing all the
     trips
     """
-    # TODO: Your code here
-    pass
 
         
 # Problem 3
@@ -136,16 +165,35 @@ cows = load_cows("ps1_cow_data.txt")
 limit=100
 #print(cows)
 
-trial = greedy_cow_transport({'Muscles': 65, 'Miss Bella': 15, 'Horns': 50, 'Louis': 45, 'Patches': 60, 'MooMoo': 85, 'Clover': 5, 'Lotus': 10, 'Polaris': 20, 'Milkshake': 75}, 100)
-print(trial)
-trial2 = greedy_cow_transport({'Lilly': 24, 'Dottie': 85, 'Betsy': 65, 'Patches': 12, 'Daisy': 50, 'Buttercup': 72, 'Willow': 35, 'Abby': 38, 'Coco': 10, 'Rose': 50}, 100)
-print(trial2)
-trial3 = greedy_cow_transport({'Coco': 59, 'Betsy': 39, 'Starlight': 54, 'Buttercup': 11, 'Willow': 59, 'Rose': 42, 'Abby': 28, 'Luna': 41}, 120)
-print(trial3)
+
+
+# trial = greedy_cow_transport({'Muscles': 65, 'Miss Bella': 15, 'Horns': 50, 'Louis': 45, 'Patches': 60, 'MooMoo': 85, 'Clover': 5, 'Lotus': 10, 'Polaris': 20, 'Milkshake': 75}, 100)
+# print(trial)
+# trial2 = greedy_cow_transport({'Lilly': 24, 'Dottie': 85, 'Betsy': 65, 'Patches': 12, 'Daisy': 50, 'Buttercup': 72, 'Willow': 35, 'Abby': 38, 'Coco': 10, 'Rose': 50}, 100)
+# print(trial2)
+# trial3 = greedy_cow_transport({'Coco': 59, 'Betsy': 39, 'Starlight': 54, 'Buttercup': 11, 'Willow': 59, 'Rose': 42, 'Abby': 28, 'Luna': 41}, 120)
+# print(trial3)
 # greedy_cow_transport({"Jesse": 6, "Maybel": 3, "Callie": 2, "Maggie": 5}, 10)
 # print(greedy_cow_transport(cows, 10))
 #greedy_cow_transport(cows, 15)
 #greedy_cow_transport(cows, 20)
-#print(brute_force_cow_transport(cows, limit))
 
 
+start = time.time()
+print(greedy_cow_transport(cows, 10))
+end = time.time()
+print(end - start)
+
+start1 = time.time()
+print(brute_force_cow_transport(cows, 10))
+end1 = time.time()
+print(end1 - start1)
+# test = brute_force_cow_transport(cows, 21)
+# cows1 = {'Boo': 20, 'Horns': 25, 'Miss Bella': 25, 'Lotus': 40, 'Milkshake': 40, 'MooMoo': 50}
+
+# test1 = brute_force_cow_transport(cows1, 100)
+#print(test1)
+#print("----------------------------")
+#for item in get_partitions(cows1):
+    #print(len(item))
+#    pass

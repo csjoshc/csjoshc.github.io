@@ -20,6 +20,6 @@ def get_partitions(set_):
 
 ### Uncomment the following code  and run this file
 ### to see what get_partitions does if you want to visualize it:
-
-#for item in (get_partitions(['a','b','c','d'])):
-#     print(item)
+if __name__ == "__main__":
+    for item in (get_partitions(['a','b','c','d'])):
+        print(item)
