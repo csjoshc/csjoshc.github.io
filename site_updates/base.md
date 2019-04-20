@@ -11,6 +11,7 @@ Here I want to post occasional summaries of site updates.
 
 ## April 2019
 
+* [April 20, 2019](4_2019/20_4_2019.html)
 * [April 13, 2019](4_2019/13_4_2019.html)
 
 ## March 2019 

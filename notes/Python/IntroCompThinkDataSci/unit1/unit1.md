@@ -103,7 +103,7 @@ return result
 * Finally, evaluate both branches for the better outcome. 
 * Return `result`, a tuple of the value in a set, and a list of the items in a set. This is the best solution thus far. 
 
-# Recursive Fibonacci 
+## Recursive Fibonacci 
 
 The below implementation is simple but impossible to run for moderately sized numbers due to how inefficient it is, since the number of function calls is basically related to the growth in fibonacci value itself. For example fib(120) is about 8.7E24.
 
@@ -138,7 +138,7 @@ Dynamic programming criteria:
 * **Optimal Substructure** - locally optimal solutions can be comebined for globally optimal solutions
 * **Overlapping subproblems** - identical subproblems use identical solutions 
 
-# Dynamic Programming
+## Dynamic Programming
 
 For a bag problem, subproblems can be made to be overlapping by generalizing the problem to be solved as a function of remaining weight and the weight of taken items, regardless of the specific items taken. For example, two subproblems would overlap if the occupied weight and available items to choose from were identical, even if the items chosen so far were different. 
 
@@ -150,3 +150,68 @@ Overall, dynamic programming runs on low order polynomial in a best case scenari
 * find optimal solutions, not just approximate ones
 * reduce sorting order below nlogn from merge sort
 * Example: choosing step sizes (1, 2) for N steps to traverse is a problem with optimal substructure and overlapping subproblems. 
+
+# Graph Problems
+
+A graph is a set of nodes/vertices that may have properties associated with them (color in this example). The edges/arcs connecting pairs of nodes can be undirected or directed (with parent and child nodes), and unweighted or weighed. This example is of a graph with directed, weighted edges. 
+
+![](screenshot2.png)
+
+A tree is a special case of a graph. Networks in general can be represented by graphs. In these networks, note attributes can include the color, size and label of the node. 
+
+ ## Roads and graph theory
+
+ A good example of real world application is modeling travel distance between two locations, with those locations and other intermediate locations modeled as nodes, and the distance between modeled as edges. Each edge has a weight representing the source to destination travel time. Then, the ideal travel time would be the solution of a graph optimization problem. 
+
+ For this class of problems more generally, graphs allow the abstraction away of irrelevant details. 
+
+ ## Class Graph
+
+ There are a few classes implemented, and I'll just summarize them each here
+  
+  * `Node` - only has a "Name" attribute
+  * `Edge` - constructor has source, dest attributes assumed to be of class Node
+  * `Digraph` - constructor takes no arguments, but has an edges attribute that is initialized empty, a dictionary mapping each of its Node attributes to one or more of its other Node attrributes. The primary helper functions include those adding Nodes, Edges and also a decorator to define the conversion to a string when printing the object. Other helper functions are for accessing and returning Node attributes. 
+  * `Graph` - a subclass of Digraph with a `addEdge()` method that overrides the parent class method by adding an additional reversed edge to the edges dictionary attribute.
+
+The edges attribute of Class Digraph is an adjacency list, associating each node with a list of child nodes. 
+
+When representing graphs, phenomena such as loops can arise, which complicates the optimization search. 
+
+## Exercise 3 - three students in a line
+
+Combination of three students (ordered line) are represented by nodes. Two nodes are connected by an edge if the ordered lines are interchangeable by just switching one pair of adjacent students. 
+
+The way the addEdge method is implemented for Graph class, the node must be in the edges attribute first before an edge can be added. 
+
+## Finding the shortest path
+
+The depth first search is similar to the left first search of a bag problem. The main difference is keeping track of previously traversed nodes, since there can be loops in the graph. Also:
+
+* return to most recent node once a node with no children is reached
+* discard paths not shorter than the current shortest path
+* recursively find the DFS on child nodes not in the current path. 
+
+The breadth first search is somewhat more complex because it is searching across all nodes simultaneously, and thus needs to keep track of the depth of its search as it goes. It generates paths in a branching fashion - all child nodes of the current path are simultaneously generated and appended to a pathqueue. The oldest item in the pathqueue is removed and its child nodes are appended to it, and then added back to the pathqueue. As soon as a path is found, the algorithm stops - this works because all the path lengths in pathqueue increment in length together - therefore the first found path **must** be the shortest. 
+
+BFS isn't modifiable for use in a weighted path search. It is of O(n) complexity.
+
+* may run slower or faster than DFS
+* if it prioritizes the same nodes, will be as fast as DFS in 
+
+Graph problems are in some sense already solved with many algorithms - what is complex is fitting real world situations into the framework of graphs. 
+
+Last exercise - when defining a child class with its own constructor (not just its own methods), I needed to redefine all the attribute assignment, there should be a way to use the superclass constructor and just set the additional attributes
+
+```python
+class WeightedEdge(Edge):
+    def __init__(self, src, dest, weight):
+        self.src = src
+        self.dest = dest
+        self.weight = weight
+    def getWeight(self):
+        return self.weight
+    def __str__(self):
+        return self.src.getName() + '->' + self.dest.getName() + ' (' + str(self.getWeight()) + ')'
+
+```

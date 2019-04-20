@@ -54,3 +54,4 @@
 
 * **[Unit 1 - Optimization](IntroCompThinkDataSci/unit1/unit1.html)**
 * **[Problem Set 1 - Space Cows](IntroCompThinkDataSci/unit1/problemset1.html)**
+* **[Unit 2 - Plotting](IntroCompThinkDataSci/unit2/plotting.html)**
