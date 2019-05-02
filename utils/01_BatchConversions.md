@@ -31,27 +31,15 @@ First step is to convert all `.ipynb` files in the main directory and its subdir
 #  ipynb
 ```
 
-    [NbConvertApp] Converting notebook ./notes/Python/PythonforDataScience/7_ML_Clust.ipynb to markdown
-    [NbConvertApp] Support files will be in 7_ML_Clust_files/
-    [NbConvertApp] Making directory ./notes/Python/PythonforDataScience/7_ML_Clust_files
-    [NbConvertApp] Making directory ./notes/Python/PythonforDataScience/7_ML_Clust_files
-    [NbConvertApp] Making directory ./notes/Python/PythonforDataScience/7_ML_Clust_files
-    [NbConvertApp] Making directory ./notes/Python/PythonforDataScience/7_ML_Clust_files
-    [NbConvertApp] Making directory ./notes/Python/PythonforDataScience/7_ML_Clust_files
-    [NbConvertApp] Making directory ./notes/Python/PythonforDataScience/7_ML_Clust_files
-    [NbConvertApp] Making directory ./notes/Python/PythonforDataScience/7_ML_Clust_files
-    [NbConvertApp] Making directory ./notes/Python/PythonforDataScience/7_ML_Clust_files
-    [NbConvertApp] Making directory ./notes/Python/PythonforDataScience/7_ML_Clust_files
-    [NbConvertApp] Making directory ./notes/Python/PythonforDataScience/7_ML_Clust_files
-    [NbConvertApp] Making directory ./notes/Python/PythonforDataScience/7_ML_Clust_files
-    [NbConvertApp] Making directory ./notes/Python/PythonforDataScience/7_ML_Clust_files
-    [NbConvertApp] Writing 45557 bytes to ./notes/Python/PythonforDataScience/7_ML_Clust.md
-    [NbConvertApp] Converting notebook ./notes/Python/PythonforDataScience/Week-7-MachineLearning/Weather Data Clustering using k-Means.ipynb to markdown
-    [NbConvertApp] Support files will be in Weather Data Clustering using k-Means_files/
-    [NbConvertApp] Making directory ./notes/Python/PythonforDataScience/Week-7-MachineLearning/Weather Data Clustering using k-Means_files
-    [NbConvertApp] Making directory ./notes/Python/PythonforDataScience/Week-7-MachineLearning/Weather Data Clustering using k-Means_files
-    [NbConvertApp] Making directory ./notes/Python/PythonforDataScience/Week-7-MachineLearning/Weather Data Clustering using k-Means_files
-    [NbConvertApp] Writing 30548 bytes to ./notes/Python/PythonforDataScience/Week-7-MachineLearning/Weather Data Clustering using k-Means.md
+    [NbConvertApp] Converting notebook ./notes/Python/IntroCompThinkDataSci/unit2/.ipynb_checkpoints/ps2-checkpoint.ipynb to markdown
+    [NbConvertApp] Writing 2899 bytes to ./notes/Python/IntroCompThinkDataSci/unit2/.ipynb_checkpoints/ps2-checkpoint.md
+    [NbConvertApp] Converting notebook ./notes/Python/IntroCompThinkDataSci/unit2/ps2.ipynb to markdown
+    [NbConvertApp] Support files will be in ps2_files/
+    [NbConvertApp] Making directory ./notes/Python/IntroCompThinkDataSci/unit2/ps2_files
+    [NbConvertApp] Making directory ./notes/Python/IntroCompThinkDataSci/unit2/ps2_files
+    [NbConvertApp] Writing 13272 bytes to ./notes/Python/IntroCompThinkDataSci/unit2/ps2.md
+    [NbConvertApp] Converting notebook ./utils/01_BatchConversions.ipynb to markdown
+    [NbConvertApp] Writing 4100 bytes to ./utils/01_BatchConversions.md
 
 
 ## Converting from `.md` to `.html`
@@ -69,9 +57,13 @@ The final step is convering all `.md` files that were recently modified.
 # -mtime -1
 ```
 
-      1157236      4 -rwxrwxrwx   1 jcmint   jcmint       2050 Apr 13 23:20 ./notes/Python/base.md
-      1159156      8 -rwxrwxrwx   1 jcmint   jcmint       6165 Apr 14 21:14 ./notes/Python/IntroCompThinkDataSci/unit1/problemset1.md
-      1158591      8 -rwxrwxrwx   1 jcmint   jcmint       6308 Apr 13 22:42 ./notes/Python/IntroCompThinkDataSci/unit1/unit1.md
-      1159201      4 -rwxrwxrwx   1 jcmint   jcmint        790 Apr 13 23:26 ./site_updates/4_2019/13_4_2019.md
-      1157243      1 -rwxrwxrwx   1 jcmint   jcmint        442 Apr 13 23:27 ./site_updates/base.md
+      1157236      4 -rwxrwxrwx   1 jcmint   jcmint       2293 May  1 20:41 ./notes/Python/base.md
+        33577      0 -rwxrwxrwx   1 jcmint   jcmint          0 Apr 25 21:57 ./notes/Python/IntroCompThinkDataSci/unit2/problemset2.md
+      1159916     16 -rwxrwxrwx   1 jcmint   jcmint      13272 May  1 21:04 ./notes/Python/IntroCompThinkDataSci/unit2/ps2.md
+      1157554      8 -rwxrwxrwx   1 jcmint   jcmint       4100 May  1 21:04 ./utils/01_BatchConversions.md
 
+
+
+```python
+
+```
