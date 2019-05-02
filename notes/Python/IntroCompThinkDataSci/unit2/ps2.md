@@ -209,6 +209,8 @@ print(inspect.getsource(ps2.RectangularRoom))
     
 
 
+### Robot
+
 
 ```python
 # print out the Robot Class
@@ -288,6 +290,8 @@ print(inspect.getsource(ps2.Robot))
     
 
 
+### StandardRobot
+
 
 ```python
 # print out the StandardRobot Class
@@ -321,6 +325,8 @@ print(inspect.getsource(ps2.StandardRobot))
     
 
 
+### RandomWalkRobot
+
 
 ```python
 # print out the RandomWalkRobot Class
@@ -349,6 +355,8 @@ print(inspect.getsource(ps2.RandomWalkRobot))
                     has_moved = True
     
 
+
+### runSimulation
 
 
 ```python
