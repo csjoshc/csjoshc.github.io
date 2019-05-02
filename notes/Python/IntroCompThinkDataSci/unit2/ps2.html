@@ -1,0 +1,377 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #232629; color: #cfcfc2; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; background-color: #232629; color: #7a7c7d; border-right: 1px solid #7a7c7d; }
+td.sourceCode { padding-left: 5px; }
+pre, code { color: #cfcfc2; background-color: #232629; }
+code > span.kw { color: #cfcfc2; } /* Keyword */
+code > span.dt { color: #2980b9; } /* DataType */
+code > span.dv { color: #f67400; } /* DecVal */
+code > span.bn { color: #f67400; } /* BaseN */
+code > span.fl { color: #f67400; } /* Float */
+code > span.cn { color: #27aeae; } /* Constant */
+code > span.ch { color: #3daee9; } /* Char */
+code > span.sc { color: #3daee9; } /* SpecialChar */
+code > span.st { color: #f44f4f; } /* String */
+code > span.vs { color: #da4453; } /* VerbatimString */
+code > span.ss { color: #da4453; } /* SpecialString */
+code > span.im { color: #27ae60; } /* Import */
+code > span.co { color: #7a7c7d; } /* Comment */
+code > span.do { color: #a43340; } /* Documentation */
+code > span.an { color: #3f8058; } /* Annotation */
+code > span.cv { color: #7f8c8d; } /* CommentVar */
+code > span.ot { color: #27ae60; } /* Other */
+code > span.fu { color: #8e44ad; } /* Function */
+code > span.va { color: #27aeae; } /* Variable */
+code > span.cf { color: #fdbc4b; } /* ControlFlow */
+code > span.op { color: #cfcfc2; } /* Operator */
+code > span.bu { color: #7f8c8d; } /* BuiltIn */
+code > span.ex { color: #0099ff; } /* Extension */
+code > span.pp { color: #27ae60; } /* Preprocessor */
+code > span.at { color: #2980b9; } /* Attribute */
+code > span.re { color: #2980b9; } /* RegionMarker */
+code > span.in { color: #c45b00; } /* Information */
+code > span.wa { color: #da4453; } /* Warning */
+code > span.al { color: #95da4c; } /* Alert */
+code > span.er { color: #da4453; } /* Error */
+code > span. { color: #cfcfc2; } /* Normal */
+  </style>
+</head>
+<body>
+<div id="TOC">
+<ul>
+<li><a href="#robot-cleaning-simulations">Robot cleaning simulations</a><ul>
+<li><a href="#classes-in-action">Classes in Action</a></li>
+<li><a href="#appendix">Appendix</a><ul>
+<li><a href="#rectangularroom">RectangularRoom</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<p><a href="../../../index.html">Go back to index</a></p>
+<p><a href="../base.html">Go back to Python Portal</a> <head> <link rel="stylesheet" href="../../../cssthemes/github.css"> </head></p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> sys
+<span class="bu">print</span>(sys.executable)
+<span class="im">import</span> ps2
+<span class="im">import</span> math
+<span class="im">from</span> random <span class="im">import</span> randint
+<span class="im">from</span> ps2_verify_movement37 <span class="im">import</span> testRobotMovement
+
+<span class="im">import</span> ps2_visualize
+<span class="im">import</span> pylab
+<span class="im">import</span> inspect</code></pre></div>
+<pre><code>/home/jcmint/anaconda3/envs/learningenv/bin/python</code></pre>
+<h1 id="robot-cleaning-simulations">Robot cleaning simulations</h1>
+<p>I import the classes from ps2.py, including Position, RectangularRoom, Robot (and its subclasses StandardRobot and RandomWalkRobot). Nothing too complex here, just a hacky way of dealing with storing robot positions in a room represented as a NumPy Array.</p>
+<h2 id="classes-in-action">Classes in Action</h2>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">loc <span class="op">=</span> ps2.Position(<span class="dv">2</span>, <span class="dv">2</span>)
+bad_loc <span class="op">=</span> ps2.Position(<span class="dv">10</span>, <span class="dv">10</span>)
+room <span class="op">=</span> ps2.RectangularRoom(<span class="dv">6</span>, <span class="dv">8</span>)
+<span class="bu">print</span>(room.isPositionInRoom(loc))
+<span class="bu">print</span>(room.isPositionInRoom(bad_loc))</code></pre></div>
+<pre><code>True
+False</code></pre>
+<p>The robot is initialized in the 6 x 8 room with a set movement speed and at a random location. Upon initialization the tile it is on is marked as clean (so it starts out with one clean tile before moving). Then, moving again, it updates the position and the number of cleaned tiles.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">robot <span class="op">=</span> ps2.StandardRobot(room, <span class="dv">1</span>)
+<span class="bu">print</span>(robot.getRobotPosition())
+<span class="bu">print</span>(robot.room.getNumCleanedTiles())
+
+robot.updatePositionAndClean()
+<span class="bu">print</span>(robot.getRobotPosition())
+<span class="bu">print</span>(robot.room.getNumCleanedTiles())</code></pre></div>
+<pre><code>(1.00, 4.00)
+1
+(0.28, 4.69)
+2</code></pre>
+<p>The runSimulation function has args of the number of robots, speed, width, height, clean threshold and number of trials. The robots are initialized and trials are run until a set percent of the room has been covered by the robot, counting the number of steps taken, and returning the average of these steps over a number of trials. Here, we see that a randomly walking robot will take much longer than a straight &quot;bouncing&quot; robot to clean a room.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span>(ps2.runSimulation(<span class="dv">1</span>, <span class="fl">1.0</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="fl">0.9</span>, <span class="dv">30</span>, ps2.StandardRobot))
+<span class="bu">print</span>(ps2.runSimulation(<span class="dv">1</span>, <span class="fl">1.0</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="fl">0.9</span>, <span class="dv">30</span>, ps2.RandomWalkRobot))</code></pre></div>
+<pre><code>240.13333333333333
+614.1</code></pre>
+<p>Finally, we can run these trials for different combinations of the number of robots, or the aspect ratio (ratio of height to width), and see how many time steps it takes to clean the room. The second command hung up so I wasn't able to show all the data.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">from</span> matplotlib <span class="im">import</span> style
+style.use(<span class="st">&#39;fivethirtyeight&#39;</span>)
+ps2.showPlot1(<span class="st">&quot;Steps to Clean for different numbers of robots&quot;</span>, <span class="st">&quot;Number Robots&quot;</span>, <span class="st">&quot;Steps to clean 80</span><span class="sc">% o</span><span class="st">f Room&quot;</span>)
+ps2.showPlot2(<span class="st">&quot;Steps to Clean for different room shapes (aspect ratio)&quot;</span>, <span class="st">&quot;Ratio of Width to Height&quot;</span>, <span class="st">&quot;Steps to clean 80</span><span class="sc">% o</span><span class="st">f Room&quot;</span>)</code></pre></div>
+<pre><code>Plotting 1 robots...
+Plotting 2 robots...
+Plotting 3 robots...
+Plotting 4 robots...
+Plotting 5 robots...
+Plotting 6 robots...
+Plotting 7 robots...
+Plotting 8 robots...
+Plotting 9 robots...
+Plotting 10 robots...</code></pre>
+<p><img src="ps2_files/ps2_9_1.png" alt="png" /></p>
+<pre><code>Plotting cleaning time for a room of width: 10 by height: 30
+Plotting cleaning time for a room of width: 11 by height: 27
+Plotting cleaning time for a room of width: 12 by height: 25
+Plotting cleaning time for a room of width: 13 by height: 23
+Plotting cleaning time for a room of width: 14 by height: 21
+Plotting cleaning time for a room of width: 15 by height: 20
+Plotting cleaning time for a room of width: 16 by height: 18
+Plotting cleaning time for a room of width: 17 by height: 17</code></pre>
+<p><img src="ps2_files/ps2_9_3.png" alt="png" /></p>
+<h2 id="appendix">Appendix</h2>
+<p>Print out RectangularRoom, Robot, StandardRobot, RandomWalkRobot, RunSimulation classes</p>
+<h3 id="rectangularroom">RectangularRoom</h3>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># print out the RectangularRoom Class</span>
+<span class="bu">print</span>(inspect.getsource(ps2.RectangularRoom))</code></pre></div>
+<pre><code>class RectangularRoom(object):
+    &quot;&quot;&quot;
+    A RectangularRoom represents a rectangular region containing clean or dirty
+    tiles.
+
+    A room has a width and a height and contains (width * height) tiles. At any
+    particular time, each of these tiles is either clean or dirty.
+    &quot;&quot;&quot;
+    def __init__(self, width, height):
+        # Create array to represent room, with all False values
+        self.width = width
+        self.height = height
+        self.grid = np.zeros((height, width), dtype=bool)
+        &quot;&quot;&quot;
+        Initializes a rectangular room with the specified width and height.
+
+        Initially, no tiles in the room have been cleaned.
+
+        width: an integer &gt; 0
+        height: an integer &gt; 0
+        &quot;&quot;&quot;
+
+    def cleanTileAtPosition(self, pos):
+
+        (c, r) = math.floor(pos.getX()), math.floor(pos.getY())
+        # adjust position which begins at 1, 1, to grid which begins at 0, 0
+        # This is pretty hacky, but for some reason a position that passed the isPositionInRoom is out of bounds..
+        if (0 &lt;= pos.getY() &lt; self.height) &amp; (0 &lt;= pos.getX() &lt; self.width):
+            self.grid[r - 1, c - 1] = True
+
+        &quot;&quot;&quot;
+        Mark the tile under the position POS as cleaned.
+
+        Assumes that POS represents a valid position inside this room.
+
+        pos: a Position
+        &quot;&quot;&quot;
+        # raise NotImplementedError
+
+    def isTileCleaned(self, m, n):
+        &quot;&quot;&quot;
+        Return True if the tile (m, n) has been cleaned.
+        Assumes that (m, n) represents a valid tile inside the room.
+
+        m and n: integers
+        returns: True if (m, n) is cleaned, False otherwise
+        &quot;&quot;&quot;
+        return self.grid[n - 1, m - 1]
+        # raise NotImplementedError
+    
+    def getNumTiles(self):
+        return self.grid.shape[0] * self.grid.shape[1]
+        # Return the total number of tiles in the room, returns: an integer
+        # raise NotImplementedError
+
+    def getNumCleanedTiles(self):
+        return sum(sum(self.grid))
+        # Return the total number of clean tiles in the room.
+        # raise NotImplementedError
+
+    def getRandomPosition(self):
+        # Return a random position inside the room, returns: a Position object.
+        # second element of shape is number of columns, representing x distance. adjust position
+        # by subtracting one since that is done when adjusting math position to matrix position
+        rand_x, rand_y = randint(1, self.grid.shape[1]), randint(1, self.grid.shape[1])
+        return Position(rand_x - 1, rand_y - 1)
+        # raise NotImplementedError
+
+    def isPositionInRoom(self, pos):
+        &quot;&quot;&quot;
+        Return True if pos is inside the room.
+
+        pos: a Position object.
+        returns: True if pos is in the room, False otherwise.
+        &quot;&quot;&quot;
+        if (0 &lt;= pos.getY() &lt; self.height) &amp; (0 &lt;= pos.getX() &lt; self.width):
+            return True
+        else:
+            return False</code></pre>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># print out the Robot Class</span>
+<span class="bu">print</span>(inspect.getsource(ps2.Robot))</code></pre></div>
+<pre><code>class Robot(object):
+    &quot;&quot;&quot;
+    Represents a robot cleaning a particular room.
+
+    At all times the robot has a particular position and direction in the room.
+    The robot also has a fixed speed.
+
+    Subclasses of Robot should provide movement strategies by implementing
+    updatePositionAndClean(), which simulates a single time-step.
+    &quot;&quot;&quot;
+    def __init__(self, room, speed):
+        &quot;&quot;&quot;
+        Initializes a Robot with the given speed in the specified room. The
+        robot initially has a random direction and a random position in the
+        room. The robot cleans the tile it is on.
+
+        room:  a RectangularRoom object.
+        speed: a float (speed &gt; 0)
+        &quot;&quot;&quot;
+
+        # A position object is stored as self attribute
+        self.room = room
+        self.pos = self.room.getRandomPosition()
+        self.room.cleanTileAtPosition(self.pos)
+
+        self.angle = randint(0, 359)
+        self.speed = speed
+
+    def getRobotPosition(self):
+        &quot;&quot;&quot;
+        Return the position of the robot.
+
+        returns: a Position object giving the robot&#39;s position.
+        &quot;&quot;&quot;
+
+        return self.pos
+    
+    def getRobotDirection(self):
+        &quot;&quot;&quot;
+        Return the direction of the robot.
+
+        returns: an integer d giving the direction of the robot as an angle in
+        degrees, 0 &lt;= d &lt; 360.
+        &quot;&quot;&quot;
+        return self.angle
+
+    def setRobotPosition(self, position):
+        &quot;&quot;&quot;
+        Set the position of the robot to POSITION.
+
+        position: a Position object.
+        &quot;&quot;&quot;
+        self.pos = position
+
+    def setRobotDirection(self, direction):
+        &quot;&quot;&quot;
+        Set the direction of the robot to DIRECTION.
+
+        direction: integer representing an angle in degrees
+        &quot;&quot;&quot;
+        self.angle = direction
+
+    def updatePositionAndClean(self):
+        &quot;&quot;&quot;
+        Simulate the passage of a single time-step.
+
+        Move the robot to a new position and mark the tile it is on as having
+        been cleaned.
+        &quot;&quot;&quot;
+        raise NotImplementedError # don&#39;t change this!</code></pre>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># print out the StandardRobot Class</span>
+<span class="bu">print</span>(inspect.getsource(ps2.StandardRobot))</code></pre></div>
+<pre><code>class StandardRobot(Robot):
+    &quot;&quot;&quot;
+    A StandardRobot is a Robot with the standard movement strategy.
+
+    At each time-step, a StandardRobot attempts to move in its current
+    direction; when it would hit a wall, it *instead* chooses a new direction
+    randomly.
+    &quot;&quot;&quot;
+    def updatePositionAndClean(self):
+        &quot;&quot;&quot;
+        Simulate the passage of a single time-step.
+
+        Move the robot to a new position and mark the tile it is on as having
+        been cleaned.
+        &quot;&quot;&quot;
+        has_moved = False
+        while not has_moved:
+            new = self.pos.getNewPosition(self.angle, self.speed)
+            if self.room.isPositionInRoom(new):
+                self.setRobotPosition(new)
+                self.room.cleanTileAtPosition(self.pos)
+                has_moved = True
+            else:
+                self.angle = randint(0, 359)</code></pre>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># print out the RandomWalkRobot Class</span>
+<span class="bu">print</span>(inspect.getsource(ps2.RandomWalkRobot))</code></pre></div>
+<pre><code>class RandomWalkRobot(Robot):
+    &quot;&quot;&quot;
+    A RandomWalkRobot is a robot with the &quot;random walk&quot; movement strategy: it
+    chooses a new direction at random at the end of each time-step.
+    &quot;&quot;&quot;
+    def updatePositionAndClean(self):
+        &quot;&quot;&quot;
+        Simulate the passage of a single time-step.
+
+        Move the robot to a new position and mark the tile it is on as having
+        been cleaned.
+        &quot;&quot;&quot;
+        has_moved = False
+        while not has_moved:
+            self.angle = randint(0, 359)
+            new = self.pos.getNewPosition(self.angle, self.speed)
+            if self.room.isPositionInRoom(new):
+                self.setRobotPosition(new)
+                self.room.cleanTileAtPosition(self.pos)
+                has_moved = True</code></pre>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># print out the runSimulation Class</span>
+<span class="bu">print</span>(inspect.getsource(ps2.runSimulation))</code></pre></div>
+<pre><code>def runSimulation(num_robots, speed, width, height, min_coverage, num_trials,
+                  robot_type, toprint = False):
+    &quot;&quot;&quot;
+    Runs NUM_TRIALS trials of the simulation and returns the mean number of
+    time-steps needed to clean the fraction MIN_COVERAGE of the room.
+
+    The simulation is run with NUM_ROBOTS robots of type ROBOT_TYPE, each with
+    speed SPEED, in a room of dimensions WIDTH x HEIGHT.
+
+    num_robots: an int (num_robots &gt; 0)
+    speed: a float (speed &gt; 0)
+    width: an int (width &gt; 0)
+    height: an int (height &gt; 0)
+    min_coverage: a float (0 &lt;= min_coverage &lt;= 1.0)
+    num_trials: an int (num_trials &gt; 0)
+    robot_type: class of robot to be instantiated (e.g. StandardRobot or
+                RandomWalkRobot)
+    &quot;&quot;&quot;
+
+    results = [None] * num_trials
+
+    # Run number of trials and keep track with results list
+    for trial in range(0, num_trials):
+        my_room = RectangularRoom(width, height)
+        my_bots = {}
+        
+        # Initialize robots
+        for i in range(1, num_robots + 1):
+            my_bots[i] = robot_type(my_room, speed)
+
+        steps = 0
+        while my_room.getNumCleanedTiles()/my_room.getNumTiles() &lt; min_coverage:
+            for bot in my_bots.values():
+                bot.room = my_room
+                bot.updatePositionAndClean()
+                my_room = bot.room
+            steps += 1
+            if ((toprint) &amp; (steps%100 == 0)):
+                print(&quot;Took Step &quot;, steps)
+        results[trial] = steps
+        if toprint:
+            print(&quot;Finished Trial: &quot;, trial)
+
+    return sum(results)/len(results)</code></pre>
+</body>
+</html>

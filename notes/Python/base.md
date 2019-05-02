@@ -55,3 +55,6 @@
 * **[Unit 1 - Optimization](IntroCompThinkDataSci/unit1/unit1.html)**
 * **[Problem Set 1 - Space Cows](IntroCompThinkDataSci/unit1/problemset1.html)**
 * **[Unit 2 - Plotting](IntroCompThinkDataSci/unit2/plotting.html)**
+* **[Unit 2 - Stochastic Thinking and Random Walks](IntroCompThinkDataSci/unit2/unit2.html)**
+* **[Problem Set 2 - Robot Cleaning](IntroCompThinkDataSci/unit2/ps2.html)**
+  
