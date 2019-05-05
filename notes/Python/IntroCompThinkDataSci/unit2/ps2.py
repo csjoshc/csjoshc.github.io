@@ -19,6 +19,7 @@ import pylab
 # If you get a "Bad magic number" ImportError, you are not using Python 3.6
 
 from ps2_verify_movement37 import testRobotMovement
+
 # === Provided class Position
 class Position(object):
     """

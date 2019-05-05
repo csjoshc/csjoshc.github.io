@@ -57,4 +57,4 @@
 * **[Unit 2 - Plotting](IntroCompThinkDataSci/unit2/plotting.html)**
 * **[Unit 2 - Stochastic Thinking and Random Walks](IntroCompThinkDataSci/unit2/unit2.html)**
 * **[Problem Set 2 - Robot Cleaning](IntroCompThinkDataSci/unit2/ps2.html)**
-  
+* **[Unit 3 - Statistics and Sampling](IntroCompThinkDataSci/unit3/unit3.html)**
