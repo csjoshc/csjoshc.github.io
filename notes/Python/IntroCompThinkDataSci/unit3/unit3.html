@@ -4,6 +4,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
+  <meta name="date" content="2019-05-11" />
   <title></title>
   <style type="text/css">code{white-space: pre;}</style>
   <style type="text/css">
@@ -55,7 +56,9 @@ code > span. { color: #cfcfc2; } /* Normal */
 <li><a href="#calculating-standard-deviation">Calculating standard deviation</a></li>
 </ul></li>
 <li><a href="#inferential-statistics-and-probability">Inferential statistics and probability</a></li>
-<li><a href="#data-sampling">Data Sampling</a></li>
+<li><a href="#data-sampling">Data Sampling</a><ul>
+<li><a href="#standard">Standard</a></li>
+</ul></li>
 </ul>
 </div>
 <p><a href="../../../../index.html">Go back to index</a></p>
@@ -90,7 +93,7 @@ code > span. { color: #cfcfc2; } /* Normal */
         diff_sq <span class="op">=</span> []
         <span class="cf">for</span> item <span class="kw">in</span> lengths:
             diff_sq.append((item <span class="op">-</span> mean)<span class="op">**</span><span class="dv">2</span>)
-        <span class="cf">return</span> sqrt(<span class="bu">sum</span>(diff_sq)<span class="op">/</span><span class="bu">len</span>(lengths))    
+        <span class="cf">return</span> sqrt(<span class="bu">sum</span>(diff_sq)<span class="op">/</span><span class="bu">len</span>(lengths))
         
 <span class="kw">def</span> stdDevNumpyWay(L):
     <span class="im">import</span> numpy <span class="im">as</span> np
@@ -139,5 +142,7 @@ pylab.hist(dist, <span class="dv">10</span>)</code></pre></div>
     <span class="cf">return</span> (<span class="bu">sum</span>(prop)<span class="op">/</span><span class="bu">len</span>(prop))</code></pre></div>
 <h1 id="data-sampling">Data Sampling</h1>
 <p>It is also possible to generate a confidence interval without repeated sampling or simulations, such as in polling. In stratified sampling, subgroups are individually sampled so representative results can be found for each subgroup. The goal is to have the sample mean and standard deviation converge on the population mean and standard deviation.</p>
+<p>When repeating samples of a population to get a normal distribution of sample statistics, increasing the sample size will affect the standard deviation (tighten the confidence interval) more than increasing the number of samples. However, at a certain point the aggregate number of observations across all the samples may be too much if the number of samples and sample size are inflated excessively. In this case, it may be useful to look at what we can conclude from a single, reasonably small sample.</p>
+<h2 id="standard">Standard</h2>
 </body>
 </html>
