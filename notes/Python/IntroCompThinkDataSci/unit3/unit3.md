@@ -110,3 +110,8 @@ def noReplacementSimulation(numTrials):
 # Data Sampling 
 
 It is also possible to generate a confidence interval without repeated sampling or simulations, such as in polling. In stratified sampling, subgroups are individually sampled so representative results can be found for each subgroup. The goal is to have the sample mean and standard deviation converge on the population mean and standard deviation. 
+
+When repeating samples of a population to get a normal distribution of sample statistics, increasing the sample size will affect the standard deviation (tighten the confidence interval) more than increasing the number of samples. However, at a certain point the aggregate number of observations across all the samples may be too much if the number of samples and sample size are inflated excessively. In this case, it may be useful to look at what we can conclude from a single, reasonably small sample. 
+
+## Standard 
+
