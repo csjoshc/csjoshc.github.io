@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="date" content="2019-05-10" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #232629; color: #cfcfc2; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; background-color: #232629; color: #7a7c7d; border-right: 1px solid #7a7c7d; }
+td.sourceCode { padding-left: 5px; }
+pre, code { color: #cfcfc2; background-color: #232629; }
+code > span.kw { color: #cfcfc2; } /* Keyword */
+code > span.dt { color: #2980b9; } /* DataType */
+code > span.dv { color: #f67400; } /* DecVal */
+code > span.bn { color: #f67400; } /* BaseN */
+code > span.fl { color: #f67400; } /* Float */
+code > span.cn { color: #27aeae; } /* Constant */
+code > span.ch { color: #3daee9; } /* Char */
+code > span.sc { color: #3daee9; } /* SpecialChar */
+code > span.st { color: #f44f4f; } /* String */
+code > span.vs { color: #da4453; } /* VerbatimString */
+code > span.ss { color: #da4453; } /* SpecialString */
+code > span.im { color: #27ae60; } /* Import */
+code > span.co { color: #7a7c7d; } /* Comment */
+code > span.do { color: #a43340; } /* Documentation */
+code > span.an { color: #3f8058; } /* Annotation */
+code > span.cv { color: #7f8c8d; } /* CommentVar */
+code > span.ot { color: #27ae60; } /* Other */
+code > span.fu { color: #8e44ad; } /* Function */
+code > span.va { color: #27aeae; } /* Variable */
+code > span.cf { color: #fdbc4b; } /* ControlFlow */
+code > span.op { color: #cfcfc2; } /* Operator */
+code > span.bu { color: #7f8c8d; } /* BuiltIn */
+code > span.ex { color: #0099ff; } /* Extension */
+code > span.pp { color: #27ae60; } /* Preprocessor */
+code > span.at { color: #2980b9; } /* Attribute */
+code > span.re { color: #2980b9; } /* RegionMarker */
+code > span.in { color: #c45b00; } /* Information */
+code > span.wa { color: #da4453; } /* Warning */
+code > span.al { color: #95da4c; } /* Alert */
+code > span.er { color: #da4453; } /* Error */
+code > span. { color: #cfcfc2; } /* Normal */
+  </style>
+</head>
+<body>
+<div id="TOC">
+<ul>
+<li><a href="#may-11-2019">May 11, 2019</a></li>
+</ul>
+</div>
+<p><a href="../../index.html">Go back to index</a></p>
+<p><a href="../base.html">Go back to site update portal</a></p>
+<head>
+  <link rel="stylesheet" href="../../cssthemes/github.css">
+</head>
+<h2 id="may-11-2019">May 11, 2019</h2>
+<p>Enabled windows subsystem for linux (ubuntu)</p>
+<ul>
+<li>Installed Anaconda (no need for subsystem virtual env - it seems vscode can't be pointed at Python env installed on WSL?)</li>
+<li>Installed nbconvert and pandoc</li>
+<li>WSL is the default terminal in vscode1</li>
+<li>based on suggestions <a href="https://medium.com/hugo-ferreiras-blog/using-windows-subsystem-for-linux-for-data-science-9a8e68d7610c">here</a></li>
+<li>Able to run command line tools to build web pages using WSL:</li>
+<li>When I have the chance, I plan to look at syntax to run these from powershell.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">unixuser@DESKTOP-OMGDD98</span>:/mnt/d/csjoshc.github.io$ find . -name <span class="st">&quot;*.ipynb&quot;</span> -mtime -7  -exec jupyter nbconvert --to markdo
+<span class="ex">wn</span> <span class="dt">{}</span> <span class="dt">\;</span>
+[<span class="ex">NbConvertApp</span>] Converting notebook ./utils/01_BatchConversions.ipynb to markdown
+[<span class="ex">NbConvertApp</span>] Writing 1836 bytes to ./utils/01_BatchConversions.md
+
+<span class="ex">unixuser@DESKTOP-OMGDD98</span>:/mnt/d/csjoshc.github.io$ find ./ -iname <span class="st">&quot;*.md&quot;</span> -mtime -1 -ls -exec sh -c <span class="st">&#39;pandoc ${0} -s --toc</span>
+<span class="st"> --highlight-style breezedark -M date=&quot;`date &quot;+%B %e, %Y&quot;`&quot; -f markdown_strict+backtick_code_blocks+auto_identifiers  -t</span>
+<span class="st"> html  -o  ${0%.md}.html&#39;</span> <span class="dt">{}</span> <span class="dt">\;</span>
+
+<span class="ex">281474977923978</span>      4 -rwxrwxrwx   1 unixuser unixuser     1450 May 10 04:03 ./notes/General/CS50x2019/basics.md
+<span class="ex">281474977932239</span>      0 -rwxrwxrwx   1 unixuser unixuser      670 May 10 04:03 ./site_updates/5_2019/11_5_2019.md
+<span class="ex">562949954578866</span>      4 -rwxrwxrwx   1 unixuser unixuser     1836 May 10 04:27 ./utils/01_BatchConversions.md</code></pre></div>
+<p>Created Virtual env - learningenv - for Anaconda installed on windows.</p>
+<ul>
+<li>Added debug configuration for Python in launch.json (default settings)</li>
+<li>Running same command line tools doesn't work in PowerShell:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">PS</span> D:\csjoshc.github.io<span class="op">&gt;</span> cd ..<span class="kw">;</span> <span class="fu">find</span> . -name <span class="st">&quot;*.ipynb&quot;</span> -mtime -7  -exec jupyter nbconvert --to markdown <span class="dt">{}</span> <span class="dt">\;</span>
+<span class="ex">File</span> not found - *.ipynb</code></pre></div>
+</body>
+</html>

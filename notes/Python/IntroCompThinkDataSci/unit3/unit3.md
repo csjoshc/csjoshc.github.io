@@ -46,7 +46,7 @@ def stdDevOfLengths(L):
         diff_sq = []
         for item in lengths:
             diff_sq.append((item - mean)**2)
-        return sqrt(sum(diff_sq)/len(lengths))    
+        return sqrt(sum(diff_sq)/len(lengths))
         
 def stdDevNumpyWay(L):
     import numpy as np
