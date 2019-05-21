@@ -113,5 +113,10 @@ It is also possible to generate a confidence interval without repeated sampling 
 
 When repeating samples of a population to get a normal distribution of sample statistics, increasing the sample size will affect the standard deviation (tighten the confidence interval) more than increasing the number of samples. However, at a certain point the aggregate number of observations across all the samples may be too much if the number of samples and sample size are inflated excessively. In this case, it may be useful to look at what we can conclude from a single, reasonably small sample. 
 
-## Standard 
+## Standard Error
+
+One a sample reaches a reasonable size, the sample std dev approximates the population std dev. When testing this outcome for uniform, gaussian and exponential distributions, the greatest difference in sample vs population std dev occurs for the exponential distributions. While all three have the difference in sample vs population std dev fall off with increasing sample size, the exponential distribution will have a larger difference compared to the other distributions, at any one sample size. 
+
+On the other hand, sample size does **not matter** - even sampling a few hundred data points from millions will yield a std dev that can be used to generate an estimated standard error, which can be used to generate confidence intervals around the sample mean. This relies on choosing independent, random samples from the population - this isn't always possible to achieve. 
+
 

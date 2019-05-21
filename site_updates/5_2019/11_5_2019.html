@@ -4,7 +4,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
-  <meta name="date" content="2019-05-11" />
+  <meta name="date" content="2019-05-20" />
   <title></title>
   <style type="text/css">code{white-space: pre;}</style>
   <style type="text/css">
@@ -74,9 +74,7 @@ code > span. { color: #cfcfc2; } /* Normal */
 [<span class="ex">NbConvertApp</span>] Converting notebook ./utils/01_BatchConversions.ipynb to markdown
 [<span class="ex">NbConvertApp</span>] Writing 1836 bytes to ./utils/01_BatchConversions.md
 
-<span class="ex">unixuser@DESKTOP-OMGDD98</span>:/mnt/d/csjoshc.github.io$ find ./ -iname <span class="st">&quot;*.md&quot;</span> -mtime -1 -ls -exec sh -c <span class="st">&#39;pandoc ${0} -s --toc</span>
-<span class="st"> --highlight-style breezedark -M date=&quot;`date &quot;+%B %e, %Y&quot;`&quot; -f markdown_strict+backtick_code_blocks+auto_identifiers  -t</span>
-<span class="st"> html  -o  ${0%.md}.html&#39;</span> <span class="dt">{}</span> <span class="dt">\;</span>
+<span class="ex">unixuser@DESKTOP-OMGDD98</span>:/mnt/d/csjoshc.github.io$ find ./ -iname <span class="st">&quot;*.md&quot;</span> -mtime -1 -ls -exec sh -c <span class="st">&#39;pandoc ${0} -s --toc --highlight-style breezedark -M date=&quot;`date &quot;+%B %e, %Y&quot;`&quot; -f markdown_strict+backtick_code_block+auto_identifiers -t html  -o  ${0%.md}.html&#39;</span> <span class="dt">{}</span> <span class="dt">\;</span>
 
 <span class="ex">281474977923978</span>      4 -rwxrwxrwx   1 unixuser unixuser     1450 May 10 04:03 ./notes/General/CS50x2019/basics.md
 <span class="ex">281474977932239</span>      0 -rwxrwxrwx   1 unixuser unixuser      670 May 10 04:03 ./site_updates/5_2019/11_5_2019.md

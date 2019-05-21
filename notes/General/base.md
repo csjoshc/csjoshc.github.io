@@ -7,4 +7,3 @@
 
 * **[Basics](CS50x2019\basics.html)**
 
-Nice

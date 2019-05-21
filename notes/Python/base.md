@@ -58,3 +58,5 @@
 * **[Unit 2 - Stochastic Thinking and Random Walks](IntroCompThinkDataSci/unit2/unit2.html)**
 * **[Problem Set 2 - Robot Cleaning](IntroCompThinkDataSci/unit2/ps2.html)**
 * **[Unit 3 - Statistics and Sampling](IntroCompThinkDataSci/unit3/unit3.html)**
+* **[Problem Set 3 - Viral Load simulations](IntroCompThinkDataSci/unit3/ps3.html)**
+* **[Unit 4 - Experimental Data and Modeling](IntroCompThinkDataSci/unit4/unit4.html)**
