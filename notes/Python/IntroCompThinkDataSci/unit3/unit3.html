@@ -4,7 +4,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
-  <meta name="date" content="2019-05-11" />
+  <meta name="date" content="2019-05-26" />
   <title></title>
   <style type="text/css">code{white-space: pre;}</style>
   <style type="text/css">
@@ -57,7 +57,7 @@ code > span. { color: #cfcfc2; } /* Normal */
 </ul></li>
 <li><a href="#inferential-statistics-and-probability">Inferential statistics and probability</a></li>
 <li><a href="#data-sampling">Data Sampling</a><ul>
-<li><a href="#standard">Standard</a></li>
+<li><a href="#standard-error">Standard Error</a></li>
 </ul></li>
 </ul>
 </div>
@@ -143,6 +143,8 @@ pylab.hist(dist, <span class="dv">10</span>)</code></pre></div>
 <h1 id="data-sampling">Data Sampling</h1>
 <p>It is also possible to generate a confidence interval without repeated sampling or simulations, such as in polling. In stratified sampling, subgroups are individually sampled so representative results can be found for each subgroup. The goal is to have the sample mean and standard deviation converge on the population mean and standard deviation.</p>
 <p>When repeating samples of a population to get a normal distribution of sample statistics, increasing the sample size will affect the standard deviation (tighten the confidence interval) more than increasing the number of samples. However, at a certain point the aggregate number of observations across all the samples may be too much if the number of samples and sample size are inflated excessively. In this case, it may be useful to look at what we can conclude from a single, reasonably small sample.</p>
-<h2 id="standard">Standard</h2>
+<h2 id="standard-error">Standard Error</h2>
+<p>One a sample reaches a reasonable size, the sample std dev approximates the population std dev. When testing this outcome for uniform, gaussian and exponential distributions, the greatest difference in sample vs population std dev occurs for the exponential distributions. While all three have the difference in sample vs population std dev fall off with increasing sample size, the exponential distribution will have a larger difference compared to the other distributions, at any one sample size.</p>
+<p>On the other hand, sample size does <strong>not matter</strong> - even sampling a few hundred data points from millions will yield a std dev that can be used to generate an estimated standard error, which can be used to generate confidence intervals around the sample mean. This relies on choosing independent, random samples from the population - this isn't always possible to achieve.</p>
 </body>
 </html>
