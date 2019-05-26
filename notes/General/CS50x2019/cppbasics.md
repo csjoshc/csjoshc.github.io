@@ -63,7 +63,7 @@ while (n < 10)
 
 ## About strings...
 
-Apparently, strings are not directly implemented in c, but are instead stored as memory pointers to char *s arrays - specifically, the first bit of a memory block corresponding to the first character of the stored string, and which is terminated by a null character. This is much more abstract than anything I encountered in Python or R, so for now it's probably good enough to just be aware of the quirks of such a data type, such as null characters, copying strings, memory allocation, etc. For example, testing equality is more involved than just using a boolean comparison with string pointers since that test for the equality of the memory pointer (a hexadecimal location), not the bits making up the actual char *s array. 
+Apparently, strings are not directly implemented in c, but are instead stored as memory pointers to `char *s` arrays - specifically, the first bit of a memory block corresponding to the first character of the stored string, and which is terminated by a null character. This is much more abstract than anything I encountered in Python or R, so for now it's probably good enough to just be aware of the quirks of such a data type, such as null characters, copying strings, memory allocation, etc. For example, testing equality is more involved than just using a boolean comparison with string pointers since that test for the equality of the memory pointer (a hexadecimal location), not the bits making up the actual `char *s` array. 
 
 ## Arrays
 
@@ -75,7 +75,7 @@ Singly linked lists consist of nodes containing a value (int) and a memory point
 
 * For sorted order, algorithmic complexity of inserting elements is O(n) since you need to traverse along the list until the correct point is reached. This is the same as the complexity of lookup (since you have to lookup as you insert in order).
 * For unsorted order, inserting is O(1), since you can just point the first node at the newly inserted node, and point the newly inserted node at the node that was previously the second (but is now the third)
-* Deletion is also a breeze, since all you need to do is change where the *next pointer is pointing. 
+* Deletion is also a breeze, since all you need to do is change where the `*next` pointer is pointing. 
 
 ## Hash Tables
 
@@ -86,6 +86,6 @@ Hash tables are a way of binning values into "belonging" into a category, so tha
 
 ## Tries/Tree structure
 
-The Trie data structure can be implemented as a linked list with **two** or more *next pointers, to a left and right child. The node positions encode mathematical logic (between child and parent nodes). This forms branches that mathematically subset the data in log complexity - e.g. the height of a tree structure will be the log of number of branching decisions that need to be made (for example, the length of a word).
+The Trie data structure can be implemented as a linked list with **two** or more `*next` pointers, to a left and right child. The node positions encode mathematical logic (between child and parent nodes). This forms branches that mathematically subset the data in log complexity - e.g. the height of a tree structure will be the log of number of branching decisions that need to be made (for example, the length of a word).
 
 Building a Trie has large overhead at the beginning, but insertion is easy once the framework is set up, and repeatedly used nodes have already been initialized. Deletion is good, and lookups/sorting is 2nd to that of arrays. The downside is that each node contains pointers to all the possible child nodes, so size grows rapidly with these pointers. 
