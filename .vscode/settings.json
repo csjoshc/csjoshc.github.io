@@ -2,5 +2,5 @@
     "python.linting.pylintEnabled": false,
     "python.linting.pep8Enabled": true,
     "python.linting.enabled": true,
-    "python.pythonPath": "/home/jcmint/anaconda3/envs/learningenv/bin/python"
+    "python.pythonPath": "C:\\Users\\Joshua Chiu\\Anaconda3\\envs\\learningenv\\python.exe"
 }

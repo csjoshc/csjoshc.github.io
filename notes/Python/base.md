@@ -61,3 +61,4 @@
 * **[Problem Set 3 - Viral Load simulations](IntroCompThinkDataSci/unit3/ps3.html)**
 * **[Unit 4 - Experimental Data and Modeling](IntroCompThinkDataSci/unit4/unit4.html)**
 * **[Problem Set 4 - Linear Modeling](IntroCompThinkDataSci/unit4/ps4.html)**
+* **[Unit 5 - Machine Learning](IntroCompThinkDataSci/unit5/unit5.html)**

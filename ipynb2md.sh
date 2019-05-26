@@ -1,1 +1,1 @@
-find . -name "*.ipynb" -mtime -7  -exec jupyter nbconvert --to markdown {} \;
+find . -name "*.ipynb" -mtime -30  -exec jupyter nbconvert --to markdown {} \;

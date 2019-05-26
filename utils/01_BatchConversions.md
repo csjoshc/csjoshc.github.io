@@ -46,8 +46,14 @@ The final step is convering all `.md` files that were recently modified.
 # -mtime -1
 ```
 
-      1157236      4 -rwxrwxrwx   1 jcmint   jcmint       2372 May  5 17:24 ./notes/Python/base.md
-      1161675      8 -rwxrwxrwx   1 jcmint   jcmint       5970 May  5 17:24 ./notes/Python/IntroCompThinkDataSci/unit3/unit3.md
-      1213249      1 -rwxrwxrwx   1 jcmint   jcmint        403 May  5 17:24 ./site_updates/5_2019/04_5_2019.md
-      1157243      1 -rwxrwxrwx   1 jcmint   jcmint        540 May  5 17:23 ./site_updates/base.md
+      1213322      4 -rwxrwxrwx   1 jcmint   jcmint       1450 May 10 04:03 ./notes/General/CS50x2019/basics.md
+      1161675      8 -rwxrwxrwx   1 jcmint   jcmint       6494 May 11 00:43 ./notes/Python/IntroCompThinkDataSci/unit3/unit3.md
+      1221583      4 -rwxrwxrwx   1 jcmint   jcmint       2028 May 10 04:31 ./site_updates/5_2019/11_5_2019.md
+      1157243      1 -rwxrwxrwx   1 jcmint   jcmint        577 May 11 00:52 ./site_updates/base.md
+      1157554      4 -rwxrwxrwx   1 jcmint   jcmint       1836 May 10 23:37 ./utils/01_BatchConversions.md
 
+
+
+```python
+
+```
