@@ -28,6 +28,7 @@
 * **[Dataframes - Strings & Timestamps](PythonforDataScience/4_Pandas5.html)**
 * **[Matplotlib](PythonforDataScience/5_Matplotlib.html)**
 * **[Machine Learning - Overview](PythonforDataScience/7_ML.html)**
+* **[Machine Learning - Regression](PythonforDataScience/7_ML_Reg.html)**
 * **[Decision Tree Classification extended](PythonforDataScience/7_ML_DT.html)**
 * **[Clustering extended](PythonforDataScience/7_ML_Clust.html)**
 
