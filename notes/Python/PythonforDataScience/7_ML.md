@@ -2,8 +2,10 @@
 <a href="../../../index.html">Go back to index</a>
 
 <a href="../base.html">Go back to Python Portal</a>
+
 <head>
   <link rel="stylesheet" href="../../../cssthemes/github.css">
+  <meta name="viewport" content="initial-scale=1, width=device-width">
 </head>
 
 # Machine Learning
@@ -103,6 +105,15 @@ One method is the elbow plot - see where the dropoff in WSSE as k increases begi
 * Probability of one event given another event
 
 ## Regression: Predict a numeric value
+
+* Used for forecasting, estimation, predictions future trends
+* Input variables can be numeric or categorical
+* Supervised, since the target label is a numeric value
+
+### Linear regression
+
+* Simple but powerful model for a linear relationship between input and output; multiple linear regression can handle multiple inputs
+* Regression minimizes the error using the least squares method (square of the distance between the predicted and actual value, or the residual) 
 
 
 ## Association Analysis - identify associations between items or events (co-occurence)

@@ -2,8 +2,10 @@
 <a href="../../../index.html">Go back to index</a>
 
 <a href="../base.html">Go back to Python Portal</a>
+
 <head>
   <link rel="stylesheet" href="../../../css_themes/github.css">
+  <meta name="viewport" content="initial-scale=1, width=device-width">
 </head>
 
 
