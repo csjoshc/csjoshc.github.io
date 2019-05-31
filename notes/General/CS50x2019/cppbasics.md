@@ -4,9 +4,8 @@
 
 <head>
   <link rel="stylesheet" href="../../../cssthemes/github.css">
+  <meta name="viewport" content="initial-scale=1, width=device-width">
 </head>
-
-<meta name="viewport" content="initial-scale=1, width=device-width">
 
 # C++ skimming
 

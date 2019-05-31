@@ -1,6 +1,7 @@
 <a href="../../index.html">Go back to index</a>
 <head>
   <link rel="stylesheet" href="../../cssthemes/github.css">
+  <meta name="viewport" content="initial-scale=1, width=device-width">
 </head>
 
 # Python Portal page
