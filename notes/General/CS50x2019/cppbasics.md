@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="../../../cssthemes/github.css">
 </head>
 
-<meta name="viewport" content="initial-scale=1", width="device-width">
+<meta name="viewport" content="initial-scale=1, width=device-width">
 # C++ skimming
 
 A few tidbits picked up from the intro on C. I'm not going to include too much on cpp since I don't have a compiler (no Visual Studio) and don't feel its **too** relevant to my situation.

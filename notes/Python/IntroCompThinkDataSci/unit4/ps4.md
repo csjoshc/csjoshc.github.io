@@ -2,7 +2,7 @@
 
 <a href="../../base.html">Go back to Python Portal</a>
 <head>
-    <meta name="viewport" content="initial-scale=1", width="device-width">
+    <meta name="viewport" content="initial-scale=1, width=device-width">
     <link rel="stylesheet" href="../../../../cssthemes/github.css">
 </head>
 
