@@ -2,7 +2,8 @@
 
 <a href="../../base.html">Go back to Python Portal</a>
 <head>
-  <link rel="stylesheet" href="../../../../cssthemes/github.css">
+    <meta name="viewport" content="initial-scale=1", width="device0width">
+    <link rel="stylesheet" href="../../../../cssthemes/github.css">
 </head>
 
 # Fitting and evaluating linear models

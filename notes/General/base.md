@@ -5,6 +5,9 @@
 
 # General Portal page
 
-* **[Basics](CS50x2019\cppbasics.html)**
+* **[C++ Basics](CS50x2019\cppbasics.html)**
+* **[Web Basics](CS50x2019\webbasics.html)**
+* **[Web Basics](CS50x2019\python.html)**
+* **[Flask Intro](CS50x2019\flask.html)**
 * **[Web Dev to-do](webdev2019.html)**
 
