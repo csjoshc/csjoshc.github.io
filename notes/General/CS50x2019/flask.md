@@ -90,19 +90,21 @@ Flask also allows placeholders for chunks of html. In a `layouts.html` file insi
 
 ```html
 <body>
-{% block body %}{% endblock %}
+{% raw %}{% block body %}{% endblock %}{% endraw %}
 </body>
 ```
 
 Then, in other HTML files that are based off this layouts file, we can get rid of the doctype, html/lang and header tags. We can just include the HTML that is **specific** to the particular page. This might be an exampel of "good_job.html" that I used above:
 
 ```html
+{% raw %}
 {% extends "layout.html" %}
 {% block body %}
 
     <h1>Good job!</h1>
     // unique stuff here
 {% endblock %}
+{% endraw %}
 ```
 
 # Displaying persistent data
@@ -129,6 +131,7 @@ def enterednames_func():
 Then, in names.html in templates directory:
 
 ```html
+{% raw %}
 {% extends "layout.html" %}
 {% block body %}
     <ul> //list 
@@ -137,6 +140,7 @@ Then, in names.html in templates directory:
         {% endfor %}
     </ul>
 {% endblock %}
+{% endraw %}
 ```
 
 You can also set up the entered_names() function to save the file at the same time the page loads, and to display a link to the file as a href as a download link. 
