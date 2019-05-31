@@ -8,9 +8,9 @@
 
 # MVC
 
-Controller - business and functional logic (Python)
-View - aesthetics that is user-facing 
-Model - a database that handles requests
+* Controller - business and functional logic (Python)
+* View - aesthetics that is user-facing 
+* Model - a database that handles requests
 
 # Frameworks
 
