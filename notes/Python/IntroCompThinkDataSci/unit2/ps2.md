@@ -2,8 +2,10 @@
 <a href="../../../../index.html">Go back to index</a>
 
 <a href="../../base.html">Go back to Python Portal</a>
+
 <head>
   <link rel="stylesheet" href="../../../../cssthemes/github.css">
+  <meta name="viewport" content="initial-scale=1, width=device-width">
 </head>
 
 
@@ -121,13 +123,8 @@ Print out RectangularRoom, Robot, StandardRobot, RandomWalkRobot, RunSimulation 
 
 ### RectangularRoom
 
-
 ```python
-# print out the RectangularRoom Class
-print(inspect.getsource(ps2.RectangularRoom))
-```
-
-    class RectangularRoom(object):
+class RectangularRoom(object):
         """
         A RectangularRoom represents a rectangular region containing clean or dirty
         tiles.
@@ -206,18 +203,12 @@ print(inspect.getsource(ps2.RectangularRoom))
                 return True
             else:
                 return False
-    
-
+```  
 
 ### Robot
 
-
 ```python
-# print out the Robot Class
-print(inspect.getsource(ps2.Robot))
-```
-
-    class Robot(object):
+class Robot(object):
         """
         Represents a robot cleaning a particular room.
     
@@ -287,18 +278,12 @@ print(inspect.getsource(ps2.Robot))
             been cleaned.
             """
             raise NotImplementedError # don't change this!
-    
-
+```
 
 ### StandardRobot
 
-
 ```python
-# print out the StandardRobot Class
-print(inspect.getsource(ps2.StandardRobot))
-```
-
-    class StandardRobot(Robot):
+class StandardRobot(Robot):
         """
         A StandardRobot is a Robot with the standard movement strategy.
     
@@ -322,18 +307,12 @@ print(inspect.getsource(ps2.StandardRobot))
                     has_moved = True
                 else:
                     self.angle = randint(0, 359)
-    
-
+``` 
 
 ### RandomWalkRobot
 
-
 ```python
-# print out the RandomWalkRobot Class
-print(inspect.getsource(ps2.RandomWalkRobot))
-```
-
-    class RandomWalkRobot(Robot):
+class RandomWalkRobot(Robot):
         """
         A RandomWalkRobot is a robot with the "random walk" movement strategy: it
         chooses a new direction at random at the end of each time-step.
@@ -353,18 +332,12 @@ print(inspect.getsource(ps2.RandomWalkRobot))
                     self.setRobotPosition(new)
                     self.room.cleanTileAtPosition(self.pos)
                     has_moved = True
-    
-
+```
 
 ### runSimulation
 
-
 ```python
-# print out the runSimulation Class
-print(inspect.getsource(ps2.runSimulation))
-```
-
-    def runSimulation(num_robots, speed, width, height, min_coverage, num_trials,
+def runSimulation(num_robots, speed, width, height, min_coverage, num_trials,
                       robot_type, toprint = False):
         """
         Runs NUM_TRIALS trials of the simulation and returns the mean number of
@@ -408,5 +381,4 @@ print(inspect.getsource(ps2.runSimulation))
                 print("Finished Trial: ", trial)
     
         return sum(results)/len(results)
-    
-
+```
