@@ -1,1 +1,7 @@
-Icon[\r]notes/Python/PythonforDataScience/Week-7-MachineLearning/.vscode/.gitignore
+Icon[\r]
+notes/Python/PythonforDataScience/Week-7-MachineLearning/*
+.vscode/
+.gitignore
+Icon?
+notes/General/CS50x2019/src8/*
+notes/General/CS50x2019/src7/*

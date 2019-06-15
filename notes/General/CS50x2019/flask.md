@@ -36,9 +36,19 @@ def index():
     return "hello world"
 ```
 
-Then, on the command line you just use
+Then, on the command line you just use the following lines. The first two are required only the first time the application is run. The below is for Linux:
 
 ```bash
+export FLASK_APP=application.py
+export FLASK_DEBUG=1
+flask run
+```
+
+Alternatively, on windows it would be
+
+```shell
+set FLASK_APP=application.py
+set FLASK_DEBUG=1
 flask run
 ```
 
@@ -71,7 +81,7 @@ def index():
 
 Then, in the browser you would append a ?name=myname to the url to simulate a GET request - and this would dynamically update the website to use that name. 
 
-For other requests, such as the submission, we can implement separate request listeners. 
+For other requests, such as the submission, we can implement separate request listeners. You can also set methods to allow both GET and POST, and include a if switch in the associated method to handle the page load or submission, respectively. 
 
 ```python
 @app.route("/nextpage", methods=["POST"])

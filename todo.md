@@ -6,8 +6,9 @@
 <a href="index.html">Go back to index</a>
 
 # To do list for site
-* matplotlib image axes missing
-* rewrite headers to not have code - this breaks the TOC
+
+* Work on summer [todo list](site_updates/5_2019/25_5_2019.html)
+* Work on [Indeed cloud](site_updates/project_ideas/indeed_cloud.html)
 * floating toc makes better use of widescreen. [try this?](https://afeld.github.io/bootstrap-toc/)
 * picture for index page
 * grid format for some portal pages 

@@ -1,8 +1,9 @@
 <a href="../../../index.html">Go back to index</a>
-
 <a href="../base.html">Go back to General topics portal</a>
+
 <head>
   <link rel="stylesheet" href="../../../cssthemes/github.css">
+  <meta name="viewport" content="initial-scale=1, width=device-width">
 </head>
 
 # Web basics
@@ -92,3 +93,23 @@ document.querySelector('#my_button').onclick = function{
 </script>
 
 ```
+
+# AJAX
+
+AJAX allows refreshing sections of the page without refreshing the entire page. This is why it is asynchronous - these requests to update sections occur at different times from when the page itself is loaded. 
+
+* Handle this with a XMLHttpRequest, which has 4 ready states. This is commonly implemented with jQuery. 
+
+```javascript
+function aj_req(arg){
+    var aj = new XMLHttpRequest();
+    aj.onreadystatechange=function{
+        if(aj.readyState==4 && aj.status==200)
+        // execute
+    };
+    aj.open("GET", /* url */, true);
+    aj.send();
+}
+```
+
+When handling events, use `this` to refer to the value of the HTML submission that triggered the (anonymous) function call in the first place. 

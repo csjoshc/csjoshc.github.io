@@ -34,6 +34,8 @@ INTERVAL_2 = list(range(2006, 2016))
 """
 Begin helper code
 """
+
+
 class Climate(object):
     """
     The collection of temperature records loaded from given csv file

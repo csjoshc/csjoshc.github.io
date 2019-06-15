@@ -4,7 +4,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
-  <meta name="date" content="2019-05-30" />
+  <meta name="date" content="2019-06-14" />
   <title></title>
   <style type="text/css">code{white-space: pre;}</style>
   <style type="text/css">
@@ -56,10 +56,14 @@ code > span. { color: #cfcfc2; } /* Normal */
 <li><a href="#javascript">Javascript</a><ul>
 <li><a href="#events">Events</a></li>
 </ul></li>
+<li><a href="#ajax">AJAX</a></li>
 </ul>
 </div>
-<p><a href="../../../index.html">Go back to index</a></p>
-<p><a href="../base.html">Go back to General topics portal</a> <head> <link rel="stylesheet" href="../../../cssthemes/github.css"> </head></p>
+<p><a href="../../../index.html">Go back to index</a> <a href="../base.html">Go back to General topics portal</a></p>
+<head>
+  <link rel="stylesheet" href="../../../cssthemes/github.css">
+  <meta name="viewport" content="initial-scale=1, width=device-width">
+</head>
 <h1 id="web-basics">Web basics</h1>
 <p>A client sends the following content to a host server at a specific host name. www is the subdomain, while myhost.com is the domain (HTTP is the protocol). There will be a status code returned by the host.</p>
 <ul>
@@ -122,5 +126,20 @@ Content-Type: text/html</code></pre>
     <span class="va">body</span>.<span class="va">style</span>.<span class="at">backgroundColor</span> <span class="op">=</span> <span class="st">&#39;red&#39;</span><span class="op">;</span>
 <span class="op">};</span>
 <span class="kw">&lt;/script&gt;</span></code></pre></div>
+<h1 id="ajax">AJAX</h1>
+<p>AJAX allows refreshing sections of the page without refreshing the entire page. This is why it is asynchronous - these requests to update sections occur at different times from when the page itself is loaded.</p>
+<ul>
+<li>Handle this with a XMLHttpRequest, which has 4 ready states. This is commonly implemented with jQuery.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">function</span> <span class="at">aj_req</span>(arg)<span class="op">{</span>
+    <span class="kw">var</span> aj <span class="op">=</span> <span class="kw">new</span> <span class="at">XMLHttpRequest</span>()<span class="op">;</span>
+    <span class="va">aj</span>.<span class="at">onreadystatechange</span><span class="op">=</span><span class="kw">function</span><span class="op">{</span>
+        <span class="cf">if</span>(<span class="va">aj</span>.<span class="at">readyState</span><span class="op">==</span><span class="dv">4</span> <span class="op">&amp;&amp;</span> <span class="va">aj</span>.<span class="at">status</span><span class="op">==</span><span class="dv">200</span>)
+        <span class="co">// execute</span>
+    <span class="op">};</span>
+    <span class="va">aj</span>.<span class="at">open</span>(<span class="st">&quot;GET&quot;</span><span class="op">,</span> <span class="co">/* url */</span><span class="op">,</span> <span class="kw">true</span>)<span class="op">;</span>
+    <span class="va">aj</span>.<span class="at">send</span>()<span class="op">;</span>
+<span class="op">}</span></code></pre></div>
+<p>When handling events, use <code>this</code> to refer to the value of the HTML submission that triggered the (anonymous) function call in the first place.</p>
 </body>
 </html>

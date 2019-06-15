@@ -9,6 +9,10 @@
 
 Here I want to post occasional summaries of site updates. 
 
+## Project ideas
+
+* [Indeed cloud](project_ideas/indeed_cloud.html)
+
 ## May 2019
 
 * [May 25 2019](5_2019/25_5_2019.html)
