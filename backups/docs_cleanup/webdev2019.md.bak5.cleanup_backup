@@ -1,0 +1,15 @@
+<!-- General Navigation Template -->
+<!-- This template provides navigation for General topic pages -->
+
+<div class="return-navigation">
+  <a href="../../index.md" class="nav-button index-button">🏠 Home</a>
+  <a href="base.md" class="nav-button portal-button">📚 General</a>
+</div>
+
+<!-- Content starts here -->
+
+# Focus topics for web dev
+* HTML/CSS(Bootstrap): Grid/FlexBox, responsive layout, SASS preprocessor for CSS
+* JavaScript (Vue/VueX) - Event handling, JSON, fetch API 
+* Other tools - [Git](https://www.udacity.com/course/how-to-use-git-and-github--ud775), NPM, ESLint
+* Node.js(Express), Python (Django), PostgreSQL, Wordpress, Nginx, Digital Ocean, Docker

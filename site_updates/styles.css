@@ -1,0 +1,78 @@
+/* Site Updates Navigation Styles */
+/* Fix for navigation buttons stacking together */
+
+/* Navigation button container */
+.nav-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1rem 0;
+  padding: 1rem 0;
+  border-bottom: 1px solid #333;
+}
+
+/* Individual navigation buttons */
+.nav-buttons a {
+  display: inline-block;
+  padding: 0.75rem 1rem;
+  background: #1a1a1a;
+  border: 2px solid #00d4aa;
+  border-radius: 0.5rem;
+  color: #00d4aa;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.nav-buttons a:hover {
+  background: #00d4aa;
+  color: #1a1a1a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+  .nav-buttons {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .nav-buttons a {
+    text-align: center;
+  }
+}
+
+/* Content spacing */
+body {
+  margin-top: 2rem;
+}
+
+/* TOC styling */
+#TOC {
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 0.5rem;
+}
+
+#TOC ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+#TOC li {
+  margin: 0.5rem 0;
+}
+
+#TOC a {
+  color: #00d4aa;
+  text-decoration: none;
+}
+
+#TOC a:hover {
+  text-decoration: none;
+  color: #00d4aa;
+  opacity: 0.8;
+}

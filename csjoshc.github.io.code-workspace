@@ -1,0 +1,17 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "python.defaultInterpreterPath": "./.venv/bin/python",
+    "python.terminal.activateEnvironment": true,
+    "jupyter.defaultKernel": "csjoshc-python311",
+    "jupyter.kernels.trusted": ["csjoshc-python311"],
+    "python.analysis.extraPaths": ["./.venv/lib/python3.11/site-packages"]
+  },
+  "extensions": {
+    "recommendations": ["ms-python.python", "ms-toolsai.jupyter"]
+  }
+}

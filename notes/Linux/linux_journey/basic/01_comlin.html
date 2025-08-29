@@ -1,0 +1,225 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="date" content="2019-03-16" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+</head>
+<body>
+<div id="TOC">
+<ul>
+<li><a href="#command-line">Command Line</a><ul>
+<li><a href="#echo-and-pwd"><code>echo</code> and <code>pwd</code></a></li>
+<li><a href="#cd---changing-directory"><code>cd</code> - changing directory</a></li>
+<li><a href="#ls---listing-directories"><code>ls</code> - listing directories</a></li>
+<li><a href="#touch---create-new-files"><code>touch</code> - create new files</a></li>
+<li><a href="#file---inspect-files"><code>file</code> - inspect files</a></li>
+<li><a href="#cat-concatenate---combine-file-contents"><code>cat</code> (concatenate) - combine file contents</a></li>
+<li><a href="#less---get-truncated-preview"><code>less</code> - get truncated preview</a></li>
+<li><a href="#history---past-commands"><code>history</code> - past commands</a></li>
+<li><a href="#cp---copy"><code>cp</code> - Copy</a><ul>
+<li><a href="#regex-cp-with-and">Regex <code>cp</code> with <code>*</code>, <code>?</code> and <code>[]</code></a></li>
+<li><a href="#recursive-interactive-cp-with--i-and--r">Recursive &amp; interactive <code>cp</code> with <code>-i</code> and <code>-r</code></a></li>
+</ul></li>
+<li><a href="#mv---move-rename-files"><code>mv</code> - Move &amp; rename files</a><ul>
+<li><a href="#renaming">Renaming</a></li>
+<li><a href="#moving">Moving</a></li>
+</ul></li>
+<li><a href="#mkdir---make-directories-and-subdirectories"><code>mkdir</code> - make directories and subdirectories</a></li>
+<li><a href="#rm-and-rmdir---delete-files-and-directories"><code>rm</code> and <code>rmdir</code> - delete files and directories</a></li>
+</ul></li>
+</ul>
+</div>
+<p><a href="../../../../index.html">Go back to index</a></p>
+<p><a href = "../linux_journey_toc.html"> Go back to Linux Journey topic portal </a> <head>  </head></p>
+<p><strong>Using linux mint based on ubuntu</strong></p>
+<h1 id="command-line">Command Line</h1>
+<h2 id="echo-and-pwd"><code>echo</code> and <code>pwd</code></h2>
+<ul>
+<li><code>echo Hello World</code> - prints out text arguments to display</li>
+<li><code>pwd</code> - prints working directory</li>
+</ul>
+<h2 id="cd---changing-directory"><code>cd</code> - changing directory</h2>
+<p>I noticed this earlier when specifying links with <code>[]()</code> syntax. Using <code>/</code> in front of a directory means <strong>absolute path</strong>, while starting without a slash means the folder should be in the current working directory. There are also a few arguments for cd:</p>
+<ul>
+<li><code>.</code> for current directory</li>
+<li><code>..</code> to go one up</li>
+<li><code>~</code> to go to home directory</li>
+<li><code>-</code> to go to previous directory.</li>
+</ul>
+<h2 id="ls---listing-directories"><code>ls</code> - listing directories</h2>
+<ul>
+<li>defaults to working directory but you specify a folder path to list a specific directory</li>
+<li><code>ls /</code> lists everything in the home directory</li>
+<li><code>ls -a</code> lists hidden files and folders (<code>.name</code>)</li>
+<li><p><code>ls -l</code> use this flag to list detailed info about files/folders in a directory:</p>
+<pre><code>ls -l notes
+total 0
+drwxrwxrwx 1 jcmint jcmint   0 Mar  2 00:20 Devops
+drwxrwxrwx 1 jcmint jcmint   0 Mar  2 00:20 Github
+drwxrwxrwx 1 jcmint jcmint 456 Mar  2 21:06 Linux</code></pre>
+<p>Finally, combine flags in any order such as <code>ls -al</code></p></li>
+</ul>
+<h2 id="touch---create-new-files"><code>touch</code> - create new files</h2>
+<p><code>touch filename</code></p>
+<ul>
+<li><p>also updates timestamps on files/dirs:</p>
+<pre><code>touch linuxtextfile
+ls -l
+-rwxrwxrwx 1 jcmint jcmint    0 Mar  2 22:19 linuxtextfile
+touch linuxtextfile
+-rwxrwxrwx 1 jcmint jcmint    0 Mar  2 22:21 linuxtextfile</code></pre></li>
+</ul>
+<h2 id="file---inspect-files"><code>file</code> - inspect files</h2>
+<p>This describes a file's contents.</p>
+<pre><code>file linuxtextfile
+file todo.md
+linuxtextfile: empty
+todo.md: HTML document, ASCII text</code></pre>
+<h2 id="cat-concatenate---combine-file-contents"><code>cat</code> (concatenate) - combine file contents</h2>
+<p>Intended for short files. For two files containing <code>Hello</code> and <code>World</code> (without spaces):</p>
+<pre><code>cat test1 test2 
+HelloWorld</code></pre>
+<h2 id="less---get-truncated-preview"><code>less</code> - get truncated preview</h2>
+<p>View large text files</p>
+<p><strong>Commands</strong>: <code>q</code> to quit, Arrow keys to navigate, <code>g</code> go to start, <code>G</code> go to end, search using /wordhere</p>
+<h2 id="history---past-commands"><code>history</code> - past commands</h2>
+<ul>
+<li>returns a list of all past commands</li>
+<li>Besides using arrows, you can use <code>!!</code> to run past commands.</li>
+<li><code>ctrl-R</code> to search past commands</li>
+<li>clear this list with <code>clear</code></li>
+<li><strong>Tab Completion</strong>: when entering a file name, if there is only one that works then pressing tab will autocomplete the name (useful if long)</li>
+</ul>
+<h2 id="cp---copy"><code>cp</code> - Copy</h2>
+<ul>
+<li>moves one or muiltiple files in one directory to one target directory</li>
+</ul>
+<pre><code>jcmint@jcmint:/media/jcmint/Data Volume/csjoshc.github.io$ PROMPT_DIRTRIM=1
+jcmint@jcmint:.../csjoshc.github.io$ touch test1
+jcmint@jcmint:.../csjoshc.github.io$ touch test2
+jcmint@jcmint:.../csjoshc.github.io$ ls
+css_themes  index.html  notes  site_updates  test1  test2  testing  todo.html  todo.md
+jcmint@jcmint:.../csjoshc.github.io$ ls testing
+jcmint@jcmint:.../csjoshc.github.io$ cp test1 test2 testing
+jcmint@jcmint:.../csjoshc.github.io$ ls testing
+test1  test2</code></pre>
+<h3 id="regex-cp-with-and">Regex <code>cp</code> with <code>*</code>, <code>?</code> and <code>[]</code></h3>
+<ul>
+<li>Use <code>cp *.ext</code> to copy all files with that extension</li>
+<li>Use * to represent all characters and strings</li>
+<li>Use ? to represent one character</li>
+<li>Use [] to match a set of characters</li>
+</ul>
+<pre><code>jcmint@jcmint:.../csjoshc.github.io$ cp *.html testing
+jcmint@jcmint:.../csjoshc.github.io$ ls testing
+index.html  test1  test2  todo.html
+
+jcmint@jcmint:.../csjoshc.github.io$ cp [a-z]???.md testing
+jcmint@jcmint:.../csjoshc.github.io$ ls testing
+index.html  test1  test2  todo.html  todo.md</code></pre>
+<h3 id="recursive-interactive-cp-with--i-and--r">Recursive &amp; interactive <code>cp</code> with <code>-i</code> and <code>-r</code></h3>
+<pre><code>jcmint@jcmint:.../csjoshc.github.io$ cp -r notes testing
+jcmint@jcmint:.../csjoshc.github.io$ ls testing
+index.html  notes  test1  test2  todo.html  todo.md
+jcmint@jcmint:.../csjoshc.github.io$ ls testing/notes
+Devops  Github  Linux  Python</code></pre>
+<ul>
+<li>-r flag is necessary to recursively copy the directory and its subdirectories</li>
+<li><p>Use the -i flag to be prompted when about to overwrite files</p>
+<pre><code>jcmint@jcmint:.../csjoshc.github.io$ cp -r -i notes testing
+cp: overwrite &#39;testing/notes/Python/General/virtenv_jupyter_nb.ipynb&#39;? y
+cp: overwrite &#39;testing/notes/Python/General/virtenv_jupyter_nb.html&#39;? y</code></pre></li>
+</ul>
+<h2 id="mv---move-rename-files"><code>mv</code> - Move &amp; rename files</h2>
+<ul>
+<li>largely identical to cp</li>
+</ul>
+<h3 id="renaming">Renaming</h3>
+<pre><code>jcmint@jcmint:.../csjoshc.github.io$ mv test1 one
+jcmint@jcmint:.../csjoshc.github.io$ mv test2 two
+jcmint@jcmint:.../csjoshc.github.io$ ls
+css_themes  index.html  notes  one  site_updates  testing  todo.html  todo.md  two</code></pre>
+<ul>
+<li>identical syntax for renaming folders</li>
+</ul>
+<h3 id="moving">Moving</h3>
+<pre><code>jcmint@jcmint:.../csjoshc.github.io$ mv one two testing
+jcmint@jcmint:.../csjoshc.github.io$ ls testing
+index.html  notes  one  test1  test2  todo.html  todo.md  two
+jcmint@jcmint:.../csjoshc.github.io$ ls
+css_themes  index.html  notes  site_updates  testing  todo.html  todo.md</code></pre>
+<ul>
+<li>Similar process for moving directories - no <code>-r</code> required:</li>
+</ul>
+<pre><code>jcmint@jcmint:.../testing$ ls
+index.html  mynote  one  test1  test2  todo.html  todo.md  two
+jcmint@jcmint:.../testing$ mv mynote ..
+jcmint@jcmint:.../testing$ ls
+index.html  one  test1  test2  todo.html  todo.md  two
+jcmint@jcmint:.../testing$ cd ..
+jcmint@jcmint:.../csjoshc.github.io$ ls
+css_themes  index.html  mynote  notes  site_updates  testing  todo.html  todo.md
+jcmint@jcmint:.../csjoshc.github.io$ ls mynote
+Devops  Github  Linux  Python</code></pre>
+<ul>
+<li><code>-b</code>: Move and backup files that would've been overwritten:</li>
+</ul>
+<pre><code>jcmint@jcmint:.../csjoshc.github.io$ cd testing
+jcmint@jcmint:.../testing$ ls
+index.html  one  test1  test2  todo.html  todo.md  two
+jcmint@jcmint:.../testing$ mv -b two three
+jcmint@jcmint:.../testing$ ls 
+index.html  one  test1  test2  three  todo.html  todo.md
+jcmint@jcmint:.../testing$ mv -b one three
+jcmint@jcmint:.../testing$ ls
+index.html  test1  test2  three  three~  todo.html  todo.md</code></pre>
+<ul>
+<li>there was no overwriting on the first <code>mv</code></li>
+</ul>
+<h2 id="mkdir---make-directories-and-subdirectories"><code>mkdir</code> - make directories and subdirectories</h2>
+<ul>
+<li>use <code>-p</code> to allow making subdirectories</li>
+<li>multiple at once</li>
+</ul>
+<pre><code>jcmint@jcmint:.../mynote$ ls
+Devops  Github  Linux  Python
+jcmint@jcmint:.../mynote$ mkdir -p one two three/four/five
+jcmint@jcmint:.../mynote$ ls
+Devops  Github  Linux  one  Python  three  two
+jcmint@jcmint:.../mynote$ ls three
+four</code></pre>
+<h2 id="rm-and-rmdir---delete-files-and-directories"><code>rm</code> and <code>rmdir</code> - delete files and directories</h2>
+<ul>
+<li>Be careful deleting files</li>
+<li><code>-f</code> flag forces removal of protected files without prompting</li>
+<li><code>-i</code> will prompt at each file being removed</li>
+</ul>
+<pre><code>jcmint@jcmint:.../testing$ ls
+index.html  mynote  test1  test2  three  three~  todo.html  todo.md
+jcmint@jcmint:.../testing$ rm t*
+jcmint@jcmint:.../testing$ ls
+index.html  mynote
+
+jcmint@jcmint:.../testing$ rm index.html -i
+rm: remove regular file &#39;index.html&#39;? y
+
+jcmint@jcmint:.../testing$ ls
+mynote
+jcmint@jcmint:.../testing$ rm mynote
+rm: cannot remove &#39;mynote&#39;: Is a directory
+jcmint@jcmint:.../testing$ rm -r mynote</code></pre>
+<ul>
+<li><code>rmdir</code> can remove directories without additional flags:</li>
+</ul>
+<pre><code>jcmint@jcmint:.../testing$ cd ..
+jcmint@jcmint:.../csjoshc.github.io$ ls
+css_themes  index.html  notes  site_updates  testing  todo.html  todo.md
+jcmint@jcmint:.../csjoshc.github.io$ rmdir testing
+jcmint@jcmint:.../csjoshc.github.io$ ls
+css_themes  index.html  notes  site_updates  todo.html  todo.md</code></pre>
+</body>
+</html>

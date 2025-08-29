@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Personal learning and note-taking website">
+    <meta name="author" content="Josh Chiu">
+    <link rel="canonical" href="https://csjoshc.github.io/Linux/linux_journey/basic/01_comlin/">
+    <link rel="shortcut icon" href="../../../../img/favicon.ico">
+
+    
+    <title>Command Line - Josh's Learning Notes</title>
+    
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
+    <link href='//rsms.me/inter/inter.css' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../../../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../../../css/base.min.css" rel="stylesheet">
+    <link href="../../../../css/cinder.min.css" rel="stylesheet">
+
+    
+        
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/github.min.css">
+        
+    
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    
+
+     
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            
+              <a class="navbar-brand" href="../../../..">Josh's Learning Notes</a>
+            
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../../../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">General <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../../General/base/">Overview</a>
+</li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">CS50x 2019</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../../General/CS50x2019/cppbasics/">C++ Basics</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../../General/CS50x2019/database/">Database</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../../General/CS50x2019/flask/">Flask</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../../General/CS50x2019/python/">Python</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../../General/CS50x2019/webbasics/">Web Basics</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+<li >
+    <a href="../../../../General/webdev2019/">Web Development 2019</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Python <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../../Python/base/">Overview</a>
+</li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">General</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../../Python/General/virtenv_jupyter_nb/">Virtual Environments & Jupyter</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../../Python/General/ifnameismain/">If Name Main</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Data Science Course</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../../Python/PythonforDataScience/1_Introduction/">Introduction</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../../Python/PythonforDataScience/2_Basics/">Python Basics</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../../Python/PythonforDataScience/3_Numpy/">NumPy</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../../Python/PythonforDataScience/4_Pandas/">Pandas</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../../Python/PythonforDataScience/4_Pandas2/">Pandas 2</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../../Python/PythonforDataScience/4_Pandas3/">Pandas 3</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../../Python/PythonforDataScience/4_Pandas4/">Pandas 4</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../../Python/PythonforDataScience/4_Pandas5/">Pandas 5</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../../Python/PythonforDataScience/5_Matplotlib/">Matplotlib</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../../Python/PythonforDataScience/7_ML/">Machine Learning</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../../Python/PythonforDataScience/7_ML_Reg/">ML Regression</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../../Python/PythonforDataScience/7_ML_DT/">ML Decision Trees</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../../Python/PythonforDataScience/7_ML_Clust/">ML Clustering</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Probability & Statistics</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../../Python/ProbabilityandStatistics/1_Introduction/">Introduction</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../../Python/ProbabilityandStatistics/2_Sets/">Sets</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">MIT Courses</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../../Python/IntroCompSciPython/unit7/">Computer Science Unit 7</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../../Python/IntroCompThinkDataSci/unit1/unit1/">Data Science Unit 1</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../../Python/IntroCompThinkDataSci/unit1/problemset1/">Problem Set 1</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../../Python/IntroCompThinkDataSci/unit2/plotting/">Unit 2 Plotting</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../../Python/IntroCompThinkDataSci/unit2/unit2/">Unit 2</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../../Python/IntroCompThinkDataSci/unit2/ps2/">Problem Set 2</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../../Python/IntroCompThinkDataSci/unit3/unit3/">Unit 3</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../../Python/IntroCompThinkDataSci/unit3/ps3/">Problem Set 3</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../../Python/IntroCompThinkDataSci/unit4/unit4/">Unit 4</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../../Python/IntroCompThinkDataSci/unit4/ps4/">Problem Set 4</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../../Python/IntroCompThinkDataSci/unit5/unit5/">Unit 5</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">GitHub <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../../Github/intro_gh/">Introduction</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../../Github/bugs_gh/">Bug Reports</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Linux <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../base/">Overview</a>
+</li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Linux Journey</a>
+    <ul class="dropdown-menu">
+        
+            
+<li class="active">
+    <a href="./">Command Line</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../linux_journey_toc/">Table of Contents</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">DevOps <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../../Devops/base/">Overview</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../../Devops/roadmap_notes/">Roadmap Notes</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Utilities <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../../utils/base/">Overview</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../../utils/01_BatchConversions/">Batch Conversions</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Site Updates <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../../site_updates/base/">Overview</a>
+</li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">March 2019</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../../site_updates/3_2019/2_3_2019/">March 2nd</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../../site_updates/3_2019/9_3_2019/">March 9th</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../../site_updates/3_2019/16_3_2019/">March 16th</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../../site_updates/3_2019/23_3_2019/">March 23rd</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">April 2019</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../../site_updates/4_2019/13_4_2019/">April 13th</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../../site_updates/4_2019/20_4_2019/">April 20th</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">May 2019</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../../site_updates/5_2019/04_5_2019/">May 4th</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../../site_updates/5_2019/11_5_2019/">May 11th</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../../site_updates/5_2019/25_5_2019/">May 25th</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">June 2019</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../../site_updates/6_2019/15_6_2019/">June 15th</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Project Ideas</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../../site_updates/project_ideas/indeed_cloud/">Indeed Cloud</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../../../todo/">Todo</a>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../../../base/">
+                            <i class="fas fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="next" href="../../linux_journey_toc/">
+                            Next <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#command-line">Command Line</a></li>
+            <li class="second-level"><a href="#echo-and-pwd">echo and pwd</a></li>
+                
+            <li class="second-level"><a href="#cd-changing-directory">cd - changing directory</a></li>
+                
+            <li class="second-level"><a href="#ls-listing-directories">ls - listing directories</a></li>
+                
+            <li class="second-level"><a href="#touch-create-new-files">touch - create new files</a></li>
+                
+            <li class="second-level"><a href="#file-inspect-files">file - inspect files</a></li>
+                
+            <li class="second-level"><a href="#cat-concatenate-combine-file-contents">cat (concatenate) - combine file contents</a></li>
+                
+            <li class="second-level"><a href="#less-get-truncated-preview">less - get truncated preview</a></li>
+                
+            <li class="second-level"><a href="#history-past-commands">history - past commands</a></li>
+                
+            <li class="second-level"><a href="#cp-copy">cp - Copy</a></li>
+                
+                <li class="third-level"><a href="#regex-cp-with-wildcards">Regex cp with wildcards</a></li>
+                <li class="third-level"><a href="#recursive-interactive-cp">Recursive &amp; interactive cp</a></li>
+            <li class="second-level"><a href="#mv-move-rename-files">mv - Move &amp; rename files</a></li>
+                
+                <li class="third-level"><a href="#renaming">Renaming</a></li>
+                <li class="third-level"><a href="#moving">Moving</a></li>
+            <li class="second-level"><a href="#mkdir-make-directories-and-subdirectories">mkdir - make directories and subdirectories</a></li>
+                
+            <li class="second-level"><a href="#rm-and-rmdir-delete-files-and-directories">rm and rmdir - delete files and directories</a></li>
+                
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<!-- Linux Navigation Template -->
+<!-- This template provides navigation for Linux pages -->
+
+<div class="return-navigation">
+  <a href="../../index.md" class="nav-button index-button">🏠 Home</a>
+  <a href="base.md" class="nav-button portal-button">🐧 Linux</a>
+</div>
+
+<!-- Content starts here -->
+
+<p><strong>Using linux mint based on ubuntu</strong></p>
+<h1 id="command-line">Command Line</h1>
+<h2 id="echo-and-pwd">echo and pwd</h2>
+<p><strong>Code:</strong> <code>echo</code> and <code>pwd</code></p>
+<ul>
+<li><code>echo Hello World</code> - prints out text arguments to display</li>
+<li><code>pwd</code> - prints working directory</li>
+</ul>
+<h2 id="cd-changing-directory">cd - changing directory</h2>
+<p><strong>Code:</strong> <code>cd</code>
+I noticed this earlier when specifying links with <code>[]()</code> syntax. Using <code>/</code> in front of a directory means <strong>absolute path</strong>, while starting without a slash means the folder should be in the current working directory. There are also a few arguments for cd:</p>
+<ul>
+<li><code>.</code> for current directory</li>
+<li><code>..</code> to go one up</li>
+<li><code>~</code> to go to home directory</li>
+<li><code>-</code> to go to previous directory.</li>
+</ul>
+<h2 id="ls-listing-directories">ls - listing directories</h2>
+<p><strong>Code:</strong> <code>ls</code></p>
+<ul>
+<li>defaults to working directory but you specify a folder path to list a specific directory</li>
+<li><code>ls /</code> lists everything in the home directory</li>
+<li><code>ls -a</code> lists hidden files and folders (<code>.name</code>)</li>
+<li><code>ls -l</code> use this flag to list detailed info about files/folders in a directory:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ls -l notes
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>total 0
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>drwxrwxrwx 1 jcmint jcmint   0 Mar  2 00:20 Devops
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>drwxrwxrwx 1 jcmint jcmint   0 Mar  2 00:20 Github
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>drwxrwxrwx 1 jcmint jcmint 456 Mar  2 21:06 Linux
+</code></pre></div>
+<p>Finally, combine flags in any order such as <code>ls -al</code></p>
+<h2 id="touch-create-new-files"><code>touch</code> - create new files</h2>
+<p><code>touch filename</code></p>
+<ul>
+<li>also updates timestamps on files/dirs:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>touch linuxtextfile
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>ls -l
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>-rwxrwxrwx 1 jcmint jcmint    0 Mar  2 22:19 linuxtextfile
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>touch linuxtextfile
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>-rwxrwxrwx 1 jcmint jcmint    0 Mar  2 22:21 linuxtextfile
+</code></pre></div>
+<h2 id="file-inspect-files"><code>file</code> - inspect files</h2>
+<p>This describes a file's contents.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>file linuxtextfile
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>file todo.md
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>linuxtextfile: empty
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>todo.md: HTML document, ASCII text
+</code></pre></div>
+<h2 id="cat-concatenate-combine-file-contents"><code>cat</code> (concatenate) - combine file contents</h2>
+<p>Intended for short files. For two files containing <code>Hello</code> and <code>World</code> (without spaces):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>cat test1 test2
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>HelloWorld
+</code></pre></div>
+<h2 id="less-get-truncated-preview"><code>less</code> - get truncated preview</h2>
+<p>View large text files
+<strong>Commands</strong>: <code>q</code> to quit, Arrow keys to navigate, <code>g</code> go to start, <code>G</code> go to end, search using /wordhere</p>
+<h2 id="history-past-commands">history - past commands</h2>
+<p><strong>Code:</strong> <code>history</code></p>
+<ul>
+<li>returns a list of all past commands</li>
+<li>Besides using arrows, you can use <code>!!</code> to run past commands.</li>
+<li><code>ctrl-R</code> to search past commands</li>
+<li>clear this list with <code>clear</code></li>
+<li><strong>Tab Completion</strong>: when entering a file name, if there is only one that works then pressing tab will autocomplete the name (useful if long)</li>
+</ul>
+<h2 id="cp-copy">cp - Copy</h2>
+<p><strong>Code:</strong> <code>cp</code></p>
+<ul>
+<li>moves one or muiltiple files in one directory to one target directory</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>jcmint@jcmint:/media/jcmint/Data Volume/csjoshc.github.io$ PROMPT_DIRTRIM=1
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>jcmint@jcmint:.../csjoshc.github.io$ touch test1
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>jcmint@jcmint:.../csjoshc.github.io$ touch test2
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>jcmint@jcmint:.../csjoshc.github.io$ ls
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>css_themes  index.md  notes  site_updates  test1  test2  testing  todo.md  todo.md
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>jcmint@jcmint:.../csjoshc.github.io$ ls testing
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>jcmint@jcmint:.../csjoshc.github.io$ cp test1 test2 testing
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>jcmint@jcmint:.../csjoshc.github.io$ ls testing
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>test1  test2
+</code></pre></div>
+<h3 id="regex-cp-with-wildcards">Regex cp with wildcards</h3>
+<p><strong>Code:</strong> <code>cp</code> with <code>*</code>, <code>?</code> and <code>[]</code></p>
+<ul>
+<li>Use <code>cp *.ext</code> to copy all files with that extension</li>
+<li>Use * to represent all characters and strings</li>
+<li>Use ? to represent one character</li>
+<li>Use [] to match a set of characters</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>jcmint@jcmint:.../csjoshc.github.io$ cp *.md testing
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>jcmint@jcmint:.../csjoshc.github.io$ ls testing
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>index.md  test1  test2  todo.md
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>jcmint@jcmint:.../csjoshc.github.io$ cp [a-z]???.md testing
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>jcmint@jcmint:.../csjoshc.github.io$ ls testing
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>index.md  test1  test2  todo.md  todo.md
+</code></pre></div>
+<h3 id="recursive-interactive-cp">Recursive &amp; interactive cp</h3>
+<p><strong>Code:</strong> <code>cp</code> with <code>-i</code> and <code>-r</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>jcmint@jcmint:.../csjoshc.github.io$ cp -r notes testing
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>jcmint@jcmint:.../csjoshc.github.io$ ls testing
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>index.md  notes  test1  test2  todo.md  todo.md
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>jcmint@jcmint:.../csjoshc.github.io$ ls testing/notes
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>Devops  Github  Linux  Python
+</code></pre></div>
+<ul>
+<li>-r flag is necessary to recursively copy the directory and its subdirectories</li>
+<li>Use the -i flag to be prompted when about to overwrite files</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>jcmint@jcmint:.../csjoshc.github.io$ cp -r -i notes testing
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>cp: overwrite &#39;testing/notes/Python/General/virtenv_jupyter_nb.ipynb&#39;? y
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>cp: overwrite &#39;testing/notes/Python/General/virtenv_jupyter_nb.md&#39;? y
+</code></pre></div>
+<h2 id="mv-move-rename-files">mv - Move &amp; rename files</h2>
+<p><strong>Code:</strong> <code>mv</code></p>
+<ul>
+<li>largely identical to cp</li>
+</ul>
+<h3 id="renaming">Renaming</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>jcmint@jcmint:.../csjoshc.github.io$ mv test1 one
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>jcmint@jcmint:.../csjoshc.github.io$ mv test2 two
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>jcmint@jcmint:.../csjoshc.github.io$ ls
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>css_themes  index.md  notes  one  site_updates  testing  todo.md  todo.md  two
+</code></pre></div>
+<ul>
+<li>identical syntax for renaming folders</li>
+</ul>
+<h3 id="moving">Moving</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>jcmint@jcmint:.../csjoshc.github.io$ mv one two testing
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>jcmint@jcmint:.../csjoshc.github.io$ ls testing
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>index.md  notes  one  test1  test2  todo.md  todo.md  two
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>jcmint@jcmint:.../csjoshc.github.io$ ls
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>css_themes  index.md  notes  site_updates  testing  todo.md  todo.md
+</code></pre></div>
+<ul>
+<li>Similar process for moving directories - no <code>-r</code> required:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>jcmint@jcmint:.../testing$ ls
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>index.md  mynote  one  test1  test2  todo.md  todo.md  two
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>jcmint@jcmint:.../testing$ mv mynote ..
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>jcmint@jcmint:.../testing$ ls
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>index.md  one  test1  test2  todo.md  todo.md  two
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>jcmint@jcmint:.../testing$ cd ..
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>jcmint@jcmint:.../csjoshc.github.io$ ls
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>css_themes  index.md  mynote  notes  site_updates  testing  todo.md  todo.md
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>jcmint@jcmint:.../csjoshc.github.io$ ls mynote
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>Devops  Github  Linux  Python
+</code></pre></div>
+<ul>
+<li><code>-b</code>: Move and backup files that would've been overwritten:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>jcmint@jcmint:.../csjoshc.github.io$ cd testing
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>jcmint@jcmint:.../testing$ ls
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>index.md  one  test1  test2  todo.md  todo.md  two
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>jcmint@jcmint:.../testing$ mv -b two three
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>jcmint@jcmint:.../testing$ ls
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>index.md  one  test1  test2  three  todo.md  todo.md
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>jcmint@jcmint:.../testing$ mv -b one three
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>jcmint@jcmint:.../testing$ ls
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>index.md  test1  test2  three  three~  todo.md  todo.md
+</code></pre></div>
+<ul>
+<li>there was no overwriting on the first <code>mv</code></li>
+</ul>
+<h2 id="mkdir-make-directories-and-subdirectories">mkdir - make directories and subdirectories</h2>
+<p><strong>Code:</strong> <code>mkdir</code></p>
+<ul>
+<li>use <code>-p</code> to allow making subdirectories</li>
+<li>multiple at once</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>jcmint@jcmint:.../mynote$ ls
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>Devops  Github  Linux  Python
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>jcmint@jcmint:.../mynote$ mkdir -p one two three/four/five
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>jcmint@jcmint:.../mynote$ ls
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>Devops  Github  Linux  one  Python  three  two
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>jcmint@jcmint:.../mynote$ ls three
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>four
+</code></pre></div>
+<h2 id="rm-and-rmdir-delete-files-and-directories">rm and rmdir - delete files and directories</h2>
+<p><strong>Code:</strong> <code>rm</code> and <code>rmdir</code></p>
+<ul>
+<li>Be careful deleting files</li>
+<li><code>-f</code> flag forces removal of protected files without prompting</li>
+<li><code>-i</code> will prompt at each file being removed</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>jcmint@jcmint:.../testing$ ls
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>index.md  mynote  test1  test2  three  three~  todo.md  todo.md
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>jcmint@jcmint:.../testing$ rm t*
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>jcmint@jcmint:.../testing$ ls
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>index.md  mynote
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>jcmint@jcmint:.../testing$ rm index.md -i
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>rm: remove regular file &#39;index.md&#39;? y
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>jcmint@jcmint:.../testing$ ls
+<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>mynote
+<a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a>jcmint@jcmint:.../testing$ rm mynote
+<a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>rm: cannot remove &#39;mynote&#39;: Is a directory
+<a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a>jcmint@jcmint:.../testing$ rm -r mynote
+</code></pre></div>
+<ul>
+<li><code>rmdir</code> can remove directories without additional flags:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>jcmint@jcmint:.../testing$ cd ..
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>jcmint@jcmint:.../csjoshc.github.io$ ls
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>css_themes  index.md  notes  site_updates  testing  todo.md  todo.md
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>jcmint@jcmint:.../csjoshc.github.io$ rmdir testing
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>jcmint@jcmint:.../csjoshc.github.io$ ls
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>css_themes  index.md  notes  site_updates  todo.md  todo.md
+</code></pre></div></div>
+        
+        
+    </div>
+
+    
+      <footer class="col-md-12 text-center">
+          
+          
+            <hr>
+            <p>
+            <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</small>
+            </p>
+          
+
+          
+          
+      </footer>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../../../../js/bootstrap-3.0.3.min.js"></script>
+
+    
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
+        
+                <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/languages/python.min.js"></script>
+                <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/languages/javascript.min.js"></script>
+                <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/languages/html.min.js"></script>
+                <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/languages/css.min.js"></script>
+                <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/languages/bash.min.js"></script>
+                <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/languages/yaml.min.js"></script>
+                <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/languages/markdown.min.js"></script>
+        
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    <script>var base_url = "../../../.."</script>
+    
+    <script src="../../../../js/base.js"></script>
+    <script src="../../../../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+
+</html>

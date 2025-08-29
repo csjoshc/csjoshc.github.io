@@ -1,0 +1,7 @@
+<!-- General Navigation Template -->
+<!-- This template provides navigation for General topic pages -->
+<div class="return-navigation">
+  <a href="../../index.md" class="nav-button index-button">🏠 Home</a>
+  <a href="base.md" class="nav-button portal-button">📚 General</a>
+</div>
+<!-- Content starts here -->

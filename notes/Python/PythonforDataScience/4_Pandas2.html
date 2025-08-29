@@ -1,0 +1,357 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="date" content="2019-05-30" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #232629; color: #cfcfc2; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; background-color: #232629; color: #7a7c7d; border-right: 1px solid #7a7c7d; }
+td.sourceCode { padding-left: 5px; }
+pre, code { color: #cfcfc2; background-color: #232629; }
+code > span.kw { color: #cfcfc2; } /* Keyword */
+code > span.dt { color: #2980b9; } /* DataType */
+code > span.dv { color: #f67400; } /* DecVal */
+code > span.bn { color: #f67400; } /* BaseN */
+code > span.fl { color: #f67400; } /* Float */
+code > span.cn { color: #27aeae; } /* Constant */
+code > span.ch { color: #3daee9; } /* Char */
+code > span.sc { color: #3daee9; } /* SpecialChar */
+code > span.st { color: #f44f4f; } /* String */
+code > span.vs { color: #da4453; } /* VerbatimString */
+code > span.ss { color: #da4453; } /* SpecialString */
+code > span.im { color: #27ae60; } /* Import */
+code > span.co { color: #7a7c7d; } /* Comment */
+code > span.do { color: #a43340; } /* Documentation */
+code > span.an { color: #3f8058; } /* Annotation */
+code > span.cv { color: #7f8c8d; } /* CommentVar */
+code > span.ot { color: #27ae60; } /* Other */
+code > span.fu { color: #8e44ad; } /* Function */
+code > span.va { color: #27aeae; } /* Variable */
+code > span.cf { color: #fdbc4b; } /* ControlFlow */
+code > span.op { color: #cfcfc2; } /* Operator */
+code > span.bu { color: #7f8c8d; } /* BuiltIn */
+code > span.ex { color: #0099ff; } /* Extension */
+code > span.pp { color: #27ae60; } /* Preprocessor */
+code > span.at { color: #2980b9; } /* Attribute */
+code > span.re { color: #2980b9; } /* RegionMarker */
+code > span.in { color: #c45b00; } /* Information */
+code > span.wa { color: #da4453; } /* Warning */
+code > span.al { color: #95da4c; } /* Alert */
+code > span.er { color: #da4453; } /* Error */
+code > span. { color: #cfcfc2; } /* Normal */
+  </style>
+</head>
+<body>
+<div id="TOC">
+<ul>
+<li><a href="#dataframes---introduction">Dataframes - Introduction</a><ul>
+<li><a href="#df.ilocn---accessing-rows"><code>df.iloc(n)</code> - Accessing rows</a></li>
+<li><a href="#df.columns---listing-columns"><code>df.columns</code> - Listing columns</a></li>
+<li><a href="#df.describe---list-summary-statistics-count-std-quartiles"><code>df.describe()</code> - List summary statistics (count, std, quartiles)</a></li>
+<li><a href="#df.corr---list-correlations-amongst-variables"><code>df.corr()</code> - List correlations amongst variables</a></li>
+<li><a href="#other-aggregate-functions-df.-min-max-std-mean">Other aggregate functions: <code>df. min(), max(), std(), mean()</code></a></li>
+<li><a href="#anydfcol1-n-alldfcol1-n---test-logical-conditionals"><code>any(df['col1'] &gt; n), all(df['col1'] &gt; n)</code> - Test logical conditionals</a></li>
+<li><a href="#filtering-columns-return-boolean-col">Filtering columns (return boolean col)</a></li>
+<li><a href="#other-useful-commands">Other useful commands</a></li>
+</ul></li>
+</ul>
+</div>
+<p><a href="../../../index.html">Go back to index</a></p>
+<p><a href="../base.html">Go back to Python Portal</a></p>
+<head>
+  
+  <meta name="viewport" content="initial-scale=1, width=device-width">
+</head>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> sys
+<span class="bu">print</span>(sys.executable)
+<span class="im">from</span> IPython.core.interactiveshell <span class="im">import</span> InteractiveShell
+InteractiveShell.ast_node_interactivity <span class="op">=</span> <span class="st">&quot;all&quot;</span>
+InteractiveShell.colors <span class="op">=</span> <span class="st">&quot;Linux&quot;</span>
+InteractiveShell.separate_in <span class="op">=</span> <span class="dv">0</span>
+<span class="im">from</span> tabulate <span class="im">import</span> tabulate</code></pre></div>
+<pre><code>/home/jcmint/anaconda3/envs/learningenv/bin/python</code></pre>
+<h1 id="dataframes---introduction">Dataframes - Introduction</h1>
+<p>Starting out with data in .csv form, with several files for this unit. Just putting the dataframe to terminal doesn't properly print when exporting to .md or .html (although it works fine in .iypnb) so I have to use <code>tabulate</code> or the default print.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> pandas <span class="im">as</span> pd
+<span class="im">import</span> os, sys
+
+os.chdir(sys.path[<span class="dv">0</span>]) <span class="co"># Change dir to the folder this .ipynb file is in</span>
+<span class="bu">print</span>(os.listdir(<span class="st">&#39;../../../../data/w4pd&#39;</span>))
+movies <span class="op">=</span> pd.read_csv(<span class="st">&#39;../../../../data/w4pd/movies.csv&#39;</span>)
+tags <span class="op">=</span> pd.read_csv(<span class="st">&#39;../../../../data/w4pd/tags.csv&#39;</span>)
+ratings <span class="op">=</span> pd.read_csv(<span class="st">&#39;../../../../data/w4pd/ratings.csv&#39;</span>)
+movies.head()</code></pre></div>
+<pre><code>[&#39;genome-scores.csv&#39;, &#39;genome-tags.csv&#39;, &#39;Icon\r&#39;, &#39;links.csv&#39;, &#39;movies.csv&#39;, &#39;ratings.csv&#39;, &#39;README.txt&#39;, &#39;tags.csv&#39;]</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>movieId</th>
+      <th>title</th>
+      <th>genres</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>Toy Story (1995)</td>
+      <td>Adventure|Animation|Children|Comedy|Fantasy</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>Jumanji (1995)</td>
+      <td>Adventure|Children|Fantasy</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>Grumpier Old Men (1995)</td>
+      <td>Comedy|Romance</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>Waiting to Exhale (1995)</td>
+      <td>Comedy|Drama|Romance</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>Father of the Bride Part II (1995)</td>
+      <td>Comedy</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<h2 id="df.ilocn---accessing-rows"><code>df.iloc(n)</code> - Accessing rows</h2>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">row_0 <span class="op">=</span> movies.iloc[<span class="dv">0</span>]
+row_0</code></pre></div>
+<pre><code>movieId                                              1
+title                                 Toy Story (1995)
+genres     Adventure|Animation|Children|Comedy|Fantasy
+Name: 0, dtype: object</code></pre>
+<h2 id="df.columns---listing-columns"><code>df.columns</code> - Listing columns</h2>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">tags.columns</code></pre></div>
+<pre><code>Index([&#39;userId&#39;, &#39;movieId&#39;, &#39;tag&#39;, &#39;timestamp&#39;], dtype=&#39;object&#39;)</code></pre>
+<h2 id="df.describe---list-summary-statistics-count-std-quartiles"><code>df.describe()</code> - List summary statistics (count, std, quartiles)</h2>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">ratings.describe()</code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>userId</th>
+      <th>movieId</th>
+      <th>rating</th>
+      <th>timestamp</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>2.000026e+07</td>
+      <td>2.000026e+07</td>
+      <td>2.000026e+07</td>
+      <td>2.000026e+07</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>6.904587e+04</td>
+      <td>9.041567e+03</td>
+      <td>3.525529e+00</td>
+      <td>1.100918e+09</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>4.003863e+04</td>
+      <td>1.978948e+04</td>
+      <td>1.051989e+00</td>
+      <td>1.621694e+08</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>1.000000e+00</td>
+      <td>1.000000e+00</td>
+      <td>5.000000e-01</td>
+      <td>7.896520e+08</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>3.439500e+04</td>
+      <td>9.020000e+02</td>
+      <td>3.000000e+00</td>
+      <td>9.667977e+08</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>6.914100e+04</td>
+      <td>2.167000e+03</td>
+      <td>3.500000e+00</td>
+      <td>1.103556e+09</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>1.036370e+05</td>
+      <td>4.770000e+03</td>
+      <td>4.000000e+00</td>
+      <td>1.225642e+09</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>1.384930e+05</td>
+      <td>1.312620e+05</td>
+      <td>5.000000e+00</td>
+      <td>1.427784e+09</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<h2 id="df.corr---list-correlations-amongst-variables"><code>df.corr()</code> - List correlations amongst variables</h2>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">ratings.corr()</code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>userId</th>
+      <th>movieId</th>
+      <th>rating</th>
+      <th>timestamp</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>userId</th>
+      <td>1.000000</td>
+      <td>-0.000850</td>
+      <td>0.001175</td>
+      <td>-0.003101</td>
+    </tr>
+    <tr>
+      <th>movieId</th>
+      <td>-0.000850</td>
+      <td>1.000000</td>
+      <td>0.002606</td>
+      <td>0.459096</td>
+    </tr>
+    <tr>
+      <th>rating</th>
+      <td>0.001175</td>
+      <td>0.002606</td>
+      <td>1.000000</td>
+      <td>-0.000512</td>
+    </tr>
+    <tr>
+      <th>timestamp</th>
+      <td>-0.003101</td>
+      <td>0.459096</td>
+      <td>-0.000512</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<h2 id="other-aggregate-functions-df.-min-max-std-mean">Other aggregate functions: <code>df. min(), max(), std(), mean()</code></h2>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">ratings.mode()</code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>userId</th>
+      <th>movieId</th>
+      <th>rating</th>
+      <th>timestamp</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>118205</td>
+      <td>296</td>
+      <td>4.0</td>
+      <td>825638400</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<h2 id="anydfcol1-n-alldfcol1-n---test-logical-conditionals"><code>any(df['col1'] &gt; n), all(df['col1'] &gt; n)</code> - Test logical conditionals</h2>
+<p>Test if any or all cells in a column fit a logical condition</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">any</span>(ratings[<span class="st">&#39;rating&#39;</span>] <span class="op">==</span> <span class="dv">0</span>), <span class="bu">all</span>(ratings[<span class="st">&#39;rating&#39;</span>] <span class="op">&gt;</span> <span class="dv">0</span>)</code></pre></div>
+<pre><code>(False, True)</code></pre>
+<h2 id="filtering-columns-return-boolean-col">Filtering columns (return boolean col)</h2>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">filter_1 <span class="op">=</span> ratings[<span class="st">&#39;rating&#39;</span>] <span class="op">&gt;</span> <span class="dv">4</span>
+<span class="bu">sum</span>(filter_1)<span class="op">/</span><span class="bu">len</span>(ratings)</code></pre></div>
+<pre><code>0.22167128502260194</code></pre>
+<h2 id="other-useful-commands">Other useful commands</h2>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">pd.read.json()
+pd.read_html()
+pd.read_sql_query()
+pd.read_sql_table()
+os.chdir()
+os.getcwd()
+os.listdir()</code></pre></div>
+</body>
+</html>

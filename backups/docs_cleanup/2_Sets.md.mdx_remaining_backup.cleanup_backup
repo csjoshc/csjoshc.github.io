@@ -1,0 +1,8 @@
+```python
+import sysprint(sys.executable)from IPython.core.interactiveshell import InteractiveShellInteractiveShell.ast_node_interactivity = "all"
+```
+
+    /home/jcmint/anaconda3/envs/learningenv/bin/python
+
+
+# SetsSets are defined as a collection of elements, and can be defined explicitly {heads, tails}, or implicitly {1 to 9}, {A to Z}. *[I 

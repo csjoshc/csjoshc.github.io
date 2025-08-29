@@ -1,0 +1,47 @@
+# Development Configuration for csjoshc.github.io
+# This file contains settings for the development workflow
+
+development:
+  # File watching settings
+  watch_paths:
+    - docs/
+    - notes/
+    - docs/stylesheets/
+    - .
+
+  # File extensions to watch
+  watch_extensions:
+    - .md
+    - .ipynb
+    - .yml
+    - .yaml
+    - .css
+    - .js
+
+  # Debounce time for file changes (seconds)
+  debounce_time: 1.0
+
+  # MkDocs development server settings
+  mkdocs:
+    port: 8000
+    host: "0.0.0.0"
+    livereload: true
+    dirtyreload: true
+    verbose: true
+
+  # Build settings
+  build:
+    incremental: true
+    auto_rebuild: true
+    show_progress: true
+
+  # File processing
+  processing:
+    # Whether to show which files are being processed
+    show_file_details: true
+
+    # Whether to show build progress
+    show_build_progress: true
+
+    # Maximum number of files to process in parallel
+    max_parallel: 4

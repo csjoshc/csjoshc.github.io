@@ -1,0 +1,613 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="date" content="2019-05-30" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #232629; color: #cfcfc2; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; background-color: #232629; color: #7a7c7d; border-right: 1px solid #7a7c7d; }
+td.sourceCode { padding-left: 5px; }
+pre, code { color: #cfcfc2; background-color: #232629; }
+code > span.kw { color: #cfcfc2; } /* Keyword */
+code > span.dt { color: #2980b9; } /* DataType */
+code > span.dv { color: #f67400; } /* DecVal */
+code > span.bn { color: #f67400; } /* BaseN */
+code > span.fl { color: #f67400; } /* Float */
+code > span.cn { color: #27aeae; } /* Constant */
+code > span.ch { color: #3daee9; } /* Char */
+code > span.sc { color: #3daee9; } /* SpecialChar */
+code > span.st { color: #f44f4f; } /* String */
+code > span.vs { color: #da4453; } /* VerbatimString */
+code > span.ss { color: #da4453; } /* SpecialString */
+code > span.im { color: #27ae60; } /* Import */
+code > span.co { color: #7a7c7d; } /* Comment */
+code > span.do { color: #a43340; } /* Documentation */
+code > span.an { color: #3f8058; } /* Annotation */
+code > span.cv { color: #7f8c8d; } /* CommentVar */
+code > span.ot { color: #27ae60; } /* Other */
+code > span.fu { color: #8e44ad; } /* Function */
+code > span.va { color: #27aeae; } /* Variable */
+code > span.cf { color: #fdbc4b; } /* ControlFlow */
+code > span.op { color: #cfcfc2; } /* Operator */
+code > span.bu { color: #7f8c8d; } /* BuiltIn */
+code > span.ex { color: #0099ff; } /* Extension */
+code > span.pp { color: #27ae60; } /* Preprocessor */
+code > span.at { color: #2980b9; } /* Attribute */
+code > span.re { color: #2980b9; } /* RegionMarker */
+code > span.in { color: #c45b00; } /* Information */
+code > span.wa { color: #da4453; } /* Warning */
+code > span.al { color: #95da4c; } /* Alert */
+code > span.er { color: #da4453; } /* Error */
+code > span. { color: #cfcfc2; } /* Normal */
+  </style>
+</head>
+<body>
+<div id="TOC">
+<ul>
+<li><a href="#data-visualization">Data Visualization</a><ul>
+<li><a href="#visualization-libraries---matplotlib">Visualization libraries - Matplotlib</a></li>
+<li><a href="#bar-plot">Bar Plot</a></li>
+<li><a href="#line-plot">Line Plot</a></li>
+<li><a href="#histogram">Histogram</a></li>
+<li><a href="#scatterplot">Scatterplot</a></li>
+<li><a href="#boxplot">Boxplot</a></li>
+</ul></li>
+</ul>
+</div>
+<p><a href="../../../index.html">Go back to index</a></p>
+<p><a href="../base.html">Go back to Python Portal</a></p>
+<head>
+  
+  <meta name="viewport" content="initial-scale=1, width=device-width">
+</head>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> sys
+<span class="bu">print</span>(sys.executable)
+<span class="im">from</span> IPython.core.interactiveshell <span class="im">import</span> InteractiveShell
+
+InteractiveShell.ast_node_interactivity <span class="op">=</span> <span class="st">&quot;all&quot;</span>
+InteractiveShell.colors <span class="op">=</span> <span class="st">&quot;Linux&quot;</span>
+InteractiveShell.separate_in <span class="op">=</span> <span class="dv">0</span>
+<span class="im">import</span> pandas <span class="im">as</span> pd
+<span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt
+<span class="im">import</span> numpy <span class="im">as</span> np
+<span class="im">from</span> matplotlib <span class="im">import</span> style
+style.use(<span class="st">&#39;fivethirtyeight&#39;</span>)
+<span class="im">import</span> os, sys</code></pre></div>
+<pre><code>/home/jcmint/anaconda3/envs/learningenv/bin/python</code></pre>
+<h1 id="data-visualization">Data Visualization</h1>
+<p>Simplifies data interpretation.</p>
+<p><strong>Conceptual or data-driven</strong> For example, a theoretical plot - supply &amp; demand, stress &amp; strain.</p>
+<p><strong>Declarative or Exploratory</strong> Presentation of real-world data to reach a final conclusion. Exploratory is just for quick analysis rather than polishing the visualization itself.</p>
+<p><strong>Principles of Good Design</strong></p>
+<ul>
+<li>Trustworthy</li>
+<li>Evidence for a figure should be in the data. E.g. zooming in on an axis to exaggerate a change in a value is not trustworthy.</li>
+<li>Accessible</li>
+<li>Make visuals appropriate for audience, and to fulfill its intended purpose</li>
+<li>Elegant</li>
+</ul>
+<h2 id="visualization-libraries---matplotlib">Visualization libraries - Matplotlib</h2>
+<p>Matplotlib is the main go-to for day to day visualization; others have specialization for specific use cases. Common components include a chart type, axes ranges and labels, figure labels, legend, aesthetics and annotations.</p>
+<ul>
+<li>Using <a href="https://www.kaggle.com/worldbank/world-development-indicators/version/2#Indicators.csv">the Indicators</a> data set.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">indicators <span class="op">=</span> pd.read_csv(<span class="st">&#39;../../../../data/w5vis/Indicators.csv&#39;</span>)
+<span class="co"># no need to run often, so separate into its own code cell. </span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># print head of dataframe</span>
+indicators.head()
+
+<span class="co"># unique country names</span>
+countries <span class="op">=</span> indicators[<span class="st">&#39;CountryName&#39;</span>].unique().tolist()
+<span class="bu">print</span>(<span class="st">&quot;country num:&quot;</span>, <span class="bu">len</span>(countries))
+
+<span class="co"># number of country codes</span>
+cocodes <span class="op">=</span> indicators[<span class="st">&#39;CountryCode&#39;</span>].unique().tolist()
+<span class="bu">print</span>(<span class="st">&quot;country codes:&quot;</span>, <span class="bu">len</span>(cocodes))
+
+<span class="co"># how many indicators? </span>
+inds <span class="op">=</span> indicators[<span class="st">&#39;IndicatorName&#39;</span>].unique().tolist()
+<span class="bu">print</span>(<span class="st">&quot;indicators:&quot;</span>, <span class="bu">len</span>(inds))
+
+<span class="co"># years and range of data</span>
+years <span class="op">=</span> indicators[<span class="st">&#39;Year&#39;</span>].unique().tolist()
+<span class="bu">print</span>(<span class="bu">len</span>(years), <span class="bu">min</span>(years), <span class="st">&quot;to&quot;</span>, <span class="bu">max</span>(years))</code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>CountryName</th>
+      <th>CountryCode</th>
+      <th>IndicatorName</th>
+      <th>IndicatorCode</th>
+      <th>Year</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Arab World</td>
+      <td>ARB</td>
+      <td>Adolescent fertility rate (births per 1,000 wo...</td>
+      <td>SP.ADO.TFRT</td>
+      <td>1960</td>
+      <td>1.335609e+02</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Arab World</td>
+      <td>ARB</td>
+      <td>Age dependency ratio (% of working-age populat...</td>
+      <td>SP.POP.DPND</td>
+      <td>1960</td>
+      <td>8.779760e+01</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Arab World</td>
+      <td>ARB</td>
+      <td>Age dependency ratio, old (% of working-age po...</td>
+      <td>SP.POP.DPND.OL</td>
+      <td>1960</td>
+      <td>6.634579e+00</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Arab World</td>
+      <td>ARB</td>
+      <td>Age dependency ratio, young (% of working-age ...</td>
+      <td>SP.POP.DPND.YG</td>
+      <td>1960</td>
+      <td>8.102333e+01</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Arab World</td>
+      <td>ARB</td>
+      <td>Arms exports (SIPRI trend indicator values)</td>
+      <td>MS.MIL.XPRT.KD</td>
+      <td>1960</td>
+      <td>3.000000e+06</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<pre><code>country num: 247
+country codes: 247
+indicators: 1344
+56 1960 to 2015</code></pre>
+<p>This is actually a 4D dataset, with country, indicator, year and value. I would say its combination of the first three that match each value.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># pick a random indicator for a random country</span>
+hist_indicator <span class="op">=</span> <span class="st">&#39;Population in the largest city&#39;</span>
+hist_country <span class="op">=</span> <span class="st">&#39;MEX&#39;</span>
+
+<span class="co"># grab data </span>
+data <span class="op">=</span> indicators[indicators[<span class="st">&#39;IndicatorName&#39;</span>].<span class="bu">str</span>.contains(hist_indicator) <span class="op">&amp;</span> indicators[<span class="st">&#39;CountryCode&#39;</span>].<span class="bu">str</span>.contains(hist_country)]     
+data.head()</code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>CountryName</th>
+      <th>CountryCode</th>
+      <th>IndicatorName</th>
+      <th>IndicatorCode</th>
+      <th>Year</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>15382</th>
+      <td>Mexico</td>
+      <td>MEX</td>
+      <td>Population in the largest city (% of urban pop...</td>
+      <td>EN.URB.LCTY.UR.ZS</td>
+      <td>1960</td>
+      <td>28.280377</td>
+    </tr>
+    <tr>
+      <th>40837</th>
+      <td>Mexico</td>
+      <td>MEX</td>
+      <td>Population in the largest city (% of urban pop...</td>
+      <td>EN.URB.LCTY.UR.ZS</td>
+      <td>1961</td>
+      <td>28.287121</td>
+    </tr>
+    <tr>
+      <th>68643</th>
+      <td>Mexico</td>
+      <td>MEX</td>
+      <td>Population in the largest city (% of urban pop...</td>
+      <td>EN.URB.LCTY.UR.ZS</td>
+      <td>1962</td>
+      <td>28.305114</td>
+    </tr>
+    <tr>
+      <th>97213</th>
+      <td>Mexico</td>
+      <td>MEX</td>
+      <td>Population in the largest city (% of urban pop...</td>
+      <td>EN.URB.LCTY.UR.ZS</td>
+      <td>1963</td>
+      <td>28.334391</td>
+    </tr>
+    <tr>
+      <th>126125</th>
+      <td>Mexico</td>
+      <td>MEX</td>
+      <td>Population in the largest city (% of urban pop...</td>
+      <td>EN.URB.LCTY.UR.ZS</td>
+      <td>1964</td>
+      <td>28.378130</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<h2 id="bar-plot">Bar Plot</h2>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">fig, axis <span class="op">=</span> plt.subplots()
+fig.set_size_inches(<span class="dv">10</span>, <span class="dv">6</span>)
+plt.bar(data[<span class="st">&#39;Year&#39;</span>].values, data[<span class="st">&#39;Value&#39;</span>].values)
+plt.show()<span class="op">;</span></code></pre></div>
+<p><img src="5_Matplotlib_files/5_Matplotlib_9_0.webp" alt="png" /></p>
+<h2 id="line-plot">Line Plot</h2>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">fig, axis <span class="op">=</span> plt.subplots()
+fig.set_size_inches(<span class="dv">10</span>, <span class="dv">6</span>)
+plt.plot(data[<span class="st">&#39;Year&#39;</span>].values, data[<span class="st">&#39;Value&#39;</span>].values)
+plt.xlabel(<span class="st">&#39;Year&#39;</span>)
+plt.ylabel(data[<span class="st">&#39;IndicatorName&#39;</span>].iloc[<span class="dv">0</span>], fontsize<span class="op">=</span><span class="dv">10</span>)
+plt.title(<span class="st">&#39;Largest City pop %&#39;</span>)
+plt.axis([<span class="dv">1959</span>, <span class="dv">2015</span>,<span class="dv">0</span>,<span class="dv">30</span>])
+plt.show()<span class="op">;</span></code></pre></div>
+<p><img src="5_Matplotlib_files/5_Matplotlib_11_0.webp" alt="png" /></p>
+<h2 id="histogram">Histogram</h2>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Prep data for histogram</span>
+<span class="im">import</span> re
+cond_gdp_worker_ppp <span class="op">=</span> indicators[<span class="st">&#39;IndicatorName&#39;</span>] <span class="op">==</span> <span class="st">&#39;GDP per person employed (constant 1990 PPP $)&#39;</span>
+cond_2014 <span class="op">=</span> indicators[<span class="st">&#39;Year&#39;</span>] <span class="op">==</span> <span class="dv">2014</span>
+data_2 <span class="op">=</span> indicators[cond_gdp_worker_ppp <span class="op">&amp;</span> cond_2014]
+display(data_2.head())
+
+<span class="co"># add a semicolon to last plt in a cell to avoid printing extra info</span>
+fig, axis <span class="op">=</span> plt.subplots()
+fig.set_size_inches(<span class="dv">10</span>, <span class="dv">6</span>)
+plt.hist(data_2[<span class="st">&#39;Value&#39;</span>].values, <span class="dv">100</span>, density<span class="op">=</span><span class="va">False</span>, facecolor<span class="op">=</span><span class="st">&#39;green&#39;</span>)<span class="op">;</span>
+plt.xlabel(data_2[<span class="st">&#39;IndicatorName&#39;</span>].iloc[<span class="dv">0</span>])<span class="op">;</span>
+plt.ylabel(<span class="st">&#39;# of Countries&#39;</span>)<span class="op">;</span>
+plt.title(<span class="st">&#39;Histogram Example&#39;</span>)<span class="op">;</span></code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>CountryName</th>
+      <th>CountryCode</th>
+      <th>IndicatorName</th>
+      <th>IndicatorCode</th>
+      <th>Year</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>5534383</th>
+      <td>Arab World</td>
+      <td>ARB</td>
+      <td>GDP per person employed (constant 1990 PPP $)</td>
+      <td>SL.GDP.PCAP.EM.KD</td>
+      <td>2014</td>
+      <td>16767.221871</td>
+    </tr>
+    <tr>
+      <th>5534893</th>
+      <td>Central Europe and the Baltics</td>
+      <td>CEB</td>
+      <td>GDP per person employed (constant 1990 PPP $)</td>
+      <td>SL.GDP.PCAP.EM.KD</td>
+      <td>2014</td>
+      <td>25167.333899</td>
+    </tr>
+    <tr>
+      <th>5535240</th>
+      <td>East Asia &amp; Pacific (all income levels)</td>
+      <td>EAS</td>
+      <td>GDP per person employed (constant 1990 PPP $)</td>
+      <td>SL.GDP.PCAP.EM.KD</td>
+      <td>2014</td>
+      <td>18639.269885</td>
+    </tr>
+    <tr>
+      <th>5535541</th>
+      <td>East Asia &amp; Pacific (developing only)</td>
+      <td>EAP</td>
+      <td>GDP per person employed (constant 1990 PPP $)</td>
+      <td>SL.GDP.PCAP.EM.KD</td>
+      <td>2014</td>
+      <td>15755.489075</td>
+    </tr>
+    <tr>
+      <th>5536004</th>
+      <td>Euro area</td>
+      <td>EMU</td>
+      <td>GDP per person employed (constant 1990 PPP $)</td>
+      <td>SL.GDP.PCAP.EM.KD</td>
+      <td>2014</td>
+      <td>45073.794771</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<p><img src="5_Matplotlib_files/5_Matplotlib_13_1.webp" alt="png" /></p>
+<h2 id="scatterplot">Scatterplot</h2>
+<h4 id="data-prep-for-scatterplot">Data Prep for Scatterplot</h4>
+<p>Now, plot GDP per worker vs percent urbanization for all countries for all years of data</p>
+<ul>
+<li>No need to aggregate - just use the 'World' CountryName</li>
+<li>2 Filters:
+<ul>
+<li>GDP per worker, GDP per person employed (constant 1990 PPP $)</li>
+<li>percent urbanization, Urban population (% of total)</li>
+</ul></li>
+<li>Only pull year and value - other columns aren't needed</li>
+<li>Inner join tables on Year. Merge seems to automatically drop missing years where the first dataframe had no values</li>
+<li>Plot urbanization on x, gdp per person on y</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">cond_world <span class="op">=</span> indicators[<span class="st">&#39;CountryName&#39;</span>] <span class="op">==</span> <span class="st">&#39;World&#39;</span>
+gdp_worker_ppp <span class="op">=</span> indicators[cond_gdp_worker_ppp <span class="op">&amp;</span> cond_world][[<span class="st">&#39;Year&#39;</span>, <span class="st">&#39;Value&#39;</span>]]
+cond_3 <span class="op">=</span> indicators[<span class="st">&#39;IndicatorName&#39;</span>] <span class="op">==</span> <span class="st">&#39;Urban population (</span><span class="sc">% o</span><span class="st">f total)&#39;</span>
+urban_perc <span class="op">=</span> indicators[cond_3 <span class="op">&amp;</span> cond_world][[<span class="st">&#39;Year&#39;</span>, <span class="st">&#39;Value&#39;</span>]]
+data_3 <span class="op">=</span> urban_perc.merge(gdp_worker_ppp, on <span class="op">=</span> <span class="st">&#39;Year&#39;</span>, how <span class="op">=</span> <span class="st">&#39;inner&#39;</span>)
+
+display(gdp_worker_ppp.head(), urban_perc.head(), data_3.head())
+<span class="bu">len</span>(gdp_worker_ppp), <span class="bu">len</span>(urban_perc), <span class="bu">len</span>(data_3)</code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Year</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2012906</th>
+      <td>1991</td>
+      <td>12056.692883</td>
+    </tr>
+    <tr>
+      <th>2129349</th>
+      <td>1992</td>
+      <td>12144.729023</td>
+    </tr>
+    <tr>
+      <th>2251054</th>
+      <td>1993</td>
+      <td>12242.591709</td>
+    </tr>
+    <tr>
+      <th>2374887</th>
+      <td>1994</td>
+      <td>12430.524713</td>
+    </tr>
+    <tr>
+      <th>2501760</th>
+      <td>1995</td>
+      <td>12767.091788</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Year</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>3491</th>
+      <td>1960</td>
+      <td>33.557608</td>
+    </tr>
+    <tr>
+      <th>27221</th>
+      <td>1961</td>
+      <td>34.073235</td>
+    </tr>
+    <tr>
+      <th>54067</th>
+      <td>1962</td>
+      <td>34.517820</td>
+    </tr>
+    <tr>
+      <th>82472</th>
+      <td>1963</td>
+      <td>34.908136</td>
+    </tr>
+    <tr>
+      <th>111146</th>
+      <td>1964</td>
+      <td>35.303686</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Year</th>
+      <th>Value_x</th>
+      <th>Value_y</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1991</td>
+      <td>43.285793</td>
+      <td>12056.692883</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1992</td>
+      <td>43.624850</td>
+      <td>12144.729023</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1993</td>
+      <td>43.982123</td>
+      <td>12242.591709</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1994</td>
+      <td>44.334518</td>
+      <td>12430.524713</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1995</td>
+      <td>44.703049</td>
+      <td>12767.091788</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<pre><code>(24, 55, 24)</code></pre>
+<h4 id="scatterplot-generation">Scatterplot generation</h4>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">fig, axis <span class="op">=</span> plt.subplots()
+<span class="co"># Grid lines, Xticks, Xlabel, Ylabel</span>
+
+axis.yaxis.grid(<span class="va">True</span>)
+axis.set_title(<span class="st">&#39;GDP per person employed vs Urban population&#39;</span>,fontsize<span class="op">=</span><span class="dv">16</span>)
+axis.set_xlabel(<span class="st">&#39;Urban population (</span><span class="sc">% o</span><span class="st">f total)&#39;</span>,fontsize<span class="op">=</span><span class="dv">10</span>)
+axis.set_ylabel(<span class="st">&#39;GDP per person employed (constant 1990 PPP $)&#39;</span>,fontsize<span class="op">=</span><span class="dv">10</span>)
+fig.set_size_inches(<span class="dv">10</span>, <span class="dv">6</span>)
+
+X <span class="op">=</span> data_3[<span class="st">&#39;Value_x&#39;</span>]
+Y <span class="op">=</span> data_3[<span class="st">&#39;Value_y&#39;</span>]
+axis.scatter(X, Y)
+plt.show()<span class="op">;</span></code></pre></div>
+<p><img src="5_Matplotlib_files/5_Matplotlib_17_0.webp" alt="png" /></p>
+<h4 id="what-is-the-correlation">What is the correlation?</h4>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">np.corrcoef(X, Y)</code></pre></div>
+<pre><code>array([[1.        , 0.99437166],
+       [0.99437166, 1.        ]])</code></pre>
+<p>The correlation is extremely strong.</p>
+<h2 id="boxplot">Boxplot</h2>
+<p>Compare distributions of life expectancy in 1960 vs 2013</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">cond_2013, cond_1960 <span class="op">=</span> indicators[<span class="st">&#39;Year&#39;</span>] <span class="op">==</span> <span class="dv">2013</span>, indicators[<span class="st">&#39;Year&#39;</span>] <span class="op">==</span> <span class="dv">1960</span>
+cond_life_exp <span class="op">=</span> indicators[<span class="st">&#39;IndicatorName&#39;</span>] <span class="op">==</span> <span class="st">&#39;Life expectancy at birth, total (years)&#39;</span>
+life_exp_1960 <span class="op">=</span> indicators[cond_1960 <span class="op">&amp;</span> cond_life_exp][<span class="st">&#39;Value&#39;</span>]
+life_exp_2013 <span class="op">=</span> indicators[cond_2013 <span class="op">&amp;</span> cond_life_exp][<span class="st">&#39;Value&#39;</span>]
+life_exp_data <span class="op">=</span> [life_exp_1960, life_exp_2013]
+
+fig, axes <span class="op">=</span> plt.subplots()
+
+axis.yaxis.grid(<span class="va">True</span>)
+bplot <span class="op">=</span> axes.boxplot(life_exp_data,
+                    vert<span class="op">=</span><span class="va">True</span>)     <span class="co"># vertical aligmnent</span>
+plt.xticks([<span class="dv">1</span>, <span class="dv">2</span>], [<span class="st">&#39;1960&#39;</span>, <span class="st">&#39;2013&#39;</span>])
+axes.set_title(<span class="st">&#39;Life expectancy at birth vs Year&#39;</span>,fontsize<span class="op">=</span><span class="dv">16</span>)
+axes.set_xlabel(<span class="st">&#39;Year&#39;</span>,fontsize<span class="op">=</span><span class="dv">14</span>)
+axes.set_ylabel(<span class="st">&#39;Life expectancy at birth, total (years)&#39;</span>,fontsize<span class="op">=</span><span class="dv">14</span>)
+plt.show()<span class="op">;</span></code></pre></div>
+<p><img src="5_Matplotlib_files/5_Matplotlib_21_0.webp" alt="png" /></p>
+<p>The distribution has tightened somewhat.</p>
+</body>
+</html>

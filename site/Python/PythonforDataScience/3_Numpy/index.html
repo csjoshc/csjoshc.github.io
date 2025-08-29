@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Personal learning and note-taking website">
+    <meta name="author" content="Josh Chiu">
+    <link rel="canonical" href="https://csjoshc.github.io/Python/PythonforDataScience/3_Numpy/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+
+    
+    <title>3 Numpy - Josh's Learning Notes</title>
+    
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
+    <link href='//rsms.me/inter/inter.css' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../../css/base.min.css" rel="stylesheet">
+    <link href="../../../css/cinder.min.css" rel="stylesheet">
+
+    
+        
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/github.min.css">
+        
+    
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    
+
+     
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            
+              <a class="navbar-brand" href="../../..">Josh's Learning Notes</a>
+            
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">General <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../General/base/">Overview</a>
+</li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">CS50x 2019</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../General/CS50x2019/cppbasics/">C++ Basics</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../General/CS50x2019/database/">Database</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../General/CS50x2019/flask/">Flask</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../General/CS50x2019/python/">Python</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../General/CS50x2019/webbasics/">Web Basics</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+<li >
+    <a href="../../../General/webdev2019/">Web Development 2019</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Python <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../base/">Overview</a>
+</li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">General</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../General/virtenv_jupyter_nb/">Virtual Environments & Jupyter</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../General/ifnameismain/">If Name Main</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Data Science Course</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../1_Introduction/">Introduction</a>
+</li>
+
+        
+            
+<li >
+    <a href="../2_Basics/">Python Basics</a>
+</li>
+
+        
+            
+<li >
+    <a href="./">NumPy</a>
+</li>
+
+        
+            
+<li >
+    <a href="../4_Pandas/">Pandas</a>
+</li>
+
+        
+            
+<li >
+    <a href="../4_Pandas2/">Pandas 2</a>
+</li>
+
+        
+            
+<li >
+    <a href="../4_Pandas3/">Pandas 3</a>
+</li>
+
+        
+            
+<li >
+    <a href="../4_Pandas4/">Pandas 4</a>
+</li>
+
+        
+            
+<li >
+    <a href="../4_Pandas5/">Pandas 5</a>
+</li>
+
+        
+            
+<li >
+    <a href="../5_Matplotlib/">Matplotlib</a>
+</li>
+
+        
+            
+<li >
+    <a href="../7_ML/">Machine Learning</a>
+</li>
+
+        
+            
+<li >
+    <a href="../7_ML_Reg/">ML Regression</a>
+</li>
+
+        
+            
+<li >
+    <a href="../7_ML_DT/">ML Decision Trees</a>
+</li>
+
+        
+            
+<li >
+    <a href="../7_ML_Clust/">ML Clustering</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Probability & Statistics</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../ProbabilityandStatistics/1_Introduction/">Introduction</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../ProbabilityandStatistics/2_Sets/">Sets</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">MIT Courses</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../IntroCompSciPython/unit7/">Computer Science Unit 7</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../IntroCompThinkDataSci/unit1/unit1/">Data Science Unit 1</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../IntroCompThinkDataSci/unit1/problemset1/">Problem Set 1</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../IntroCompThinkDataSci/unit2/plotting/">Unit 2 Plotting</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../IntroCompThinkDataSci/unit2/unit2/">Unit 2</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../IntroCompThinkDataSci/unit2/ps2/">Problem Set 2</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../IntroCompThinkDataSci/unit3/unit3/">Unit 3</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../IntroCompThinkDataSci/unit3/ps3/">Problem Set 3</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../IntroCompThinkDataSci/unit4/unit4/">Unit 4</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../IntroCompThinkDataSci/unit4/ps4/">Problem Set 4</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../IntroCompThinkDataSci/unit5/unit5/">Unit 5</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">GitHub <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../Github/intro_gh/">Introduction</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../Github/bugs_gh/">Bug Reports</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Linux <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../Linux/base/">Overview</a>
+</li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Linux Journey</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../Linux/linux_journey/basic/01_comlin/">Command Line</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../Linux/linux_journey/linux_journey_toc/">Table of Contents</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">DevOps <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../Devops/base/">Overview</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../Devops/roadmap_notes/">Roadmap Notes</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Utilities <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../utils/base/">Overview</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../utils/01_BatchConversions/">Batch Conversions</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Site Updates <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../site_updates/base/">Overview</a>
+</li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">March 2019</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../site_updates/3_2019/2_3_2019/">March 2nd</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../site_updates/3_2019/9_3_2019/">March 9th</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../site_updates/3_2019/16_3_2019/">March 16th</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../site_updates/3_2019/23_3_2019/">March 23rd</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">April 2019</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../site_updates/4_2019/13_4_2019/">April 13th</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../site_updates/4_2019/20_4_2019/">April 20th</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">May 2019</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../site_updates/5_2019/04_5_2019/">May 4th</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../site_updates/5_2019/11_5_2019/">May 11th</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../site_updates/5_2019/25_5_2019/">May 25th</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">June 2019</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../site_updates/6_2019/15_6_2019/">June 15th</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Project Ideas</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../site_updates/project_ideas/indeed_cloud/">Indeed Cloud</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../../todo/">Todo</a>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#numpy">Numpy</a></li>
+            <li class="second-level"><a href="#creating-column-array">Creating column array</a></li>
+                
+            <li class="second-level"><a href="#boolean-indexing">Boolean indexing</a></li>
+                
+                <li class="third-level"><a href="#multiple-conditionals-and-assigning-values-where-true">Multiple conditionals and assigning values where True</a></li>
+                <li class="third-level"><a href="#assigning-new-values-using-logical-filter">Assigning new values using logical filter</a></li>
+            <li class="second-level"><a href="#nparray-data-types">np.array data types</a></li>
+                
+            <li class="second-level"><a href="#nparray-operations">np.array operations</a></li>
+                
+                <li class="third-level"><a href="#get-a-sequence-within-a-range-by-a-certain-step">Get a sequence within a range by a certain step</a></li>
+                <li class="third-level"><a href="#filter-values-from-one-of-two-matrices">Filter values from one of two matrices</a></li>
+            <li class="second-level"><a href="#np-statistics-and-set-operations">np statistics and set operations</a></li>
+                
+            <li class="second-level"><a href="#sorting-arrays-and-finding-uniques-arraysort-npuniquearray">Sorting Arrays and finding uniques - array.sort(), np.unique(array)</a></li>
+                
+            <li class="second-level"><a href="#set-operations-on-arrays">Set operations on arrays</a></li>
+                
+                <li class="third-level"><a href="#intersect1d">intersect1d</a></li>
+                <li class="third-level"><a href="#setdiff1d">setdiff1d</a></li>
+                <li class="third-level"><a href="#in1d">in1d</a></li>
+            <li class="second-level"><a href="#broadcasting">Broadcasting</a></li>
+                
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<!-- Python Data Science Navigation Template -->
+<!-- This template provides navigation for Python data science pages -->
+
+<div class="return-navigation">
+  <a href="../../../index.md" class="nav-button index-button">🏠 Home</a>
+  <a href="../base.md" class="nav-button portal-button">🐍 Python</a>
+</div>
+
+<!-- Content starts here -->
+
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">executable</span><span class="p">)</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.core.interactiveshell</span><span class="w"> </span><span class="kn">import</span> <span class="n">InteractiveShell</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">InteractiveShell</span><span class="o">.</span><span class="n">ast_node_interactivity</span> <span class="o">=</span> <span class="s2">&quot;all&quot;</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">InteractiveShell</span><span class="o">.</span><span class="n">colors</span> <span class="o">=</span> <span class="s2">&quot;Linux&quot;</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="n">InteractiveShell</span><span class="o">.</span><span class="n">separate_in</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="kn">from</span><span class="w"> </span><span class="nn">tabulate</span><span class="w"> </span><span class="kn">import</span> <span class="n">tabulate</span>
+</code></pre></div>
+    /home/jcmint/anaconda3/envs/learningenv/bin/python</p>
+<h1 id="numpy">Numpy</h1>
+<p>Numpy contains multidimensional arrays that have built-in functions based on compiled c code
+* Arrays in Numpy are fixed in size, unlike Python lists which have changeable sizes
+* Elements must all be the same type
+* Well optimized and useful matrix operations
+* Pandas are built on top of numpy
+* Matrices - Rank 2 ndarrays are a key feature
+When creating an array using <code>=</code> instead of np.array, the new reference points to the same object in memory. Therefore, if either the original or copy is mutated, the other will be updated as well
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">a1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>  
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="c1"># Note that the col_slice is returned as a row. These are both 1D/Rank one arrays</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">row_slice</span> <span class="o">=</span> <span class="n">a1</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">col_slice</span> <span class="o">=</span> <span class="n">a1</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="nb">print</span><span class="p">(</span><span class="n">a1</span><span class="p">,</span> <span class="n">row_slice</span><span class="p">,</span> <span class="n">col_slice</span><span class="p">)</span>
+</code></pre></div>
+    [[ 0  5 10]
+     [ 2  4  6]] [ 0  5 10] [0 2]
+Row and column slices will mutate along with the original array 
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">a1</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">a1</span><span class="p">,</span> <span class="n">row_slice</span><span class="p">,</span> <span class="n">col_slice</span><span class="p">)</span>
+</code></pre></div>
+    [[ 1  5 10]
+     [ 2  4  6]] [ 1  5 10] [1 2]
+Since the slices are 1D you can extract with just one index value
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">print</span><span class="p">(</span><span class="n">row_slice</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">col_slice</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</code></pre></div>
+    5 2</p>
+<h2 id="creating-column-array">Creating column array</h2>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Instead of: </span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">long</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">]])</span> 
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="c1"># Creating column arrays</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="o">**</span><span class="n">Code</span><span class="p">:</span><span class="o">**</span> <span class="n">Use</span> <span class="err">`</span><span class="o">.</span><span class="n">T</span><span class="err">`</span> <span class="p">(</span><span class="n">transpose</span><span class="p">)</span> <span class="n">to</span> <span class="n">easily</span> <span class="n">create</span> <span class="n">column</span> <span class="n">array</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="n">long2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]])</span><span class="o">.</span><span class="n">T</span> 
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="n">long2</span>
+</code></pre></div>
+    array([[1],
+           [2],
+           [3],
+           [4]])</p>
+<h2 id="boolean-indexing">Boolean indexing</h2>
+<ul>
+<li>Use conditional indexing to access and permute arrays
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">a1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>  
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="c1"># Creating boolean arrays</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="o">**</span><span class="n">Code</span><span class="p">:</span><span class="o">**</span> <span class="n">Use</span> <span class="err">`</span><span class="o">=</span><span class="err">`</span> <span class="n">operator</span> <span class="o">-</span> <span class="n">but</span> <span class="n">the</span> <span class="n">boolean</span> <span class="n">isn</span><span class="s1">&#39;t mutated when the original is.</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="n">small_num</span> <span class="o">=</span> <span class="n">a1</span> <span class="o">&gt;</span> <span class="mi">5</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="n">small_num</span>
+</code></pre></div>
+    array([[False, False,  True],
+           [False, False,  True]])
+The boolean array doesn't get mutated along with the original one
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">a1</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">a1</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">small_num</span><span class="p">)</span>
+</code></pre></div>
+    [[ 0  5 10]
+     [ 6  7  8]] 
+     [[False False  True]
+     [False False  True]]
+Get a list of values in the arrays for which conditional is TRUE
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">a1</span><span class="p">[</span><span class="n">a1</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">]</span>
+</code></pre></div>
+    array([10,  6,  7,  8])</li>
+</ul>
+<h3 id="multiple-conditionals-and-assigning-values-where-true">Multiple conditionals and assigning values where <strong>True</strong></h3>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nb">print</span><span class="p">(</span><span class="n">a1</span><span class="p">)</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="c1"># Get a list of values in the arrays for which multiple conditionals are TRUE</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="n">a1</span><span class="p">[(</span><span class="n">a1</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">a1</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="p">)]</span>
+</code></pre></div>
+    [[ 0  5 10]
+     [ 6  7  8]]
+    array([5, 6, 7])</p>
+<h3 id="assigning-new-values-using-logical-filter">Assigning new values using logical filter</h3>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">a1</span><span class="p">[</span><span class="n">a1</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">100</span> 
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">a1</span>
+</code></pre></div>
+    array([[100,   5, 110],
+           [106,   7, 108]])</p>
+<h2 id="nparray-data-types">np.array data types</h2>
+<p><strong>Code:</strong> <code>np.array</code> with various data types 
+* Array types are explicit - you can't add in values of a different type from initialization time
+* you can force int and float array to have each other's data type 
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">ex1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="n">ex2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">2.2</span><span class="p">])</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="n">ex3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">ex1</span><span class="p">,</span> <span class="n">dtype</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="n">ex4</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">ex2</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">)</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="c1"># Coerced int array to float, float to int (rounding DOWN to nearest int)</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="nb">print</span><span class="p">(</span><span class="n">ex1</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">ex2</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">ex3</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">ex4</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">ex4</span><span class="p">)</span>
+</code></pre></div>
+    int64 float64 float64 int64 [1 2]
+In general, its preferable to have arrays in floating point, so Python won't give errors when assigning values and you avoid losing precision.
+* Arrays will be upcast to higher precision types when performing operations
+* Array operations are NOT matrix operations:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">ex5</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">]])</span> 
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="n">ex6</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">]])</span> 
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="n">ex5</span> <span class="o">*</span> <span class="n">ex6</span>
+</code></pre></div>
+    array([[ 8,  8],
+           [15, 15]])</p>
+<h2 id="nparray-operations">np.array operations</h2>
+<p><strong>Code:</strong> <code>array.dot(), np.arange(), array.T, array.where()</code>
+* For matrix math, use the <code>np.array.*</code> functions instead of generic operations (*)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nb">print</span><span class="p">(</span><span class="n">ex5</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">ex6</span><span class="p">)</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="c1"># Dot product (matrix product)</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="c1"># As expected, the result 18 = 2 * 4 + 2 * 5 </span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="n">ex5</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">ex6</span><span class="p">)</span>
+</code></pre></div>
+    [[2 2]
+     [3 3]] 
+     [[4 4]
+     [5 5]]
+    array([[18, 18],
+           [27, 27]])</p>
+<h3 id="get-a-sequence-within-a-range-by-a-certain-step">Get a sequence within a range by a certain step</h3>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</code></pre></div>
+    array([1, 3, 5, 7, 9])</p>
+<h3 id="filter-values-from-one-of-two-matrices">Filter values from one of two matrices</h3>
+<p>If true, grab from the first matrix, else grab from second
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="nb">filter</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">],</span> <span class="p">[</span><span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">]])</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="nb">filter</span><span class="p">,</span> <span class="n">ex5</span><span class="p">,</span> <span class="n">ex6</span><span class="p">)</span>
+</code></pre></div>
+    array([[2, 4],
+           [5, 3]])</p>
+<h2 id="np-statistics-and-set-operations">np statistics and set operations</h2>
+<p><strong>Code:</strong> array.<code>min(), max(), mean(), sum(), median()</code>
+For these functions, you can specify axis = 0 or 1 to get values by column or row
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="n">a1</span><span class="p">,</span> <span class="n">a1</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">),</span> <span class="n">a1</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+    (array([[100,   5, 110],
+            [106,   7, 108]]), array([106,   7, 110]), array([110, 108]))</p>
+<h2 id="sorting-arrays-and-finding-uniques-arraysort-npuniquearray">Sorting Arrays and finding uniques - <strong>array.sort(), np.unique(array)</strong></h2>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="c1"># If needed, create a new array to avoid modifying the original array</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="c1"># Sort by both rows and columns </span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="nb">sorted</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">a1</span><span class="p">)</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="nb">sorted</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="nb">print</span><span class="p">(</span><span class="nb">sorted</span><span class="p">)</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="nb">sorted</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="nb">print</span><span class="p">(</span><span class="nb">sorted</span><span class="p">)</span>
+<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">a1</span><span class="p">))</span>
+</code></pre></div>
+    [[100   5 108]
+     [106   7 110]]
+    [[  5 100 108]
+     [  7 106 110]]
+    array([  5,   7, 100, 106, 108, 110])</p>
+<h2 id="set-operations-on-arrays">Set operations on arrays</h2>
+<p><strong>Code:</strong> <code>.intersect1d(), .setdiff1d(), .in1d()</code>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="n">s1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">])</span> 
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="n">s2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">])</span> 
+</code></pre></div></p>
+<h3 id="intersect1d">intersect1d</h3>
+<p><strong>Code:</strong> <code>np.intersect1d()</code>
+Values that are in both
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="n">np</span><span class="o">.</span><span class="n">intersect1d</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">)</span>
+</code></pre></div>
+    array(['b', 'c'], dtype='&lt;U1')</p>
+<h3 id="setdiff1d">setdiff1d</h3>
+<p><strong>Code:</strong> <code>np.setdiff1d()</code>
+<code>['a']</code>, elements IN s1 but NOT in s2
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="n">np</span><span class="o">.</span><span class="n">setdiff1d</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">)</span>
+</code></pre></div>
+    array(['a'], dtype='&lt;U1')
+<code>['d']</code>, elements IN s2 but NOT in s1 
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="n">np</span><span class="o">.</span><span class="n">setdiff1d</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">)</span>
+</code></pre></div>
+    array(['a'], dtype='&lt;U1')</p>
+<h3 id="in1d">in1d</h3>
+<p><strong>Code:</strong> <code>np.in1d()</code>
+<code>[False  True  True]</code>- which elements of s1 are in s2? boolean 
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="n">np</span><span class="o">.</span><span class="n">in1d</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">)</span>
+</code></pre></div>
+    array([False,  True,  True])</p>
+<h2 id="broadcasting">Broadcasting</h2>
+<p>Perform operations on differently sized arrays. Preset the values to be added, then spread them over another array. You can broadcast either a 1d array with appropriate dimensions in one dimension, or a scalar value. 
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="n">start</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span> <span class="c1"># zeros array 4 rows 3 columns </span>
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="n">add_rows</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span> 
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="n">y</span> <span class="o">=</span> <span class="n">start</span> <span class="o">+</span> <span class="n">add_rows</span> 
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="n">y</span>
+</code></pre></div>
+    array([[1., 0., 2.],
+           [1., 0., 2.],
+           [1., 0., 2.],
+           [1., 0., 2.]])</p></div>
+        
+        
+    </div>
+
+    
+      <footer class="col-md-12 text-center">
+          
+          
+            <hr>
+            <p>
+            <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</small>
+            </p>
+          
+
+          
+          
+      </footer>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../../../js/bootstrap-3.0.3.min.js"></script>
+
+    
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
+        
+                <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/languages/python.min.js"></script>
+                <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/languages/javascript.min.js"></script>
+                <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/languages/html.min.js"></script>
+                <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/languages/css.min.js"></script>
+                <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/languages/bash.min.js"></script>
+                <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/languages/yaml.min.js"></script>
+                <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/languages/markdown.min.js"></script>
+        
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    <script>var base_url = "../../.."</script>
+    
+    <script src="../../../js/base.js"></script>
+    <script src="../../../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+
+</html>

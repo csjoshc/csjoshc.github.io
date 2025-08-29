@@ -1,0 +1,1454 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Personal learning and note-taking website">
+    <meta name="author" content="Josh Chiu">
+    <link rel="canonical" href="https://csjoshc.github.io/7_ML_DT/">
+    <link rel="shortcut icon" href="../img/favicon.ico">
+
+    
+    <title>7 ML DT - Josh's Learning Notes</title>
+    
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
+    <link href='//rsms.me/inter/inter.css' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../css/base.min.css" rel="stylesheet">
+    <link href="../css/cinder.min.css" rel="stylesheet">
+
+    
+        
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/github.min.css">
+        
+    
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    
+
+     
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            
+              <a class="navbar-brand" href="..">Josh's Learning Notes</a>
+            
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="..">Home</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">General <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../General/base/">Overview</a>
+</li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">CS50x 2019</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../General/CS50x2019/cppbasics/">C++ Basics</a>
+</li>
+
+        
+            
+<li >
+    <a href="../General/CS50x2019/database/">Database</a>
+</li>
+
+        
+            
+<li >
+    <a href="../General/CS50x2019/flask/">Flask</a>
+</li>
+
+        
+            
+<li >
+    <a href="../General/CS50x2019/python/">Python</a>
+</li>
+
+        
+            
+<li >
+    <a href="../General/CS50x2019/webbasics/">Web Basics</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+<li >
+    <a href="../General/webdev2019/">Web Development 2019</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Python <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../Python/base/">Overview</a>
+</li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">General</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../Python/General/virtenv_jupyter_nb/">Virtual Environments & Jupyter</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/General/ifnameismain/">If Name Main</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Data Science Course</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../Python/PythonforDataScience/1_Introduction/">Introduction</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/PythonforDataScience/2_Basics/">Python Basics</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/PythonforDataScience/3_Numpy/">NumPy</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/PythonforDataScience/4_Pandas/">Pandas</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/PythonforDataScience/4_Pandas2/">Pandas 2</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/PythonforDataScience/4_Pandas3/">Pandas 3</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/PythonforDataScience/4_Pandas4/">Pandas 4</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/PythonforDataScience/4_Pandas5/">Pandas 5</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/PythonforDataScience/5_Matplotlib/">Matplotlib</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/PythonforDataScience/7_ML/">Machine Learning</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/PythonforDataScience/7_ML_Reg/">ML Regression</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/PythonforDataScience/7_ML_DT/">ML Decision Trees</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/PythonforDataScience/7_ML_Clust/">ML Clustering</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Probability & Statistics</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../Python/ProbabilityandStatistics/1_Introduction/">Introduction</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/ProbabilityandStatistics/2_Sets/">Sets</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">MIT Courses</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../Python/IntroCompSciPython/unit7/">Computer Science Unit 7</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/IntroCompThinkDataSci/unit1/unit1/">Data Science Unit 1</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/IntroCompThinkDataSci/unit1/problemset1/">Problem Set 1</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/IntroCompThinkDataSci/unit2/plotting/">Unit 2 Plotting</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/IntroCompThinkDataSci/unit2/unit2/">Unit 2</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/IntroCompThinkDataSci/unit2/ps2/">Problem Set 2</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/IntroCompThinkDataSci/unit3/unit3/">Unit 3</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/IntroCompThinkDataSci/unit3/ps3/">Problem Set 3</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/IntroCompThinkDataSci/unit4/unit4/">Unit 4</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/IntroCompThinkDataSci/unit4/ps4/">Problem Set 4</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/IntroCompThinkDataSci/unit5/unit5/">Unit 5</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">GitHub <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../Github/intro_gh/">Introduction</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../Github/bugs_gh/">Bug Reports</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Linux <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../Linux/base/">Overview</a>
+</li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Linux Journey</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../Linux/linux_journey/basic/01_comlin/">Command Line</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Linux/linux_journey/linux_journey_toc/">Table of Contents</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">DevOps <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../Devops/base/">Overview</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../Devops/roadmap_notes/">Roadmap Notes</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Utilities <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../utils/base/">Overview</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../utils/01_BatchConversions/">Batch Conversions</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Site Updates <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../site_updates/base/">Overview</a>
+</li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">March 2019</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../site_updates/3_2019/2_3_2019/">March 2nd</a>
+</li>
+
+        
+            
+<li >
+    <a href="../site_updates/3_2019/9_3_2019/">March 9th</a>
+</li>
+
+        
+            
+<li >
+    <a href="../site_updates/3_2019/16_3_2019/">March 16th</a>
+</li>
+
+        
+            
+<li >
+    <a href="../site_updates/3_2019/23_3_2019/">March 23rd</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">April 2019</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../site_updates/4_2019/13_4_2019/">April 13th</a>
+</li>
+
+        
+            
+<li >
+    <a href="../site_updates/4_2019/20_4_2019/">April 20th</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">May 2019</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../site_updates/5_2019/04_5_2019/">May 4th</a>
+</li>
+
+        
+            
+<li >
+    <a href="../site_updates/5_2019/11_5_2019/">May 11th</a>
+</li>
+
+        
+            
+<li >
+    <a href="../site_updates/5_2019/25_5_2019/">May 25th</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">June 2019</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../site_updates/6_2019/15_6_2019/">June 15th</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Project Ideas</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../site_updates/project_ideas/indeed_cloud/">Indeed Cloud</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../todo/">Todo</a>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#decision-tree">Decision Tree</a></li>
+            <li class="second-level"><a href="#cleaning-data">Cleaning Data</a></li>
+                
+            <li class="second-level"><a href="#prep-data-for-analysis">Prep data for analysis</a></li>
+                
+            <li class="second-level"><a href="#fit-decision-tree-classifier-and-generate-predictions">Fit decision tree classifier and generate predictions</a></li>
+                
+            <li class="second-level"><a href="#extending-the-example">Extending the example</a></li>
+                
+            <li class="second-level"><a href="#roc-curve">ROC Curve</a></li>
+                
+            <li class="second-level"><a href="#classification-accuracy-vs-threshold-for-classifying-as-high-humidity">Classification accuracy vs Threshold for classifying as high humidity</a></li>
+                
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<p><head>
+<link rel="stylesheet" href="../../../cssthemes/github.css">
+<meta name="viewport" content="initial-scale=1, width=device-width">
+</head></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">executable</span><span class="p">)</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.core.interactiveshell</span><span class="w"> </span><span class="kn">import</span> <span class="n">InteractiveShell</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">InteractiveShell</span><span class="o">.</span><span class="n">ast_node_interactivity</span> <span class="o">=</span> <span class="s2">&quot;all&quot;</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">InteractiveShell</span><span class="o">.</span><span class="n">colors</span> <span class="o">=</span> <span class="s2">&quot;Linux&quot;</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="n">InteractiveShell</span><span class="o">.</span><span class="n">separate_in</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">style</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;fivethirtyeight&#39;</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>/home/jcmint/anaconda3/envs/learningenv/bin/python
+</code></pre></div>
+<h1 id="decision-tree">Decision Tree</h1>
+<p>Needed to install scikit-learn package with conda.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Import libraries for decision tree</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">accuracy_score</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">confusion_matrix</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.tree</span><span class="w"> </span><span class="kn">import</span> <span class="n">DecisionTreeClassifier</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="kn">from</span><span class="w"> </span><span class="nn">random</span><span class="w"> </span><span class="kn">import</span> <span class="n">randint</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="c1"># Import Data</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;Week-7-MachineLearning/weather/daily_weather.csv&#39;</span><span class="p">)</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>number</th>
+      <th>air_pressure_9am</th>
+      <th>air_temp_9am</th>
+      <th>avg_wind_direction_9am</th>
+      <th>avg_wind_speed_9am</th>
+      <th>max_wind_direction_9am</th>
+      <th>max_wind_speed_9am</th>
+      <th>rain_accumulation_9am</th>
+      <th>rain_duration_9am</th>
+      <th>relative_humidity_9am</th>
+      <th>relative_humidity_3pm</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>918.060000</td>
+      <td>74.822000</td>
+      <td>271.100000</td>
+      <td>2.080354</td>
+      <td>295.400000</td>
+      <td>2.863283</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>42.420000</td>
+      <td>36.160000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>917.347688</td>
+      <td>71.403843</td>
+      <td>101.935179</td>
+      <td>2.443009</td>
+      <td>140.471548</td>
+      <td>3.533324</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>24.328697</td>
+      <td>19.426597</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>923.040000</td>
+      <td>60.638000</td>
+      <td>51.000000</td>
+      <td>17.067852</td>
+      <td>63.700000</td>
+      <td>22.100967</td>
+      <td>0.0</td>
+      <td>20.0</td>
+      <td>8.900000</td>
+      <td>14.460000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>920.502751</td>
+      <td>70.138895</td>
+      <td>198.832133</td>
+      <td>4.337363</td>
+      <td>211.203341</td>
+      <td>5.190045</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>12.189102</td>
+      <td>12.742547</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>921.160000</td>
+      <td>44.294000</td>
+      <td>277.800000</td>
+      <td>1.856660</td>
+      <td>136.500000</td>
+      <td>2.863283</td>
+      <td>8.9</td>
+      <td>14730.0</td>
+      <td>92.410000</td>
+      <td>76.740000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="cleaning-data">Cleaning Data</h2>
+<p>The tutorial wants to do a few things with the data
+* drop 'number' column
+* drop NA rows</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">clean_data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">clean_data</span><span class="p">[</span><span class="n">clean_data</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>number</th>
+      <th>air_pressure_9am</th>
+      <th>air_temp_9am</th>
+      <th>avg_wind_direction_9am</th>
+      <th>avg_wind_speed_9am</th>
+      <th>max_wind_direction_9am</th>
+      <th>max_wind_speed_9am</th>
+      <th>rain_accumulation_9am</th>
+      <th>rain_duration_9am</th>
+      <th>relative_humidity_9am</th>
+      <th>relative_humidity_3pm</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>16</th>
+      <td>16</td>
+      <td>917.890000</td>
+      <td>NaN</td>
+      <td>169.200000</td>
+      <td>2.192201</td>
+      <td>196.800000</td>
+      <td>2.930391</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>48.990000</td>
+      <td>51.190000</td>
+    </tr>
+    <tr>
+      <th>111</th>
+      <td>111</td>
+      <td>915.290000</td>
+      <td>58.820000</td>
+      <td>182.600000</td>
+      <td>15.613841</td>
+      <td>189.000000</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>21.500000</td>
+      <td>29.690000</td>
+    </tr>
+    <tr>
+      <th>177</th>
+      <td>177</td>
+      <td>915.900000</td>
+      <td>NaN</td>
+      <td>183.300000</td>
+      <td>4.719943</td>
+      <td>189.900000</td>
+      <td>5.346287</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>29.260000</td>
+      <td>46.500000</td>
+    </tr>
+    <tr>
+      <th>262</th>
+      <td>262</td>
+      <td>923.596607</td>
+      <td>58.380598</td>
+      <td>47.737753</td>
+      <td>10.636273</td>
+      <td>67.145843</td>
+      <td>13.671423</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>17.990876</td>
+      <td>16.461685</td>
+    </tr>
+    <tr>
+      <th>277</th>
+      <td>277</td>
+      <td>920.480000</td>
+      <td>62.600000</td>
+      <td>194.400000</td>
+      <td>2.751436</td>
+      <td>NaN</td>
+      <td>3.869906</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>52.580000</td>
+      <td>54.030000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p>I will drop these rows for now. However, that isn't the only thing you can do with them (you could use linear interpolation since they are numeric and this is time series data with evenly spaces intervals)</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">del</span> <span class="n">clean_data</span><span class="p">[</span><span class="s1">&#39;number&#39;</span><span class="p">]</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">clean_data</span> <span class="o">=</span> <span class="n">clean_data</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+</code></pre></div>
+<h2 id="prep-data-for-analysis">Prep data for analysis</h2>
+<ul>
+<li>Bin humidity values into low (0) and high (1) to make it a binary classification problem and store in <code>high_humidity_label</code></li>
+<li>store bin labels as <code>y</code></li>
+<li>Store training variables names into <code>morning_features</code>, then store training data into <code>x</code></li>
+<li>split <code>x</code> and <code>y</code> into training and testing subsets, <code>x_train</code>, <code>x_test</code>, <code>y_train</code>, <code>y_test</code></li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">clean_data</span><span class="p">[</span><span class="s1">&#39;high_humidity_label&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">clean_data</span><span class="p">[</span><span class="s1">&#39;relative_humidity_3pm&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">25</span><span class="p">)</span><span class="o">*</span><span class="mi">1</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">clean_data</span><span class="p">[[</span><span class="s1">&#39;high_humidity_label&#39;</span><span class="p">,</span><span class="s1">&#39;relative_humidity_3pm&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">y</span><span class="o">=</span><span class="n">clean_data</span><span class="p">[[</span><span class="s1">&#39;high_humidity_label&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="n">morning_features</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;air_pressure_9am&#39;</span><span class="p">,</span><span class="s1">&#39;air_temp_9am&#39;</span><span class="p">,</span><span class="s1">&#39;avg_wind_direction_9am&#39;</span><span class="p">,</span><span class="s1">&#39;avg_wind_speed_9am&#39;</span><span class="p">,</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="s1">&#39;max_wind_direction_9am&#39;</span><span class="p">,</span><span class="s1">&#39;max_wind_speed_9am&#39;</span><span class="p">,</span><span class="s1">&#39;rain_accumulation_9am&#39;</span><span class="p">,</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="s1">&#39;rain_duration_9am&#39;</span><span class="p">]</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="n">x</span> <span class="o">=</span> <span class="n">clean_data</span><span class="p">[</span><span class="n">morning_features</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="n">x_train</span><span class="p">,</span> <span class="n">x_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.33</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">324</span><span class="p">)</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>high_humidity_label</th>
+      <th>relative_humidity_3pm</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>36.160000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+      <td>19.426597</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0</td>
+      <td>14.460000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0</td>
+      <td>12.742547</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>76.740000</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>1</td>
+      <td>33.930000</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>0</td>
+      <td>21.385657</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>1</td>
+      <td>74.920000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="fit-decision-tree-classifier-and-generate-predictions">Fit decision tree classifier and generate predictions</h2>
+<ul>
+<li>Create decision tree object (object attributes passed)</li>
+<li>run decision tree method with training data</li>
+<li>run decision tree method with testing intput data</li>
+<li>look at results, calculate average accuracy</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">humidity_classifier</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">max_leaf_nodes</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">);</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">humidity_classifier</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">);</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">y_test</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;predictions&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">humidity_classifier</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_test</span><span class="p">)</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="n">y_test</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="p">(</span><span class="n">y_test</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">y_test</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>DecisionTreeClassifier(class_weight=None, criterion=&#39;gini&#39;, max_depth=None,
+            max_features=None, max_leaf_nodes=10,
+            min_impurity_decrease=0.0, min_impurity_split=None,
+            min_samples_leaf=1, min_samples_split=2,
+            min_weight_fraction_leaf=0.0, presort=False, random_state=0,
+            splitter=&#39;best&#39;)
+</code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>high_humidity_label</th>
+      <th>predictions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>456</th>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>845</th>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>693</th>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>259</th>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>723</th>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>224</th>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>300</th>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>442</th>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>585</th>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1057</th>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="highlight"><pre><span></span><code>0.8153409090909091
+</code></pre></div>
+<h2 id="extending-the-example">Extending the example</h2>
+<ul>
+<li>I want to see how the 'threshold' for binning affects the classification accuracy (e.g. if the cutoff is closer to the mean then it should be less accurate)</li>
+<li>Instead of dropping the null values, linear impute and create a new variable to as a shadow variable (1 in this column means that another column was imputed)</li>
+<li>Iterate through random states for splitting into test and train sets (10 tries) - return vector of accuracy values</li>
+<li>refactor decision tree to a method to return vectors of classification accuracy and recall (true positive rate for the high humidity label) for  a specific threshold</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">clean_data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">clean_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">clean_data</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">),</span><span class="s1">&#39;Missing&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">clean_data</span><span class="p">[</span><span class="s1">&#39;Missing&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">clean_data</span><span class="p">[</span><span class="s1">&#39;Missing&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of interpolated values:&quot;</span><span class="p">,</span> <span class="nb">sum</span><span class="p">(</span><span class="n">clean_data</span><span class="p">[</span><span class="s1">&#39;Missing&#39;</span><span class="p">]))</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="n">clean_data</span> <span class="o">=</span> <span class="n">clean_data</span><span class="o">.</span><span class="n">interpolate</span><span class="p">()</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="n">morning_features</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;Missing&#39;</span><span class="p">)</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="n">x</span> <span class="o">=</span> <span class="n">clean_data</span><span class="p">[</span><span class="n">morning_features</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="k">def</span><span class="w"> </span><span class="nf">tree_acc_recall</span><span class="p">(</span><span class="n">threshold</span><span class="p">):</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="n">clean_data</span><span class="p">[</span><span class="s1">&#39;high_humidity_label&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">clean_data</span><span class="p">[</span><span class="s1">&#39;relative_humidity_3pm&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">threshold</span><span class="p">)</span><span class="o">*</span><span class="mi">1</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="n">y</span><span class="o">=</span><span class="n">clean_data</span><span class="p">[[</span><span class="s1">&#39;high_humidity_label&#39;</span><span class="p">]]</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="c1"># x stays the same</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="n">my_val</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Accuracy&#39;</span><span class="p">,</span> <span class="s1">&#39;True Positives&#39;</span><span class="p">,</span> <span class="s1">&#39;False Positives&#39;</span><span class="p">],</span> <span class="n">index</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">))</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">):</span> <span class="c1"># 20 trials for each threshold</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="n">x_train</span><span class="p">,</span> <span class="n">x_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.33</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">randint</span><span class="p">(</span><span class="mi">99</span><span class="p">,</span><span class="mi">100000000</span><span class="p">))</span>
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="n">humidity_classifier</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">max_leaf_nodes</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">);</span>
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="n">humidity_classifier</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">);</span>
+<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="n">y_test</span><span class="p">[</span><span class="s1">&#39;predictions&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">humidity_classifier</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_test</span><span class="p">)</span>
+<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="n">nums</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">[</span><span class="s1">&#39;high_humidity_label&#39;</span><span class="p">],</span> <span class="n">y_test</span><span class="p">[</span><span class="s1">&#39;predictions&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
+<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">):</span>
+<a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a><span class="n">tn</span><span class="p">,</span> <span class="n">fp</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="n">tp</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span>
+<a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a><span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a><span class="n">tn</span><span class="p">,</span> <span class="n">fp</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="n">tp</span> <span class="o">=</span> <span class="n">nums</span>
+<a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a><span class="n">my_val</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="n">i</span><span class="p">],</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">tp</span> <span class="o">+</span> <span class="n">tn</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">tn</span> <span class="o">+</span> <span class="n">fp</span> <span class="o">+</span> <span class="n">fn</span> <span class="o">+</span> <span class="n">tp</span><span class="p">)</span>
+<a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a><span class="n">my_val</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="n">i</span><span class="p">],</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">tp</span><span class="o">/</span><span class="p">(</span><span class="n">tp</span> <span class="o">+</span> <span class="n">fn</span><span class="p">)</span>
+<a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a><span class="n">my_val</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="n">i</span><span class="p">],</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">fp</span><span class="o">/</span><span class="p">(</span><span class="n">fp</span> <span class="o">+</span> <span class="n">tn</span><span class="p">)</span>
+<a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a><span class="c1"># Too many chained operations, too confusing</span>
+<a id="__codelineno-6-27" name="__codelineno-6-27" href="#__codelineno-6-27"></a><span class="c1">#my_val.iloc[[i],0]  = (y_test.iloc[:,0] == y_test.iloc[:,1]).mean() # accuracy</span>
+<a id="__codelineno-6-28" name="__codelineno-6-28" href="#__codelineno-6-28"></a><span class="c1">#my_val.iloc[[i],1] = ((y_test.iloc[:,1] == 1)&amp;(y_test.iloc[:,0] == y_test.iloc[:,1])).sum()/(y_test.iloc[:,0].sum()) # true positive</span>
+<a id="__codelineno-6-29" name="__codelineno-6-29" href="#__codelineno-6-29"></a><span class="c1">#my_val.iloc[[i],2] = ((y_test.iloc[:,1] == 1)&amp;(y_test.iloc[:,0] != y_test.iloc[:,1])).sum()/(y_test.iloc[:,0].sum()) # false positive</span>
+<a id="__codelineno-6-30" name="__codelineno-6-30" href="#__codelineno-6-30"></a><span class="k">return</span><span class="p">(</span><span class="n">my_val</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Number of interpolated values: 31.0
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nb">list</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>[&#39;air_pressure_9am&#39;,
+ &#39;air_temp_9am&#39;,
+ &#39;avg_wind_direction_9am&#39;,
+ &#39;avg_wind_speed_9am&#39;,
+ &#39;max_wind_direction_9am&#39;,
+ &#39;max_wind_speed_9am&#39;,
+ &#39;rain_accumulation_9am&#39;,
+ &#39;rain_duration_9am&#39;,
+ &#39;Missing&#39;]
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="o">%%</span><span class="n">capture</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">my_out</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Humidity Threshold&#39;</span><span class="p">,</span> <span class="s1">&#39;Average Accuracy&#39;</span><span class="p">,</span> <span class="s1">&#39;Average True Positives&#39;</span><span class="p">,</span> <span class="s1">&#39;Average False Positives&#39;</span><span class="p">],</span> <span class="n">index</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">101</span><span class="p">))</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="n">k</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">101</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="n">temp</span> <span class="o">=</span> <span class="n">tree_acc_recall</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="n">my_out</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="n">k</span><span class="p">],</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="n">my_out</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="n">k</span><span class="p">],</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">temp</span><span class="p">[</span><span class="s1">&#39;Accuracy&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="n">my_out</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="n">k</span><span class="p">],</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">temp</span><span class="p">[</span><span class="s1">&#39;True Positives&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="n">my_out</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="n">k</span><span class="p">],</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">temp</span><span class="p">[</span><span class="s1">&#39;False Positives&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="n">k</span><span class="o">+=</span><span class="mi">1</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">my_out</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">my_out</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Humidity Threshold</th>
+      <th>Average Accuracy</th>
+      <th>Average True Positives</th>
+      <th>Average False Positives</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>5</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>6</td>
+      <td>0.994911</td>
+      <td>0.996361</td>
+      <td>0.909091</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>7</td>
+      <td>0.99294</td>
+      <td>0.996611</td>
+      <td>0.75</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>8</td>
+      <td>0.985221</td>
+      <td>0.992595</td>
+      <td>0.637024</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>9</td>
+      <td>0.977901</td>
+      <td>0.990382</td>
+      <td>0.576939</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Humidity Threshold</th>
+      <th>Average Accuracy</th>
+      <th>Average True Positives</th>
+      <th>Average False Positives</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>91</th>
+      <td>91</td>
+      <td>0.979282</td>
+      <td>0.194167</td>
+      <td>0.0124086</td>
+    </tr>
+    <tr>
+      <th>92</th>
+      <td>92</td>
+      <td>0.989677</td>
+      <td>0.125</td>
+      <td>0.00670898</td>
+    </tr>
+    <tr>
+      <th>93</th>
+      <td>93</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>94</th>
+      <td>94</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>95</th>
+      <td>95</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>96</th>
+      <td>96</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>97</th>
+      <td>97</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>98</th>
+      <td>98</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>99</th>
+      <td>99</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>100</th>
+      <td>100</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="roc-curve">ROC Curve</h2>
+<ul>
+<li><code>my_out</code> has NaN when it is dividing by 0, when the threshold is so high that there are no true or false positives</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">fig</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="n">axis</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="n">axis</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;ROC Curve&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="n">axis</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;False positive rate&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="n">axis</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;True Positive Rate&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="n">axis</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">my_out</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">3</span><span class="p">],</span> <span class="n">my_out</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">2</span><span class="p">])</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">();</span>
+</code></pre></div>
+<p><img alt="png" src="../7_ML_DT_files/7_ML_DT_18_0.png" /></p>
+<h2 id="classification-accuracy-vs-threshold-for-classifying-as-high-humidity">Classification accuracy vs Threshold for classifying as high humidity</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">fig</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="n">axis</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="n">axis</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Accuracy vs Threshold&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="n">axis</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;High humidiy threshold&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="n">axis</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Overall classification accuracy&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="n">axis</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">my_out</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">my_out</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">();</span>
+</code></pre></div>
+<p><img alt="png" src="../7_ML_DT_files/7_ML_DT_20_0.png" /></p></div>
+        
+        
+    </div>
+
+    
+      <footer class="col-md-12 text-center">
+          
+          
+            <hr>
+            <p>
+            <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</small>
+            </p>
+          
+
+          
+          
+      </footer>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../js/bootstrap-3.0.3.min.js"></script>
+
+    
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
+        
+                <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/languages/python.min.js"></script>
+                <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/languages/javascript.min.js"></script>
+                <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/languages/html.min.js"></script>
+                <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/languages/css.min.js"></script>
+                <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/languages/bash.min.js"></script>
+                <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/languages/yaml.min.js"></script>
+                <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/languages/markdown.min.js"></script>
+        
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    <script>var base_url = ".."</script>
+    
+    <script src="../js/base.js"></script>
+    <script src="../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+
+</html>

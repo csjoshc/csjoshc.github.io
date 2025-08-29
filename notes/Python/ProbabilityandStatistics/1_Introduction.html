@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="date" content="2019-05-30" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+</head>
+<body>
+<div id="TOC">
+<ul>
+<li><a href="#probability-theory">Probability Theory</a></li>
+<li><a href="#statistics">Statistics</a></li>
+<li><a href="#three-card-puzzle-example">Three Card Puzzle example</a></li>
+</ul>
+</div>
+<p><a href="../../../index.html">Go back to index</a></p>
+<p><a href="../base.html">Go back to Python Portal</a></p>
+<head>
+  <link rel="stylesheet" href="../../../css_themes/github.css">
+  <meta name="viewport" content="initial-scale=1, width=device-width">
+</head>
+<h1 id="probability-theory">Probability Theory</h1>
+<ul>
+<li>A way to compute the probability of complex events</li>
+<li><p>assume the probability of basic events. Example: flipping coin 1000 times Σ of k trials is such that it is less than 4k√ <img src="https://i.imgur.com/FlPlfL2.webp" /></p></li>
+<li><p>Concentrated around 0, and limited to a range prdiceted by probability theory - as k grows, so does the boundary <img src="https://i.imgur.com/FSMA8n2.webp" /> With increasing flips, the results converge closer towards 0 relative to the total coin flips.</p></li>
+</ul>
+<h1 id="statistics">Statistics</h1>
+<p>Take data to infer the the underlying process. For example, if 1000 flips yields 570 heads, is it biased or not? <strong>Statistical Inference</strong> * Suppose the coin is fair * Calculate the probability of such a coin Σ = 140 * However, it is very unlikely that |S1000| &gt; 4* root(1000) ~ 126<br />
+* Therefore, it is <em>very</em> unlikely that the coin is unbiased</p>
+<p>In polling, extrapolate general conclusions from sample.</p>
+<h1 id="three-card-puzzle-example">Three Card Puzzle example</h1>
+<ul>
+<li>Three cards in a hat: (R/R), (R/B), (B/B) (differently colored sides)</li>
+<li>A card that is blue on one side could be blue or red on the other sides</li>
+<li>Run a simulation that randomly picks a card with a certain side facing up</li>
+<li>Matching sides = -$1, not matching = +$1</li>
+<li>Since a &quot;match&quot; happens much less than a &quot;not match&quot;, average is -$.33 per iteration (since it is 2:1 odds to get a match)</li>
+</ul>
+</body>
+</html>

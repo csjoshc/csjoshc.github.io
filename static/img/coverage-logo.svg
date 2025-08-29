@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="coverageGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF6B6B;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4ECDC4;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Hexagon background representing comprehensive coverage -->
+  <polygon points="50,10 80,25 80,65 50,80 20,65 20,25" 
+           fill="url(#coverageGradient)" stroke="#2C3E50" stroke-width="2"/>
+  
+  <!-- Central hub -->
+  <circle cx="50" cy="45" r="15" fill="white" opacity="0.9" stroke="#2C3E50" stroke-width="1"/>
+  
+  <!-- Connecting lines to represent comprehensive coverage -->
+  <line x1="50" y1="30" x2="50" y2="20" stroke="white" stroke-width="2" opacity="0.8"/>
+  <line x1="50" y1="60" x2="50" y2="70" stroke="white" stroke-width="2" opacity="0.8"/>
+  <line x1="35" y1="45" x2="25" y2="45" stroke="white" stroke-width="2" opacity="0.8"/>
+  <line x1="65" y1="45" x2="75" y2="45" stroke="white" stroke-width="2" opacity="0.8"/>
+  
+  <!-- Text -->
+  <text x="50" y="95" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="white">COVERAGE</text>
+</svg>

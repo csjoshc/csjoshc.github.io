@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="date" content="2019-05-30" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #232629; color: #cfcfc2; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; background-color: #232629; color: #7a7c7d; border-right: 1px solid #7a7c7d; }
+td.sourceCode { padding-left: 5px; }
+pre, code { color: #cfcfc2; background-color: #232629; }
+code > span.kw { color: #cfcfc2; } /* Keyword */
+code > span.dt { color: #2980b9; } /* DataType */
+code > span.dv { color: #f67400; } /* DecVal */
+code > span.bn { color: #f67400; } /* BaseN */
+code > span.fl { color: #f67400; } /* Float */
+code > span.cn { color: #27aeae; } /* Constant */
+code > span.ch { color: #3daee9; } /* Char */
+code > span.sc { color: #3daee9; } /* SpecialChar */
+code > span.st { color: #f44f4f; } /* String */
+code > span.vs { color: #da4453; } /* VerbatimString */
+code > span.ss { color: #da4453; } /* SpecialString */
+code > span.im { color: #27ae60; } /* Import */
+code > span.co { color: #7a7c7d; } /* Comment */
+code > span.do { color: #a43340; } /* Documentation */
+code > span.an { color: #3f8058; } /* Annotation */
+code > span.cv { color: #7f8c8d; } /* CommentVar */
+code > span.ot { color: #27ae60; } /* Other */
+code > span.fu { color: #8e44ad; } /* Function */
+code > span.va { color: #27aeae; } /* Variable */
+code > span.cf { color: #fdbc4b; } /* ControlFlow */
+code > span.op { color: #cfcfc2; } /* Operator */
+code > span.bu { color: #7f8c8d; } /* BuiltIn */
+code > span.ex { color: #0099ff; } /* Extension */
+code > span.pp { color: #27ae60; } /* Preprocessor */
+code > span.at { color: #2980b9; } /* Attribute */
+code > span.re { color: #2980b9; } /* RegionMarker */
+code > span.in { color: #c45b00; } /* Information */
+code > span.wa { color: #da4453; } /* Warning */
+code > span.al { color: #95da4c; } /* Alert */
+code > span.er { color: #da4453; } /* Error */
+code > span. { color: #cfcfc2; } /* Normal */
+  </style>
+</head>
+<body>
+<div id="TOC">
+<ul>
+<li><a href="#python-basics">Python Basics</a><ul>
+<li><a href="#mutating-lists-and-dictionaries">Mutating lists and dictionaries</a></li>
+<li><a href="#string-list-functions">String &amp; list functions</a><ul>
+<li><a href="#adding-to-lists---append">Adding to lists - <code>append</code></a></li>
+<li><a href="#removing-elements---pop">Removing elements - <code>pop</code></a></li>
+<li><a href="#removing-elements---remove">Removing elements - <code>remove</code></a></li>
+<li><a href="#adding-to-list---extend">Adding to list - <code>extend</code></a></li>
+<li><a href="#removing-elements---del">Removing elements - <code>del</code></a></li>
+</ul></li>
+<li><a href="#dictionaries">Dictionaries</a><ul>
+<li><a href="#adding-dictionary-pair">Adding dictionary pair</a></li>
+<li><a href="#removing-dictionary-pair---pop">Removing Dictionary pair - <code>pop</code></a></li>
+<li><a href="#removing-dictionary-pair---del">Removing dictionary pair - <code>del</code></a></li>
+</ul></li>
+<li><a href="#iterating-through-dictionaries-by-key-value-pairs">Iterating through dictionaries by key value pairs</a></li>
+</ul></li>
+</ul>
+</div>
+<p><a href="../../../index.html">Go back to index</a></p>
+<p><a href="../base.html">Go back to Python Portal</a></p>
+<head>
+  
+  <meta name="viewport" content="initial-scale=1, width=device-width">
+</head>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> sys
+<span class="bu">print</span>(sys.executable)
+<span class="im">from</span> IPython.core.interactiveshell <span class="im">import</span> InteractiveShell
+InteractiveShell.ast_node_interactivity <span class="op">=</span> <span class="st">&quot;all&quot;</span>
+InteractiveShell.colors <span class="op">=</span> <span class="st">&quot;Linux&quot;</span>
+InteractiveShell.separate_in <span class="op">=</span> <span class="dv">0</span>
+<span class="im">from</span> tabulate <span class="im">import</span> tabulate</code></pre></div>
+<pre><code>/home/jcmint/anaconda3/envs/learningenv/bin/python</code></pre>
+<h1 id="python-basics">Python Basics</h1>
+<ul>
+<li>Dynamic heap assignment, automatic garbage collection for objects with no pointers</li>
+</ul>
+<h2 id="mutating-lists-and-dictionaries">Mutating lists and dictionaries</h2>
+<p>List functions <code>list.append</code>, <code>list[index] = value</code>, <code>list.pop(index)</code>, <code>list.remove(value)</code>, <code>list.extend(value)</code>, <code>del(index)</code> all mutate the list. A list that was assigned as <code>newlist = list</code> before these functions are executed will point to the same mutated list.</p>
+<p>Dictionary funcitons <code>dict[('key')] = value</code>, <code>del(dict[('key')])</code> also mutate the dictionary similar as above.</p>
+<h2 id="string-list-functions">String &amp; list functions</h2>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># String functions</span>
+word <span class="op">=</span> <span class="st">&#39;Hello&#39;</span>
+word[<span class="dv">1</span>:<span class="dv">3</span>], <span class="st">&#39;He&#39;</span> <span class="kw">in</span> word, word.find(<span class="st">&#39;ll&#39;</span>) <span class="co"># The lowest index start point</span></code></pre></div>
+<pre><code>(&#39;el&#39;, True, 2)</code></pre>
+<h3 id="adding-to-lists---append">Adding to lists - <code>append</code></h3>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">list</span> <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]
+newlist <span class="op">=</span> <span class="bu">list</span>
+<span class="bu">list</span>.append(<span class="dv">4</span>)
+<span class="bu">list</span>[<span class="dv">0</span>] <span class="op">=</span> <span class="dv">0</span>
+<span class="bu">list</span>, newlist</code></pre></div>
+<pre><code>([0, 2, 3, 4], [0, 2, 3, 4])</code></pre>
+<h3 id="removing-elements---pop">Removing elements - <code>pop</code></h3>
+<ul>
+<li>Notice that list.pop(2) returns the element at position 2 in <code>list</code></li>
+<li>The int 3 is removed from list, and assigned to list2</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">list2 <span class="op">=</span> <span class="bu">list</span>.pop(<span class="dv">2</span>)
+list2, <span class="bu">list</span>, <span class="bu">type</span>(list2)</code></pre></div>
+<pre><code>(3, [0, 2, 4], int)</code></pre>
+<h3 id="removing-elements---remove">Removing elements - <code>remove</code></h3>
+<p>list.remove(2) does not return a value - it just removes the value '1' (not the value at index = 1)</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">list3 <span class="op">=</span> <span class="bu">list</span>.remove(<span class="dv">2</span>)
+list3, <span class="bu">list</span>, newlist</code></pre></div>
+<pre><code>(None, [0, 4], [0, 4])</code></pre>
+<h3 id="adding-to-list---extend">Adding to list - <code>extend</code></h3>
+<p><code>newlist</code> continues to be mutated along with <code>list</code></p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">list4 <span class="op">=</span> [<span class="dv">5</span>, <span class="dv">6</span>]
+<span class="bu">list</span>.extend(list4)
+<span class="bu">list</span>, newlist</code></pre></div>
+<pre><code>([0, 4, 5, 6], [0, 4, 5, 6])</code></pre>
+<h3 id="removing-elements---del">Removing elements - <code>del</code></h3>
+<p><code>del</code> deletes the value at an INDEX, and returns nothing.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">newlist <span class="op">=</span> <span class="bu">list</span>
+<span class="kw">del</span>(<span class="bu">list</span>[<span class="dv">2</span>]) 
+<span class="bu">list</span>, newlist</code></pre></div>
+<pre><code>([0, 4, 6], [0, 4, 6])</code></pre>
+<h2 id="dictionaries">Dictionaries</h2>
+<ul>
+<li>unordered Key-value pairs</li>
+<li>anything can be a value in a dictionary</li>
+<li>a Key can be a tuple since it is immutable</li>
+</ul>
+<h3 id="adding-dictionary-pair">Adding dictionary pair</h3>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">dict</span> <span class="op">=</span> {(<span class="st">&#39;String&#39;</span>, <span class="dv">2000</span>): <span class="dv">2</span>} 
+<span class="bu">dict</span>[(<span class="st">&#39;string2&#39;</span>, <span class="dv">2001</span>)] <span class="op">=</span> <span class="dv">3</span> 
+<span class="bu">dict</span>[(<span class="st">&#39;mykey&#39;</span>)] <span class="op">=</span> <span class="dv">2</span>
+<span class="bu">dict</span>[(<span class="dv">2</span>)] <span class="op">=</span> <span class="st">&#39;myvalue&#39;</span>
+<span class="bu">dict</span></code></pre></div>
+<pre><code>{(&#39;String&#39;, 2000): 2, (&#39;string2&#39;, 2001): 3, &#39;mykey&#39;: 2, 2: &#39;myvalue&#39;}</code></pre>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Returning the value at specific key (tuple, int, string)</span>
+x <span class="op">=</span> <span class="bu">dict</span>.get((<span class="st">&#39;string3&#39;</span>, <span class="dv">2002</span>))
+y <span class="op">=</span> <span class="bu">dict</span>.get(<span class="dv">2</span>)
+x, x <span class="op">==</span> <span class="va">None</span>, y, y <span class="op">==</span> <span class="va">None</span>, <span class="st">&#39;myid&#39;</span> <span class="kw">in</span> <span class="bu">dict</span></code></pre></div>
+<pre><code>(None, True, &#39;myvalue&#39;, False, False)</code></pre>
+<h3 id="removing-dictionary-pair---pop">Removing Dictionary pair - <code>pop</code></h3>
+<p><code>3</code> is the value, the rest is <code>dict</code></p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">dict</span>.pop((<span class="st">&#39;string2&#39;</span>, <span class="dv">2001</span>)), <span class="bu">dict</span></code></pre></div>
+<pre><code>(3, {(&#39;String&#39;, 2000): 2, &#39;mykey&#39;: 2, 2: &#39;myvalue&#39;})</code></pre>
+<h3 id="removing-dictionary-pair---del">Removing dictionary pair - <code>del</code></h3>
+<p>newdict similar to newlist is mutated along with the original object</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">newdict <span class="op">=</span> <span class="bu">dict</span>
+<span class="kw">del</span>(<span class="bu">dict</span>[(<span class="st">&#39;mykey&#39;</span>)])
+<span class="bu">dict</span>, newdict</code></pre></div>
+<pre><code>({(&#39;String&#39;, 2000): 2, 2: &#39;myvalue&#39;}, {(&#39;String&#39;, 2000): 2, 2: &#39;myvalue&#39;})</code></pre>
+<h2 id="iterating-through-dictionaries-by-key-value-pairs">Iterating through dictionaries by key value pairs</h2>
+<ul>
+<li>don't mutate data structures through which you are iterating</li>
+<li>instead, iterate through dictionary while appending to a to-do list</li>
+<li>Then, iterate through the to-do list while mutating the dictionary</li>
+<li>Therefore you never iterate and mutate the same data structure simultaneously</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="cf">for</span> key, value <span class="kw">in</span> <span class="bu">dict</span>.items(): 
+    <span class="bu">print</span>(key, value)</code></pre></div>
+<pre><code>(&#39;String&#39;, 2000) 2
+2 myvalue</code></pre>
+</body>
+</html>

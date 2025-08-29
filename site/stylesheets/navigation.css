@@ -1,0 +1,135 @@
+/* Navigation Styles for Consistent Look and Feel */
+
+.return-navigation {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px 0;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.nav-button {
+  display: inline-block;
+  padding: 12px 24px;
+  margin: 8px 12px 8px 0;
+  background: rgba(255, 255, 255, 0.9);
+  color: #333;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border: 2px solid transparent;
+}
+
+.nav-button:hover {
+  background: rgba(255, 255, 255, 1);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  border-color: rgba(255, 255, 255, 0.8);
+}
+
+.nav-button:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.index-button {
+  background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+  color: white;
+  border-color: #ff6b6b;
+}
+
+.index-button:hover {
+  background: linear-gradient(135deg, #ff5252, #d63031);
+  color: white;
+}
+
+.portal-button {
+  background: linear-gradient(135deg, #4ecdc4, #44a08d);
+  color: white;
+  border-color: #4ecdc4;
+}
+
+.portal-button:hover {
+  background: linear-gradient(135deg, #26d0ce, #2d3436);
+  color: white;
+}
+
+.section-button {
+  background: linear-gradient(135deg, #a8edea, #fed6e3);
+  color: #333;
+  border-color: #a8edea;
+}
+
+.section-button:hover {
+  background: linear-gradient(135deg, #96fbc4, #f9f586);
+  color: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .return-navigation {
+    padding: 15px;
+    margin: 15px 0;
+  }
+
+  .nav-button {
+    display: block;
+    width: 100%;
+    margin: 8px 0;
+    text-align: center;
+    padding: 15px 20px;
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .return-navigation {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .nav-button {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ecf0f1;
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .nav-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+  }
+}
+
+/* Animation for page load */
+.return-navigation {
+  animation: slideInFromTop 0.6s ease-out;
+}
+
+@keyframes slideInFromTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Focus states for accessibility */
+.nav-button:focus {
+  outline: 3px solid #667eea;
+  outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+  .return-navigation {
+    display: none;
+  }
+}

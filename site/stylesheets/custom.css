@@ -1,0 +1,1012 @@
+/* CUSTOM STYLING FOR CSJOSHC.GITHUB.IO */
+/* Modern Clean Design with Professional Color Palette */
+
+:root {
+  /* Modern Professional Color Palette */
+  --md-primary-fg-color: #2563eb; /* Clean blue */
+  --md-primary-fg-color--light: #3b82f6;
+  --md-primary-fg-color--dark: #1d4ed8;
+  --md-accent-fg-color: #f59e0b; /* Warm amber */
+
+  /* Semantic Colors */
+  --primary-blue: #2563eb;
+  --primary-blue-light: #60a5fa;
+  --primary-blue-dark: #1e40af;
+  --accent-amber: #f59e0b;
+  --accent-amber-light: #fbbf24;
+  --accent-amber-dark: #d97706;
+
+  /* Neutral Colors */
+  --neutral-50: #f8fafc;
+  --neutral-100: #f1f5f9;
+  --neutral-200: #e2e8f0;
+  --neutral-300: #cbd5e1;
+  --neutral-400: #94a3b8;
+  --neutral-500: #64748b;
+  --neutral-600: #475569;
+  --neutral-700: #334155;
+  --neutral-800: #1e293b;
+  --neutral-900: #0f172a;
+
+  /* Success/Error Colors */
+  --success-green: #10b981;
+  --success-green-light: #34d399;
+  --error-red: #ef4444;
+  --error-red-light: #f87171;
+  --warning-yellow: #f59e0b;
+  --info-blue: #3b82f6;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+  /* Typography */
+  --font-mono: "JetBrains Mono", "Fira Code", "SF Mono", "Monaco", "Consolas",
+    monospace;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Dark mode overrides */
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color: #60a5fa;
+  --md-primary-fg-color--light: #93c5fd;
+  --md-primary-fg-color--dark: #3b82f6;
+  --md-accent-fg-color: #fbbf24;
+
+  --primary-blue: #60a5fa;
+  --primary-blue-light: #93c5fd;
+  --primary-blue-dark: #3b82f6;
+  --accent-amber: #fbbf24;
+  --accent-amber-light: #fcd34d;
+  --accent-amber-dark: #f59e0b;
+}
+
+/* Dashboard Grid Layout */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.dashboard-card {
+  background: var(--neutral-50);
+  border: 1px solid var(--neutral-200);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary-blue-light);
+}
+
+.dashboard-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-blue), var(--accent-amber));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.dashboard-card:hover::before {
+  opacity: 1;
+}
+
+.dashboard-card h3 {
+  color: var(--primary-blue);
+  margin: 0 0 1rem 0;
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+
+.dashboard-card p {
+  color: var(--neutral-600);
+  margin: 0;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.dashboard-card ul {
+  color: var(--neutral-600);
+  line-height: 1.6;
+  margin: 0.5rem 0;
+}
+
+.dashboard-card li {
+  margin: 0.25rem 0;
+}
+
+/* Status Badges */
+.status-badge {
+  display: inline-block;
+  padding: 0.375rem 0.875rem;
+  border-radius: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 1px solid transparent;
+}
+
+.status-active {
+  background-color: var(--success-green);
+  color: white;
+  border-color: var(--success-green);
+}
+
+.status-pending {
+  background-color: var(--warning-yellow);
+  color: white;
+  border-color: var(--warning-yellow);
+}
+
+.status-completed {
+  background-color: var(--primary-blue);
+  color: white;
+  border-color: var(--primary-blue);
+}
+
+.status-info {
+  background-color: var(--info-blue);
+  color: white;
+  border-color: var(--info-blue);
+}
+
+/* Dark mode support for dashboard cards */
+[data-md-color-scheme="slate"] .dashboard-card {
+  background: var(--neutral-800);
+  border-color: var(--neutral-700);
+}
+
+[data-md-color-scheme="slate"] .dashboard-card:hover {
+  border-color: var(--primary-blue-light);
+}
+
+[data-md-color-scheme="slate"] .dashboard-card h3 {
+  color: var(--primary-blue-light);
+}
+
+[data-md-color-scheme="slate"] .dashboard-card p,
+[data-md-color-scheme="slate"] .dashboard-card ul,
+[data-md-color-scheme="slate"] .dashboard-card li {
+  color: var(--neutral-300);
+}
+
+/* Typography improvements */
+.md-typeset h1 {
+  color: var(--primary-blue);
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.md-typeset h2 {
+  color: var(--primary-blue-dark);
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid var(--accent-amber);
+  padding-bottom: 0.5rem;
+}
+
+.md-typeset h3 {
+  color: var(--neutral-700);
+  font-weight: 600;
+}
+
+[data-md-color-scheme="slate"] .md-typeset h1 {
+  color: var(--primary-blue-light);
+}
+
+[data-md-color-scheme="slate"] .md-typeset h2 {
+  color: var(--primary-blue-light);
+  border-bottom-color: var(--accent-amber-light);
+}
+
+[data-md-color-scheme="slate"] .md-typeset h3 {
+  color: var(--neutral-300);
+}
+
+/* Code blocks */
+.md-typeset code {
+  background: var(--neutral-100);
+  color: var(--neutral-800);
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.25rem;
+  font-family: var(--font-mono);
+}
+
+[data-md-color-scheme="slate"] .md-typeset code {
+  background: var(--neutral-800);
+  color: var(--neutral-200);
+}
+
+/* STICKY RETURN NAVIGATION BUTTONS */
+/* Make return buttons always visible when scrolling */
+.md-content__inner a[href*="index"],
+.md-content__inner a[href*="Portal"],
+.md-content__inner a[href*="toc"],
+.md-content__inner a[href*="base"] {
+  position: sticky;
+  top: 4rem; /* Position below the header */
+  z-index: 100;
+  background: var(--primary-blue);
+  border: 2px solid var(--primary-blue);
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  margin: 0 0 1.5rem 0;
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+/* Site Updates specific navigation styling */
+.md-content__inner a[href="../index.html"],
+.md-content__inner a[href="../../index.html"],
+.md-content__inner a[href="../../../index.html"] {
+  position: sticky;
+  top: 4rem;
+  z-index: 100;
+  background: var(--primary-blue);
+  border: 2px solid var(--primary-blue);
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  margin: 0 0.5rem 1rem 0;
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+/* Dark mode styles */
+[data-md-color-scheme="slate"] .md-content__inner a[href*="index"],
+[data-md-color-scheme="slate"] .md-content__inner a[href*="Portal"],
+[data-md-color-scheme="slate"] .md-content__inner a[href*="toc"],
+[data-md-color-scheme="slate"] .md-content__inner a[href*="base"] {
+  background: var(--primary-blue-light);
+  border: 2px solid var(--primary-blue-light);
+  color: var(--neutral-900);
+  box-shadow: var(--shadow-md);
+}
+
+/* Dark mode styles for site updates navigation */
+[data-md-color-scheme="slate"] .md-content__inner a[href="../index.html"],
+[data-md-color-scheme="slate"] .md-content__inner a[href="../../index.html"],
+[data-md-color-scheme="slate"]
+  .md-content__inner
+  a[href="../../../index.html"] {
+  background: var(--primary-blue-light);
+  border: 2px solid var(--primary-blue-light);
+  color: var(--neutral-900);
+  box-shadow: var(--shadow-md);
+}
+
+/* Hover effects for light mode */
+.md-content__inner a[href*="index"]:hover,
+.md-content__inner a[href*="Portal"]:hover,
+.md-content__inner a[href*="toc"]:hover,
+.md-content__inner a[href*="base"]:hover {
+  background: var(--accent-amber);
+  color: var(--neutral-900);
+  border-color: var(--accent-amber);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Hover effects for site updates navigation */
+.md-content__inner a[href="../index.html"]:hover,
+.md-content__inner a[href="../../index.html"]:hover,
+.md-content__inner a[href="../../../index.html"]:hover {
+  background: var(--accent-amber);
+  color: var(--neutral-900);
+  border-color: var(--accent-amber);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Hover effects for dark mode */
+[data-md-color-scheme="slate"] .md-content__inner a[href*="index"]:hover,
+[data-md-color-scheme="slate"] .md-content__inner a[href*="Portal"]:hover,
+[data-md-color-scheme="slate"] .md-content__inner a[href*="toc"]:hover,
+[data-md-color-scheme="slate"] .md-content__inner a[href*="base"]:hover {
+  background: var(--accent-amber-light);
+  color: var(--neutral-900);
+  border-color: var(--accent-amber-light);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-xl);
+}
+
+/* Hover effects for dark mode site updates navigation */
+[data-md-color-scheme="slate"] .md-content__inner a[href="../index.html"]:hover,
+[data-md-color-scheme="slate"]
+  .md-content__inner
+  a[href="../../index.html"]:hover,
+[data-md-color-scheme="slate"]
+  .md-content__inner
+  a[href="../../../index.html"]:hover {
+  background: var(--accent-amber-light);
+  color: var(--neutral-900);
+  border-color: var(--accent-amber-light);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-xl);
+}
+
+/* Multiple return buttons in a row */
+.md-content__inner a[href*="index"] + a[href*="Portal"],
+.md-content__inner a[href*="Portal"] + a[href*="toc"],
+.md-content__inner a[href*="toc"] + a[href*="base"] {
+  margin-left: 0.75rem;
+}
+
+/* Site updates navigation button spacing */
+.md-content__inner a[href="../index.html"] + a[href*="base"],
+.md-content__inner a[href="../../index.html"] + a[href*="base"],
+.md-content__inner a[href="../../../index.html"] + a[href*="base"] {
+  margin-left: 0.75rem;
+}
+
+/* COMPACT LAYOUT IMPROVEMENTS */
+/* Reduce overall spacing and font sizes for better information density */
+
+/* Root font size adjustment */
+html {
+  font-size: 14px; /* Reduced from default 16px */
+}
+
+/* Content area improvements */
+.md-content__inner {
+  padding: 1.5rem 1rem; /* Reduced from 2rem 1.5rem */
+  max-width: none; /* Allow full width usage */
+}
+
+.md-main__inner {
+  margin-top: 0; /* Reduce top margin */
+}
+
+/* Typography adjustments */
+.md-typeset {
+  font-size: 0.9rem; /* Slightly smaller base font */
+  line-height: 1.5; /* Tighter line height */
+}
+
+.md-typeset h1 {
+  font-size: 1.8rem; /* Reduced from default */
+  margin: 1rem 0 0.75rem 0;
+}
+
+.md-typeset h2 {
+  font-size: 1.4rem;
+  margin: 1.5rem 0 0.75rem 0;
+  padding: 0.75rem 1rem; /* Reduced padding */
+}
+
+.md-typeset h3 {
+  font-size: 1.2rem;
+  margin: 1.25rem 0 0.5rem 0;
+}
+
+.md-typeset h4 {
+  font-size: 1.1rem;
+  margin: 1rem 0 0.5rem 0;
+}
+
+.md-typeset p {
+  margin: 0.75rem 0; /* Reduced from default */
+}
+
+.md-typeset ul,
+.md-typeset ol {
+  margin: 0.75rem 0;
+}
+
+.md-typeset li {
+  margin: 0.25rem 0; /* Tighter list spacing */
+}
+
+/* Navigation improvements */
+.md-nav {
+  font-size: 1.1rem; /* Increased nav font size for better readability */
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+.md-nav__item {
+  padding: 0; /* Remove extra padding */
+}
+
+.md-nav__link {
+  padding: 0.6rem 1rem; /* Increased padding for better touch targets */
+  margin: 0;
+  font-size: 1.1rem; /* Ensure navigation text is larger than content */
+  font-weight: 500;
+}
+
+/* Make navigation text more prominent */
+.md-nav__title {
+  font-size: 1.2rem !important;
+  font-weight: 600 !important;
+  color: var(--primary-blue) !important;
+  padding: 1rem 1rem 0.5rem 1rem !important;
+  margin: 0 !important;
+  border-bottom: 2px solid var(--accent-amber);
+}
+
+/* Dark mode navigation title */
+[data-md-color-scheme="slate"] .md-nav__title {
+  color: var(--primary-blue-light) !important;
+  border-bottom-color: var(--accent-amber-light);
+}
+
+/* Ensure navigation sections are clearly distinguished */
+.md-nav__list {
+  margin: 0.5rem 0;
+}
+
+/* Make navigation items more prominent */
+.md-nav__item > .md-nav__link {
+  font-weight: 500;
+  color: var(--neutral-700);
+  border-radius: 0.375rem;
+  margin: 0.25rem 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.md-nav__item > .md-nav__link:hover {
+  background: var(--primary-blue-light);
+  color: white;
+  transform: translateX(4px);
+}
+
+/* Dark mode navigation items */
+[data-md-color-scheme="slate"] .md-nav__item > .md-nav__link {
+  color: var(--neutral-300);
+}
+
+[data-md-color-scheme="slate"] .md-nav__item > .md-nav__link:hover {
+  background: var(--primary-blue-light);
+  color: var(--neutral-900);
+}
+
+/* Header adjustments */
+.md-header {
+  height: 3.5rem; /* Reduced from default 4rem */
+}
+
+/* Account for tabs bar height and styling */
+.md-tabs {
+  height: 3rem;
+  background: var(--neutral-100) !important;
+  border-bottom: 1px solid var(--neutral-200);
+}
+
+/* Dark mode tabs background */
+[data-md-color-scheme="slate"] .md-tabs {
+  background: var(--neutral-800) !important;
+  border-bottom-color: var(--neutral-700);
+}
+
+.md-header__inner {
+  height: 3.5rem;
+}
+
+/* Sidebar width optimization */
+@media screen and (min-width: 76.25em) {
+  .md-sidebar--primary {
+    width: 16rem; /* Increased for better navigation readability */
+  }
+
+  .md-sidebar--secondary {
+    width: 14rem; /* Reduced for table of contents */
+  }
+}
+
+/* Ensure sidebar is always visible and properly positioned */
+.md-sidebar {
+  display: block !important;
+  visibility: visible !important;
+  top: 6.5rem !important; /* Offset for header height */
+  height: calc(
+    100vh - 6.5rem
+  ) !important; /* Adjust height to account for header */
+}
+
+.md-sidebar--primary {
+  display: block !important;
+  visibility: visible !important;
+  top: 6.5rem !important; /* Offset for header height */
+  height: calc(
+    100vh - 6.5rem
+  ) !important; /* Adjust height to account for header */
+}
+
+.md-sidebar--secondary {
+  top: 6.5rem !important; /* Offset for header height */
+  height: calc(
+    100vh - 6.5rem
+  ) !important; /* Adjust height to account for header */
+}
+
+/* Ensure sidebar content scrolls properly */
+.md-sidebar__scrollwrap {
+  height: 100% !important;
+  overflow-y: auto !important;
+  padding-top: 1rem;
+}
+
+/* Improve sidebar content spacing and ensure links are clickable */
+.md-nav--primary > .md-nav__list > .md-nav__item {
+  margin: 0.25rem 0;
+}
+
+.md-nav--secondary > .md-nav__list > .md-nav__item {
+  margin: 0.125rem 0;
+}
+
+/* Ensure navigation links are properly styled and clickable */
+.md-nav__link {
+  display: block !important;
+  padding: 0.75rem 1rem !important;
+  color: var(--neutral-700) !important;
+  text-decoration: none !important;
+  border-radius: 0.375rem;
+  transition: all 0.3s ease;
+  cursor: pointer !important;
+  pointer-events: auto !important;
+  margin: 0.25rem 0.5rem;
+  font-weight: 500;
+}
+
+.md-nav__link:hover {
+  background: var(--primary-blue-light) !important;
+  color: white !important;
+}
+
+.md-nav__link:focus {
+  background: var(--primary-blue) !important;
+  color: white !important;
+  outline: 2px solid var(--accent-amber);
+}
+
+/* Dark mode navigation links */
+[data-md-color-scheme="slate"] .md-nav__link {
+  color: var(--neutral-300) !important;
+}
+
+[data-md-color-scheme="slate"] .md-nav__link:hover {
+  background: var(--primary-blue-light) !important;
+  color: var(--neutral-900) !important;
+}
+
+/* Active navigation items */
+.md-nav__item--active > .md-nav__link {
+  background: var(--primary-blue) !important;
+  color: white !important;
+  font-weight: 600;
+}
+
+[data-md-color-scheme="slate"] .md-nav__item--active > .md-nav__link {
+  background: var(--primary-blue-light) !important;
+  color: var(--neutral-900) !important;
+}
+
+/* Force main navigation to appear in left sidebar on all pages */
+.md-sidebar--primary .md-nav--primary {
+  display: block !important;
+}
+
+/* Ensure tabs navigation is visible and functional */
+.md-tabs {
+  display: block !important;
+}
+
+.md-tabs__link {
+  color: var(--neutral-700) !important;
+  text-decoration: none !important;
+  padding: 0.5rem 1rem !important;
+  transition: all 0.2s ease;
+}
+
+.md-tabs__link:hover {
+  background: var(--primary-blue-light) !important;
+  color: white !important;
+}
+
+.md-tabs__item--active .md-tabs__link {
+  background: var(--primary-blue) !important;
+  color: white !important;
+}
+
+/* Dark mode tabs */
+[data-md-color-scheme="slate"] .md-tabs__link {
+  color: var(--neutral-300) !important;
+}
+
+[data-md-color-scheme="slate"] .md-tabs__link:hover {
+  background: var(--primary-blue-light) !important;
+  color: var(--neutral-900) !important;
+}
+
+/* Hide right sidebar table of contents on index page */
+.md-sidebar--secondary {
+  display: none !important;
+}
+
+/* Force primary navigation to show in left sidebar */
+.md-sidebar--primary .md-nav[data-md-level="0"] {
+  display: block !important;
+}
+
+/* Fix duplicate navigation elements */
+/* Hide any duplicate navigation items that might be caused by theme conflicts */
+.md-nav__item--duplicate {
+  display: none !important;
+}
+
+/* Ensure only one instance of each navigation item is shown */
+.md-nav__list .md-nav__item:not(:first-of-type) .md-nav__link[href*="index"] {
+  display: none !important;
+}
+
+/* Fix for potential duplicate home links */
+.md-nav__list
+  .md-nav__item:has(.md-nav__link[href*="index"])
+  + .md-nav__item:has(.md-nav__link[href*="index"]) {
+  display: none !important;
+}
+
+/* Alternative approach for browsers that don't support :has() */
+.md-nav__list .md-nav__item .md-nav__link[href*="index"] {
+  /* Ensure only the first home link is visible */
+}
+
+/* Hide any navigation items that are exact duplicates */
+.md-nav__list .md-nav__item:nth-child(n + 2) .md-nav__link[href*="index"] {
+  display: none !important;
+}
+
+/* Improve main content layout when right sidebar is hidden */
+.md-main__inner {
+  margin-right: 0 !important;
+}
+
+.md-content {
+  max-width: none !important;
+}
+
+/* Fix for Material for MkDocs grid system compatibility */
+.md-grid {
+  max-width: none;
+}
+
+.md-content {
+  flex: 1;
+  min-width: 0;
+  /* Ensure proper spacing without hiding sidebar */
+}
+
+/* Ensure main content doesn't get clipped by header */
+.md-main {
+  padding-top: 0.5rem;
+}
+
+.md-content__inner {
+  padding-top: 1rem;
+}
+
+/* Dashboard cards - more compact */
+.dashboard-grid {
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(250px, 1fr)
+  ); /* Smaller min width */
+  gap: 1rem; /* Reduced gap */
+  margin: 1.5rem 0; /* Reduced margin */
+}
+
+.dashboard-card {
+  padding: 1rem; /* Reduced from 1.5rem */
+}
+
+.dashboard-card h3 {
+  font-size: 1rem;
+  margin: 0 0 0.5rem 0;
+}
+
+.dashboard-card p {
+  font-size: 0.85rem;
+  margin: 0 0 0.75rem 0;
+}
+
+/* Code blocks - more compact */
+.md-typeset pre {
+  margin: 1rem 0; /* Reduced margin */
+  font-size: 0.8rem; /* Smaller code font */
+}
+
+.md-typeset code {
+  font-size: 0.8rem;
+  padding: 0.125rem 0.25rem; /* Reduced padding */
+}
+
+/* Table improvements */
+.md-typeset table {
+  font-size: 0.85rem; /* Smaller table font */
+  margin: 1rem 0;
+}
+
+.md-typeset table th,
+.md-typeset table td {
+  padding: 0.5rem 0.75rem; /* Reduced padding */
+}
+
+/* Search improvements */
+.md-search__form {
+  height: 2.5rem; /* Reduced height */
+}
+
+.md-search__input {
+  font-size: 0.9rem;
+  padding-left: 2.5rem;
+}
+
+/* Footer - more compact */
+.md-footer {
+  margin-top: 1rem; /* Reduced margin */
+}
+
+.md-footer-meta {
+  background: transparent;
+}
+
+/* Status badges - smaller */
+.status-badge {
+  padding: 0.125rem 0.5rem; /* Reduced padding */
+  font-size: 0.7rem; /* Smaller font */
+}
+
+/* Enhanced jupyter notebook styling - compact */
+.md-typeset .highlight {
+  margin: 0.75rem 0; /* Reduced margin */
+}
+
+/* Responsive adjustments for mobile */
+@media screen and (max-width: 76.1875em) {
+  .md-content__inner {
+    padding: 1rem 0.75rem;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .md-typeset h1 {
+    font-size: 1.6rem;
+  }
+
+  .md-typeset h2 {
+    font-size: 1.3rem;
+  }
+
+  /* Mobile navigation button adjustments */
+  .md-content__inner a[href*="index"],
+  .md-content__inner a[href*="Portal"],
+  .md-content__inner a[href*="toc"],
+  .md-content__inner a[href*="base"],
+  .md-content__inner a[href="../index.html"],
+  .md-content__inner a[href="../../index.html"],
+  .md-content__inner a[href="../../../index.html"] {
+    position: relative;
+    top: auto;
+    display: block;
+    margin: 0.5rem 0;
+    text-align: center;
+  }
+
+  .md-content__inner a[href*="index"] + a[href*="Portal"],
+  .md-content__inner a[href*="Portal"] + a[href*="toc"],
+  .md-content__inner a[href*="toc"] + a[href*="base"],
+  .md-content__inner a[href="../index.html"] + a[href*="base"],
+  .md-content__inner a[href="../../index.html"] + a[href*="base"],
+  .md-content__inner a[href="../../../index.html"] + a[href*="base"] {
+    margin-left: 0;
+  }
+}
+
+/* SIDEBAR POSITIONING FIXES */
+
+/* Mobile sidebar positioning adjustments */
+@media screen and (max-width: 76.1875em) {
+  .md-sidebar {
+    top: 6.5rem !important; /* Account for header + tabs on mobile too */
+    height: calc(100vh - 6.5rem) !important;
+  }
+
+  .md-sidebar--primary,
+  .md-sidebar--secondary {
+    top: 6.5rem !important;
+    height: calc(100vh - 6.5rem) !important;
+  }
+}
+
+/* Desktop sidebar positioning adjustments */
+@media screen and (min-width: 76.25em) {
+  .md-sidebar {
+    top: 6.5rem !important; /* Standard offset for desktop (header + tabs) */
+    height: calc(100vh - 6.5rem) !important;
+  }
+
+  .md-sidebar--primary,
+  .md-sidebar--secondary {
+    top: 6.5rem !important;
+    height: calc(100vh - 6.5rem) !important;
+  }
+}
+/* Ensure proper sidebar layout on all screen sizes */
+
+/* Large screens - both sidebars visible */
+@media screen and (min-width: 76.25em) {
+  .md-sidebar--primary {
+    width: 16rem; /* Increased width for better navigation readability */
+    left: 0;
+    position: fixed;
+    z-index: 10;
+  }
+
+  .md-sidebar--secondary {
+    width: 14rem;
+    right: 0;
+    position: fixed;
+    z-index: 10;
+  }
+
+  .md-content {
+    margin-left: 16rem; /* Adjusted for wider primary sidebar */
+    margin-right: 14rem;
+  }
+}
+
+/* Medium screens - both sidebars visible */
+@media screen and (min-width: 60em) and (max-width: 76.1875em) {
+  .md-sidebar--primary {
+    width: 16rem; /* Increased width for better navigation readability */
+    left: 0;
+    position: fixed;
+    z-index: 10;
+  }
+
+  .md-sidebar--secondary {
+    width: 14rem;
+    right: 0;
+    position: fixed;
+    z-index: 10;
+  }
+
+  .md-content {
+    margin-left: 16rem; /* Adjusted for wider primary sidebar */
+    margin-right: 14rem;
+  }
+}
+
+/* Small screens - only primary sidebar visible */
+@media screen and (max-width: 59.9375em) {
+  .md-sidebar--primary {
+    width: 100%;
+    position: relative;
+    left: auto;
+  }
+
+  .md-sidebar--secondary {
+    display: none;
+  }
+
+  .md-content {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+/* Force left sidebar to be visible and properly positioned */
+.md-sidebar--primary {
+  display: block !important;
+  visibility: visible !important;
+  left: 0 !important;
+  transform: none !important;
+  background: var(
+    --neutral-50
+  ) !important; /* Solid background, not translucent */
+  border-right: 1px solid var(--neutral-200);
+  box-shadow: var(--shadow-md); /* Add shadow for better separation */
+}
+
+/* Enhanced navigation styling to prevent duplicates */
+.md-nav__list {
+  counter-reset: nav-item;
+}
+
+.md-nav__item {
+  counter-increment: nav-item;
+}
+
+/* Ensure navigation items are unique and properly spaced */
+.md-nav__item:not(:first-child) {
+  margin-top: 0.25rem;
+}
+
+/* Make navigation more prominent with better visual hierarchy */
+.md-nav__title {
+  background: var(--primary-blue);
+  color: white;
+  margin: 0 -1rem 1rem -1rem;
+  padding: 1rem 1rem 0.75rem 1rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-align: center;
+  border-radius: 0 0.5rem 0.5rem 0;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Dark mode navigation title */
+[data-md-color-scheme="slate"] .md-nav__title {
+  background: var(--primary-blue-dark);
+  color: var(--neutral-100);
+}
+
+/* Ensure right sidebar is properly positioned when visible */
+.md-sidebar--secondary {
+  display: block !important;
+  visibility: visible !important;
+  right: 0 !important;
+  transform: none !important;
+  background: var(--neutral-50) !important; /* Solid background */
+  border-left: 1px solid var(--neutral-200);
+}
+
+/* Dark mode sidebar backgrounds */
+[data-md-color-scheme="slate"] .md-sidebar--primary {
+  background: var(--neutral-800) !important;
+  border-color: var(--neutral-700);
+}
+
+[data-md-color-scheme="slate"] .md-sidebar--secondary {
+  background: var(--neutral-800) !important;
+  border-color: var(--neutral-700);
+}
+
+/* Override any Material theme sidebar positioning */
+.md-sidebar {
+  transform: none !important;
+}
+
+/* Ensure primary sidebar is always on the left */
+.md-sidebar--primary {
+  transform: translateX(0) !important;
+  left: 0 !important;
+}
+
+/* Ensure secondary sidebar is always on the right */
+.md-sidebar--secondary {
+  transform: translateX(0) !important;
+  right: 0 !important;
+}

@@ -1,0 +1,14 @@
+## March 16, 2019 
+* added simple batch compile to automate site updates for recently edited files
+* finished adding all edx python notes from onenote
+* Added Python portal page and ipynb -> md -> html as first page.
+* add several options to pandoc html compiling:
+  * table of contents (no need to insert in .md)
+  *  `--highlight-style breezedark` for syntax highligthing
+  * `-f markdown_strict+backtick_code_blocks+auto_identifiers` instead of just `-f markdown` so that pandoc doesn't break my pandas dataframe table output, which was a `<div><table></table></div>` element
+  * custom css styling for tables: clean outer border (left to top), no borders except a thin box around the entire table. shade rows with grayscale similar to how pandas df renders in jupyter, column names are slightly golden
+## To do
+* Focus on expanding Python notes - I anticipate being able to work on linux at work in a month or so.
+* Look at MIT edx course notes - these are all python scripts
+## Good to know 
+* `pandoc --list-extensions`

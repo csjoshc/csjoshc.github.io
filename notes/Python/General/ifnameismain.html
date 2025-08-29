@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+        <title>Using `if __name__ == "__main__"</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+        <link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        
+        <script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+    </head>
+    <body>
+        <p><a href="../../../index.html">Go back to index</a></p>
+<p><a href="../base.html">Go back to Python Portal</a></p>
+<head>
+  
+</head>
+<h1 id="using-if-name--%22main%22">Using `if <strong>name</strong> == &quot;<strong>main</strong>&quot;</h1>
+<p>Given two files:
+<code>controlling.py</code></p>
+<pre><code class="language-python"><div><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">controltest</span><span class="hljs-params">(func, x)</span>:</span>
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>, x):
+        func(x)
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">"__main__"</span>:
+    <span class="hljs-keyword">from</span> testing <span class="hljs-keyword">import</span> testfunc
+    controltest(testfunc, <span class="hljs-number">3</span>)
+</div></code></pre>
+<p><code>testing.py</code></p>
+<pre><code class="language-python"><div><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">testfunc</span><span class="hljs-params">(i)</span>:</span>
+    print(<span class="hljs-string">"This is twice what you entered: "</span>, <span class="hljs-number">2</span> * i)
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">"__main__"</span>:
+    testfunc(<span class="hljs-string">"nice"</span>)
+    <span class="hljs-keyword">pass</span>
+</div></code></pre>
+<pre><code class="language-bash"><div>python controlling.py
+
+This is twice what you entered:  6
+This is twice what you entered:  6
+This is twice what you entered:  6
+
+python controlling.py
+
+This is twice what you entered:  nicenice
+</div></code></pre>
+<ul>
+<li>I had forgotten that you can pass a function to another function</li>
+</ul>
+
+    </body>
+    </html>

@@ -1,0 +1,190 @@
+/* Button Component Styles - Following Docusaurus Best Practices */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--ifm-spacing-sm) var(--ifm-spacing-md);
+  border: 1px solid transparent;
+  border-radius: var(--ifm-radius-md);
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.25rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--ifm-transition-fast);
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn:focus {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px var(--ifm-color-primary-lightest);
+}
+
+.btn:disabled,
+.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+  transform: none !important;
+}
+
+/* Button Variants */
+.btn-primary {
+  background: var(--ifm-color-primary);
+  color: white;
+  border-color: var(--ifm-color-primary);
+}
+
+.btn-primary:hover {
+  background: var(--ifm-color-primary-dark);
+  border-color: var(--ifm-color-primary-dark);
+  transform: translateY(-1px);
+  box-shadow: var(--ifm-shadow-md);
+}
+
+.btn-secondary {
+  background: var(--ifm-color-emphasis-100);
+  color: var(--text-primary);
+  border-color: var(--border-light);
+}
+
+.btn-secondary:hover {
+  background: var(--ifm-color-emphasis-200);
+  border-color: var(--border-medium);
+  transform: translateY(-1px);
+  box-shadow: var(--ifm-shadow-sm);
+}
+
+[data-theme="dark"] .btn-secondary {
+  background: var(--ifm-color-emphasis-200);
+  color: var(--text-primary);
+  border-color: var(--border-light);
+}
+
+[data-theme="dark"] .btn-secondary:hover {
+  background: var(--ifm-color-emphasis-300);
+  border-color: var(--border-medium);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--ifm-color-primary);
+  border-color: var(--ifm-color-primary);
+}
+
+.btn-outline:hover {
+  background: var(--ifm-color-primary);
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: var(--ifm-shadow-md);
+}
+
+/* Button Sizes */
+.btn-sm {
+  padding: var(--ifm-spacing-xs) var(--ifm-spacing-sm);
+  font-size: 0.75rem;
+  min-height: 32px;
+}
+
+.btn-md {
+  padding: var(--ifm-spacing-sm) var(--ifm-spacing-md);
+  font-size: 0.875rem;
+  min-height: 40px;
+}
+
+.btn-lg {
+  padding: var(--ifm-spacing-md) var(--ifm-spacing-lg);
+  font-size: 1rem;
+  min-height: 48px;
+}
+
+/* Loading state */
+.btn.loading {
+  position: relative;
+  color: transparent;
+}
+
+.btn.loading::after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 50%;
+  left: 50%;
+  margin-left: -8px;
+  margin-top: -8px;
+  border: 2px solid transparent;
+  border-top-color: currentColor;
+  border-radius: 50%;
+  animation: button-loading-spinner 1s ease-in-out infinite;
+}
+
+@keyframes button-loading-spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Full width button */
+.btn-full {
+  width: 100%;
+}
+
+/* Icon buttons */
+.btn-icon {
+  padding: var(--ifm-spacing-sm);
+  width: auto;
+  min-width: auto;
+}
+
+.btn-icon-only {
+  padding: var(--ifm-spacing-sm);
+  width: 40px;
+  height: 40px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .btn {
+    min-height: 44px; /* iOS touch target minimum */
+    padding: var(--ifm-spacing-md) var(--ifm-spacing-lg);
+  }
+
+  .btn-sm {
+    min-height: 36px;
+  }
+
+  .btn-lg {
+    min-height: 52px;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .btn {
+    border-width: 2px;
+  }
+
+  .btn-outline {
+    border-width: 2px;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .btn {
+    transition: none;
+  }
+
+  .btn:hover {
+    transform: none;
+  }
+
+  .btn.loading::after {
+    animation: none;
+  }
+}

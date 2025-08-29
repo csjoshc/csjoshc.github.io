@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="date" content="2019-05-30" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #232629; color: #cfcfc2; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; background-color: #232629; color: #7a7c7d; border-right: 1px solid #7a7c7d; }
+td.sourceCode { padding-left: 5px; }
+pre, code { color: #cfcfc2; background-color: #232629; }
+code > span.kw { color: #cfcfc2; } /* Keyword */
+code > span.dt { color: #2980b9; } /* DataType */
+code > span.dv { color: #f67400; } /* DecVal */
+code > span.bn { color: #f67400; } /* BaseN */
+code > span.fl { color: #f67400; } /* Float */
+code > span.cn { color: #27aeae; } /* Constant */
+code > span.ch { color: #3daee9; } /* Char */
+code > span.sc { color: #3daee9; } /* SpecialChar */
+code > span.st { color: #f44f4f; } /* String */
+code > span.vs { color: #da4453; } /* VerbatimString */
+code > span.ss { color: #da4453; } /* SpecialString */
+code > span.im { color: #27ae60; } /* Import */
+code > span.co { color: #7a7c7d; } /* Comment */
+code > span.do { color: #a43340; } /* Documentation */
+code > span.an { color: #3f8058; } /* Annotation */
+code > span.cv { color: #7f8c8d; } /* CommentVar */
+code > span.ot { color: #27ae60; } /* Other */
+code > span.fu { color: #8e44ad; } /* Function */
+code > span.va { color: #27aeae; } /* Variable */
+code > span.cf { color: #fdbc4b; } /* ControlFlow */
+code > span.op { color: #cfcfc2; } /* Operator */
+code > span.bu { color: #7f8c8d; } /* BuiltIn */
+code > span.ex { color: #0099ff; } /* Extension */
+code > span.pp { color: #27ae60; } /* Preprocessor */
+code > span.at { color: #2980b9; } /* Attribute */
+code > span.re { color: #2980b9; } /* RegionMarker */
+code > span.in { color: #c45b00; } /* Information */
+code > span.wa { color: #da4453; } /* Warning */
+code > span.al { color: #95da4c; } /* Alert */
+code > span.er { color: #da4453; } /* Error */
+code > span. { color: #cfcfc2; } /* Normal */
+  </style>
+</head>
+<body>
+<div id="TOC">
+<ul>
+<li><a href="#inferential-statistics">Inferential Statistics</a></li>
+<li><a href="#confidence-intervals-and-standard-deviation">Confidence intervals and standard deviation</a><ul>
+<li><a href="#calculating-standard-deviation">Calculating standard deviation</a></li>
+</ul></li>
+<li><a href="#inferential-statistics-and-probability">Inferential statistics and probability</a></li>
+<li><a href="#data-sampling">Data Sampling</a><ul>
+<li><a href="#standard-error">Standard Error</a></li>
+</ul></li>
+</ul>
+</div>
+<p><a href="../../../../index.html">Go back to index</a></p>
+<p><a href="../../base.html">Go back to Python Portal</a></p>
+<head>
+  
+  <meta name="viewport" content="initial-scale=1, width=device-width">
+</head>
+<h1 id="inferential-statistics">Inferential Statistics</h1>
+<p>For a sample drawn out of a population, the larger the variance in the feature, the more samples that are required to approximate the distribution in the population. Simulations can each have a number of trials, and the simulation itself can be run multiple times to yield a distribution of results.</p>
+<p>Bernoulli: when repeating a test with a probability p, the actual aggregate probability taken as a proportion of trials will converge to this theoretical probability (and the difference converges to 0) as the number of trials increases to infinity.</p>
+<p>Gambler's Fallacy - a prior deviation from expected behavior has no bearing on likely future behavior. This is because each event is taken to be independent from prior events, even if they are extreme events. On the other hand, in regression to the mean, an extreme event is likely to be followed by a non extreme event (however, the extreme event is <em>not</em> causing subsequent events to not be extreme).</p>
+<h1 id="confidence-intervals-and-standard-deviation">Confidence intervals and standard deviation</h1>
+<p>The number of samples needed to estimate the probability of an event close to accurately depends on the sample variance or standard deviation, in context of the mean. The standard deviation can be used to construct a confidence interval, which is the probability that a range contains a true unknown probability of an event, such as &quot;The return on betting is -5% with a +/- 1% with a 95% level of confidence.&quot;</p>
+<ul>
+<li>+/- 1 s.d. for 68% confidence</li>
+<li>+/- 2 s.d. for 95% confidence</li>
+<li>+/- 3 s.d. for 99.7% confidence</li>
+</ul>
+<p>As the sample size grows (whether number of trials, or iterations of simulations), the confidence interval shrinks.</p>
+<h2 id="calculating-standard-deviation">Calculating standard deviation</h2>
+<p>Standard deviation is calculated as follows:</p>
+<p><img src="std.webp" /></p>
+<p>Implement a function that returns the standard deviation of a list of strings, or float('NaN') if empty. Here I implement it the classic list way as well as the simple one liner from numpy (which is similar to lapply from R, to vectorize a function to a list or array..)</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> stdDevOfLengths(L):
+    <span class="im">from</span> math <span class="im">import</span> sqrt
+    <span class="cf">if</span> <span class="bu">len</span>(L) <span class="op">==</span> <span class="dv">0</span>:
+        <span class="cf">return</span> <span class="bu">float</span>(<span class="st">&#39;NaN&#39;</span>)
+    <span class="cf">else</span>:
+        lengths <span class="op">=</span> []
+        <span class="cf">for</span> string <span class="kw">in</span> L:
+            lengths.append(<span class="bu">len</span>(string))
+        <span class="co"># mean is mu</span>
+        mean <span class="op">=</span> <span class="bu">sum</span>(lengths) <span class="op">/</span> <span class="bu">len</span>(lengths)
+        <span class="co"># diff_sq is t - mu squared</span>
+        diff_sq <span class="op">=</span> []
+        <span class="cf">for</span> item <span class="kw">in</span> lengths:
+            diff_sq.append((item <span class="op">-</span> mean)<span class="op">**</span><span class="dv">2</span>)
+        <span class="cf">return</span> sqrt(<span class="bu">sum</span>(diff_sq)<span class="op">/</span><span class="bu">len</span>(lengths))
+        
+<span class="kw">def</span> stdDevNumpyWay(L):
+    <span class="im">import</span> numpy <span class="im">as</span> np
+    <span class="cf">if</span> <span class="bu">len</span>(L) <span class="op">==</span> <span class="dv">0</span>:
+        <span class="cf">return</span> <span class="bu">float</span>(<span class="st">&#39;NaN&#39;</span>)
+    <span class="cf">else</span>:
+        <span class="cf">return</span> np.vectorize(<span class="bu">len</span>)(L).std()</code></pre></div>
+<h1 id="inferential-statistics-and-probability">Inferential statistics and probability</h1>
+<p>The estimation of confidence intervals using an empirical rule is only valid for a zero mean estimation error, and a normal distribution. A probability distribution can either be discrete or continuous, with the latter being trickier to work with. A <strong>probability density function</strong> shows the probability of the value falling within a certain range, with the area under the curve being the probability.</p>
+<p>A normal distribution is defined by its mean and standard deviation. It peaks at the mean, and asymptotically approaches 0 at either end. It's easy to generate normal distributions in python:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> pylab
+<span class="im">import</span> random
+
+dist <span class="op">=</span> []
+<span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10000</span>):
+    dist.append(random.gauss(<span class="dv">0</span>, <span class="dv">10</span>))
+pylab.hist(dist, <span class="dv">10</span>)</code></pre></div>
+<p><img src="Figure_1.webp" /></p>
+<p>While a normal distribution can be integrated (when defined as a gaussian function) using the SciPy.integrate library, many random events are individually not normally distributed - for example, the value of random card from a deck or a spin of a roulette wheel is <strong>equally</strong> distributed across all the possible values (assuming it is fair!) These random events will only begin to approximate a normal distribution once many trials are conducted and the probabilities are aggregated.</p>
+<p>Central Limit theorem: Given a large enough sample, the means of a set of samples will be approximately normally distributed, have a mean close to the original distribution's mean, and have a variance close to the original distribution's variance divided by sample size.</p>
+<p>Example of sampling without replacement. There are a lot more elegant solutions - the silver lining is that the code being broken down into lots of small steps makes debugging with breakpoints easier.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> random
+<span class="kw">def</span> noReplacementSimulation(numTrials):
+    <span class="co">&#39;&#39;&#39;</span>
+<span class="co">    Runs numTrials trials of a Monte Carlo simulation</span>
+<span class="co">    of drawing 3 balls out of a bucket containing</span>
+<span class="co">    3 red and 3 green balls. Balls are not replaced once</span>
+<span class="co">    drawn. Returns the a decimal - the fraction of times 3 </span>
+<span class="co">    balls of the same color were drawn.</span>
+<span class="co">    &#39;&#39;&#39;</span>
+    
+    prop <span class="op">=</span> []
+    <span class="cf">for</span> trial <span class="kw">in</span> <span class="bu">range</span>(numTrials <span class="op">+</span> <span class="dv">1</span>):
+        <span class="co"># Represent different colors as 0 or 1. Then, if the sum of the drawn numbers is</span>
+        <span class="co"># either 0 or 3, the trial produced the same color 3 times</span>
+        bucket <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>]
+        results <span class="op">=</span> []
+        <span class="cf">for</span> draw <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">3</span>):
+            color <span class="op">=</span> random.choice(bucket)
+            results.append(color)
+            bucket.remove(color)
+        <span class="cf">if</span> (<span class="bu">sum</span>(results) <span class="op">==</span> <span class="dv">0</span> <span class="kw">or</span> <span class="bu">sum</span>(results) <span class="op">==</span> <span class="dv">3</span>):
+            prop.append(<span class="dv">1</span>)
+        <span class="cf">else</span>:
+            prop.append(<span class="dv">0</span>)
+    <span class="cf">return</span> (<span class="bu">sum</span>(prop)<span class="op">/</span><span class="bu">len</span>(prop))</code></pre></div>
+<h1 id="data-sampling">Data Sampling</h1>
+<p>It is also possible to generate a confidence interval without repeated sampling or simulations, such as in polling. In stratified sampling, subgroups are individually sampled so representative results can be found for each subgroup. The goal is to have the sample mean and standard deviation converge on the population mean and standard deviation.</p>
+<p>When repeating samples of a population to get a normal distribution of sample statistics, increasing the sample size will affect the standard deviation (tighten the confidence interval) more than increasing the number of samples. However, at a certain point the aggregate number of observations across all the samples may be too much if the number of samples and sample size are inflated excessively. In this case, it may be useful to look at what we can conclude from a single, reasonably small sample.</p>
+<h2 id="standard-error">Standard Error</h2>
+<p>One a sample reaches a reasonable size, the sample std dev approximates the population std dev. When testing this outcome for uniform, gaussian and exponential distributions, the greatest difference in sample vs population std dev occurs for the exponential distributions. While all three have the difference in sample vs population std dev fall off with increasing sample size, the exponential distribution will have a larger difference compared to the other distributions, at any one sample size.</p>
+<p>On the other hand, sample size does <strong>not matter</strong> - even sampling a few hundred data points from millions will yield a std dev that can be used to generate an estimated standard error, which can be used to generate confidence intervals around the sample mean. This relies on choosing independent, random samples from the population - this isn't always possible to achieve.</p>
+</body>
+</html>

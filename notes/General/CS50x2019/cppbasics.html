@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="date" content="2019-06-14" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #232629; color: #cfcfc2; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; background-color: #232629; color: #7a7c7d; border-right: 1px solid #7a7c7d; }
+td.sourceCode { padding-left: 5px; }
+pre, code { color: #cfcfc2; background-color: #232629; }
+code > span.kw { color: #cfcfc2; } /* Keyword */
+code > span.dt { color: #2980b9; } /* DataType */
+code > span.dv { color: #f67400; } /* DecVal */
+code > span.bn { color: #f67400; } /* BaseN */
+code > span.fl { color: #f67400; } /* Float */
+code > span.cn { color: #27aeae; } /* Constant */
+code > span.ch { color: #3daee9; } /* Char */
+code > span.sc { color: #3daee9; } /* SpecialChar */
+code > span.st { color: #f44f4f; } /* String */
+code > span.vs { color: #da4453; } /* VerbatimString */
+code > span.ss { color: #da4453; } /* SpecialString */
+code > span.im { color: #27ae60; } /* Import */
+code > span.co { color: #7a7c7d; } /* Comment */
+code > span.do { color: #a43340; } /* Documentation */
+code > span.an { color: #3f8058; } /* Annotation */
+code > span.cv { color: #7f8c8d; } /* CommentVar */
+code > span.ot { color: #27ae60; } /* Other */
+code > span.fu { color: #8e44ad; } /* Function */
+code > span.va { color: #27aeae; } /* Variable */
+code > span.cf { color: #fdbc4b; } /* ControlFlow */
+code > span.op { color: #cfcfc2; } /* Operator */
+code > span.bu { color: #7f8c8d; } /* BuiltIn */
+code > span.ex { color: #0099ff; } /* Extension */
+code > span.pp { color: #27ae60; } /* Preprocessor */
+code > span.at { color: #2980b9; } /* Attribute */
+code > span.re { color: #2980b9; } /* RegionMarker */
+code > span.in { color: #c45b00; } /* Information */
+code > span.wa { color: #da4453; } /* Warning */
+code > span.al { color: #95da4c; } /* Alert */
+code > span.er { color: #da4453; } /* Error */
+code > span. { color: #cfcfc2; } /* Normal */
+  </style>
+</head>
+<body>
+<div id="TOC">
+<ul>
+<li><a href="#c-skimming">C++ skimming</a><ul>
+<li><a href="#about-strings...">About strings...</a></li>
+<li><a href="#pointers">Pointers</a></li>
+<li><a href="#arrays">Arrays</a></li>
+</ul></li>
+<li><a href="#algoritms">Algoritms</a><ul>
+<li><a href="#selection-sort">Selection sort</a></li>
+<li><a href="#bubble-sort">Bubble sort</a></li>
+<li><a href="#insertion-sort">Insertion sort</a></li>
+<li><a href="#merge-sort">Merge sort</a></li>
+<li><a href="#linear-search">Linear search</a></li>
+<li><a href="#binary-search">Binary search</a></li>
+</ul></li>
+<li><a href="#data-structures">Data Structures</a><ul>
+<li><a href="#singly-linked-lists">Singly linked lists</a></li>
+<li><a href="#hash-tables">Hash Tables</a></li>
+<li><a href="#triestree-structure">Tries/Tree structure</a></li>
+</ul></li>
+</ul>
+</div>
+<p><a href="../../../index.html">Go back to index</a></p>
+<p><a href="../base.html">Go back to General topics portal</a></p>
+<head>
+  
+  <meta name="viewport" content="initial-scale=1, width=device-width">
+</head>
+<h1 id="c-skimming">C++ skimming</h1>
+<p>A few tidbits picked up from the intro on C. I'm not going to include too much on cpp since I don't have a compiler (no Visual Studio) and don't feel its <strong>too</strong> relevant to my situation.</p>
+<ul>
+<li>The curly braces encapsulate nested code similar to identation in Python.</li>
+<li>get_string is a user-defined function that is a wrapper around stdin</li>
+<li><code>int main(void)</code> - no real counterpart to this in Python. <code>if __name__ == &quot;__main__&quot;:</code> in Python is a related concept but not analogous either.</li>
+<li>floats and doubles can't represent numbers perfectly. For example, 2/10 which should be 0.2, has inaccuracies after 7 or 15 decimal points in the float and double data types, respectively.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span>
+<span class="pp">#include </span><span class="im">&lt;cs50.h&gt;</span>
+
+<span class="dt">int</span> main(<span class="dt">void</span>)
+{
+    string name = get_string(<span class="st">&quot;What is your name?</span><span class="sc">\n</span><span class="st">&quot;</span>);
+    printf(<span class="st">&quot;hello, </span><span class="sc">%s\n</span><span class="st">&quot;</span>, name);
+}</code></pre></div>
+<p>For loops</p>
+<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; <span class="dv">50</span>; i++)
+{
+  printf(<span class="st">&quot;Number </span><span class="sc">%s</span><span class="st">&quot;</span>, i)
+}</code></pre></div>
+<p>function definitions - do a dummy reference to function so the main definition can go elsewhere.</p>
+<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp">
+<span class="dt">void</span> do_thing(<span class="dt">int</span> n);
+
+<span class="dt">int</span> main(<span class="dt">void</span>)
+{
+  <span class="dt">int</span> num = <span class="dv">2</span> + <span class="dv">2</span>;
+  do_thing(num);
+}
+
+<span class="dt">void</span> do_thing(<span class="dt">int</span> n)
+{
+  printf(<span class="st">&quot;Num is </span><span class="sc">%s</span><span class="st">&quot;</span>, n);
+}</code></pre></div>
+<p>do-while loop</p>
+<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="dt">int</span> n = <span class="dv">0</span>;
+<span class="cf">do</span>
+{
+  n ++;
+}
+<span class="cf">while</span> (n &lt; <span class="dv">10</span>)</code></pre></div>
+<h2 id="about-strings...">About strings...</h2>
+<p>Apparently, strings are not directly implemented in c, but are instead stored as memory pointers to char <em>s arrays - specifically, the first bit of a memory block corresponding to the first character of the stored string, and which is terminated by a null character. This is much more abstract than anything I encountered in Python or R, so for now it's probably good enough to just be aware of the quirks of such a data type, such as null characters, copying strings, memory allocation, etc. For example, testing equality is more involved than just using a boolean comparison with string pointers since that test for the equality of the memory pointer (a hexadecimal location), not the bits making up the actual char </em>s array.</p>
+<h2 id="pointers">Pointers</h2>
+<p>Pointers can be created by appending a <code>*</code>. The code below assigns the memory location of int k to the pointer pk, which has the value of a memory address, and a type describing the data stored at that memory address. These pointers can be passed between functions, allowing the data at the pointers to be accessed and modified directly.</p>
+<p>In C++ objects are created by allocating a memory location and then filling it. This is different from Python, where variables are created as references to objects containing the assigned value.</p>
+<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="dt">int</span> k; 
+k = <span class="dv">3</span>; 
+<span class="dt">int</span>* pk;
+pk = &amp;k;</code></pre></div>
+<p>The <code>malloc()</code> function returns a pointer for a block of dynamically allocated memory. This memory block must be freed after the function that uses it is finished executing.</p>
+<h2 id="arrays">Arrays</h2>
+<p>Arrays are collections of like (similar) values that are stored in contiguous memory locations. The variable assigned to an array is just a pointer to the first element of the memory block storing elements of the array. While arrays are smaller memory wise, they are difficult to mutate, whether inserting or deleting, since all the subsequent elements have to be shifted. The shifting of values would require additional space allocated to the array, which in turns requires initializing a new array and copying over all the values (and then the old array needs to have its memory freed). Lookup and sorting are much better, since the contiguous nature allows easily jumping to a specific location.</p>
+<h1 id="algoritms">Algoritms</h1>
+<h2 id="selection-sort">Selection sort</h2>
+<p>In selection sort, you a two step process until all elements are sorted. First, search the unsorted portion to find the smallest value. Then, swap that value with the first unsorted element. This build a sorted array from left to right (smallest first).</p>
+<p>The algorithmic complexity is O(n^2) in the worst and best cases.</p>
+<h2 id="bubble-sort">Bubble sort</h2>
+<p>In bubble sort, you start the algorithm with a nonzero counter value before the first iteration, but set it to 0 at the beginning of each iteration. Then, until the swap counter is 0, swap any two adjacent incorrectly ordered elements,adding 1 to the swap counter each time. This results in moving the largest element to the rightmost index, building a sorted array from right to left (largest first).</p>
+<p>Worst case is O(n^2), but best case is O(n) if it is already sorted.</p>
+<h2 id="insertion-sort">Insertion sort</h2>
+<p>In insertion sort, declare the first element sorted. Then, look at each unsorted element one at a time, and insert it into the preceding sorted block. Shift a subset of the previously sorted block rightwards as needed.</p>
+<p>Worst case is O(n^2), best case again is O(n) if already sorted.</p>
+<h2 id="merge-sort">Merge sort</h2>
+<p>Merge sort uses recursion and subsetting the sorting problems, to sort each half on its own. Subsets are recursively subsetted themselves assuming the size of a subset is greater than one element. Each one element subset is considered sorted on its own.</p>
+<p>The last step, Merging arrays, is where the real work occurs. When merging arrays (of arbitrary size), compare the first elements of the two arrays being merged; the smaller element becomes the next element of the merged array. Continue this process until all the elements of both arrays are assigned into the new array. Once one array has been completely merged, the other array can be dropped in immediately, since there are no more values to compare against and they must necessarily be in order as-is.</p>
+<p>Worst and best case scenarios is O(n*log(n)).</p>
+<h2 id="linear-search">Linear search</h2>
+<p>One caveat of a linear search is that you won't know something <strong>isn't</strong> in the array until every element has been examined. Worst case scenario is O(n), while the best case is O(1).</p>
+<h2 id="binary-search">Binary search</h2>
+<p>When an array is sorted, you can jump to the middle of the array, and discard the half of the array that cannot contain the target element. The worst case is log(n), while the best case is O(1).</p>
+<h1 id="data-structures">Data Structures</h1>
+<h2 id="singly-linked-lists">Singly linked lists</h2>
+<p>Singly linked lists consist of nodes containing a value (int) and a memory pointer to the next node. The most important node is the first - it can grant access to subsequent nodes. A downside is that you can't go back from a node to a prior node, but the upside is that you don't need to copy all the elements as you would for an array with fixed size, and also don't need to worry about overallocation. Size-wise, doubly linked lists and singly linked lists are slightly larger than arrays, but not significantly so.</p>
+<ul>
+<li>For sorted order, algorithmic complexity of inserting elements is O(n) since you need to traverse along the list until the correct point is reached. This is the same as the complexity of lookup (since you have to lookup as you insert in order).</li>
+<li>For unsorted order, inserting is O(1), since you can just point the first node at the newly inserted node, and point the newly inserted node at the node that was previously the second (but is now the third)</li>
+<li>Deletion is also a breeze, since all you need to do is change where the *next pointer is pointing.</li>
+</ul>
+<h2 id="hash-tables">Hash Tables</h2>
+<p>Hash tables are a way of binning values into &quot;belonging&quot; into a category, so that they will be inserted into the appropriate linked list. The list of categories functions similar to an array in allowing <strong>jumping</strong> to the correct category during a lookup. For example, Alphabetical hash table will on average allow half of letters to be skipped (that would otherwise have to be traversed in singly linked lists) - of course, in the real world words are not normally distributed amongst all the letters.</p>
+<ul>
+<li>The array of a hash table contains pointers to linked lists, which in turn contain the actual stored values. This array is immutable - (for example, the set of letters is immutable).</li>
+<li>Theoretically, hash tables are still O(n) asymptotically, but in the real world the hash table would always be defined so that the loaded data would be meaningfully subsetted into linked lists (or else what would the point of the has table be?).</li>
+</ul>
+<h2 id="triestree-structure">Tries/Tree structure</h2>
+<p>The Trie data structure can be implemented as a linked list with <strong>two</strong> or more *next pointers, to a left and right child. The node positions encode mathematical logic (between child and parent nodes). This forms branches that mathematically subset the data in log complexity - e.g. the height of a tree structure will be the log of number of branching decisions that need to be made (for example, the length of a word).</p>
+<p>Building a Trie has large overhead at the beginning, but insertion is easy once the framework is set up, and repeatedly used nodes have already been initialized. Deletion is good, and lookups/sorting is 2nd to that of arrays. The downside is that each node contains pointers to all the possible child nodes, so size grows rapidly with these pointers.</p>
+</body>
+</html>

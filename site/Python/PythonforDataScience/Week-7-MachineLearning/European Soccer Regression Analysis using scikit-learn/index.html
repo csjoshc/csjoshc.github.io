@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Personal learning and note-taking website">
+    <meta name="author" content="Josh Chiu">
+    <link rel="canonical" href="https://csjoshc.github.io/Python/PythonforDataScience/Week-7-MachineLearning/European%20Soccer%20Regression%20Analysis%20using%20scikit-learn/">
+    <link rel="shortcut icon" href="../../../../img/favicon.ico">
+
+    
+    <title>European Soccer Regression Analysis using scikit learn - Josh's Learning Notes</title>
+    
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
+    <link href='//rsms.me/inter/inter.css' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../../../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../../../css/base.min.css" rel="stylesheet">
+    <link href="../../../../css/cinder.min.css" rel="stylesheet">
+
+    
+        
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/github.min.css">
+        
+    
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    
+
+     
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            
+              <a class="navbar-brand" href="../../../..">Josh's Learning Notes</a>
+            
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../../../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">General <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../../General/base/">Overview</a>
+</li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">CS50x 2019</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../../General/CS50x2019/cppbasics/">C++ Basics</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../../General/CS50x2019/database/">Database</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../../General/CS50x2019/flask/">Flask</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../../General/CS50x2019/python/">Python</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../../General/CS50x2019/webbasics/">Web Basics</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+<li >
+    <a href="../../../../General/webdev2019/">Web Development 2019</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Python <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../base/">Overview</a>
+</li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">General</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../General/virtenv_jupyter_nb/">Virtual Environments & Jupyter</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../General/ifnameismain/">If Name Main</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Data Science Course</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../1_Introduction/">Introduction</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../2_Basics/">Python Basics</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../3_Numpy/">NumPy</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../4_Pandas/">Pandas</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../4_Pandas2/">Pandas 2</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../4_Pandas3/">Pandas 3</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../4_Pandas4/">Pandas 4</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../4_Pandas5/">Pandas 5</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../5_Matplotlib/">Matplotlib</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../7_ML/">Machine Learning</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../7_ML_Reg/">ML Regression</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../7_ML_DT/">ML Decision Trees</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../7_ML_Clust/">ML Clustering</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Probability & Statistics</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../ProbabilityandStatistics/1_Introduction/">Introduction</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../ProbabilityandStatistics/2_Sets/">Sets</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">MIT Courses</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../IntroCompSciPython/unit7/">Computer Science Unit 7</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../IntroCompThinkDataSci/unit1/unit1/">Data Science Unit 1</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../IntroCompThinkDataSci/unit1/problemset1/">Problem Set 1</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../IntroCompThinkDataSci/unit2/plotting/">Unit 2 Plotting</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../IntroCompThinkDataSci/unit2/unit2/">Unit 2</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../IntroCompThinkDataSci/unit2/ps2/">Problem Set 2</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../IntroCompThinkDataSci/unit3/unit3/">Unit 3</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../IntroCompThinkDataSci/unit3/ps3/">Problem Set 3</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../IntroCompThinkDataSci/unit4/unit4/">Unit 4</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../IntroCompThinkDataSci/unit4/ps4/">Problem Set 4</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../IntroCompThinkDataSci/unit5/unit5/">Unit 5</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">GitHub <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../../Github/intro_gh/">Introduction</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../../Github/bugs_gh/">Bug Reports</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Linux <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../../Linux/base/">Overview</a>
+</li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Linux Journey</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../../Linux/linux_journey/basic/01_comlin/">Command Line</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../../Linux/linux_journey/linux_journey_toc/">Table of Contents</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">DevOps <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../../Devops/base/">Overview</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../../Devops/roadmap_notes/">Roadmap Notes</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Utilities <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../../utils/base/">Overview</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../../utils/01_BatchConversions/">Batch Conversions</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Site Updates <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../../site_updates/base/">Overview</a>
+</li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">March 2019</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../../site_updates/3_2019/2_3_2019/">March 2nd</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../../site_updates/3_2019/9_3_2019/">March 9th</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../../site_updates/3_2019/16_3_2019/">March 16th</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../../site_updates/3_2019/23_3_2019/">March 23rd</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">April 2019</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../../site_updates/4_2019/13_4_2019/">April 13th</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../../site_updates/4_2019/20_4_2019/">April 20th</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">May 2019</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../../site_updates/5_2019/04_5_2019/">May 4th</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../../site_updates/5_2019/11_5_2019/">May 11th</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../../site_updates/5_2019/25_5_2019/">May 25th</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">June 2019</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../../site_updates/6_2019/15_6_2019/">June 15th</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Project Ideas</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../../site_updates/project_ideas/indeed_cloud/">Indeed Cloud</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../../../todo/">Todo</a>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<!-- Python Data Science Navigation Template -->
+<!-- This template provides navigation for Python data science pages -->
+
+<div class="return-navigation">
+  <a href="../../../index.md" class="nav-button index-button">🏠 Home</a>
+  <a href="../base.md" class="nav-button portal-button">🐍 Python</a>
+</div>
+
+<!-- Content starts here -->
+
+<p style="font-family: Arial; font-size:2.75em;color:purple; font-style:bold"><br>
+Regresssion with scikit-learn<br><br> using Soccer Dataset
+<br><br></p>
+<p>We will again be using the open dataset from the popular site <a href="https://www.kaggle.com">Kaggle</a> that we used in Week 1 for our example. 
+Recall that this <a href="https://www.kaggle.com/hugomathien/soccer">European Soccer Database</a> has more than 25,000 matches and more than 10,000 players for European professional soccer seasons from 2008 to 2016. 
+<strong>Note:</strong> Please download the file <em>database.sqlite</em> if you don't yet have it in your <em>Week-7-MachineLearning</em> folder.</p>
+<p style="font-family: Arial; font-size:1.75em;color:purple; font-style:bold"><br>
+Import Libraries<br><br></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sqlite3</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span> 
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.tree</span><span class="w"> </span><span class="kn">import</span> <span class="n">DecisionTreeRegressor</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">LinearRegression</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">mean_squared_error</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="kn">from</span><span class="w"> </span><span class="nn">math</span><span class="w"> </span><span class="kn">import</span> <span class="n">sqrt</span>
+</code></pre></div>
+<p style="font-family: Arial; font-size:1.75em;color:purple; font-style:bold"><br>
+Read Data from the Database into pandas
+<br><br></p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Create your connection.</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">cnx</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;database.sqlite&#39;</span><span class="p">)</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM Player_Attributes&quot;</span><span class="p">,</span> <span class="n">cnx</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">df</span><span class="o">.</span><span class="n">shape</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">df</span><span class="o">.</span><span class="n">columns</span>
+</code></pre></div></p>
+<p style="font-family: Arial; font-size:1.75em;color:purple; font-style:bold"><br>
+Declare the Columns You Want to Use as Features
+<br><br></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">features</span> <span class="o">=</span> <span class="p">[</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>       <span class="s1">&#39;potential&#39;</span><span class="p">,</span> <span class="s1">&#39;crossing&#39;</span><span class="p">,</span> <span class="s1">&#39;finishing&#39;</span><span class="p">,</span> <span class="s1">&#39;heading_accuracy&#39;</span><span class="p">,</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>       <span class="s1">&#39;short_passing&#39;</span><span class="p">,</span> <span class="s1">&#39;volleys&#39;</span><span class="p">,</span> <span class="s1">&#39;dribbling&#39;</span><span class="p">,</span> <span class="s1">&#39;curve&#39;</span><span class="p">,</span> <span class="s1">&#39;free_kick_accuracy&#39;</span><span class="p">,</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>       <span class="s1">&#39;long_passing&#39;</span><span class="p">,</span> <span class="s1">&#39;ball_control&#39;</span><span class="p">,</span> <span class="s1">&#39;acceleration&#39;</span><span class="p">,</span> <span class="s1">&#39;sprint_speed&#39;</span><span class="p">,</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>       <span class="s1">&#39;agility&#39;</span><span class="p">,</span> <span class="s1">&#39;reactions&#39;</span><span class="p">,</span> <span class="s1">&#39;balance&#39;</span><span class="p">,</span> <span class="s1">&#39;shot_power&#39;</span><span class="p">,</span> <span class="s1">&#39;jumping&#39;</span><span class="p">,</span> <span class="s1">&#39;stamina&#39;</span><span class="p">,</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>       <span class="s1">&#39;strength&#39;</span><span class="p">,</span> <span class="s1">&#39;long_shots&#39;</span><span class="p">,</span> <span class="s1">&#39;aggression&#39;</span><span class="p">,</span> <span class="s1">&#39;interceptions&#39;</span><span class="p">,</span> <span class="s1">&#39;positioning&#39;</span><span class="p">,</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>       <span class="s1">&#39;vision&#39;</span><span class="p">,</span> <span class="s1">&#39;penalties&#39;</span><span class="p">,</span> <span class="s1">&#39;marking&#39;</span><span class="p">,</span> <span class="s1">&#39;standing_tackle&#39;</span><span class="p">,</span> <span class="s1">&#39;sliding_tackle&#39;</span><span class="p">,</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>       <span class="s1">&#39;gk_diving&#39;</span><span class="p">,</span> <span class="s1">&#39;gk_handling&#39;</span><span class="p">,</span> <span class="s1">&#39;gk_kicking&#39;</span><span class="p">,</span> <span class="s1">&#39;gk_positioning&#39;</span><span class="p">,</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>       <span class="s1">&#39;gk_reflexes&#39;</span><span class="p">]</span>
+</code></pre></div>
+<p style="font-family: Arial; font-size:1.75em;color:purple; font-style:bold"><br>
+Specify the Prediction Target
+<br><br></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">target</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;overall_rating&#39;</span><span class="p">]</span>
+</code></pre></div>
+<p style="font-family: Arial; font-size:1.75em;color:purple; font-style:bold"><br>
+Clean the Data<br><br></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+</code></pre></div>
+<p style="font-family: Arial; font-size:1.75em;color:purple; font-style:bold"><br>
+Extract Features and Target ('overall_rating') Values into Separate Dataframes
+<br><br></p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">features</span><span class="p">]</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">target</span><span class="p">]</span>
+</code></pre></div>
+Let us look at a typical row from our features: 
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">X</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+</code></pre></div>
+Let us also display our target values: 
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">y</span>
+</code></pre></div></p>
+<p style="font-family: Arial; font-size:1.75em;color:purple; font-style:bold"><br>
+Split the Dataset into Training and Test Datasets
+<br><br></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.33</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">324</span><span class="p">)</span>
+</code></pre></div>
+<p style="font-family: Arial; font-size:1.75em;color:purple; font-style:bold"><br>
+(1) Linear Regression: Fit a model to the training set
+<br><br></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="n">regressor</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="n">regressor</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</code></pre></div>
+<p style="font-family: Arial; font-size:1.75em;color:purple; font-style:bold"><br>
+Perform Prediction using Linear Regression Model
+<br><br></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">y_prediction</span> <span class="o">=</span> <span class="n">regressor</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="n">y_prediction</span>
+</code></pre></div>
+<p style="font-family: Arial; font-size:1.75em;color:purple; font-style:bold"><br>
+What is the mean of the expected target value in test set ?
+<br><br></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="n">y_test</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</code></pre></div>
+<p style="font-family: Arial; font-size:1.75em;color:purple; font-style:bold"><br>
+Evaluate Linear Regression Accuracy using Root Mean Square Error
+<br><br></p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="n">RMSE</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_true</span> <span class="o">=</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span> <span class="o">=</span> <span class="n">y_prediction</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="nb">print</span><span class="p">(</span><span class="n">RMSE</span><span class="p">)</span>
+</code></pre></div></p>
+<p style="font-family: Arial; font-size:1.75em;color:purple; font-style:bold"><br>
+(2) Decision Tree Regressor: Fit a new regression model to the training set
+<br><br></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="n">regressor</span> <span class="o">=</span> <span class="n">DecisionTreeRegressor</span><span class="p">(</span><span class="n">max_depth</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="n">regressor</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</code></pre></div>
+<p style="font-family: Arial; font-size:1.75em;color:purple; font-style:bold"><br>
+Perform Prediction using Decision Tree Regressor
+<br><br></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="n">y_prediction</span> <span class="o">=</span> <span class="n">regressor</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="n">y_prediction</span>
+</code></pre></div>
+<p style="font-family: Arial; font-size:1.75em;color:purple; font-style:bold"><br>
+For comparision: What is the mean of the expected target value in test set ?
+<br><br></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="n">y_test</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</code></pre></div>
+<p style="font-family: Arial; font-size:1.75em;color:purple; font-style:bold"><br>
+Evaluate Decision Tree Regression Accuracy using Root Mean Square Error
+<br><br></p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="n">RMSE</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_true</span> <span class="o">=</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span> <span class="o">=</span> <span class="n">y_prediction</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="nb">print</span><span class="p">(</span><span class="n">RMSE</span><span class="p">)</span>
+</code></pre></div></p></div>
+        
+        
+    </div>
+
+    
+      <footer class="col-md-12 text-center">
+          
+          
+            <hr>
+            <p>
+            <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</small>
+            </p>
+          
+
+          
+          
+      </footer>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../../../../js/bootstrap-3.0.3.min.js"></script>
+
+    
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
+        
+                <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/languages/python.min.js"></script>
+                <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/languages/javascript.min.js"></script>
+                <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/languages/html.min.js"></script>
+                <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/languages/css.min.js"></script>
+                <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/languages/bash.min.js"></script>
+                <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/languages/yaml.min.js"></script>
+                <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/languages/markdown.min.js"></script>
+        
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    <script>var base_url = "../../../.."</script>
+    
+    <script src="../../../../js/base.js"></script>
+    <script src="../../../../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+
+</html>

@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Personal learning and note-taking website">
+    <meta name="author" content="Josh Chiu">
+    <link rel="canonical" href="https://csjoshc.github.io/7_ML_Reg/">
+    <link rel="shortcut icon" href="../img/favicon.ico">
+
+    
+    <title>7 ML Reg - Josh's Learning Notes</title>
+    
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
+    <link href='//rsms.me/inter/inter.css' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../css/base.min.css" rel="stylesheet">
+    <link href="../css/cinder.min.css" rel="stylesheet">
+
+    
+        
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/github.min.css">
+        
+    
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    
+
+     
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            
+              <a class="navbar-brand" href="..">Josh's Learning Notes</a>
+            
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="..">Home</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">General <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../General/base/">Overview</a>
+</li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">CS50x 2019</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../General/CS50x2019/cppbasics/">C++ Basics</a>
+</li>
+
+        
+            
+<li >
+    <a href="../General/CS50x2019/database/">Database</a>
+</li>
+
+        
+            
+<li >
+    <a href="../General/CS50x2019/flask/">Flask</a>
+</li>
+
+        
+            
+<li >
+    <a href="../General/CS50x2019/python/">Python</a>
+</li>
+
+        
+            
+<li >
+    <a href="../General/CS50x2019/webbasics/">Web Basics</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+<li >
+    <a href="../General/webdev2019/">Web Development 2019</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Python <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../Python/base/">Overview</a>
+</li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">General</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../Python/General/virtenv_jupyter_nb/">Virtual Environments & Jupyter</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/General/ifnameismain/">If Name Main</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Data Science Course</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../Python/PythonforDataScience/1_Introduction/">Introduction</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/PythonforDataScience/2_Basics/">Python Basics</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/PythonforDataScience/3_Numpy/">NumPy</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/PythonforDataScience/4_Pandas/">Pandas</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/PythonforDataScience/4_Pandas2/">Pandas 2</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/PythonforDataScience/4_Pandas3/">Pandas 3</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/PythonforDataScience/4_Pandas4/">Pandas 4</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/PythonforDataScience/4_Pandas5/">Pandas 5</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/PythonforDataScience/5_Matplotlib/">Matplotlib</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/PythonforDataScience/7_ML/">Machine Learning</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/PythonforDataScience/7_ML_Reg/">ML Regression</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/PythonforDataScience/7_ML_DT/">ML Decision Trees</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/PythonforDataScience/7_ML_Clust/">ML Clustering</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Probability & Statistics</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../Python/ProbabilityandStatistics/1_Introduction/">Introduction</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/ProbabilityandStatistics/2_Sets/">Sets</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">MIT Courses</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../Python/IntroCompSciPython/unit7/">Computer Science Unit 7</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/IntroCompThinkDataSci/unit1/unit1/">Data Science Unit 1</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/IntroCompThinkDataSci/unit1/problemset1/">Problem Set 1</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/IntroCompThinkDataSci/unit2/plotting/">Unit 2 Plotting</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/IntroCompThinkDataSci/unit2/unit2/">Unit 2</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/IntroCompThinkDataSci/unit2/ps2/">Problem Set 2</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/IntroCompThinkDataSci/unit3/unit3/">Unit 3</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/IntroCompThinkDataSci/unit3/ps3/">Problem Set 3</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/IntroCompThinkDataSci/unit4/unit4/">Unit 4</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/IntroCompThinkDataSci/unit4/ps4/">Problem Set 4</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/IntroCompThinkDataSci/unit5/unit5/">Unit 5</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">GitHub <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../Github/intro_gh/">Introduction</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../Github/bugs_gh/">Bug Reports</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Linux <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../Linux/base/">Overview</a>
+</li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Linux Journey</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../Linux/linux_journey/basic/01_comlin/">Command Line</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Linux/linux_journey/linux_journey_toc/">Table of Contents</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">DevOps <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../Devops/base/">Overview</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../Devops/roadmap_notes/">Roadmap Notes</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Utilities <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../utils/base/">Overview</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../utils/01_BatchConversions/">Batch Conversions</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Site Updates <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../site_updates/base/">Overview</a>
+</li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">March 2019</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../site_updates/3_2019/2_3_2019/">March 2nd</a>
+</li>
+
+        
+            
+<li >
+    <a href="../site_updates/3_2019/9_3_2019/">March 9th</a>
+</li>
+
+        
+            
+<li >
+    <a href="../site_updates/3_2019/16_3_2019/">March 16th</a>
+</li>
+
+        
+            
+<li >
+    <a href="../site_updates/3_2019/23_3_2019/">March 23rd</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">April 2019</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../site_updates/4_2019/13_4_2019/">April 13th</a>
+</li>
+
+        
+            
+<li >
+    <a href="../site_updates/4_2019/20_4_2019/">April 20th</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">May 2019</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../site_updates/5_2019/04_5_2019/">May 4th</a>
+</li>
+
+        
+            
+<li >
+    <a href="../site_updates/5_2019/11_5_2019/">May 11th</a>
+</li>
+
+        
+            
+<li >
+    <a href="../site_updates/5_2019/25_5_2019/">May 25th</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">June 2019</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../site_updates/6_2019/15_6_2019/">June 15th</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Project Ideas</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../site_updates/project_ideas/indeed_cloud/">Indeed Cloud</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../todo/">Todo</a>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#linear-and-decision-tree-regression">Linear and Decision Tree Regression</a></li>
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<p><head>
+<link rel="stylesheet" href="../../../cssthemes/github.css">
+<meta name="viewport" content="initial-scale=1, width=device-width">
+</head></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">executable</span><span class="p">)</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.core.interactiveshell</span><span class="w"> </span><span class="kn">import</span> <span class="n">InteractiveShell</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">InteractiveShell</span><span class="o">.</span><span class="n">ast_node_interactivity</span> <span class="o">=</span> <span class="s2">&quot;all&quot;</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">InteractiveShell</span><span class="o">.</span><span class="n">colors</span> <span class="o">=</span> <span class="s2">&quot;Linux&quot;</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="n">InteractiveShell</span><span class="o">.</span><span class="n">separate_in</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="kn">from</span><span class="w"> </span><span class="nn">random</span><span class="w"> </span><span class="kn">import</span> <span class="n">randint</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">style</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;fivethirtyeight&#39;</span><span class="p">)</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.tree</span><span class="w"> </span><span class="kn">import</span> <span class="n">DecisionTreeRegressor</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">LinearRegression</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">mean_squared_error</span><span class="p">,</span> <span class="n">r2_score</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="kn">from</span><span class="w"> </span><span class="nn">math</span><span class="w"> </span><span class="kn">import</span> <span class="n">sqrt</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="kn">from</span><span class="w"> </span><span class="nn">plotnine</span><span class="w"> </span><span class="kn">import</span> <span class="n">ggplot</span><span class="p">,</span> <span class="n">geom_histogram</span><span class="p">,</span> <span class="n">aes</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>/home/jcmint/anaconda3/envs/learningenv/bin/python
+</code></pre></div>
+<h1 id="linear-and-decision-tree-regression">Linear and Decision Tree Regression</h1>
+<p>Linear model and decision tree regression seem pretty straightforward.
+Here I want to see if the RMSE is decreased for a regression model based on 1960 through 2014 data that is predicting <code>Population, total</code> as a function of all other variables. I would need to filter by year, drop all but three columns (country, indicator type and value) and pivot the table on the country name to get a wide data set. This can be fed directly into the linear regression model.
+Then, iterate through random training and testing data split to get a distribution of RMSE values. Graph the RMSE of as the prediction error vs year on the x axis.
+This exercise was somewhat contrived, and I ended up using a simple time series manipulation of the data for demonstration purposes.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">indicators</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../../../../data/w5vis/Indicators.csv&#39;</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">indicators</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>CountryName</th>
+      <th>CountryCode</th>
+      <th>IndicatorName</th>
+      <th>IndicatorCode</th>
+      <th>Year</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Arab World</td>
+      <td>ARB</td>
+      <td>Adolescent fertility rate (births per 1,000 wo...</td>
+      <td>SP.ADO.TFRT</td>
+      <td>1960</td>
+      <td>1.335609e+02</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Arab World</td>
+      <td>ARB</td>
+      <td>Age dependency ratio (% of working-age populat...</td>
+      <td>SP.POP.DPND</td>
+      <td>1960</td>
+      <td>8.779760e+01</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Arab World</td>
+      <td>ARB</td>
+      <td>Age dependency ratio, old (% of working-age po...</td>
+      <td>SP.POP.DPND.OL</td>
+      <td>1960</td>
+      <td>6.634579e+00</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Arab World</td>
+      <td>ARB</td>
+      <td>Age dependency ratio, young (% of working-age ...</td>
+      <td>SP.POP.DPND.YG</td>
+      <td>1960</td>
+      <td>8.102333e+01</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Arab World</td>
+      <td>ARB</td>
+      <td>Arms exports (SIPRI trend indicator values)</td>
+      <td>MS.MIL.XPRT.KD</td>
+      <td>1960</td>
+      <td>3.000000e+06</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>CountryName</th>
+      <th>IndicatorName</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>4839015</th>
+      <td>Arab World</td>
+      <td>Access to electricity (% of population)</td>
+      <td>84.342225</td>
+    </tr>
+    <tr>
+      <th>4839016</th>
+      <td>Arab World</td>
+      <td>Access to electricity, rural (% of rural popul...</td>
+      <td>71.969903</td>
+    </tr>
+    <tr>
+      <th>4839017</th>
+      <td>Arab World</td>
+      <td>Access to electricity, urban (% of urban popul...</td>
+      <td>93.828463</td>
+    </tr>
+    <tr>
+      <th>4839018</th>
+      <td>Arab World</td>
+      <td>Access to non-solid fuel (% of population)</td>
+      <td>86.003666</td>
+    </tr>
+    <tr>
+      <th>4839019</th>
+      <td>Arab World</td>
+      <td>Access to non-solid fuel, rural (% of rural po...</td>
+      <td>74.552598</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="o">%%</span><span class="n">capture</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="c1"># preallocate dataframe</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">output</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">,</span> <span class="s1">&#39;Amount of Data&#39;</span><span class="p">,</span> <span class="s1">&#39;RMSE Average&#39;</span><span class="p">,</span> <span class="s1">&#39;R Squared Average&#39;</span><span class="p">],</span> <span class="n">index</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2015</span> <span class="o">-</span> <span class="mi">1960</span><span class="p">))</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="c1"># Calculate RMSE for each regression model based on year</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1960</span><span class="p">,</span> <span class="mi">2015</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="n">test</span> <span class="o">=</span> <span class="n">indicators</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="n">test</span> <span class="o">=</span> <span class="n">test</span><span class="p">[</span><span class="n">test</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">i</span><span class="p">]</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="k">del</span> <span class="n">test</span><span class="p">[</span><span class="s1">&#39;CountryCode&#39;</span><span class="p">]</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="k">del</span> <span class="n">test</span><span class="p">[</span><span class="s1">&#39;IndicatorCode&#39;</span><span class="p">]</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="k">del</span> <span class="n">test</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">]</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="n">wide</span> <span class="o">=</span> <span class="n">test</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39;CountryName&#39;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s1">&#39;IndicatorName&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s1">&#39;Value&#39;</span><span class="p">)</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="n">wide</span> <span class="o">=</span> <span class="n">wide</span><span class="p">[</span><span class="o">~</span><span class="n">wide</span><span class="p">[</span><span class="s1">&#39;Population, total&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()]</span><span class="c1"># drop any rows missing the target variable - this ensures that I won&#39;t drop the column by accident later..</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="n">wide</span> <span class="o">=</span> <span class="n">wide</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">thresh</span> <span class="o">=</span> <span class="mf">0.85</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">wide</span><span class="p">))</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="n">wide</span> <span class="o">=</span> <span class="n">wide</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">how</span> <span class="o">=</span> <span class="s2">&quot;any&quot;</span><span class="p">)</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="c1">#print(&quot;Year: &quot;, i, &quot;; Remaining rows and columns&quot;, wide.shape, &quot;; Total amount of data: &quot;, wide.shape[0] * wide.shape[1], &quot;; Any Missing data? &quot;, wide.isnull().values.any())</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="n">x</span> <span class="o">=</span> <span class="n">wide</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="n">wide</span><span class="o">.</span><span class="n">columns</span> <span class="o">!=</span> <span class="s1">&#39;Population, total&#39;</span><span class="p">]</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="n">y</span> <span class="o">=</span> <span class="n">wide</span><span class="p">[</span><span class="s1">&#39;Population, total&#39;</span><span class="p">]</span>
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="n">RMSE</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="mi">10</span>
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="n">r2</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="mi">10</span>
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="n">x_train</span><span class="p">,</span> <span class="n">x_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.33</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1000000</span><span class="p">));</span>
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="n">regressor</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">();</span>
+<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="n">regressor</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">);</span>
+<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a><span class="n">y_prediction</span> <span class="o">=</span> <span class="n">regressor</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_test</span><span class="p">);</span>
+<a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a><span class="n">RMSE</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_true</span> <span class="o">=</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span> <span class="o">=</span> <span class="n">y_prediction</span><span class="p">));</span>
+<a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a><span class="n">r2</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y_true</span> <span class="o">=</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span> <span class="o">=</span> <span class="n">y_prediction</span><span class="p">)</span>
+<a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a><span class="n">output</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span>
+<a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a><span class="n">output</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">wide</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">wide</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a><span class="n">output</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">RMSE</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">RMSE</span><span class="p">)</span>
+<a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a><span class="n">output</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">r2</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">r2</span><span class="p">)</span>
+<a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a><span class="n">j</span><span class="o">+=</span><span class="mi">1</span>
+</code></pre></div>
+<p>I tested the processing of data by year to get rid of NA values. When iterating through the available years I want to</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">output</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Year</th>
+      <th>Amount of Data</th>
+      <th>RMSE Average</th>
+      <th>R Squared Average</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1960</td>
+      <td>2254</td>
+      <td>9.11015e+07</td>
+      <td>0.036731</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1961</td>
+      <td>2688</td>
+      <td>1.01918e+08</td>
+      <td>0.877477</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1962</td>
+      <td>3330</td>
+      <td>1.35075e+08</td>
+      <td>0.853944</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1963</td>
+      <td>3162</td>
+      <td>4.26152e+08</td>
+      <td>-2.74594</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1964</td>
+      <td>3162</td>
+      <td>4.32376e+08</td>
+      <td>-2.71138</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p>After being stumped for a while, I realized what I was doing wrong. This was a somewhat silly example because there are many columns which may be 100% colinear with the <code>Population, total</code> column.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">test</span> <span class="o">=</span> <span class="n">indicators</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">test</span> <span class="o">=</span> <span class="n">test</span><span class="p">[</span><span class="n">test</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">i</span><span class="p">]</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="k">del</span> <span class="n">test</span><span class="p">[</span><span class="s1">&#39;CountryCode&#39;</span><span class="p">]</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="k">del</span> <span class="n">test</span><span class="p">[</span><span class="s1">&#39;IndicatorCode&#39;</span><span class="p">]</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="k">del</span> <span class="n">test</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">]</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="n">wide</span> <span class="o">=</span> <span class="n">test</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39;CountryName&#39;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s1">&#39;IndicatorName&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s1">&#39;Value&#39;</span><span class="p">)</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="n">wide</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="n">wide</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s2">&quot;pop&quot;</span><span class="p">)][</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="nb">len</span><span class="p">(</span><span class="n">wide</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="n">wide</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s2">&quot;pop&quot;</span><span class="p">)])</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Index([&#39;Adult literacy rate, population 15+ years, both sexes (%)&#39;,
+       &#39;Adult literacy rate, population 15+ years, female (%)&#39;,
+       &#39;Adult literacy rate, population 15+ years, male (%)&#39;,
+       &#39;Age dependency ratio (% of working-age population)&#39;,
+       &#39;Age dependency ratio, old (% of working-age population)&#39;,
+       &#39;Age dependency ratio, young (% of working-age population)&#39;,
+       &#39;Annualized average growth rate in per capita real survey mean consumption or income, bottom 40% of population (%)&#39;,
+       &#39;Annualized average growth rate in per capita real survey mean consumption or income, total population (%)&#39;,
+       &#39;Condom use, population ages 15-24, female (% of females ages 15-24)&#39;,
+       &#39;Condom use, population ages 15-24, male (% of males ages 15-24)&#39;],
+      dtype=&#39;object&#39;, name=&#39;IndicatorName&#39;)
+
+
+
+
+
+
+63
+</code></pre></div>
+<p>Therefore, I need to drop these rows to make my example actually 'predict' values.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="o">%%</span><span class="n">capture</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="c1"># preallocate dataframe</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">output</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">,</span> <span class="s1">&#39;Amount of Data&#39;</span><span class="p">,</span> <span class="s1">&#39;RMSE Average&#39;</span><span class="p">,</span> <span class="s1">&#39;R Squared Average&#39;</span><span class="p">],</span> <span class="n">index</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2015</span> <span class="o">-</span> <span class="mi">1960</span><span class="p">))</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="c1"># Calculate RMSE for each regression model based on year</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1960</span><span class="p">,</span> <span class="mi">2015</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="n">test</span> <span class="o">=</span> <span class="n">indicators</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="n">test</span> <span class="o">=</span> <span class="n">test</span><span class="p">[</span><span class="n">test</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">i</span><span class="p">]</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="k">del</span> <span class="n">test</span><span class="p">[</span><span class="s1">&#39;CountryCode&#39;</span><span class="p">]</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="k">del</span> <span class="n">test</span><span class="p">[</span><span class="s1">&#39;IndicatorCode&#39;</span><span class="p">]</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="k">del</span> <span class="n">test</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">]</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="n">wide</span> <span class="o">=</span> <span class="n">test</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39;CountryName&#39;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s1">&#39;IndicatorName&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s1">&#39;Value&#39;</span><span class="p">)</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="n">wide</span> <span class="o">=</span> <span class="n">wide</span><span class="p">[</span><span class="o">~</span><span class="n">wide</span><span class="p">[</span><span class="s1">&#39;Population, total&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()]</span><span class="c1"># drop any rows missing the target variable - this ensures that I won&#39;t drop the column by accident later..</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="n">wide</span> <span class="o">=</span> <span class="n">wide</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">thresh</span> <span class="o">=</span> <span class="mf">0.85</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">wide</span><span class="p">))</span>
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="n">wide</span> <span class="o">=</span> <span class="n">wide</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">how</span> <span class="o">=</span> <span class="s2">&quot;any&quot;</span><span class="p">)</span>
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="c1">#print(&quot;Year: &quot;, i, &quot;; Remaining rows and columns&quot;, wide.shape, &quot;; Total amount of data: &quot;, wide.shape[0] * wide.shape[1], &quot;; Any Missing data? &quot;, wide.isnull().values.any())</span>
+<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="n">y</span> <span class="o">=</span> <span class="n">wide</span><span class="p">[</span><span class="s1">&#39;Population, total&#39;</span><span class="p">]</span>
+<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="c1"># Drop potentially colinear variables (my guess)</span>
+<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="n">wide</span> <span class="o">=</span> <span class="n">wide</span><span class="p">[</span><span class="n">wide</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">wide</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">regex</span><span class="o">=</span><span class="s1">&#39;pop&#39;</span><span class="p">)))]</span>
+<a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a><span class="n">wide</span> <span class="o">=</span> <span class="n">wide</span><span class="p">[</span><span class="n">wide</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">wide</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">regex</span><span class="o">=</span><span class="s1">&#39;Pop&#39;</span><span class="p">)))]</span>
+<a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a><span class="n">x</span> <span class="o">=</span> <span class="n">wide</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="n">wide</span><span class="o">.</span><span class="n">columns</span> <span class="o">!=</span> <span class="s1">&#39;Population, total&#39;</span><span class="p">]</span>
+<a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a><span class="n">RMSE</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="mi">10</span>
+<a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a><span class="n">r2</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="mi">10</span>
+<a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a><span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+<a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a><span class="n">x_train</span><span class="p">,</span> <span class="n">x_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">wide</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.33</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">324</span><span class="p">);</span>
+<a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a><span class="n">regressor</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">();</span>
+<a id="__codelineno-6-27" name="__codelineno-6-27" href="#__codelineno-6-27"></a><span class="n">regressor</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">);</span>
+<a id="__codelineno-6-28" name="__codelineno-6-28" href="#__codelineno-6-28"></a><span class="n">y_prediction</span> <span class="o">=</span> <span class="n">regressor</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_test</span><span class="p">);</span>
+<a id="__codelineno-6-29" name="__codelineno-6-29" href="#__codelineno-6-29"></a><span class="n">RMSE</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_true</span> <span class="o">=</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span> <span class="o">=</span> <span class="n">y_prediction</span><span class="p">));</span>
+<a id="__codelineno-6-30" name="__codelineno-6-30" href="#__codelineno-6-30"></a><span class="n">r2</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y_true</span> <span class="o">=</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span> <span class="o">=</span> <span class="n">y_prediction</span><span class="p">)</span>
+<a id="__codelineno-6-31" name="__codelineno-6-31" href="#__codelineno-6-31"></a><span class="n">output</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span>
+<a id="__codelineno-6-32" name="__codelineno-6-32" href="#__codelineno-6-32"></a><span class="n">output</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">wide</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">wide</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<a id="__codelineno-6-33" name="__codelineno-6-33" href="#__codelineno-6-33"></a><span class="n">output</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">RMSE</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">RMSE</span><span class="p">)</span>
+<a id="__codelineno-6-34" name="__codelineno-6-34" href="#__codelineno-6-34"></a><span class="n">output</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">r2</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">r2</span><span class="p">)</span>
+<a id="__codelineno-6-35" name="__codelineno-6-35" href="#__codelineno-6-35"></a><span class="n">j</span><span class="o">+=</span><span class="mi">1</span>
+</code></pre></div>
+<p>Trying to get this example to work may be too contrived without manual PCA or feature selection, so I decided to just try another approach - generate a linear regression model for each country as a function of year.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="o">%%</span><span class="n">capture</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">countries</span> <span class="o">=</span> <span class="n">indicators</span><span class="p">[</span><span class="s1">&#39;CountryName&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="n">output</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Country&#39;</span><span class="p">,</span> <span class="s1">&#39;RMSE Average&#39;</span><span class="p">,</span> <span class="s1">&#39;R Squared Average&#39;</span><span class="p">],</span> <span class="n">index</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">countries</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="n">k</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">countries</span><span class="p">:</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="n">wide</span> <span class="o">=</span> <span class="n">indicators</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="k">del</span> <span class="n">wide</span><span class="p">[</span><span class="s1">&#39;CountryCode&#39;</span><span class="p">]</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="k">del</span> <span class="n">wide</span><span class="p">[</span><span class="s1">&#39;IndicatorCode&#39;</span><span class="p">]</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="n">cond_1</span> <span class="o">=</span> <span class="n">wide</span><span class="p">[</span><span class="s1">&#39;CountryName&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">i</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="n">cond_2</span> <span class="o">=</span> <span class="n">wide</span><span class="p">[</span><span class="s1">&#39;IndicatorName&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Population, total&#39;</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="n">wide</span> <span class="o">=</span> <span class="n">wide</span><span class="p">[</span><span class="n">cond_1</span> <span class="o">&amp;</span> <span class="n">cond_2</span><span class="p">]</span>
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="k">del</span> <span class="n">wide</span><span class="p">[</span><span class="s1">&#39;IndicatorName&#39;</span><span class="p">]</span>
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="n">RMSE</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="mi">10</span>
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="n">r2</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="mi">10</span>
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="n">x_train</span><span class="p">,</span> <span class="n">x_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">wide</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">]),</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">wide</span><span class="p">[</span><span class="s1">&#39;Value&#39;</span><span class="p">]),</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.33</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1000000</span><span class="p">))</span>
+<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="n">regressor</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">();</span>
+<a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a><span class="n">regressor</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">);</span>
+<a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a><span class="n">y_prediction</span> <span class="o">=</span> <span class="n">regressor</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_test</span><span class="p">);</span>
+<a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a><span class="n">RMSE</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_true</span> <span class="o">=</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span> <span class="o">=</span> <span class="n">y_prediction</span><span class="p">));</span>
+<a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a><span class="n">r2</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y_true</span> <span class="o">=</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span> <span class="o">=</span> <span class="n">y_prediction</span><span class="p">)</span>
+<a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a><span class="n">output</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span>
+<a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a><span class="n">output</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">RMSE</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">RMSE</span><span class="p">)</span>
+<a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a><span class="n">output</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">r2</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">r2</span><span class="p">)</span>
+<a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a><span class="n">k</span><span class="o">+=</span><span class="mi">1</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">output</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">output</span> <span class="o">=</span> <span class="n">output</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="n">output</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;R Squared Average&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">describe</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="n">describe</span><span class="p">(</span><span class="n">output</span><span class="p">[</span><span class="s1">&#39;R Squared Average&#39;</span><span class="p">])</span>
+</code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Country</th>
+      <th>RMSE Average</th>
+      <th>R Squared Average</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Arab World</td>
+      <td>1.19366e+07</td>
+      <td>0.981009</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Caribbean small states</td>
+      <td>80474.8</td>
+      <td>0.990475</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Central Europe and the Baltics</td>
+      <td>4.43389e+06</td>
+      <td>0.236114</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>East Asia &amp; Pacific (all income levels)</td>
+      <td>3.7243e+07</td>
+      <td>0.989137</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>East Asia &amp; Pacific (developing only)</td>
+      <td>3.27897e+07</td>
+      <td>0.991255</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Country</th>
+      <th>RMSE Average</th>
+      <th>R Squared Average</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>201</th>
+      <td>Sint Maarten (Dutch part)</td>
+      <td>2924.69</td>
+      <td>-0.297575</td>
+    </tr>
+    <tr>
+      <th>210</th>
+      <td>St. Kitts and Nevis</td>
+      <td>4084.1</td>
+      <td>-0.19532</td>
+    </tr>
+    <tr>
+      <th>80</th>
+      <td>Croatia</td>
+      <td>163570</td>
+      <td>-0.150368</td>
+    </tr>
+    <tr>
+      <th>145</th>
+      <td>Lithuania</td>
+      <td>272980</td>
+      <td>-0.14565</td>
+    </tr>
+    <tr>
+      <th>94</th>
+      <td>Estonia</td>
+      <td>92947.5</td>
+      <td>-0.117783</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="highlight"><pre><span></span><code>DescribeResult(nobs=247, minmax=(-0.29757490589067603, 0.9996578791364774), mean=0.8691825934749658, variance=0.06901810751504184, skewness=-2.9841692292997424, kurtosis=8.029106379317444)
+</code></pre></div>
+<p>Running the code ended up taking about 10 minutes for 2460 linear regression models. I also graph the pop for a random country with a negative r2 value.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">wide</span> <span class="o">=</span> <span class="n">indicators</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="k">del</span> <span class="n">wide</span><span class="p">[</span><span class="s1">&#39;CountryCode&#39;</span><span class="p">]</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="k">del</span> <span class="n">wide</span><span class="p">[</span><span class="s1">&#39;IndicatorCode&#39;</span><span class="p">]</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="n">cond_1</span> <span class="o">=</span> <span class="n">wide</span><span class="p">[</span><span class="s1">&#39;CountryName&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Ukraine&#39;</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="n">cond_2</span> <span class="o">=</span> <span class="n">wide</span><span class="p">[</span><span class="s1">&#39;IndicatorName&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Population, total&#39;</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="n">wide</span> <span class="o">=</span> <span class="n">wide</span><span class="p">[</span><span class="n">cond_1</span> <span class="o">&amp;</span> <span class="n">cond_2</span><span class="p">]</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="k">del</span> <span class="n">wide</span><span class="p">[</span><span class="s1">&#39;IndicatorName&#39;</span><span class="p">]</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;Year&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Value&#39;</span><span class="p">,</span> <span class="n">data</span>  <span class="o">=</span> <span class="n">wide</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f3a9ed69cc0&gt;
+</code></pre></div>
+<p><img alt="png" src="../7_ML_Reg_files/7_ML_Reg_16_1.png" /></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>
+</code></pre></div></div>
+        
+        
+    </div>
+
+    
+      <footer class="col-md-12 text-center">
+          
+          
+            <hr>
+            <p>
+            <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</small>
+            </p>
+          
+
+          
+          
+      </footer>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../js/bootstrap-3.0.3.min.js"></script>
+
+    
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
+        
+                <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/languages/python.min.js"></script>
+                <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/languages/javascript.min.js"></script>
+                <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/languages/html.min.js"></script>
+                <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/languages/css.min.js"></script>
+                <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/languages/bash.min.js"></script>
+                <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/languages/yaml.min.js"></script>
+                <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/languages/markdown.min.js"></script>
+        
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    <script>var base_url = ".."</script>
+    
+    <script src="../js/base.js"></script>
+    <script src="../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+
+</html>

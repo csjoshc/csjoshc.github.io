@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="date" content="2019-05-30" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+</head>
+<body>
+<div id="TOC">
+<ul>
+<li><a href="#machine-learning">Machine Learning</a><ul>
+<li><a href="#classification">Classification :</a><ul>
+<li><a href="#knn---k-nearest-neighbors">kNN - k nearest neighbors</a></li>
+<li><a href="#decision-tree">Decision Tree</a></li>
+</ul></li>
+<li><a href="#clustering---organize-similar-items-in-data-set-into-groups">Clustering - organize similar items in data set into groups</a><ul>
+<li><a href="#normalizing-values">Normalizing values</a></li>
+<li><a href="#k-means-clustering">k-means clustering</a></li>
+</ul></li>
+<li><a href="#naive-bayes">Naive Bayes</a></li>
+<li><a href="#regression-predict-a-numeric-value">Regression: Predict a numeric value</a><ul>
+<li><a href="#linear-regression">Linear regression</a></li>
+</ul></li>
+<li><a href="#association-analysis---identify-associations-between-items-or-events-co-occurence">Association Analysis - identify associations between items or events (co-occurence)</a></li>
+</ul></li>
+</ul>
+</div>
+<p><a href="../../../index.html">Go back to index</a></p>
+<p><a href="../base.html">Go back to Python Portal</a></p>
+<head>
+  
+  <meta name="viewport" content="initial-scale=1, width=device-width">
+</head>
+<h1 id="machine-learning">Machine Learning</h1>
+<h2 id="classification">Classification :</h2>
+<p>find a label for the target variable</p>
+<ul>
+<li>Binary or multi-variable (with more than two possible values)</li>
+<li>A function that maps input to output based on parameters</li>
+<li>The model adjusts the parameters to more accurately map input to output</li>
+<li>For classification, the observations exist on a feature space and are split up by <strong>decision boundaries</strong> into different regions, corresponding to different classifications</li>
+<li>Training phase - the algorithm uses the data to adjust the model to minimize error</li>
+<li>Testing phase - the model is evaluated on unseen data</li>
+</ul>
+<h3 id="knn---k-nearest-neighbors">kNN - k nearest neighbors</h3>
+<ul>
+<li>samples with similar features likely belong to the same class</li>
+</ul>
+<h3 id="decision-tree">Decision Tree</h3>
+<ul>
+<li>Use decision paths to segment observations</li>
+<li>In a 2D feature space, a decision tree can be represented by a series of splits along either axis, that successively divide the data increasingly pure subsets</li>
+<li>Attempt to subset the data so that the subsets are as pure as possible, containing samples of a single class</li>
+<li>Repeat this process until you reach a plateau of homogeneity in the nodes</li>
+<li>Start at the root node, and end up at leaf nodes at the bottom, each of which has a class label associated with it</li>
+<li>At the branches in between, the answers to test conditions decide which branch to traverse along.</li>
+<li>Each decision is made at the node point, in a <strong>greedy algorithm</strong></li>
+</ul>
+<p><strong>Gini index</strong> - a measure of impurity measure that is minimized in order to determine the best splits</p>
+<ul>
+<li>Test variables and thresholds to split on</li>
+</ul>
+<h4 id="stopping-the-node-splitting-process">Stopping the node splitting process</h4>
+<ul>
+<li>Splitting stops once there is no longer a significant increase in classification results with further splitting</li>
+<li>Or, when a threshold purity for a node is reached (for example, 90%)</li>
+</ul>
+<h4 id="pros-and-cons">Pros and Cons</h4>
+<ul>
+<li>rectilinear when splitting on single variable</li>
+<li>splitting on multiple variables simultanesously is computationally intensive</li>
+<li>relatively simple to understand</li>
+<li>Greedy approach guarantees the best decision <strong>at a node</strong>, but not necessarily the best outcome for the dataset as a whole</li>
+</ul>
+<h2 id="clustering---organize-similar-items-in-data-set-into-groups">Clustering - organize similar items in data set into groups</h2>
+<ul>
+<li>Segment data into similar groups - similar to classification, but with no objective class labels, so Unsupervised</li>
+<li>Segmentation of existing observations, classifying new data, anomaly detection (observations that aren't outliers in any one variable, but their combination makes them fall outside of existing cluster)</li>
+<li>Intracluster differences are minimized, intercluster differences are maximized</li>
+</ul>
+<h3 id="normalizing-values">Normalizing values</h3>
+<ul>
+<li>Since distance is used to assess similarity and dissimilarity, normalization of input variables is necessary to prevent any one from dominating the calculations.</li>
+</ul>
+<h3 id="k-means-clustering">k-means clustering</h3>
+<ol>
+<li>Select <em>k</em> initial centroids</li>
+<li>Assign each sample in the data set to the closest centroids
+<ul>
+<li>This is based on a distance calculation between the point and the centroid</li>
+</ul></li>
+<li>Calculate cluster means, which become the new centroids</li>
+<li>Repeat 2 &amp; 3 until some stopping criteria is reached</li>
+</ol>
+<h4 id="choosing-initial-centroids">Choosing initial centroids</h4>
+<ul>
+<li>Final clusters are sensitive to initial centroids. In order to solve this, repeat algorithm with randomized initial centroids to generate aggregate results.</li>
+</ul>
+<h4 id="evaluating-cluster-results">Evaluating cluster results</h4>
+<ul>
+<li>Within cluster sum of squares
+<ul>
+<li>Error is the distance between the sample and centroid - square this error</li>
+<li>Errors for all points in a cluster are summed</li>
+<li>Clusters sums are summed</li>
+<li>Within-Cluster Sum of Squared Error - WSSE</li>
+</ul></li>
+<li>A cluster having a smaller WSSE is numerically better, but not more correct</li>
+<li>Increasing k will always decrease WSSE</li>
+</ul>
+<h4 id="choosing-k">Choosing k</h4>
+<ul>
+<li>Visualize for natural clusters, or depend on intended application/domain specific knowledge</li>
+<li>Data driven - generate metrics for a range of k values</li>
+</ul>
+<p>One method is the elbow plot - see where the dropoff in WSSE as k increases begins to plateau, suggesting little benefit to adding further centroids</p>
+<p><img src="https://pythonprogramminglanguage.com/wp-content/uploads/2017/07/elbow-method.webp" /></p>
+<h4 id="stopping-criteria">Stopping criteria</h4>
+<ul>
+<li>No changes to centroids</li>
+<li>Cluster assignment changes per cycle fall below a threshold (such as 1%)</li>
+</ul>
+<h2 id="naive-bayes">Naive Bayes</h2>
+<ul>
+<li>Probability of one event given another event</li>
+</ul>
+<h2 id="regression-predict-a-numeric-value">Regression: Predict a numeric value</h2>
+<ul>
+<li>Used for forecasting, estimation, predictions future trends</li>
+<li>Input variables can be numeric or categorical</li>
+<li>Supervised, since the target label is a numeric value</li>
+</ul>
+<h3 id="linear-regression">Linear regression</h3>
+<ul>
+<li>Simple but powerful model for a linear relationship between input and output; multiple linear regression can handle multiple inputs</li>
+<li>Regression minimizes the error using the least squares method (square of the distance between the predicted and actual value, or the residual)</li>
+</ul>
+<h2 id="association-analysis---identify-associations-between-items-or-events-co-occurence">Association Analysis - identify associations between items or events (co-occurence)</h2>
+<p>Supervised vs Unsupervised learning</p>
+<ul>
+<li>Supervised requires labeled target data - classification and regression</li>
+<li>Unsupervised - no target or labeled data - Clustering and association analysis</li>
+</ul>
+<p>Scikit-learn</p>
+<ul>
+<li>end to end functionality for machine learning from data cleaning to modeling and analysis</li>
+<li>cross validation, dimensionality reduction, visualization</li>
+</ul>
+<p>I'm curious how Skikit-learn functions match up against my experience working with R. Some of the best packages I've used in R include dplyr, tidyr, ggplot2</p>
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="date" content="2019-05-30" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #232629; color: #cfcfc2; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; background-color: #232629; color: #7a7c7d; border-right: 1px solid #7a7c7d; }
+td.sourceCode { padding-left: 5px; }
+pre, code { color: #cfcfc2; background-color: #232629; }
+code > span.kw { color: #cfcfc2; } /* Keyword */
+code > span.dt { color: #2980b9; } /* DataType */
+code > span.dv { color: #f67400; } /* DecVal */
+code > span.bn { color: #f67400; } /* BaseN */
+code > span.fl { color: #f67400; } /* Float */
+code > span.cn { color: #27aeae; } /* Constant */
+code > span.ch { color: #3daee9; } /* Char */
+code > span.sc { color: #3daee9; } /* SpecialChar */
+code > span.st { color: #f44f4f; } /* String */
+code > span.vs { color: #da4453; } /* VerbatimString */
+code > span.ss { color: #da4453; } /* SpecialString */
+code > span.im { color: #27ae60; } /* Import */
+code > span.co { color: #7a7c7d; } /* Comment */
+code > span.do { color: #a43340; } /* Documentation */
+code > span.an { color: #3f8058; } /* Annotation */
+code > span.cv { color: #7f8c8d; } /* CommentVar */
+code > span.ot { color: #27ae60; } /* Other */
+code > span.fu { color: #8e44ad; } /* Function */
+code > span.va { color: #27aeae; } /* Variable */
+code > span.cf { color: #fdbc4b; } /* ControlFlow */
+code > span.op { color: #cfcfc2; } /* Operator */
+code > span.bu { color: #7f8c8d; } /* BuiltIn */
+code > span.ex { color: #0099ff; } /* Extension */
+code > span.pp { color: #27ae60; } /* Preprocessor */
+code > span.at { color: #2980b9; } /* Attribute */
+code > span.re { color: #2980b9; } /* RegionMarker */
+code > span.in { color: #c45b00; } /* Information */
+code > span.wa { color: #da4453; } /* Warning */
+code > span.al { color: #95da4c; } /* Alert */
+code > span.er { color: #da4453; } /* Error */
+code > span. { color: #cfcfc2; } /* Normal */
+  </style>
+</head>
+<body>
+<div id="TOC">
+<ul>
+<li><a href="#sets">Sets</a><ul>
+<li><a href="#convention---capital-for-sets-lowercase-for-its-elements">Convention - CAPITAL for sets, lowercase for its elements</a></li>
+<li><a href="#sets-in-python">Sets in Python</a></li>
+</ul></li>
+<li><a href="#set-visualization">Set visualization</a><ul>
+<li><a href="#visualizing-sets-in-python---venn-diagrams-with-numeric-elements">Visualizing sets in Python - venn diagrams with numeric elements</a></li>
+</ul></li>
+<li><a href="#set-relations">Set Relations</a><ul>
+<li><a href="#equality">Equality, <code>==</code></a></li>
+<li><a href="#disjoint-isdisjoint">Disjoint: <code>isdisjoint(), !=</code></a></li>
+<li><a href="#subset-issubset-strict">Subset: <code>issubset(), &lt;=</code>; strict: <code>&lt;</code></a></li>
+</ul></li>
+<li><a href="#set-operations">Set Operations</a><ul>
+<li><a href="#complement">Complement</a></li>
+<li><a href="#intersection-intersection">Intersection: <code>intersection(), &amp;</code></a></li>
+<li><a href="#union-union">Union: <code>union, |</code></a></li>
+<li><a href="#set-difference-.difference--">Set difference: <code>.difference, -</code></a></li>
+<li><a href="#symmetric-difference-or-symmetric_difference">Symmetric Difference (OR): <code>symmetric_difference(), ^</code></a></li>
+</ul></li>
+<li><a href="#cartesian-products">Cartesian Products</a><ul>
+<li><a href="#generating-cartesian-products-in-python">Generating Cartesian products in Python</a></li>
+</ul></li>
+<li><a href="#russells-paradox">Russell's Paradox</a></li>
+</ul>
+</div>
+<p><a href="../../../index.html">Go back to index</a></p>
+<p><a href="../base.html">Go back to Python Portal</a></p>
+<head>
+  
+  <meta name="viewport" content="initial-scale=1, width=device-width">
+</head>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> sys
+<span class="bu">print</span>(sys.executable)
+<span class="im">from</span> IPython.core.interactiveshell <span class="im">import</span> InteractiveShell
+InteractiveShell.ast_node_interactivity <span class="op">=</span> <span class="st">&quot;all&quot;</span></code></pre></div>
+<pre><code>/home/jcmint/anaconda3/envs/learningenv/bin/python</code></pre>
+<h1 id="sets">Sets</h1>
+<p>Sets are defined as a collection of elements, and can be defined explicitly {heads, tails}, or implicitly {1:9}, {A:Z}.</p>
+<p><img src="https://i.imgur.com/zsEZlXr.webp?1" /></p>
+<h2 id="convention---capital-for-sets-lowercase-for-its-elements">Convention - CAPITAL for sets, lowercase for its elements</h2>
+<ul>
+<li>An element can belong to (∈) or not belong to(∉) a set</li>
+<li>A set can contain (∋) or lack a member (∌)</li>
+<li>Repetition may or may not matter Different set types:</li>
+</ul>
+<p><img src="https://i.imgur.com/jNsXSFF.webp?1" /></p>
+<h2 id="sets-in-python">Sets in Python</h2>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">myset <span class="op">=</span> <span class="bu">set</span>([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>])
+<span class="bu">print</span>(<span class="st">&quot;1.&quot;</span>, myset)
+
+<span class="co"># Create an empty set: set()  or set({})</span>
+empty <span class="op">=</span> <span class="bu">set</span>()
+<span class="bu">print</span>(empty)
+
+myset.add((<span class="dv">2</span>, <span class="st">&#39;2&#39;</span>, <span class="dv">0</span>))
+myset.discard(<span class="dv">0</span>)
+<span class="bu">print</span>(<span class="st">&quot;3.&quot;</span>, myset)
+<span class="co"># No way to add multiple elements to a set - instead, consider a union with a set that has the target elements</span></code></pre></div>
+<pre><code>1. {1, 2, 3}
+set()
+3. {1, 2, 3, (2, &#39;2&#39;, 0)}</code></pre>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Test emptiness</span>
+<span class="bu">print</span>(<span class="kw">not</span> myset) <span class="co"># does myset contain no elements?</span>
+<span class="bu">print</span>(<span class="bu">len</span>(myset))</code></pre></div>
+<pre><code>False
+4</code></pre>
+<h1 id="set-visualization">Set visualization</h1>
+<p>Venn diagrams can represent set members - elements appear in or out of a set.</p>
+<p><img src="https://i.imgur.com/NkaVztK.webp?1" /></p>
+<h2 id="visualizing-sets-in-python---venn-diagrams-with-numeric-elements">Visualizing sets in Python - venn diagrams with numeric elements</h2>
+<ul>
+<li><p>Necessary to install matplotlib and matplotlib-venn</p>
+<pre><code>conda activate learningenv
+conda install matplotlib
+Proceed ([y]/n)? y
+conda install -c conda-forge matplotlib-venn </code></pre></li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt 
+<span class="im">import</span> matplotlib_venn <span class="im">as</span> venn 
+
+S <span class="op">=</span> {<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>} 
+T <span class="op">=</span> {<span class="dv">0</span>, <span class="dv">22</span>, <span class="dv">1</span>, <span class="dv">3</span>} 
+venn.venn2([S, T], set_labels <span class="op">=</span> {<span class="st">&#39;S&#39;</span>, <span class="st">&#39;T&#39;</span>}) 
+plt.show()</code></pre></div>
+<pre><code>&lt;matplotlib_venn._common.VennDiagram at 0x7ff80182c470&gt;</code></pre>
+<p><img src="2_Sets_files/2_Sets_6_1.webp" alt="png" /></p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">s1 <span class="op">=</span> {<span class="dv">0</span>, <span class="dv">1</span>} 
+s2 <span class="op">=</span> {<span class="dv">1</span>, <span class="dv">0</span>} 
+s3 <span class="op">=</span> {<span class="dv">1</span>, <span class="dv">0</span> , <span class="dv">1</span>} 
+s4  <span class="op">=</span> {<span class="dv">0</span>, <span class="dv">2</span>} 
+s5 <span class="op">=</span> {<span class="dv">3</span>, <span class="dv">4</span>}</code></pre></div>
+<h1 id="set-relations">Set Relations</h1>
+<p>Return a logical value that describes the relations between sets.</p>
+<h2 id="equality">Equality, <code>==</code></h2>
+<p>Two sets are equal if they have exactly the same elements:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">s1 <span class="op">==</span> s2, s1 <span class="op">==</span> s3, s1 <span class="op">==</span> s5</code></pre></div>
+<pre><code>(True, True, False)</code></pre>
+<p>Since all elements need to be in both sets for the sets to be equal, Equality is difficult to achieve.</p>
+<h2 id="disjoint-isdisjoint">Disjoint: <code>isdisjoint(), !=</code></h2>
+<p>Two sets are disjoint if they share NO values - overlap region is EMPTY. Empty set is disjoint with all sets except all other empty sets.</p>
+<p><img src="https://i.imgur.com/3NsZnOc.webp" /></p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">s1 <span class="op">!=</span> s2, s1.isdisjoint(s4)</code></pre></div>
+<pre><code>(False, False)</code></pre>
+<h2 id="subset-issubset-strict">Subset: <code>issubset(), &lt;=</code>; strict: <code>&lt;</code></h2>
+<p>If every element in a set is in another set, then it is a subset of that set. {0} is a subset of every set. If two sets are subsets of each other, then they are equal (A &lt;- B &amp; B &lt;- A means A == B)</p>
+<p><img src="https://i.imgur.com/mXWCR5S.webp" /></p>
+<p>A strict subset - a subset that is NOT equal to its superset.</p>
+<p><img src="https://i.imgur.com/09KLgkv.webp?1" /></p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span>(<span class="st">&quot;1.&quot;</span>, s1 <span class="op">&lt;=</span> s2 , s1.issubset(s4))
+<span class="co"># Check for STRICT subset: using `&lt;`</span>
+<span class="bu">print</span>(<span class="st">&quot;2.&quot;</span>, s1 <span class="op">&lt;</span> s2, s1 <span class="op">&lt;</span> {<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>})</code></pre></div>
+<pre><code>1. True False
+2. False True</code></pre>
+<h1 id="set-operations">Set Operations</h1>
+<p>Obtain a set that is the result of an operation between sets.</p>
+<h2 id="complement">Complement</h2>
+<ul>
+<li>Complement is a set of every element NOT in a set.</li>
+<li>Not definable in python without defining the 'Universe' first.</li>
+<li>De Morgan's Law: The Complement of the Intersection of two sets.</li>
+</ul>
+<p><img src="https://i.imgur.com/4AVqEgU.webp" /></p>
+<h2 id="intersection-intersection">Intersection: <code>intersection(), &amp;</code></h2>
+<ul>
+<li>Intersection is a set of the common elements between sets.</li>
+<li>The infinte set intersects every set.</li>
+</ul>
+<p><img src="https://i.imgur.com/YAwSLOJ.webp" /> <img src="https://i.imgur.com/2ZKgVnx.webp?1" /></p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">s1.intersection(s1), s1.intersection(s4), s1.intersection(s5)</code></pre></div>
+<pre><code>({0, 1}, {0}, set())</code></pre>
+<h2 id="union-union">Union: <code>union, |</code></h2>
+<p>Union is a non repetitive collection of elements in multiple sets.</p>
+<p><img src="https://i.imgur.com/WYjQZea.webp?1" /></p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">s1 <span class="op">|</span> s2, s1.union(s5)</code></pre></div>
+<pre><code>({0, 1}, {0, 1, 3, 4})</code></pre>
+<h2 id="set-difference-.difference--">Set difference: <code>.difference, -</code></h2>
+<p>A - B is the set of elements in A but not B:</p>
+<p><img src="https://i.imgur.com/HSVLpwH.webp" /></p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">s1 <span class="op">-</span> s2, s1 <span class="op">-</span> s4, s4 <span class="op">-</span> s1</code></pre></div>
+<pre><code>(set(), {1}, {2})</code></pre>
+<h2 id="symmetric-difference-or-symmetric_difference">Symmetric Difference (OR): <code>symmetric_difference(), ^</code></h2>
+<p>The set of elements that are in one but NOT BOTH sets:</p>
+<p><img src="https://i.imgur.com/iO57Gkh.webp" /></p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">s1 <span class="op">^</span> s2, s1 <span class="op">^</span> s4, s5.symmetric_difference(s4)</code></pre></div>
+<pre><code>(set(), {1, 2}, {0, 2, 3, 4})</code></pre>
+<h1 id="cartesian-products">Cartesian Products</h1>
+<p>Basically, the Cartesian Product of two sets is the set of all combinations of the elements in both sets. You essentially generate <code>a * b</code> combinations where <code>a</code> and <code>b</code> are the number of elements in set <code>A</code> and <code>B</code>. For <code>n</code> sets, you generate a <strong>cartesian coordinate</strong>, an <code>n</code> element tuple ordered pair.</p>
+<ul>
+<li>for A and B, it is the set A x B of (a, b) ordered pairs where a ∈ A and b ∈ B</li>
+<li>The first element must come from set A, and likewise the second from B</li>
+<li>The cartesian product of the real numbers, R2 = {(x, y): x, y ∈ R} is the cartesian plane, the 2D plane containing all read numbers</li>
+<li>Likewise, if A and B are sets with real numbers, then A x B will produce a rectangle in the cartesian plane.</li>
+<li>Tables are essentially cartesian products, as are 3D cubes (A x B x C)</li>
+</ul>
+<p><img src="https://i.imgur.com/mjwKPan.webp" /></p>
+<p><img src="https://i.imgur.com/lKz0EBu.webp?1" /></p>
+<h2 id="generating-cartesian-products-in-python">Generating Cartesian products in Python</h2>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">from</span> itertools <span class="im">import</span> product 
+faces <span class="op">=</span> <span class="bu">set</span>({<span class="st">&#39;J&#39;</span>, <span class="st">&#39;Q&#39;</span>, <span class="st">&#39;K&#39;</span>}) <span class="co"># Jack, queen, King </span>
+suits <span class="op">=</span> <span class="bu">set</span>({<span class="st">&#39;Dia&#39;</span>, <span class="st">&#39;Spa&#39;</span>}) <span class="co">#diamond, spade </span>
+<span class="cf">for</span> i <span class="kw">in</span> product(faces, suits): 
+    <span class="bu">print</span>(i)</code></pre></div>
+<pre><code>(&#39;Q&#39;, &#39;Dia&#39;)
+(&#39;Q&#39;, &#39;Spa&#39;)
+(&#39;K&#39;, &#39;Dia&#39;)
+(&#39;K&#39;, &#39;Spa&#39;)
+(&#39;J&#39;, &#39;Dia&#39;)
+(&#39;J&#39;, &#39;Spa&#39;)</code></pre>
+<h1 id="russells-paradox">Russell's Paradox</h1>
+<ul>
+<li>Sets can be elements and subsets of sets</li>
+<li>However, it is unclear whether a set can be an element of itself</li>
+<li>The empty set cannot belong to itself, because the empty set by definition has no elements<br />
+</li>
+<li>However, the complement of a set can belong to itself</li>
+<li>A set that is &quot;Everything except 0&quot; will contain itself as an element, since this &quot;Not 0 set&quot; is not zero.</li>
+</ul>
+<p>Russell's Paradox is that you can define a set that cannot exist:</p>
+<ul>
+<li>R = {sets that don't belong to themselves}</li>
+<li>The contradiction is that R is both in, and not in, R itself.<br />
+</li>
+<li>Definable but cannot exist</li>
+<li>Basically, avoid sets that are self-referential or recursively defined</li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,333 @@
+---
+id: index
+title: 🚀 CSJoshC Learning Platform
+sidebar_label: 🏠 Home
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<div className="hero-section gradient-bg">
+  <div className="hero-content">
+    <h1 className="hero-title gradient-text">🚀 CSJoshC Learning Platform</h1>
+    <p className="hero-subtitle">A comprehensive learning journey through Python, Data Science, and modern development</p>
+    <div className="hero-buttons">
+      <a href="/Python/base" className="hero-button primary button">🐍 Start Learning Python</a>
+      <a href="/General/base" className="hero-button secondary button">📚 Explore General Topics</a>
+    </div>
+  </div>
+</div>
+
+## 🎯 What is this website used for?
+
+This platform serves as your comprehensive learning companion, featuring interactive content, practical examples, and structured learning paths across multiple domains.
+
+## ✨ Modern Features
+
+<div className="features-grid">
+  <div className="feature-card card">
+    <div className="feature-icon">🐍</div>
+    <h3 className="gradient-text">Python Mastery</h3>
+    <p>From basics to advanced data science and machine learning</p>
+  </div>
+
+  <div className="feature-card card">
+    <div className="feature-icon">📊</div>
+    <h3 className="gradient-text">Data Science</h3>
+    <p>Hands-on experience with NumPy, Pandas, and ML libraries</p>
+  </div>
+
+  <div className="feature-card card">
+    <div className="feature-icon">🌐</div>
+    <h3 className="gradient-text">Web Development</h3>
+    <p>Modern web technologies and best practices</p>
+  </div>
+
+  <div className="feature-card card">
+    <div className="feature-icon">⚙️</div>
+    <h3 className="gradient-text">DevOps & Tools</h3>
+    <p>Git, Linux, and deployment strategies</p>
+  </div>
+</div>
+
+## 🚀 Quick Start Guide
+
+<Tabs>
+<TabItem value="python" label="🐍 Python Path" default>
+  <div className="quick-start-section">
+    <h3>Python Learning Journey</h3>
+    <ul>
+      <li><strong>Basics:</strong> Start with Python fundamentals and virtual environments</li>
+      <li><strong>Data Science:</strong> Master NumPy, Pandas, and Matplotlib</li>
+      <li><strong>Machine Learning:</strong> Explore clustering, decision trees, and regression</li>
+      <li><strong>Advanced:</strong> Dive into probability, statistics, and computer science</li>
+    </ul>
+    <a href="/Python/base" className="button">Start Python Journey →</a>
+  </div>
+</TabItem>
+
+<TabItem value="general" label="📚 General CS">
+  <div className="quick-start-section">
+    <h3>Computer Science Fundamentals</h3>
+    <ul>
+      <li><strong>CS50x:</strong> Harvard's introduction to computer science</li>
+      <li><strong>Web Development:</strong> Flask, databases, and modern practices</li>
+      <li><strong>Git & GitHub:</strong> Version control and collaboration</li>
+      <li><strong>Linux:</strong> Command line and system administration</li>
+    </ul>
+    <a href="/General/base" className="button">Explore General Topics →</a>
+  </div>
+</TabItem>
+
+<TabItem value="tools" label="🛠️ Tools & Utils">
+  <div className="quick-start-section">
+    <h3>Essential Development Tools</h3>
+    <ul>
+      <li><strong>Jupyter Notebooks:</strong> Interactive Python development</li>
+      <li><strong>Batch Conversions:</strong> Automate file processing tasks</li>
+      <li><strong>DevOps Practices:</strong> Deployment and infrastructure</li>
+      <li><strong>Site Updates:</strong> Track development progress</li>
+    </ul>
+    <a href="/utils/base" className="button">Browse Tools →</a>
+  </div>
+</TabItem>
+</Tabs>
+
+## 📈 Learning Progress
+
+<div className="progress-section">
+  <div className="progress-card card">
+    <h3>🐍 Python Track</h3>
+    <div className="progress-bar">
+      <div className="progress-fill" style={{width: '85%'}}></div>
+    </div>
+    <p>85% Complete - Advanced ML concepts remaining</p>
+  </div>
+
+  <div className="progress-card card">
+    <h3>📚 General CS</h3>
+    <div className="progress-bar">
+      <div className="progress-fill" style={{width: '70%'}}></div>
+    </div>
+    <p>70% Complete - Advanced web dev topics remaining</p>
+  </div>
+
+  <div className="progress-card card">
+    <h3>🛠️ Tools & Utils</h3>
+    <div className="progress-bar">
+      <div className="progress-fill" style={{width: '60%'}}></div>
+    </div>
+    <p>60% Complete - DevOps and automation remaining</p>
+  </div>
+</div>
+
+## 🔗 Quick Navigation
+
+<div className="quick-nav-grid">
+  <a href="/Python/PythonforDataScience/Introduction" className="nav-card card">
+    <h4>🐍 Data Science Intro</h4>
+    <p>Start your data science journey</p>
+  </a>
+  
+  <a href="/General/CS50x2019/cppbasics" className="nav-card card">
+    <h4>💻 C++ Basics</h4>
+    <p>Learn fundamental programming</p>
+  </a>
+  
+  <a href="/Github/intro_gh" className="nav-card card">
+    <h4>🐙 GitHub Mastery</h4>
+    <p>Version control essentials</p>
+  </a>
+  
+  <a href="/Linux/linux_journey/linux_journey_toc" className="nav-card card">
+    <h4>🐧 Linux Journey</h4>
+    <p>Command line mastery</p>
+  </a>
+  
+  <a href="/Devops/roadmap_notes" className="nav-card card">
+    <h4>⚙️ DevOps Roadmap</h4>
+    <p>Deployment strategies</p>
+  </a>
+  
+  <a href="/utils/BatchConversions" className="nav-card card">
+    <h4>🔄 Batch Tools</h4>
+    <p>Automation utilities</p>
+  </a>
+</div>
+
+## 🎨 Custom Styling
+
+<style>{`
+  .hero-section {
+    background: var(--gradient-primary);
+    padding: 4rem 2rem;
+    text-align: center;
+    color: white;
+    border-radius: 1rem;
+    margin: 2rem 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="50" cy="10" r="0.5" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+    opacity: 0.3;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-title {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .hero-button {
+    padding: 1rem 2rem;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .hero-button.primary {
+    background: var(--gradient-secondary);
+    color: white;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  }
+
+  .hero-button.secondary {
+    background: rgba(255,255,255,0.2);
+    color: white;
+    border: 2px solid rgba(255,255,255,0.3);
+  }
+
+  .hero-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .feature-card {
+    text-align: center;
+    padding: 2rem;
+    transition: all 0.3s ease;
+  }
+
+  .feature-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .quick-start-section {
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    border-radius: 0.75rem;
+    margin: 1rem 0;
+  }
+
+  [data-theme='dark'] .quick-start-section {
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+  }
+
+  .progress-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .progress-card {
+    padding: 1.5rem;
+  }
+
+  .progress-bar {
+    width: 100%;
+    height: 8px;
+    background: rgba(0,0,0,0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 1rem 0;
+  }
+
+  [data-theme='dark'] .progress-bar {
+    background: rgba(255,255,255,0.1);
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: var(--gradient-accent);
+    border-radius: 4px;
+    transition: width 0.5s ease;
+  }
+
+  .quick-nav-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+
+  .nav-card {
+    text-align: center;
+    padding: 1.5rem;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+  }
+
+  .nav-card:hover {
+    transform: translateY(-4px);
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .nav-card h4 {
+    margin-bottom: 0.5rem;
+    color: var(--ifm-color-primary);
+  }
+
+  @media (max-width: 768px) {
+    .hero-title {
+      font-size: 2rem;
+    }
+    
+    .hero-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .features-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+`}</style>

@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="date" content="2019-05-30" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+</head>
+<body>
+<div id="TOC">
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#steps-for-data-analysis">Steps for Data Analysis</a><ul>
+<li><a href="#acquisition">Acquisition</a></li>
+<li><a href="#preparation">Preparation</a></li>
+<li><a href="#analysis">Analysis</a></li>
+<li><a href="#report-results-and-then-act">Report results and then act</a></li>
+</ul></li>
+</ul>
+</div>
+<p><a href="../../../index.html">Go back to index</a></p>
+<p><a href="../base.html">Go back to Python Portal</a></p>
+<head>
+  
+  <meta name="viewport" content="initial-scale=1, width=device-width">
+</head>
+<p>Sources of data have massively grown, as well as advances in storage and computing at scale, increasing the demand for its processing to provide data driven predictions for a variety of industries.</p>
+<h1 id="introduction">Introduction</h1>
+<ul>
+<li>Data science involves diverse skillsets in Math/Stats, Programming and so on, working in teams<br />
+</li>
+<li>Python is a clear leader in many data sciences, as it offers a diverse libraries for data management, processing and visualization, all parts of pipeline
+<ul>
+<li>Jupyter Notebooks make the process repeatable<br />
+</li>
+<li>NumPy</li>
+<li>Pandas</li>
+<li>Matplotlib</li>
+<li>Scikit-learn</li>
+<li>BeautifulSoup</li>
+</ul></li>
+</ul>
+<h1 id="steps-for-data-analysis">Steps for Data Analysis</h1>
+<ul>
+<li>Data science big picture: statistics, big picture</li>
+<li>Justify using analytics - seek to obtain actionable insights</li>
+</ul>
+<p>Work process * Acquire raw data, prepare, analyze, report, act * Data engineering &amp; computational data science/analytics * Formulate the right questions - define the problem * Assess situation - C/B analysis, contingencies, regulations, resources and requirements</p>
+<h2 id="acquisition">Acquisition</h2>
+<ul>
+<li>Data can come from relational or noSQL databases, csv and Text files, live feeds or unstructured.</li>
+<li>Databases provide APIs for data access, and so do some websites</li>
+</ul>
+<h2 id="preparation">Preparation</h2>
+<ul>
+<li>Preliminary Analysis - understand the nature of data
+<ul>
+<li>Correlations, general trends</li>
+<li>Summary statistics - mean, mode, median, range, stdev</li>
+<li>Histograms, boxplots, line graphs, heat maps, scatterplots</li>
+</ul></li>
+<li>Pre-process Data
+<ul>
+<li>Remove outliers, missing/null values, duplications, inconsistencies, invalid data and other unwanted entries</li>
+<li>Generate estimates for data imputation</li>
+<li>Dimensional reduction
+<ul>
+<li>Determine a smaller subset of dimensions that capture most of the variability in the data</li>
+</ul></li>
+<li>Feature selection - select attributes that have the greatest impact on target of predictions
+<ul>
+<li>Models are easier to train and interpret, and better generalize to new scenarios</li>
+<li>Derive new features where necessary</li>
+</ul></li>
+<li>Transformation - reduce noise and variability, aggregate where necessary</li>
+<li>Scaling - normalize ranges</li>
+<li>Data manipulation - sorting, grouping, computing summary statistics</li>
+</ul></li>
+</ul>
+<h2 id="analysis">Analysis</h2>
+<ul>
+<li>Iterative, repeatable process
+<ul>
+<li>Select technique, build model, validate model</li>
+<li>Split into training and test sets</li>
+<li>Consider repeating or adding data</li>
+</ul></li>
+<li>Supervised &amp; unsupervised learning
+<ul>
+<li>Classification - predict categories or a binary (0,1) and compare with a correct value</li>
+<li>Regression - predict numerical value and compare with correct value</li>
+<li>Clustering - organize similar items into groups</li>
+<li>Association analysis - find rules that capture associations amongst observations - verify predictions
+<ul>
+<li>Market basket analysis</li>
+</ul></li>
+<li>Graph analysis - data is a graphical representation with nodes and links
+<ul>
+<li>find connections between entities</li>
+<li>verify existence of predicted phenomena in the real world</li>
+</ul></li>
+</ul></li>
+<li>Scikit-learn</li>
+<li>Sklearn-cluster -&gt; kmeans clustering
+<ul>
+<li>Group observations into meaningful sets using those attributes</li>
+</ul></li>
+<li>Interpreting cluster results
+<ul>
+<li>Similarities within each cluster and differences between clusters</li>
+<li>Each group is unique in difereing from each other in at least one attribute</li>
+<li>Customized improvement strategies for each group</li>
+</ul></li>
+</ul>
+<h2 id="report-results-and-then-act">Report results and then act</h2>
+</body>
+</html>

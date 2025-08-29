@@ -1,0 +1,197 @@
+.features {
+  display: flex;
+  align-items: center;
+  padding: 1rem 0; /* Reduced from 2rem to 1rem */
+  width: 100%;
+}
+
+.featureLink {
+  display: flex !important;
+  flex-direction: column !important;
+  text-decoration: none;
+  color: inherit;
+  padding: 1.5rem; /* Reduced from 2rem to 1.5rem */
+  border-radius: 12px;
+  border: 2px solid var(--ifm-color-emphasis-200);
+  transition: all 0.3s ease;
+  background: var(--ifm-background-surface-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  /* Ensure text is readable */
+  color: var(--ifm-color-emphasis-900);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  /* Add subtle indicator that this is clickable */
+  position: relative;
+  height: 100% !important;
+  min-height: 0 !important;
+}
+
+.featureLink::before {
+  content: "→";
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  color: var(--ifm-color-emphasis-400);
+  transition: all 0.3s ease;
+  opacity: 0.7;
+}
+
+.featureLink:hover {
+  text-decoration: none;
+  color: inherit;
+  transform: translateY(-4px);
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  background: var(--ifm-color-emphasis-100);
+  /* Ensure text remains readable on hover */
+  color: var(--ifm-color-emphasis-900);
+}
+
+.featureLink:hover::before {
+  transform: translateX(4px);
+  color: var(--ifm-color-primary);
+  opacity: 1;
+}
+
+/* Focus states for accessibility */
+.featureLink:focus {
+  outline: 3px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+  border-color: var(--ifm-color-primary);
+  background: var(--ifm-color-emphasis-100);
+  /* Add subtle animation for focus */
+  animation: focusPulse 0.3s ease-in-out;
+}
+
+@keyframes focusPulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.featureLink:focus::before {
+  transform: translateX(4px);
+  color: var(--ifm-color-primary);
+  opacity: 1;
+}
+
+/* Active states for when clicked */
+.featureLink:active {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.featureLink:active::before {
+  transform: translateX(6px);
+}
+
+[data-theme="dark"] .featureLink {
+  background: var(--ifm-background-surface-color);
+  color: var(--text-primary);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .featureLink:hover {
+  background: var(--ifm-color-emphasis-200);
+  color: var(--text-primary);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* Enhanced grid layout with guaranteed equal heights */
+.row {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+  gap: 1.5rem !important; /* Reduced from 2rem to 1.5rem */
+  align-items: stretch !important;
+  grid-auto-rows: 1fr !important;
+}
+
+/* Add subtle background pattern to make cards more interesting */
+.featureLink::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, transparent 0%, rgba(0, 0, 0, 0.02) 100%);
+  pointer-events: none;
+  border-radius: 12px;
+}
+
+/* Individual feature content styling */
+.text--center {
+  height: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  flex: 1 !important;
+  min-height: 0 !important;
+}
+
+.text--center h3 {
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.text--center p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 0;
+  flex: 1;
+  transition: color 0.3s ease;
+}
+
+.featureLink:hover .text--center h3 {
+  color: var(--ifm-color-primary);
+}
+
+.featureLink:hover .text--center p {
+  color: var(--text-primary);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .row {
+    grid-template-columns: 1fr;
+    gap: 1rem; /* Reduced from 1rem to 0.75rem */
+  }
+
+  .featureLink {
+    margin: 0.25rem; /* Reduced from 0.5rem to 0.25rem */
+    padding: 1.25rem; /* Reduced from 1.5rem to 1.25rem */
+  }
+
+  .featureLink:hover {
+    transform: translateY(-2px) scale(1.01);
+  }
+
+  .featureLink::before {
+    font-size: 1.25rem;
+    top: 0.75rem;
+    right: 0.75rem;
+  }
+}
+
+/* Tablet responsiveness */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .row {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem; /* Reduced from 1.5rem to 1.25rem */
+  }
+
+  .featureLink {
+    padding: 1.5rem; /* Reduced from 1.75rem to 1.5rem */
+  }
+}

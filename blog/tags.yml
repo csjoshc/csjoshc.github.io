@@ -1,0 +1,212 @@
+facebook:
+  label: Facebook
+  permalink: /facebook
+  description: Facebook tag description
+
+hello:
+  label: Hello
+  permalink: /hello
+  description: Hello tag description
+
+docusaurus:
+  label: Docusaurus
+  permalink: /docusaurus
+  description: Docusaurus tag description
+
+hola:
+  label: Hola
+  permalink: /hola
+  description: Hola tag description
+
+# Learning and Development Tags
+learning:
+  label: Learning
+  permalink: /learning
+  description: Posts about learning journeys and educational content
+
+programming:
+  label: Programming
+  permalink: /programming
+  description: Programming tutorials and code-related content
+
+cs50:
+  label: CS50
+  permalink: /cs50
+  description: Harvard CS50 course content and progress
+
+foundations:
+  label: Foundations
+  permalink: /foundations
+  description: Fundamental concepts and basic knowledge
+
+project-ideas:
+  label: Project Ideas
+  permalink: /project-ideas
+  description: Creative project concepts and planning
+
+development:
+  label: Development
+  permalink: /development
+  description: Software development processes and tools
+
+planning:
+  label: Planning
+  permalink: /planning
+  description: Strategic planning and project organization
+
+projects:
+  label: Projects
+  permalink: /projects
+  description: Project work and implementation
+
+site-updates:
+  label: Site Updates
+  permalink: /site-updates
+  description: Website updates and improvements
+
+ai-tools:
+  label: AI Tools
+  permalink: /ai-tools
+  description: Artificial intelligence tools and applications
+
+# Additional Tags for Historical Posts
+site-setup:
+  label: Site Setup
+  permalink: /site-setup
+  description: Website setup and configuration
+
+github:
+  label: GitHub
+  permalink: /github
+  description: GitHub integration and version control
+
+mit:
+  label: MIT
+  permalink: /mit
+  description: MIT course content and progress
+
+edx:
+  label: EdX
+  permalink: /edx
+  description: EdX online learning platform
+
+algorithms:
+  label: Algorithms
+  permalink: /algorithms
+  description: Algorithm design and analysis
+
+weekly-update:
+  label: Weekly Update
+  permalink: /weekly-update
+  description: Regular weekly learning updates
+
+command-line:
+  label: Command Line
+  permalink: /command-line
+  description: Command line operations and shell usage
+
+shell:
+  label: Shell
+  permalink: /shell
+  description: Shell scripting and automation
+
+automation:
+  label: Automation
+  permalink: /automation
+  description: Process automation and scripting
+
+django:
+  label: Django
+  permalink: /django
+  description: Django web framework
+
+flask:
+  label: Flask
+  permalink: /flask
+  description: Flask web framework
+
+frontend:
+  label: Frontend
+  permalink: /frontend
+  description: Frontend development and design
+
+sql:
+  label: SQL
+  permalink: /sql
+  description: SQL database operations
+
+deployment:
+  label: Deployment
+  permalink: /deployment
+  description: Application deployment and hosting
+
+project-implementation:
+  label: Project Implementation
+  permalink: /project-implementation
+  description: Project development and implementation
+
+advanced-features:
+  label: Advanced Features
+  permalink: /advanced-features
+  description: Advanced application features
+
+project-completion:
+  label: Project Completion
+  permalink: /project-completion
+  description: Project completion and milestones
+
+future-planning:
+  label: Future Planning
+  permalink: /future-planning
+  description: Future learning and development plans
+
+summer-planning:
+  label: Summer Planning
+  permalink: /summer-planning
+  description: Summer learning activities and planning
+
+reflection:
+  label: Reflection
+  permalink: /reflection
+  description: Learning reflection and progress review
+
+# Additional missing tags
+database:
+  label: Database
+  permalink: /database
+  description: Database design and management
+
+project-planning:
+  label: Project Planning
+  permalink: /project-planning
+  description: Project planning and development
+
+work:
+  label: Work
+  permalink: /work
+  description: Work-related projects and integration
+
+integration:
+  label: Integration
+  permalink: /integration
+  description: System and tool integration
+
+proof-of-concept:
+  label: Proof of Concept
+  permalink: /proof-of-concept
+  description: Proof of concept development
+
+progress:
+  label: Progress
+  permalink: /progress
+  description: Learning progress updates
+
+fundamentals:
+  label: Fundamentals
+  permalink: /fundamentals
+  description: Fundamental concepts and basics
+
+optimization:
+  label: Optimization
+  permalink: /optimization
+  description: Performance and process optimization

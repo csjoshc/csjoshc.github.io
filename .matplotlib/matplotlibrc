@@ -1,0 +1,14 @@
+# Matplotlib configuration for Josh's Learning Notes project
+# Set WebP as the default image format for better compression and web performance
+
+# Image format settings
+savefig.format: webp
+figure.format: webp
+
+# Image quality settings for WebP
+savefig.dpi: 150
+savefig.bbox: tight
+savefig.pad_inches: 0.1
+
+# Backend settings
+backend: macosx

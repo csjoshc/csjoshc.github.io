@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Personal learning and note-taking website">
+    <meta name="author" content="Josh Chiu">
+    <link rel="canonical" href="https://csjoshc.github.io/Python/ProbabilityandStatistics/2_Sets/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+
+    
+    <title>2 Sets - Josh's Learning Notes</title>
+    
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
+    <link href='//rsms.me/inter/inter.css' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../../css/base.min.css" rel="stylesheet">
+    <link href="../../../css/cinder.min.css" rel="stylesheet">
+
+    
+        
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/github.min.css">
+        
+    
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    
+
+     
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            
+              <a class="navbar-brand" href="../../..">Josh's Learning Notes</a>
+            
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">General <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../General/base/">Overview</a>
+</li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">CS50x 2019</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../General/CS50x2019/cppbasics/">C++ Basics</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../General/CS50x2019/database/">Database</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../General/CS50x2019/flask/">Flask</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../General/CS50x2019/python/">Python</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../General/CS50x2019/webbasics/">Web Basics</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+<li >
+    <a href="../../../General/webdev2019/">Web Development 2019</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Python <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../base/">Overview</a>
+</li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">General</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../General/virtenv_jupyter_nb/">Virtual Environments & Jupyter</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../General/ifnameismain/">If Name Main</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Data Science Course</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../PythonforDataScience/1_Introduction/">Introduction</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../PythonforDataScience/2_Basics/">Python Basics</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../PythonforDataScience/3_Numpy/">NumPy</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../PythonforDataScience/4_Pandas/">Pandas</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../PythonforDataScience/4_Pandas2/">Pandas 2</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../PythonforDataScience/4_Pandas3/">Pandas 3</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../PythonforDataScience/4_Pandas4/">Pandas 4</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../PythonforDataScience/4_Pandas5/">Pandas 5</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../PythonforDataScience/5_Matplotlib/">Matplotlib</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../PythonforDataScience/7_ML/">Machine Learning</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../PythonforDataScience/7_ML_Reg/">ML Regression</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../PythonforDataScience/7_ML_DT/">ML Decision Trees</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../PythonforDataScience/7_ML_Clust/">ML Clustering</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Probability & Statistics</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../1_Introduction/">Introduction</a>
+</li>
+
+        
+            
+<li >
+    <a href="./">Sets</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">MIT Courses</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../IntroCompSciPython/unit7/">Computer Science Unit 7</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../IntroCompThinkDataSci/unit1/unit1/">Data Science Unit 1</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../IntroCompThinkDataSci/unit1/problemset1/">Problem Set 1</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../IntroCompThinkDataSci/unit2/plotting/">Unit 2 Plotting</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../IntroCompThinkDataSci/unit2/unit2/">Unit 2</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../IntroCompThinkDataSci/unit2/ps2/">Problem Set 2</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../IntroCompThinkDataSci/unit3/unit3/">Unit 3</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../IntroCompThinkDataSci/unit3/ps3/">Problem Set 3</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../IntroCompThinkDataSci/unit4/unit4/">Unit 4</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../IntroCompThinkDataSci/unit4/ps4/">Problem Set 4</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../IntroCompThinkDataSci/unit5/unit5/">Unit 5</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">GitHub <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../Github/intro_gh/">Introduction</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../Github/bugs_gh/">Bug Reports</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Linux <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../Linux/base/">Overview</a>
+</li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Linux Journey</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../Linux/linux_journey/basic/01_comlin/">Command Line</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../Linux/linux_journey/linux_journey_toc/">Table of Contents</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">DevOps <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../Devops/base/">Overview</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../Devops/roadmap_notes/">Roadmap Notes</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Utilities <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../utils/base/">Overview</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../utils/01_BatchConversions/">Batch Conversions</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Site Updates <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../site_updates/base/">Overview</a>
+</li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">March 2019</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../site_updates/3_2019/2_3_2019/">March 2nd</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../site_updates/3_2019/9_3_2019/">March 9th</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../site_updates/3_2019/16_3_2019/">March 16th</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../site_updates/3_2019/23_3_2019/">March 23rd</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">April 2019</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../site_updates/4_2019/13_4_2019/">April 13th</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../site_updates/4_2019/20_4_2019/">April 20th</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">May 2019</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../site_updates/5_2019/04_5_2019/">May 4th</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../site_updates/5_2019/11_5_2019/">May 11th</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../site_updates/5_2019/25_5_2019/">May 25th</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">June 2019</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../site_updates/6_2019/15_6_2019/">June 15th</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Project Ideas</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../site_updates/project_ideas/indeed_cloud/">Indeed Cloud</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../../todo/">Todo</a>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#sets">Sets</a></li>
+            <li class="second-level"><a href="#convention-capital-for-sets-lowercase-for-its-elements">Convention - CAPITAL for sets, lowercase for its elements</a></li>
+                
+            <li class="second-level"><a href="#sets-in-python">Sets in Python</a></li>
+                
+        <li class="first-level "><a href="#set-visualization">Set visualization</a></li>
+            <li class="second-level"><a href="#visualizing-sets-in-python-venn-diagrams-with-numeric-elements">Visualizing sets in Python - venn diagrams with numeric elements</a></li>
+                
+        <li class="first-level "><a href="#set-relations">Set Relations</a></li>
+            <li class="second-level"><a href="#equality">Equality</a></li>
+                
+            <li class="second-level"><a href="#disjoint-sets">Disjoint sets</a></li>
+                
+            <li class="second-level"><a href="#subset-issubset-strict">Subset: issubset(), &lt;=; strict: &lt;</a></li>
+                
+        <li class="first-level "><a href="#set-operations">Set Operations</a></li>
+            <li class="second-level"><a href="#complement">Complement</a></li>
+                
+            <li class="second-level"><a href="#intersection-intersection">Intersection: intersection(), &amp;</a></li>
+                
+            <li class="second-level"><a href="#union-union">Union: union, |</a></li>
+                
+            <li class="second-level"><a href="#set-difference-difference-">Set difference: .difference, -</a></li>
+                
+            <li class="second-level"><a href="#symmetric-difference-or-symmetric_difference">Symmetric Difference (OR): symmetric_difference(), ^</a></li>
+                
+        <li class="first-level "><a href="#cartesian-products">Cartesian Products</a></li>
+            <li class="second-level"><a href="#generating-cartesian-products-in-python">Generating Cartesian products in Python</a></li>
+                
+        <li class="first-level "><a href="#russells-paradox">Russell's Paradox</a></li>
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<!-- Python Portal Navigation Template -->
+<!-- This template provides navigation for Python Portal pages -->
+
+<div class="return-navigation">
+  <a href="../../index.md" class="nav-button index-button">🏠 Home</a>
+  <a href="base.md" class="nav-button portal-button">🐍 Python</a>
+</div>
+
+<!-- Content starts here -->
+
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">executable</span><span class="p">)</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.core.interactiveshell</span><span class="w"> </span><span class="kn">import</span> <span class="n">InteractiveShell</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">InteractiveShell</span><span class="o">.</span><span class="n">ast_node_interactivity</span> <span class="o">=</span> <span class="s2">&quot;all&quot;</span>
+</code></pre></div>
+    /home/jcmint/anaconda3/envs/learningenv/bin/python</p>
+<h1 id="sets">Sets</h1>
+<p>Sets are defined as a collection of elements, and can be defined explicitly {heads, tails}, or implicitly {1:9}, {A:Z}. 
+<img alt="" src="https://i.imgur.com/zsEZlXr.webp?1" /></p>
+<h2 id="convention-capital-for-sets-lowercase-for-its-elements">Convention - CAPITAL for sets, lowercase for its elements</h2>
+<ul>
+<li>An element can belong to (∈) or not belong to(∉) a  set </li>
+<li>A set can contain (∋) or lack a member (∌) </li>
+<li>Repetition may or may not matter 
+Different set types:
+<img alt="" src="https://i.imgur.com/jNsXSFF.webp?1" /></li>
+</ul>
+<h2 id="sets-in-python">Sets in Python</h2>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">myset</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;1.&quot;</span><span class="p">,</span> <span class="n">myset</span><span class="p">)</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="c1"># Create an empty set: set()  or set({})</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">empty</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">empty</span><span class="p">)</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="n">myset</span><span class="o">.</span><span class="n">add</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;2&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="n">myset</span><span class="o">.</span><span class="n">discard</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;3.&quot;</span><span class="p">,</span> <span class="n">myset</span><span class="p">)</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="c1"># No way to add multiple elements to a set - instead, consider a union with a set that has the target elements</span>
+</code></pre></div>
+    1. {1, 2, 3}
+    set()
+    3. {1, 2, 3, (2, '2', 0)}
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Test emptiness</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nb">print</span><span class="p">(</span><span class="ow">not</span> <span class="n">myset</span><span class="p">)</span> <span class="c1"># does myset contain no elements?</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">myset</span><span class="p">))</span>
+</code></pre></div>
+    False
+    4</p>
+<h1 id="set-visualization">Set visualization</h1>
+<p>Venn diagrams can represent set members - elements appear in or out of a set.
+<img alt="" src="https://i.imgur.com/NkaVztK.webp?1" /></p>
+<h2 id="visualizing-sets-in-python-venn-diagrams-with-numeric-elements">Visualizing sets in Python - venn diagrams with numeric elements</h2>
+<ul>
+<li>Necessary to install matplotlib and matplotlib-venn
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>conda activate learningenv
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>conda install matplotlib
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>Proceed ([y]/n)? y
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>conda install -c conda-forge matplotlib-venn 
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span> 
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib_venn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">venn</span> 
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">S</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span> 
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="n">T</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span> 
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="n">venn</span><span class="o">.</span><span class="n">venn2</span><span class="p">([</span><span class="n">S</span><span class="p">,</span> <span class="n">T</span><span class="p">],</span> <span class="n">set_labels</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;S&#39;</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">})</span> 
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+    <matplotlib_venn._common.VennDiagram at 0x7ff80182c470>
+<img alt="png" src="2_Sets_files/2_Sets_6_1.webp" />
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">s1</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">}</span> 
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">s2</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">}</span> 
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">s3</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span> <span class="p">,</span> <span class="mi">1</span><span class="p">}</span> 
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="n">s4</span>  <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">}</span> 
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="n">s5</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span>
+</code></pre></div></li>
+</ul>
+<h1 id="set-relations">Set Relations</h1>
+<p>Return a logical value that describes the relations between sets. </p>
+<h2 id="equality">Equality</h2>
+<p><strong>Code:</strong> <code>==</code>
+Two sets are equal if they have exactly the same elements:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">s1</span> <span class="o">==</span> <span class="n">s2</span><span class="p">,</span> <span class="n">s1</span> <span class="o">==</span> <span class="n">s3</span><span class="p">,</span> <span class="n">s1</span> <span class="o">==</span> <span class="n">s5</span>
+</code></pre></div>
+    (True, True, False)
+Since all elements need to be in both sets for the sets to be equal, Equality is difficult to achieve. </p>
+<h2 id="disjoint-sets">Disjoint sets</h2>
+<p><strong>Code:</strong> <code>isdisjoint(), !=</code>
+Two sets are disjoint if they share NO values - overlap region is EMPTY. Empty set is disjoint with all sets except all other empty sets. 
+<img alt="" src="https://i.imgur.com/3NsZnOc.webp" />
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">s1</span> <span class="o">!=</span> <span class="n">s2</span><span class="p">,</span> <span class="n">s1</span><span class="o">.</span><span class="n">isdisjoint</span><span class="p">(</span><span class="n">s4</span><span class="p">)</span>
+</code></pre></div>
+    (False, False)</p>
+<h2 id="subset-issubset-strict">Subset: <code>issubset(), &lt;=</code>; strict: <code>&lt;</code></h2>
+<p>If every element in a set is in another set, then it is a subset of that set. {0} is a subset of every set. 
+If two sets are subsets of each other, then they are equal (A &lt;- B &amp; B &lt;- A means A == B)
+<img alt="" src="https://i.imgur.com/mXWCR5S.webp" />
+A strict subset - a subset that is NOT equal to its superset. 
+<img alt="" src="https://i.imgur.com/09KLgkv.webp?1" />
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;1.&quot;</span><span class="p">,</span> <span class="n">s1</span> <span class="o">&lt;=</span> <span class="n">s2</span> <span class="p">,</span> <span class="n">s1</span><span class="o">.</span><span class="n">issubset</span><span class="p">(</span><span class="n">s4</span><span class="p">))</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="c1"># Check for STRICT subset: using `&lt;`</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;2.&quot;</span><span class="p">,</span> <span class="n">s1</span> <span class="o">&lt;</span> <span class="n">s2</span><span class="p">,</span> <span class="n">s1</span> <span class="o">&lt;</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">})</span>
+</code></pre></div>
+    1. True False
+    2. False True</p>
+<h1 id="set-operations">Set Operations</h1>
+<p>Obtain a set that is the result of an operation between sets.</p>
+<h2 id="complement">Complement</h2>
+<ul>
+<li>Complement is a set of every element NOT in a set. </li>
+<li>Not definable in python without defining the 'Universe' first. </li>
+<li>De Morgan's Law: The Complement of the Intersection of two sets.
+<img alt="" src="https://i.imgur.com/4AVqEgU.webp" /></li>
+</ul>
+<h2 id="intersection-intersection">Intersection: <code>intersection(), &amp;</code></h2>
+<ul>
+<li>Intersection is a set of the common elements between sets. </li>
+<li>The infinte set intersects every set.
+<img alt="" src="https://i.imgur.com/YAwSLOJ.webp" />
+<img alt="" src="https://i.imgur.com/2ZKgVnx.webp?1" />
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">s1</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">s1</span><span class="p">),</span> <span class="n">s1</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">s4</span><span class="p">),</span> <span class="n">s1</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">s5</span><span class="p">)</span>
+</code></pre></div>
+    ({0, 1}, {0}, set())</li>
+</ul>
+<h2 id="union-union">Union: <code>union, |</code></h2>
+<p>Union is a non repetitive collection of elements in multiple sets. 
+<img alt="" src="https://i.imgur.com/WYjQZea.webp?1" />
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">s1</span> <span class="o">|</span> <span class="n">s2</span><span class="p">,</span> <span class="n">s1</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="n">s5</span><span class="p">)</span>
+</code></pre></div>
+    ({0, 1}, {0, 1, 3, 4})</p>
+<h2 id="set-difference-difference-">Set difference: <code>.difference, -</code></h2>
+<p>A - B is the set of elements in A but not B: 
+<img alt="" src="https://i.imgur.com/HSVLpwH.webp" />
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">s1</span> <span class="o">-</span> <span class="n">s2</span><span class="p">,</span> <span class="n">s1</span> <span class="o">-</span> <span class="n">s4</span><span class="p">,</span> <span class="n">s4</span> <span class="o">-</span> <span class="n">s1</span>
+</code></pre></div>
+    (set(), {1}, {2})</p>
+<h2 id="symmetric-difference-or-symmetric_difference">Symmetric Difference (OR): <code>symmetric_difference(), ^</code></h2>
+<p>The set of elements that are in one but NOT BOTH sets:
+<img alt="" src="https://i.imgur.com/iO57Gkh.webp" />
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="n">s1</span> <span class="o">^</span> <span class="n">s2</span><span class="p">,</span> <span class="n">s1</span> <span class="o">^</span> <span class="n">s4</span><span class="p">,</span> <span class="n">s5</span><span class="o">.</span><span class="n">symmetric_difference</span><span class="p">(</span><span class="n">s4</span><span class="p">)</span>
+</code></pre></div>
+    (set(), {1, 2}, {0, 2, 3, 4})</p>
+<h1 id="cartesian-products">Cartesian Products</h1>
+<p>Basically, the Cartesian Product of two sets is the set of all combinations of the elements in both sets. You essentially generate <code>a * b</code> combinations where <code>a</code> and <code>b</code> are the number of elements in set <code>A</code> and <code>B</code>. For <code>n</code> sets, you generate a <strong>cartesian coordinate</strong>, an <code>n</code> element tuple ordered pair.
+* for A and B, it is the set A x B of (a, b) ordered pairs where a ∈ A and b ∈ B 
+* The first element must come from set A, and likewise the second from B 
+* The cartesian product of the real numbers, R2 = {(x, y): x, y ∈ R} is the cartesian plane, the 2D plane containing all read numbers 
+* Likewise, if A and B are sets with real numbers, then A x B will produce a rectangle in the cartesian plane. 
+* Tables are essentially cartesian products, as are 3D cubes (A x B x C)
+<img alt="" src="https://i.imgur.com/mjwKPan.webp" />
+<img alt="" src="https://i.imgur.com/lKz0EBu.webp?1" /> </p>
+<h2 id="generating-cartesian-products-in-python">Generating Cartesian products in Python</h2>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">itertools</span><span class="w"> </span><span class="kn">import</span> <span class="n">product</span> 
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="n">faces</span> <span class="o">=</span> <span class="nb">set</span><span class="p">({</span><span class="s1">&#39;J&#39;</span><span class="p">,</span> <span class="s1">&#39;Q&#39;</span><span class="p">,</span> <span class="s1">&#39;K&#39;</span><span class="p">})</span> <span class="c1"># Jack, queen, King </span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="n">suits</span> <span class="o">=</span> <span class="nb">set</span><span class="p">({</span><span class="s1">&#39;Dia&#39;</span><span class="p">,</span> <span class="s1">&#39;Spa&#39;</span><span class="p">})</span> <span class="c1">#diamond, spade </span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">product</span><span class="p">(</span><span class="n">faces</span><span class="p">,</span> <span class="n">suits</span><span class="p">):</span> 
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</code></pre></div>
+    ('Q', 'Dia')
+    ('Q', 'Spa')
+    ('K', 'Dia')
+    ('K', 'Spa')
+    ('J', 'Dia')
+    ('J', 'Spa')</p>
+<h1 id="russells-paradox">Russell's Paradox</h1>
+<ul>
+<li>Sets can be elements and subsets of sets </li>
+<li>However, it is unclear whether a set can be an element of itself </li>
+<li>The empty set cannot belong to itself, because the empty set by definition has no elements  </li>
+<li>However, the complement of a set can belong to itself </li>
+<li>A set that is "Everything except 0" will contain itself as an element, since this "Not 0 set" is not zero.<br />
+Russell's Paradox is that you can define a set that cannot exist: </li>
+<li>R = {sets that don't belong to themselves} </li>
+<li>The contradiction is that R is both in, and not in, R itself.  </li>
+<li>Definable but cannot exist </li>
+<li>Basically, avoid sets that are self-referential or recursively defined</li>
+</ul></div>
+        
+        
+    </div>
+
+    
+      <footer class="col-md-12 text-center">
+          
+          
+            <hr>
+            <p>
+            <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</small>
+            </p>
+          
+
+          
+          
+      </footer>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../../../js/bootstrap-3.0.3.min.js"></script>
+
+    
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
+        
+                <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/languages/python.min.js"></script>
+                <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/languages/javascript.min.js"></script>
+                <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/languages/html.min.js"></script>
+                <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/languages/css.min.js"></script>
+                <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/languages/bash.min.js"></script>
+                <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/languages/yaml.min.js"></script>
+                <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/languages/markdown.min.js"></script>
+        
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    <script>var base_url = "../../.."</script>
+    
+    <script src="../../../js/base.js"></script>
+    <script src="../../../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+
+</html>

@@ -1,0 +1,277 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="date" content="2019-05-30" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #232629; color: #cfcfc2; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; background-color: #232629; color: #7a7c7d; border-right: 1px solid #7a7c7d; }
+td.sourceCode { padding-left: 5px; }
+pre, code { color: #cfcfc2; background-color: #232629; }
+code > span.kw { color: #cfcfc2; } /* Keyword */
+code > span.dt { color: #2980b9; } /* DataType */
+code > span.dv { color: #f67400; } /* DecVal */
+code > span.bn { color: #f67400; } /* BaseN */
+code > span.fl { color: #f67400; } /* Float */
+code > span.cn { color: #27aeae; } /* Constant */
+code > span.ch { color: #3daee9; } /* Char */
+code > span.sc { color: #3daee9; } /* SpecialChar */
+code > span.st { color: #f44f4f; } /* String */
+code > span.vs { color: #da4453; } /* VerbatimString */
+code > span.ss { color: #da4453; } /* SpecialString */
+code > span.im { color: #27ae60; } /* Import */
+code > span.co { color: #7a7c7d; } /* Comment */
+code > span.do { color: #a43340; } /* Documentation */
+code > span.an { color: #3f8058; } /* Annotation */
+code > span.cv { color: #7f8c8d; } /* CommentVar */
+code > span.ot { color: #27ae60; } /* Other */
+code > span.fu { color: #8e44ad; } /* Function */
+code > span.va { color: #27aeae; } /* Variable */
+code > span.cf { color: #fdbc4b; } /* ControlFlow */
+code > span.op { color: #cfcfc2; } /* Operator */
+code > span.bu { color: #7f8c8d; } /* BuiltIn */
+code > span.ex { color: #0099ff; } /* Extension */
+code > span.pp { color: #27ae60; } /* Preprocessor */
+code > span.at { color: #2980b9; } /* Attribute */
+code > span.re { color: #2980b9; } /* RegionMarker */
+code > span.in { color: #c45b00; } /* Information */
+code > span.wa { color: #da4453; } /* Warning */
+code > span.al { color: #95da4c; } /* Alert */
+code > span.er { color: #da4453; } /* Error */
+code > span. { color: #cfcfc2; } /* Normal */
+  </style>
+</head>
+<body>
+<div id="TOC">
+<ul>
+<li><a href="#virus-drug-treatments-and-computational-models">Virus, Drug Treatments and Computational Models</a></li>
+<li><a href="#results">Results</a></li>
+<li><a href="#code">Code</a></li>
+</ul>
+</div>
+<p><a href="../../../../index.html">Go back to index</a></p>
+<p><a href="../../base.html">Go back to Python Portal</a></p>
+<head>
+  
+  <meta name="viewport" content="initial-scale=1, width=device-width">
+</head>
+<h1 id="virus-drug-treatments-and-computational-models">Virus, Drug Treatments and Computational Models</h1>
+<p>This problem will be an implementation of computational modeling for viral infection, such as how drug therapy and viral drug resistance affect viral load over time.</p>
+<h1 id="results">Results</h1>
+<p>These are plots of viral load over 300 time steps in various scenarios. The first image is for virus load without any drugs, while the latter two are for a scenario where all the viruses start off either being resistant or not resistant.</p>
+<p><img src="virus_sim1.webp" /> <img src="virus_sim2.webp" /> <img src="virus_sim3.webp" /></p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">simulationWithoutDrug(<span class="dv">1</span>, <span class="dv">90</span>, <span class="fl">0.8</span>, <span class="fl">0.1</span>, <span class="dv">1</span>)   
+simulationWithDrug(<span class="dv">75</span>, <span class="dv">100</span>, .<span class="dv">8</span>, <span class="fl">0.1</span>, {<span class="st">&quot;guttagonol&quot;</span>: <span class="va">True</span>}, <span class="fl">0.8</span>, <span class="dv">1</span>)
+simulationWithDrug(<span class="dv">100</span>, <span class="dv">1000</span>, <span class="fl">0.1</span>, <span class="fl">0.05</span>, {<span class="st">&#39;guttagonol&#39;</span>: <span class="va">False</span>}, <span class="fl">0.005</span>, <span class="dv">4</span>)</code></pre></div>
+<h1 id="code">Code</h1>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> random
+<span class="im">import</span> pylab
+<span class="im">from</span> ps3b_precompiled_37 <span class="im">import</span> <span class="op">*</span>
+<span class="im">import</span> os
+os.environ[<span class="st">&quot;OPENBLAS_NUM_THREADS&quot;</span>] <span class="op">=</span> <span class="st">&quot;1&quot;</span>
+<span class="im">import</span> numpy <span class="im">as</span> np
+random.seed(<span class="dv">0</span>)
+
+<span class="kw">class</span> NoChildException(<span class="pp">Exception</span>):
+    <span class="co">&quot;&quot;&quot;</span>
+<span class="co">    NoChildException is raised by the reproduce() method in the SimpleVirus</span>
+<span class="co">    and ResistantVirus classes to indicate that a virus particle does not</span>
+<span class="co">    reproduce. You can use NoChildException as is, you do not need to</span>
+<span class="co">    modify/add any code.</span>
+<span class="co">    &quot;&quot;&quot;</span>
+
+<span class="kw">class</span> SimpleVirus(<span class="bu">object</span>):
+
+    <span class="co">&quot;&quot;&quot;</span>
+<span class="co">    Representation of a simple virus (does not model drug effects/resistance).</span>
+<span class="co">    &quot;&quot;&quot;</span>
+
+    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, maxBirthProb, clearProb):
+        <span class="va">self</span>.maxBirthProb <span class="op">=</span> maxBirthProb
+        <span class="va">self</span>.clearProb <span class="op">=</span> clearProb
+
+    <span class="kw">def</span> getMaxBirthProb(<span class="va">self</span>):
+        <span class="cf">return</span> <span class="va">self</span>.maxBirthProb
+
+    <span class="kw">def</span> getClearProb(<span class="va">self</span>):
+        <span class="cf">return</span> <span class="va">self</span>.clearProb
+
+    <span class="kw">def</span> doesClear(<span class="va">self</span>):
+        <span class="cf">if</span> random.random() <span class="op">&lt;=</span> <span class="va">self</span>.getClearProb():
+            <span class="cf">return</span> <span class="va">True</span>
+        <span class="cf">else</span>: 
+            <span class="cf">return</span> <span class="va">False</span>
+
+    <span class="kw">def</span> reproduce(<span class="va">self</span>, popDensity):
+        
+        <span class="cf">if</span> random.random() <span class="op">&lt;=</span> <span class="va">self</span>.getMaxBirthProb() <span class="op">*</span> (<span class="dv">1</span> <span class="op">-</span> popDensity):
+            <span class="cf">return</span> SimpleVirus(<span class="va">self</span>.getMaxBirthProb(), <span class="va">self</span>.getClearProb())
+        <span class="cf">else</span>:
+            <span class="cf">raise</span> NoChildException
+            
+
+
+<span class="kw">class</span> Patient(<span class="bu">object</span>):
+
+    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, viruses, maxPop):
+        <span class="va">self</span>.viruses <span class="op">=</span> viruses
+        <span class="va">self</span>.maxPop <span class="op">=</span> maxPop
+
+    <span class="kw">def</span> getViruses(<span class="va">self</span>):
+        <span class="cf">return</span> <span class="va">self</span>.viruses
+
+    <span class="kw">def</span> getMaxPop(<span class="va">self</span>):
+        <span class="cf">return</span> <span class="va">self</span>.maxPop
+
+    <span class="kw">def</span> getTotalPop(<span class="va">self</span>):
+        <span class="cf">return</span> <span class="bu">len</span>(<span class="va">self</span>.viruses)
+
+    <span class="kw">def</span> update(<span class="va">self</span>):
+        <span class="co"># virus.doesClear() returns true if it IS cleared - therefore only keep if it isn&#39;t!</span>
+        survived <span class="op">=</span> [virus <span class="cf">for</span> virus <span class="kw">in</span> <span class="va">self</span>.viruses <span class="cf">if</span> <span class="kw">not</span> virus.doesClear()]
+        <span class="va">self</span>.viruses <span class="op">=</span> []
+        <span class="cf">for</span> virus <span class="kw">in</span> survived:
+            <span class="cf">try</span>:
+                <span class="va">self</span>.viruses.append(virus)
+                <span class="va">self</span>.viruses.append(virus.reproduce(<span class="va">self</span>.getTotalPop()<span class="op">/</span><span class="va">self</span>.getMaxPop()))
+            <span class="cf">except</span> NoChildException:
+                <span class="cf">pass</span>
+        <span class="cf">return</span> <span class="va">self</span>.getTotalPop()
+
+<span class="kw">def</span> simulationWithoutDrug(numViruses, maxPop, maxBirthProb, clearProb,
+                          numTrials):
+    mydata <span class="op">=</span> np.empty([<span class="dv">300</span>, numTrials <span class="op">+</span> <span class="dv">1</span>])
+    mydata[:, :] <span class="op">=</span> <span class="va">None</span>
+    viruslist <span class="op">=</span> [SimpleVirus(maxBirthProb <span class="op">=</span> maxBirthProb, clearProb <span class="op">=</span> clearProb) <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(numViruses)]
+    <span class="cf">for</span> col <span class="kw">in</span> <span class="bu">range</span>(numTrials):
+        patient <span class="op">=</span> Patient(viruslist, maxPop)
+        <span class="cf">for</span> row <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">300</span>):
+            mydata[row, col] <span class="op">=</span> patient.update()
+
+    mydata[:, numTrials] <span class="op">=</span> np.mean(mydata[:, <span class="dv">0</span>:numTrials], axis <span class="op">=</span> <span class="dv">1</span>)
+    pylab.plot(mydata[:,numTrials].tolist(), label <span class="op">=</span> <span class="st">&quot;SimpleVirus&quot;</span>)
+    pylab.title(<span class="st">&quot;SimpleVirus simulation&quot;</span>)
+    pylab.xlabel(<span class="st">&quot;Time Steps&quot;</span>)
+    pylab.ylabel(<span class="st">&quot;Average Virus Population&quot;</span>)
+    pylab.legend(loc <span class="op">=</span> <span class="st">&quot;best&quot;</span>)
+    pylab.show()
+
+<span class="kw">class</span> ResistantVirus(SimpleVirus):
+    <span class="co">&quot;&quot;&quot;</span>
+<span class="co">    Representation of a virus which can have drug resistance.</span>
+<span class="co">    &quot;&quot;&quot;</span>
+
+    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, maxBirthProb, clearProb, resistances, mutProb):
+        SimpleVirus.<span class="fu">__init__</span>(<span class="va">self</span>, maxBirthProb, clearProb)
+        <span class="va">self</span>.resistances <span class="op">=</span> resistances
+        <span class="va">self</span>.mutProb <span class="op">=</span> mutProb
+
+    <span class="kw">def</span> getResistances(<span class="va">self</span>):
+        <span class="cf">return</span> <span class="va">self</span>.resistances
+
+    <span class="kw">def</span> getMutProb(<span class="va">self</span>):
+        <span class="cf">return</span> <span class="va">self</span>.mutProb
+
+    <span class="kw">def</span> isResistantTo(<span class="va">self</span>, drug):
+        <span class="cf">if</span> drug <span class="kw">in</span> <span class="va">self</span>.getResistances().keys():
+            <span class="cf">return</span> <span class="va">self</span>.getResistances()[drug]
+        <span class="cf">else</span>:
+            <span class="cf">return</span> <span class="va">False</span>
+
+    <span class="kw">def</span> reproduce(<span class="va">self</span>, popDensity, activeDrugs):
+        <span class="co"># If virus reproduces: generate info for initiating new ResistantVirus</span>
+        enough_space <span class="op">=</span> random.random() <span class="op">&lt;=</span> <span class="va">self</span>.getMaxBirthProb() <span class="op">*</span> (<span class="dv">1</span> <span class="op">-</span> popDensity)
+        resisted_drug <span class="op">=</span> <span class="va">False</span>
+        <span class="cf">try</span>:
+            <span class="cf">if</span> <span class="bu">all</span>(<span class="va">self</span>.getResistances()[drug] <span class="op">==</span> <span class="va">True</span> <span class="cf">for</span> drug <span class="kw">in</span> activeDrugs): 
+                resisted_drug <span class="op">=</span> <span class="va">True</span>
+            <span class="cf">if</span> (enough_space) <span class="kw">and</span> (resisted_drug):
+                new_resistances <span class="op">=</span> {}
+                <span class="co"># Generate new resistance dictionary</span>
+                <span class="cf">for</span> drug, resistance <span class="kw">in</span> <span class="va">self</span>.getResistances().items():
+                    <span class="co"># If random num is less than mutation prob, the mutation occurs</span>
+                    <span class="cf">if</span> random.random() <span class="op">&lt;=</span> <span class="va">self</span>.getMutProb():
+                        new_resistances[drug] <span class="op">=</span> <span class="kw">not</span>(resistance)
+                    <span class="cf">else</span>:
+                        new_resistances[drug] <span class="op">=</span> resistance
+                <span class="cf">return</span> ResistantVirus(<span class="va">self</span>.getMaxBirthProb(), <span class="va">self</span>.getClearProb(), new_resistances, <span class="va">self</span>.getMutProb())
+            <span class="cf">else</span>:
+                <span class="cf">raise</span> NoChildException
+        <span class="cf">except</span> <span class="pp">KeyError</span>:
+            <span class="co"># If the Virus doesn&#39;t have the drug in its resistances, it isn&#39;t resistant by definition</span>
+            <span class="cf">raise</span> NoChildException
+
+
+<span class="kw">class</span> TreatedPatient(Patient):
+    <span class="co">&quot;&quot;&quot;</span>
+<span class="co">    Representation of a patient. The patient is able to take drugs and his/her</span>
+<span class="co">    virus population can acquire resistance to the drugs he/she takes.</span>
+<span class="co">    &quot;&quot;&quot;</span>
+
+    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, viruses, maxPop):
+        Patient.<span class="fu">__init__</span>(<span class="va">self</span>, viruses, maxPop)
+        <span class="va">self</span>.treatments <span class="op">=</span> []
+
+    <span class="kw">def</span> addPrescription(<span class="va">self</span>, newDrug):
+        <span class="cf">if</span> newDrug <span class="kw">not</span> <span class="kw">in</span> <span class="va">self</span>.treatments:
+            <span class="va">self</span>.treatments.append(newDrug)
+
+    <span class="kw">def</span> getPrescriptions(<span class="va">self</span>):
+        <span class="cf">return</span> <span class="va">self</span>.treatments
+
+    <span class="kw">def</span> getResistPop(<span class="va">self</span>, drugResist):
+        num_vir <span class="op">=</span> <span class="dv">0</span>
+        <span class="cf">for</span> virus <span class="kw">in</span> <span class="va">self</span>.getViruses():
+            <span class="co"># Check that drug is in Resistances before trying to access - avoids KeyError </span>
+            <span class="cf">try</span>:
+                <span class="cf">if</span> (drugResist) <span class="kw">and</span> (<span class="bu">all</span>(virus.getResistances()[drug] <span class="op">==</span> <span class="va">True</span> <span class="cf">for</span> drug <span class="kw">in</span> drugResist)): 
+                    num_vir <span class="op">+=</span> <span class="dv">1</span>
+            <span class="cf">except</span> <span class="pp">KeyError</span>:
+                <span class="cf">pass</span>
+        <span class="cf">return</span> num_vir
+
+    <span class="kw">def</span> update(<span class="va">self</span>):
+        survived <span class="op">=</span> [virus <span class="cf">for</span> virus <span class="kw">in</span> <span class="va">self</span>.viruses <span class="cf">if</span> <span class="kw">not</span> virus.doesClear()]
+        <span class="va">self</span>.viruses <span class="op">=</span> survived.copy()
+        <span class="cf">for</span> virus <span class="kw">in</span> survived:
+            <span class="cf">try</span>:
+                popdensity <span class="op">=</span> <span class="va">self</span>.getTotalPop()<span class="op">/</span><span class="va">self</span>.getMaxPop()
+                <span class="va">self</span>.viruses.append(virus.reproduce(popdensity, <span class="va">self</span>.getPrescriptions()))
+            <span class="cf">except</span> NoChildException:
+                <span class="cf">pass</span>
+        <span class="cf">return</span> <span class="va">self</span>.getTotalPop()
+
+<span class="kw">def</span> simulationWithDrug(numViruses, maxPop, maxBirthProb, clearProb, resistances,
+                       mutProb, numTrials):
+    mydata <span class="op">=</span> np.empty([<span class="dv">300</span>, numTrials <span class="op">+</span> <span class="dv">1</span>])
+    mydata[:, :] <span class="op">=</span> <span class="va">None</span>
+    resist_vir <span class="op">=</span> mydata.copy()
+    viruslist <span class="op">=</span> [ResistantVirus(maxBirthProb <span class="op">=</span> maxBirthProb, clearProb <span class="op">=</span> clearProb,
+        resistances <span class="op">=</span> resistances, mutProb <span class="op">=</span> mutProb) <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(numViruses)]
+    <span class="cf">for</span> col <span class="kw">in</span> <span class="bu">range</span>(numTrials):
+        patient <span class="op">=</span> TreatedPatient(viruslist, maxPop)
+        <span class="cf">for</span> row <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">300</span>):
+            <span class="cf">if</span> row <span class="op">==</span> <span class="dv">150</span>:
+                patient.addPrescription(<span class="st">&quot;guttagonol&quot;</span>)
+            mydata[row, col] <span class="op">=</span> patient.update()
+            resist_vir[row, col] <span class="op">=</span> patient.getResistPop([<span class="st">&quot;guttagonol&quot;</span>])
+
+    mydata[:, numTrials] <span class="op">=</span> np.mean(mydata[:, <span class="dv">0</span>:numTrials], axis <span class="op">=</span> <span class="dv">1</span>)
+    resist_vir[:, numTrials] <span class="op">=</span> np.mean(resist_vir[:, <span class="dv">0</span>:numTrials], axis <span class="op">=</span> <span class="dv">1</span>)
+
+    pylab.plot(mydata[:,numTrials].tolist(), label <span class="op">=</span> <span class="st">&quot;ResistantVirus Total Population&quot;</span>)
+    pylab.plot(resist_vir[:,numTrials].tolist(), label <span class="op">=</span> <span class="st">&quot;ResistantVirus Resistant Population&quot;</span>)
+    pylab.title(<span class="st">&quot;ResistantVirus, Total and Resistant simulation&quot;</span>)
+    pylab.xlabel(<span class="st">&quot;Time Steps&quot;</span>)
+    pylab.ylabel(<span class="st">&quot;Average Virus Population&quot;</span>)
+    pylab.legend(loc <span class="op">=</span> <span class="st">&quot;best&quot;</span>)
+    pylab.show()</code></pre></div>
+</body>
+</html>

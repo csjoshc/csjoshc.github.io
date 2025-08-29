@@ -1,0 +1,5 @@
+# Rebuild Queue - Files that need to be converted/rebuilt
+# Format: file_path|action|timestamp
+# Actions: ipynb_to_md, md_to_html, both
+# This file is automatically managed by Cursor rules and build scripts
+

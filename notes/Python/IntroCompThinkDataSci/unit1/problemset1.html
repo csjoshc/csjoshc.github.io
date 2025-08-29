@@ -1,0 +1,195 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="date" content="2019-05-30" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #232629; color: #cfcfc2; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; background-color: #232629; color: #7a7c7d; border-right: 1px solid #7a7c7d; }
+td.sourceCode { padding-left: 5px; }
+pre, code { color: #cfcfc2; background-color: #232629; }
+code > span.kw { color: #cfcfc2; } /* Keyword */
+code > span.dt { color: #2980b9; } /* DataType */
+code > span.dv { color: #f67400; } /* DecVal */
+code > span.bn { color: #f67400; } /* BaseN */
+code > span.fl { color: #f67400; } /* Float */
+code > span.cn { color: #27aeae; } /* Constant */
+code > span.ch { color: #3daee9; } /* Char */
+code > span.sc { color: #3daee9; } /* SpecialChar */
+code > span.st { color: #f44f4f; } /* String */
+code > span.vs { color: #da4453; } /* VerbatimString */
+code > span.ss { color: #da4453; } /* SpecialString */
+code > span.im { color: #27ae60; } /* Import */
+code > span.co { color: #7a7c7d; } /* Comment */
+code > span.do { color: #a43340; } /* Documentation */
+code > span.an { color: #3f8058; } /* Annotation */
+code > span.cv { color: #7f8c8d; } /* CommentVar */
+code > span.ot { color: #27ae60; } /* Other */
+code > span.fu { color: #8e44ad; } /* Function */
+code > span.va { color: #27aeae; } /* Variable */
+code > span.cf { color: #fdbc4b; } /* ControlFlow */
+code > span.op { color: #cfcfc2; } /* Operator */
+code > span.bu { color: #7f8c8d; } /* BuiltIn */
+code > span.ex { color: #0099ff; } /* Extension */
+code > span.pp { color: #27ae60; } /* Preprocessor */
+code > span.at { color: #2980b9; } /* Attribute */
+code > span.re { color: #2980b9; } /* RegionMarker */
+code > span.in { color: #c45b00; } /* Information */
+code > span.wa { color: #da4453; } /* Warning */
+code > span.al { color: #95da4c; } /* Alert */
+code > span.er { color: #da4453; } /* Error */
+code > span. { color: #cfcfc2; } /* Normal */
+  </style>
+</head>
+<body>
+<div id="TOC">
+<ul>
+<li><a href="#planning-for-problem-set-1">Planning for problem set 1</a><ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#problem-1---greedy-cow-transport">Problem 1 - Greedy Cow Transport</a><ul>
+<li><a href="#solution-for-problem-1">Solution for problem 1</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#problem-2---brute-force-transport">Problem 2 - Brute Force Transport</a><ul>
+<li><a href="#solution-for-problem-2">Solution for Problem 2</a></li>
+</ul></li>
+<li><a href="#problem-3---compare-the-algorithms">Problem 3 - Compare the algorithms</a><ul>
+<li><a href="#solution-for-problem-3">Solution for Problem 3</a></li>
+</ul></li>
+</ul>
+</div>
+<p><a href="../../../../index.html">Go back to index</a></p>
+<p><a href="../../base.html">Go back to Python Portal</a></p>
+<head>
+  
+  <meta name="viewport" content="initial-scale=1, width=device-width">
+</head>
+<h1 id="planning-for-problem-set-1">Planning for problem set 1</h1>
+<h2 id="overview">Overview</h2>
+<p>A problem of selecting items (Cows) to fit in a bag based on the 'space' available</p>
+<p>Each possible cow has a name and a space consumption associated with it:</p>
+<pre><code>Maggie,3
+Herman,7
+Betsy,9
+Oreo,6
+Moo Moo,3
+Milkshake,2
+Millie,5
+Lola,2
+Florence,2
+Henrietta,9</code></pre>
+<h2 id="problem-1---greedy-cow-transport">Problem 1 - Greedy Cow Transport</h2>
+<ul>
+<li>pick the heaviest cow first</li>
+<li>don't mutate the dictionary that is passed in - make a <code>.copy()</code> of that dictionary?</li>
+<li>Order doesn't matter, break same weight ties arbitrarily, unique names</li>
+</ul>
+<p>Example: Running the function with two parameters: a list of cows to transport, and the weight limit per trip</p>
+<pre><code>`{&quot;Jesse&quot;: 6, &quot;Maybel&quot;: 3, &quot;Callie&quot;: 2, &quot;Maggie&quot;: 5}, 10`</code></pre>
+<p>The correct answer would be</p>
+<pre><code>`[[&quot;Jesse&quot;, &quot;Maybel&quot;], [&quot;Maggie&quot;, &quot;Callie&quot;]]`</code></pre>
+<p>Some thoughts: The algorithm always chooses the HEAVIEST cow first. This means that we sometimes get nonoptimal solutions, such as the fact with a weight limit of 10 you could'vce fit 3 cows in the first trip (5, 3, and 2 units) if you had avoided choosing weight 6 first.</p>
+<p>The logic would be</p>
+<ol>
+<li>While there are cows left to transport:</li>
+<li>While there is space in the current trip</li>
+<li>Choose the heaviest cow and add it</li>
+<li>If there is no space, begin a new trip</li>
+</ol>
+<p>I think I'll try implementing this as nested loops before trying recursion</p>
+<h3 id="solution-for-problem-1">Solution for problem 1</h3>
+<p>Spoilers below.</p>
+<p>My way of dealing with dictionaries and finding the correct key to append to the trip list was a little crude, but it works overall.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> greedy_cow_transport(cows,limit<span class="op">=</span><span class="dv">10</span>):
+    cowsleft <span class="op">=</span> cows.copy()
+    triplist <span class="op">=</span> []
+    index <span class="op">=</span> <span class="dv">0</span>
+    <span class="cf">while</span> <span class="bu">len</span>(cowsleft) <span class="op">!=</span> <span class="dv">0</span>:
+        space <span class="op">=</span> limit
+        triplist.append([])
+        <span class="cf">while</span> <span class="bu">len</span>(cowsleft) <span class="op">!=</span> <span class="dv">0</span> <span class="kw">and</span> space <span class="op">&gt;=</span> cowsleft[<span class="bu">min</span>(cowsleft, key<span class="op">=</span>cowsleft.get)]:
+        <span class="co"># filling a trip can empty the remaining cow list - need to prevent ValueError when trying to find min of empty dict</span>
+            <span class="co"># While there is space for the smallest cow, try putting in all the cows</span>
+            keys <span class="op">=</span> []
+            weight <span class="op">=</span> <span class="bu">max</span>(v <span class="cf">for</span> k, v <span class="kw">in</span> cowsleft.items() <span class="cf">if</span> v <span class="op">&lt;=</span> space)
+            <span class="cf">for</span> key, val <span class="kw">in</span> cowsleft.items():
+                <span class="cf">if</span> val <span class="op">==</span> weight:
+                    keys.append(key)
+            triplist[index].append(keys[<span class="dv">0</span>])
+            cowsleft.pop(keys[<span class="dv">0</span>], <span class="va">None</span>)
+            space <span class="op">=</span> space <span class="op">-</span> weight
+            <span class="co"># still filling up the same trip here</span>
+        <span class="co"># exiting to the first while loop means the trip became full.  </span>
+        <span class="co"># therefore we need to increase trip index by one</span>
+        index <span class="op">+=</span><span class="dv">1</span>
+        <span class="co"># now we can loop again to begin loading for the next trip</span>
+    <span class="cf">return</span> triplist</code></pre></div>
+<h1 id="problem-2---brute-force-transport">Problem 2 - Brute Force Transport</h1>
+<p>The brute force algorithm finds the <strong>minimum number</strong> of trips to transport all the cows. Therefore, it starts from the least number of <strong>set partitions</strong> and increases it as lower numbers are ruled out.</p>
+<ul>
+<li>the <code>get_partitions(list)</code> function returns a generator object for all the set partitions of the given list. The output needs to be sorted.</li>
+<li>save the returned item and call <code>item.__next__()</code></li>
+</ul>
+<p>The logic would be 1. for the set partitions in the generator object 2. For each trip in the set parition 3. Test capacity (under the limit) for <strong>that trip</strong> 4. Loop through all trips. 1. If any is over the limit, immediately break out of the weight counting loop and go onto the next set partition 2. Else no breaks then return the set partition</p>
+<p>The roadblock for this problem was understanding that the generator, the way it was implemented, did not yield set partitions in increasing set number (smallest number of sets first). Basically the generator was a black box for this problem set since I didn't really want to dig into how it made the sets. Once you apply sorting to a list of all the generator's yields, then you can use the above logic to get the optimal solution.</p>
+<h3 id="solution-for-problem-2">Solution for Problem 2</h3>
+<p>Spoilers below.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> brute_force_cow_transport(cows,limit<span class="op">=</span><span class="dv">10</span>):
+    cowgen <span class="op">=</span> get_partitions(cows)
+    mypartitions <span class="op">=</span> []
+    <span class="cf">for</span> item <span class="kw">in</span> cowgen:
+        mypartitions.append(item)
+    mypartitions.sort(key<span class="op">=</span><span class="bu">len</span>)
+
+    <span class="cf">for</span> item <span class="kw">in</span> mypartitions:
+        
+        <span class="cf">for</span> trip <span class="kw">in</span> item:
+            tripweight <span class="op">=</span> <span class="dv">0</span>
+            fits <span class="op">=</span> <span class="va">True</span>
+            <span class="co"># the &#39;trip fits&#39; flag is True by default and is changed w/ break</span>
+            
+            <span class="cf">for</span> cow <span class="kw">in</span> trip:
+                tripweight <span class="op">+=</span> cows[cow]
+            <span class="co"># compare summed weight to limit</span>
+            <span class="co">#print(tripweight)</span>
+            
+            <span class="cf">if</span> tripweight <span class="op">&gt;</span> limit:
+                <span class="co"># break out of current set parition (for trip in item)</span>
+                <span class="co"># print(&quot;Is greater:&quot;, trip, tripweight, limit)</span>
+                <span class="co">#print(&quot;Breaking on trip:&quot;, trip, tripweight)</span>
+                fits <span class="op">=</span> <span class="va">False</span>
+                <span class="cf">break</span>
+            
+        <span class="co">#print(item, &quot;break&quot;, fits)</span>
+        <span class="co"># if &quot;fits&quot; flag is True, that means all trips were tested and were not broken out of because of excessive weight</span>
+        <span class="co"># therefore we can use it to trigger a return for the current item</span>
+        
+        <span class="cf">if</span> fits:
+            <span class="cf">return</span> item</code></pre></div>
+<h1 id="problem-3---compare-the-algorithms">Problem 3 - Compare the algorithms</h1>
+<p>The brute force algorithm takes 6800 times as long the way I implemented it. It is guaranteed to give the optimal solution, while the greedy one <em>may</em> or <em>may not</em> arrive at the optimal solution.</p>
+<h3 id="solution-for-problem-3">Solution for Problem 3</h3>
+<p>Spoilers below. This was a quick and dirty snippet to answer the multiple choice questions since they didn't actually need ask for code for the grader for problem 3.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">start <span class="op">=</span> time.time()
+<span class="bu">print</span>(greedy_cow_transport(cows, <span class="dv">10</span>))
+end <span class="op">=</span> time.time()
+<span class="bu">print</span>(end <span class="op">-</span> start)
+
+start1 <span class="op">=</span> time.time()
+<span class="bu">print</span>(brute_force_cow_transport(cows, <span class="dv">10</span>))
+end1 <span class="op">=</span> time.time()
+<span class="bu">print</span>(end1 <span class="op">-</span> start1)
+
+[[<span class="st">&#39;Betsy&#39;</span>], [<span class="st">&#39;Henrietta&#39;</span>], [<span class="st">&#39;Herman&#39;</span>, <span class="st">&#39;Maggie&#39;</span>], [<span class="st">&#39;Oreo&#39;</span>, <span class="st">&#39;Moo Moo&#39;</span>], [<span class="st">&#39;Millie&#39;</span>, <span class="st">&#39;Milkshake&#39;</span>, <span class="st">&#39;Lola&#39;</span>], [<span class="st">&#39;Florence&#39;</span>]]
+<span class="fl">0.00010728836059570312</span>
+[[<span class="st">&#39;Henrietta&#39;</span>], [<span class="st">&#39;Betsy&#39;</span>], [<span class="st">&#39;Florence&#39;</span>, <span class="st">&#39;Millie&#39;</span>, <span class="st">&#39;Maggie&#39;</span>], [<span class="st">&#39;Moo Moo&#39;</span>, <span class="st">&#39;Herman&#39;</span>], [<span class="st">&#39;Milkshake&#39;</span>, <span class="st">&#39;Oreo&#39;</span>, <span class="st">&#39;Lola&#39;</span>]]
+<span class="fl">0.7299518585205078</span></code></pre></div>
+</body>
+</html>

@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Personal learning and note-taking website">
+    <meta name="author" content="Josh Chiu">
+    <link rel="canonical" href="https://csjoshc.github.io/Python/IntroCompThinkDataSci/unit1/unit1/">
+    <link rel="shortcut icon" href="../../../../img/favicon.ico">
+
+    
+    <title>Data Science Unit 1 - Josh's Learning Notes</title>
+    
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
+    <link href='//rsms.me/inter/inter.css' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../../../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../../../css/base.min.css" rel="stylesheet">
+    <link href="../../../../css/cinder.min.css" rel="stylesheet">
+
+    
+        
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/github.min.css">
+        
+    
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    
+
+     
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            
+              <a class="navbar-brand" href="../../../..">Josh's Learning Notes</a>
+            
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../../../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">General <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../../General/base/">Overview</a>
+</li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">CS50x 2019</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../../General/CS50x2019/cppbasics/">C++ Basics</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../../General/CS50x2019/database/">Database</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../../General/CS50x2019/flask/">Flask</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../../General/CS50x2019/python/">Python</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../../General/CS50x2019/webbasics/">Web Basics</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+<li >
+    <a href="../../../../General/webdev2019/">Web Development 2019</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Python <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../base/">Overview</a>
+</li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">General</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../General/virtenv_jupyter_nb/">Virtual Environments & Jupyter</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../General/ifnameismain/">If Name Main</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Data Science Course</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../PythonforDataScience/1_Introduction/">Introduction</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../PythonforDataScience/2_Basics/">Python Basics</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../PythonforDataScience/3_Numpy/">NumPy</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../PythonforDataScience/4_Pandas/">Pandas</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../PythonforDataScience/4_Pandas2/">Pandas 2</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../PythonforDataScience/4_Pandas3/">Pandas 3</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../PythonforDataScience/4_Pandas4/">Pandas 4</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../PythonforDataScience/4_Pandas5/">Pandas 5</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../PythonforDataScience/5_Matplotlib/">Matplotlib</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../PythonforDataScience/7_ML/">Machine Learning</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../PythonforDataScience/7_ML_Reg/">ML Regression</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../PythonforDataScience/7_ML_DT/">ML Decision Trees</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../PythonforDataScience/7_ML_Clust/">ML Clustering</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Probability & Statistics</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../ProbabilityandStatistics/1_Introduction/">Introduction</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../ProbabilityandStatistics/2_Sets/">Sets</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">MIT Courses</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../IntroCompSciPython/unit7/">Computer Science Unit 7</a>
+</li>
+
+        
+            
+<li class="active">
+    <a href="./">Data Science Unit 1</a>
+</li>
+
+        
+            
+<li >
+    <a href="../problemset1/">Problem Set 1</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../unit2/plotting/">Unit 2 Plotting</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../unit2/unit2/">Unit 2</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../unit2/ps2/">Problem Set 2</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../unit3/unit3/">Unit 3</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../unit3/ps3/">Problem Set 3</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../unit4/unit4/">Unit 4</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../unit4/ps4/">Problem Set 4</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../unit5/unit5/">Unit 5</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">GitHub <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../../Github/intro_gh/">Introduction</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../../Github/bugs_gh/">Bug Reports</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Linux <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../../Linux/base/">Overview</a>
+</li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Linux Journey</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../../Linux/linux_journey/basic/01_comlin/">Command Line</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../../Linux/linux_journey/linux_journey_toc/">Table of Contents</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">DevOps <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../../Devops/base/">Overview</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../../Devops/roadmap_notes/">Roadmap Notes</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Utilities <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../../utils/base/">Overview</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../../utils/01_BatchConversions/">Batch Conversions</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Site Updates <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../../site_updates/base/">Overview</a>
+</li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">March 2019</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../../site_updates/3_2019/2_3_2019/">March 2nd</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../../site_updates/3_2019/9_3_2019/">March 9th</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../../site_updates/3_2019/16_3_2019/">March 16th</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../../site_updates/3_2019/23_3_2019/">March 23rd</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">April 2019</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../../site_updates/4_2019/13_4_2019/">April 13th</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../../site_updates/4_2019/20_4_2019/">April 20th</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">May 2019</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../../site_updates/5_2019/04_5_2019/">May 4th</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../../site_updates/5_2019/11_5_2019/">May 11th</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../../site_updates/5_2019/25_5_2019/">May 25th</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">June 2019</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../../site_updates/6_2019/15_6_2019/">June 15th</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Project Ideas</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../../site_updates/project_ideas/indeed_cloud/">Indeed Cloud</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../../../todo/">Todo</a>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../../../IntroCompSciPython/unit7/">
+                            <i class="fas fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="next" href="../problemset1/">
+                            Next <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#optimization-models-the-knapsack-problem">Optimization models &amp; the Knapsack problem</a></li>
+            <li class="second-level"><a href="#knapsack-problem">Knapsack problem</a></li>
+                
+            <li class="second-level"><a href="#brute-force-algorithm">Brute force algorithm</a></li>
+                
+            <li class="second-level"><a href="#greedy-algorithm">Greedy algorithm</a></li>
+                
+        <li class="first-level "><a href="#decision-trees-and-dynamic-programming">Decision trees and dynamic programming</a></li>
+            <li class="second-level"><a href="#recursive-fibonacci">Recursive Fibonacci</a></li>
+                
+            <li class="second-level"><a href="#memoization-dynamic-programming">Memoization - Dynamic Programming</a></li>
+                
+            <li class="second-level"><a href="#dynamic-programming">Dynamic Programming</a></li>
+                
+        <li class="first-level "><a href="#graph-problems">Graph Problems</a></li>
+            <li class="second-level"><a href="#exercise-3-three-students-in-a-line">Exercise 3 - three students in a line</a></li>
+                
+            <li class="second-level"><a href="#finding-the-shortest-path">Finding the shortest path</a></li>
+                
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<!-- Python Portal Navigation Template -->
+<!-- This template provides navigation for Python Portal pages -->
+
+<div class="return-navigation">
+  <a href="../../index.md" class="nav-button index-button">🏠 Home</a>
+  <a href="base.md" class="nav-button portal-button">🐍 Python</a>
+</div>
+
+<!-- Content starts here -->
+
+<h1 id="optimization-models-the-knapsack-problem">Optimization models &amp; the Knapsack problem</h1>
+<ul>
+<li>Objective function to maximize or minimize</li>
+<li>Constraints </li>
+<li>Often just approximate a solution with a greedy algorithm</li>
+</ul>
+<h2 id="knapsack-problem">Knapsack problem</h2>
+<p>In the knapsack problem, you have a capacity and have to decide how to fill it. Discrete contents are harder than continuous ones. 
+* Each item is a pair of value and weight
+* Knapsack has a total capacity, <em>w</em> 
+* A set of available items
+* A list indicating whether an item has already been taken
+* For each item in available items, choose those to take and multiply it by its value.
+* The sum of chosen items' weights is less than <em>w</em></p>
+<h2 id="brute-force-algorithm">Brute force algorithm</h2>
+<ul>
+<li>Try every possible combination (every subset of subject set), remove those not under <em>w</em>, and choose the remaining with highest value. </li>
+<li>The algorithm is exponential, having 2^n complexity</li>
+<li>Find approximate and optimal solutions</li>
+</ul>
+<h2 id="greedy-algorithm">Greedy algorithm</h2>
+<ul>
+<li>while the knapsack is not full, put the best available item in. </li>
+<li>nlog(n) complexity
+What does 'best' mean? Based on the highest value, lowest weight, or the ratio? 
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">greedy</span><span class="p">(</span><span class="n">items</span><span class="p">,</span> <span class="n">maxCost</span><span class="p">,</span> <span class="n">keyFunction</span><span class="p">):</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Assumes items a list, maxCost &gt;= 0,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="sd">         keyFunction maps elements of items to numbers&quot;&quot;&quot;</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="n">itemsCopy</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">items</span><span class="p">,</span> <span class="n">key</span> <span class="o">=</span> <span class="n">keyFunction</span><span class="p">,</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>                       <span class="n">reverse</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="n">totalValue</span><span class="p">,</span> <span class="n">totalCost</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">itemsCopy</span><span class="p">)):</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>        <span class="k">if</span> <span class="p">(</span><span class="n">totalCost</span><span class="o">+</span><span class="n">itemsCopy</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">getCost</span><span class="p">())</span> <span class="o">&lt;=</span> <span class="n">maxCost</span><span class="p">:</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">itemsCopy</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>            <span class="n">totalCost</span> <span class="o">+=</span> <span class="n">itemsCopy</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">getCost</span><span class="p">()</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>            <span class="n">totalValue</span> <span class="o">+=</span> <span class="n">itemsCopy</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">getValue</span><span class="p">()</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>    <span class="k">return</span> <span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">totalValue</span><span class="p">)</span>
+</code></pre></div>
+Using the lambda function:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="s1">&#39;yes&#39;</span> <span class="k">if</span> <span class="p">(</span><span class="n">x</span><span class="o">%</span><span class="n">y</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="k">else</span> <span class="s1">&#39;no&#39;</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="s1">&#39;no&#39;</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">f</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="s1">&#39;yes&#39;</span>
+</code></pre></div>
+The keyfunction will define how the greedy algorithm makes choices. Different answers will result since locally optimal choices won't necessarily yield globally optimal solutions. </li>
+<li>especially seen in local optima</li>
+<li>performance will depend on constraints</li>
+</ul>
+<h1 id="decision-trees-and-dynamic-programming">Decision trees and dynamic programming</h1>
+<ul>
+<li>Select from the list of available items</li>
+<li>If an item fits, a node represents the decision to take (left) or not to take (right) that item. </li>
+<li>Recursively apply to nonleaf children</li>
+<li>complexity is exponential, 2^n
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">maxVal</span><span class="p">(</span><span class="n">toConsider</span><span class="p">,</span> <span class="n">avail</span><span class="p">):</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="sd">&quot;&quot;&quot;Assumes toConsider a list of items, avail a weight</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="sd">Returns a tuples of the total value of a solution to the 0/1 knapsack</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="sd">problem and the items of that solution&quot;&quot;&quot;</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="k">if</span> <span class="n">toConsider</span> <span class="o">==</span> <span class="p">[]</span> <span class="ow">or</span> <span class="n">avail</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    <span class="n">result</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">())</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="k">elif</span> <span class="n">toConsider</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">getCost</span><span class="p">()</span> <span class="o">&gt;</span> <span class="n">avail</span><span class="p">:</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>    <span class="c1"># Explore right branch only</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>    <span class="n">result</span> <span class="o">=</span> <span class="n">maxVal</span><span class="p">(</span><span class="n">toConsider</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">avail</span><span class="p">)</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>    <span class="n">nextItem</span> <span class="o">=</span> <span class="n">toConsider</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>    <span class="c1"># Explore left branch</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>    <span class="n">withVal</span><span class="p">,</span> <span class="n">withToTake</span> <span class="o">=</span> <span class="n">maxVal</span><span class="p">(</span><span class="n">toConsider</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">avail</span> <span class="o">-</span> <span class="n">nextItem</span><span class="o">.</span><span class="n">getCost</span><span class="p">())</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>    <span class="n">withVal</span> <span class="o">+=</span> <span class="n">nextItem</span><span class="o">.</span><span class="n">getValue</span><span class="p">()</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>    <span class="c1"># Explore right branch</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>    <span class="n">withoutVal</span><span class="p">,</span> <span class="n">withoutToTake</span> <span class="o">=</span> <span class="n">maxVal</span><span class="p">(</span><span class="n">toConsider</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">avail</span><span class="p">)</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>    <span class="c1"># Explore better branch</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>    <span class="k">if</span> <span class="n">withVal</span> <span class="o">&gt;</span> <span class="n">withoutVal</span><span class="p">:</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>        <span class="n">result</span> <span class="o">=</span> <span class="p">(</span><span class="n">withVal</span><span class="p">,</span> <span class="n">withToTake</span> <span class="o">+</span> <span class="p">(</span><span class="n">nextItem</span><span class="p">,))</span>
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>    <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>        <span class="n">result</span> <span class="o">=</span> <span class="p">(</span><span class="n">withoutVal</span><span class="p">,</span> <span class="n">withoutToTake</span><span class="p">)</span>
+<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="k">return</span> <span class="n">result</span>
+</code></pre></div></li>
+<li>Consider the first item - if it exceeds the available space, recursively call itself to consider the rest of thelist</li>
+<li>Else - consider the cases where the item is <strong>taken</strong> or <strong>not taken</strong>; in both cases the item is <strong>removed</strong> from the items to take (<code>toConsider[1:]</code>).</li>
+<li>If the item is <strong>taken</strong>, then call the function recursively with the avaiable space minus that of the taken item (<code>avail - nextItem.getUnits()</code>).</li>
+<li>If the item is <strong>not taken</strong>, call the function recursively with the same available space, <code>avail</code>. </li>
+<li>Finally, evaluate both branches for the better outcome. </li>
+<li>Return <code>result</code>, a tuple of the value in a set, and a list of the items in a set. This is the best solution thus far. </li>
+</ul>
+<h2 id="recursive-fibonacci">Recursive Fibonacci</h2>
+<p>The below implementation is simple but impossible to run for moderately sized numbers due to how inefficient it is, since the number of function calls is basically related to the growth in fibonacci value itself. For example fib(120) is about 8.7E24.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>        <span class="k">return</span> <span class="mi">1</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>        <span class="k">return</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+</code></pre></div></p>
+<h2 id="memoization-dynamic-programming">Memoization - Dynamic Programming</h2>
+<p>When repeating function calls for identical inputs, lookup the output value in a previously recorded table instead of recalculating it. If it hasn't been calculated yet, calculate it and add it to the table. 
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">fastFib</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">memo</span> <span class="o">=</span> <span class="p">{}):</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>        <span class="k">return</span> <span class="mi">1</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    <span class="c1"># return the value at key in memo if n != 0,1</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    <span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>        <span class="k">return</span> <span class="n">memo</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>    <span class="c1"># calculate new value and store in memo dict if unknown</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>    <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>        <span class="n">result</span> <span class="o">=</span> <span class="n">fastFib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">memo</span><span class="p">)</span> <span class="o">+</span> <span class="n">fastFib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">,</span> <span class="n">memo</span><span class="p">)</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>        <span class="n">memo</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>        <span class="k">return</span> <span class="n">result</span>
+</code></pre></div>
+Dynamic programming criteria:
+* <strong>Optimal Substructure</strong> - locally optimal solutions can be comebined for globally optimal solutions
+* <strong>Overlapping subproblems</strong> - identical subproblems use identical solutions </p>
+<h2 id="dynamic-programming">Dynamic Programming</h2>
+<p>For a bag problem, subproblems can be made to be overlapping by generalizing the problem to be solved as a function of remaining weight and the weight of taken items, regardless of the specific items taken. For example, two subproblems would overlap if the occupied weight and available items to choose from were identical, even if the items chosen so far were different. 
+In defining a specific subproblem, pass a dictionary of previously encountered subproblems and optimal solutions: The key is a tuple of items left to be considered (length of the item list since items are removed after being considered) and the remaining weight. 
+Overall, dynamic programming runs on low order polynomial in a best case scenario, and can be much, much faster than a comparable exponential algorithm. 
+* solve problems with exponential solution space
+* find optimal solutions, not just approximate ones
+* reduce sorting order below nlogn from merge sort
+* Example: choosing step sizes (1, 2) for N steps to traverse is a problem with optimal substructure and overlapping subproblems. </p>
+<h1 id="graph-problems">Graph Problems</h1>
+<p>A graph is a set of nodes/vertices that may have properties associated with them (color in this example). The edges/arcs connecting pairs of nodes can be undirected or directed (with parent and child nodes), and unweighted or weighed. This example is of a graph with directed, weighted edges. 
+<img alt="" src="screenshot2.webp" />
+A tree is a special case of a graph. Networks in general can be represented by graphs. In these networks, note attributes can include the color, size and label of the node. 
+ ## Roads and graph theory
+ A good example of real world application is modeling travel distance between two locations, with those locations and other intermediate locations modeled as nodes, and the distance between modeled as edges. Each edge has a weight representing the source to destination travel time. Then, the ideal travel time would be the solution of a graph optimization problem. 
+ For this class of problems more generally, graphs allow the abstraction away of irrelevant details. 
+ ## Class Graph
+ There are a few classes implemented, and I'll just summarize them each here</p>
+<ul>
+<li><code>Node</code> - only has a "Name" attribute</li>
+<li><code>Edge</code> - constructor has source, dest attributes assumed to be of class Node</li>
+<li><code>Digraph</code> - constructor takes no arguments, but has an edges attribute that is initialized empty, a dictionary mapping each of its Node attributes to one or more of its other Node attrributes. The primary helper functions include those adding Nodes, Edges and also a decorator to define the conversion to a string when printing the object. Other helper functions are for accessing and returning Node attributes. </li>
+<li><code>Graph</code> - a subclass of Digraph with a <code>addEdge()</code> method that overrides the parent class method by adding an additional reversed edge to the edges dictionary attribute.
+The edges attribute of Class Digraph is an adjacency list, associating each node with a list of child nodes. 
+When representing graphs, phenomena such as loops can arise, which complicates the optimization search. </li>
+</ul>
+<h2 id="exercise-3-three-students-in-a-line">Exercise 3 - three students in a line</h2>
+<p>Combination of three students (ordered line) are represented by nodes. Two nodes are connected by an edge if the ordered lines are interchangeable by just switching one pair of adjacent students. 
+The way the addEdge method is implemented for Graph class, the node must be in the edges attribute first before an edge can be added. </p>
+<h2 id="finding-the-shortest-path">Finding the shortest path</h2>
+<p>The depth first search is similar to the left first search of a bag problem. The main difference is keeping track of previously traversed nodes, since there can be loops in the graph. Also:
+* return to most recent node once a node with no children is reached
+* discard paths not shorter than the current shortest path
+* recursively find the DFS on child nodes not in the current path. 
+The breadth first search is somewhat more complex because it is searching across all nodes simultaneously, and thus needs to keep track of the depth of its search as it goes. It generates paths in a branching fashion - all child nodes of the current path are simultaneously generated and appended to a pathqueue. The oldest item in the pathqueue is removed and its child nodes are appended to it, and then added back to the pathqueue. As soon as a path is found, the algorithm stops - this works because all the path lengths in pathqueue increment in length together - therefore the first found path <strong>must</strong> be the shortest. 
+BFS isn't modifiable for use in a weighted path search. It is of O(n) complexity.
+* may run slower or faster than DFS
+* if it prioritizes the same nodes, will be as fast as DFS in 
+Graph problems are in some sense already solved with many algorithms - what is complex is fitting real world situations into the framework of graphs. 
+Last exercise - when defining a child class with its own constructor (not just its own methods), I needed to redefine all the attribute assignment, there should be a way to use the superclass constructor and just set the additional attributes
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">WeightedEdge</span><span class="p">(</span><span class="n">Edge</span><span class="p">):</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">src</span><span class="p">,</span> <span class="n">dest</span><span class="p">,</span> <span class="n">weight</span><span class="p">):</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">src</span> <span class="o">=</span> <span class="n">src</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">dest</span> <span class="o">=</span> <span class="n">dest</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">weight</span> <span class="o">=</span> <span class="n">weight</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">getWeight</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">weight</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">src</span><span class="o">.</span><span class="n">getName</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39;-&gt;&#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">dest</span><span class="o">.</span><span class="n">getName</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39; (&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getWeight</span><span class="p">())</span> <span class="o">+</span> <span class="s1">&#39;)&#39;</span>
+</code></pre></div></p></div>
+        
+        
+    </div>
+
+    
+      <footer class="col-md-12 text-center">
+          
+          
+            <hr>
+            <p>
+            <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</small>
+            </p>
+          
+
+          
+          
+      </footer>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../../../../js/bootstrap-3.0.3.min.js"></script>
+
+    
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
+        
+                <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/languages/python.min.js"></script>
+                <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/languages/javascript.min.js"></script>
+                <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/languages/html.min.js"></script>
+                <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/languages/css.min.js"></script>
+                <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/languages/bash.min.js"></script>
+                <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/languages/yaml.min.js"></script>
+                <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/languages/markdown.min.js"></script>
+        
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    <script>var base_url = "../../../.."</script>
+    
+    <script src="../../../../js/base.js"></script>
+    <script src="../../../../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+
+</html>

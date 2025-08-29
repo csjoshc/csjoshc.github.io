@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="date" content="2019-05-30" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+</head>
+<body>
+<div id="TOC">
+<ul>
+<li><a href="#intro-to-using-github">Intro to using Github</a><ul>
+<li><a href="#updating-an-existing-repository">Updating an existing repository</a></li>
+<li><a href="#adding-from-remote">Adding from remote</a></li>
+<li><a href="#git-checkout">git checkout</a></li>
+<li><a href="#formatting">Formatting</a></li>
+<li><a href="#compiling-.md-to-html-using-task-build-in-vscode">Compiling .md to html using task build in vscode</a></li>
+</ul></li>
+</ul>
+</div>
+<p><a href="../../index.html">Go back to index</a></p>
+<head>
+  
+  <meta name="viewport" content="initial-scale=1, width=device-width">
+</head>
+<h1 id="intro-to-using-github">Intro to using Github</h1>
+<ul>
+<li>create new respository on github</li>
+<li>create new folder under Notebooks</li>
+<li>change data directory in vscode</li>
+<li>create sample note md files</li>
+<li>follow directions on <a href="https://help.github.com/en/articles/adding-an-existing-project-to-github-using-the-command-line">this</a> link</li>
+</ul>
+<pre><code># in console, cd to folder above
+git init
+git add.
+git commit -m &quot;First commit&quot;
+# Then, **copy** the git url
+git remote add origin &lt;url&gt;
+git remote -v
+git push origin master</code></pre>
+<h2 id="updating-an-existing-repository">Updating an existing repository</h2>
+<p><code>cd /../../media/jcmint/'Data Volume'/csjoshc.github.io</code> I was having a lot of trouble managing the staging, commit and push to branch process. <a href="https://product.hubspot.com/blog/git-and-github-tutorial-for-beginners">This</a> <em>maybe</em> cleared it up for me. <strong>As a summary</strong>, after any file change you want to eventually push, you must do</p>
+<pre><code>git add .
+git status 
+git commit -a -m &quot;new change&quot;
+git push origin master</code></pre>
+<p><strong>the first and third must be used together after any change</strong>. <code>git add .</code> stages the current version of a file, or the current version of all the files. Therefore, this needs to be run after all changes you are intending to package together are made. <code>git status</code> good to run after git add. This will make sure you are committing what you think you are. <code>git commit</code> adds those changes to the index of changes to be sent off, and <code>git push origin master</code> is fine when working on own repository</p>
+<p><code>git push origin v1</code> - When pushing to branch * adding -u as an argument is questionable</p>
+<h2 id="adding-from-remote">Adding from remote</h2>
+<p><code>git clone repo.url</code> url = git@github.com:csjoshc/csjoshc.github.io.git</p>
+<h2 id="git-checkout">git checkout</h2>
+<p>This creates a new branch for tracking code changes that won't affect the state of the master or other branch (so you could switch back to that branch and push that branch as a separate project state from the new branch). At least that's how I understand it. This might not be that necessary, since I don't really have a dev vs production version of my notes.</p>
+<h2 id="formatting">Formatting</h2>
+<p>Now using <a href="https://gist.github.com/tuzz/3331384">premade css</a> in a folder in the root directory.</p>
+<h2 id="compiling-.md-to-html-using-task-build-in-vscode">Compiling .md to html using task build in vscode</h2>
+<p>Important step even though process isn't automated. Since I'm not changing too many .md too frequently, ctrl-shift-b and Build Task is ok. tasks.json:</p>
+<pre><code>&quot;command&quot;: &quot;markdown-it&quot;,
+&quot;args&quot;: [
+    &quot;${relativeFile}&quot;,
+    &quot;-o&quot;,
+    &quot;${fileDirname}/${fileBasenameNoExtension}.html&quot;
+],</code></pre>
+</body>
+</html>

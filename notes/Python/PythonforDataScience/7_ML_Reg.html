@@ -1,0 +1,559 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="date" content="2019-05-30" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #232629; color: #cfcfc2; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; background-color: #232629; color: #7a7c7d; border-right: 1px solid #7a7c7d; }
+td.sourceCode { padding-left: 5px; }
+pre, code { color: #cfcfc2; background-color: #232629; }
+code > span.kw { color: #cfcfc2; } /* Keyword */
+code > span.dt { color: #2980b9; } /* DataType */
+code > span.dv { color: #f67400; } /* DecVal */
+code > span.bn { color: #f67400; } /* BaseN */
+code > span.fl { color: #f67400; } /* Float */
+code > span.cn { color: #27aeae; } /* Constant */
+code > span.ch { color: #3daee9; } /* Char */
+code > span.sc { color: #3daee9; } /* SpecialChar */
+code > span.st { color: #f44f4f; } /* String */
+code > span.vs { color: #da4453; } /* VerbatimString */
+code > span.ss { color: #da4453; } /* SpecialString */
+code > span.im { color: #27ae60; } /* Import */
+code > span.co { color: #7a7c7d; } /* Comment */
+code > span.do { color: #a43340; } /* Documentation */
+code > span.an { color: #3f8058; } /* Annotation */
+code > span.cv { color: #7f8c8d; } /* CommentVar */
+code > span.ot { color: #27ae60; } /* Other */
+code > span.fu { color: #8e44ad; } /* Function */
+code > span.va { color: #27aeae; } /* Variable */
+code > span.cf { color: #fdbc4b; } /* ControlFlow */
+code > span.op { color: #cfcfc2; } /* Operator */
+code > span.bu { color: #7f8c8d; } /* BuiltIn */
+code > span.ex { color: #0099ff; } /* Extension */
+code > span.pp { color: #27ae60; } /* Preprocessor */
+code > span.at { color: #2980b9; } /* Attribute */
+code > span.re { color: #2980b9; } /* RegionMarker */
+code > span.in { color: #c45b00; } /* Information */
+code > span.wa { color: #da4453; } /* Warning */
+code > span.al { color: #95da4c; } /* Alert */
+code > span.er { color: #da4453; } /* Error */
+code > span. { color: #cfcfc2; } /* Normal */
+  </style>
+</head>
+<body>
+<div id="TOC">
+<ul>
+<li><a href="#linear-and-decision-tree-regression">Linear and Decision Tree Regression</a></li>
+</ul>
+</div>
+<p><a href="../../../index.html">Go back to index</a></p>
+<p><a href="../base.html">Go back to Python Portal</a></p>
+<head>
+  
+  <meta name="viewport" content="initial-scale=1, width=device-width">
+</head>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> sys
+<span class="bu">print</span>(sys.executable)
+<span class="im">from</span> IPython.core.interactiveshell <span class="im">import</span> InteractiveShell
+InteractiveShell.ast_node_interactivity <span class="op">=</span> <span class="st">&quot;all&quot;</span>
+InteractiveShell.colors <span class="op">=</span> <span class="st">&quot;Linux&quot;</span>
+InteractiveShell.separate_in <span class="op">=</span> <span class="dv">0</span>
+
+<span class="im">from</span> random <span class="im">import</span> randint
+<span class="im">import</span> matplotlib
+<span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt
+<span class="im">import</span> numpy <span class="im">as</span> np
+<span class="im">from</span> matplotlib <span class="im">import</span> style
+style.use(<span class="st">&#39;fivethirtyeight&#39;</span>)
+<span class="im">import</span> pandas <span class="im">as</span> pd 
+<span class="im">from</span> sklearn.tree <span class="im">import</span> DecisionTreeRegressor
+<span class="im">from</span> sklearn.linear_model <span class="im">import</span> LinearRegression
+<span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split
+<span class="im">from</span> sklearn.metrics <span class="im">import</span> mean_squared_error, r2_score
+<span class="im">from</span> math <span class="im">import</span> sqrt
+<span class="im">import</span> seaborn <span class="im">as</span> sns
+<span class="im">from</span> plotnine <span class="im">import</span> ggplot, geom_histogram, aes</code></pre></div>
+<pre><code>/home/jcmint/anaconda3/envs/learningenv/bin/python</code></pre>
+<h1 id="linear-and-decision-tree-regression">Linear and Decision Tree Regression</h1>
+<p>Linear model and decision tree regression seem pretty straightforward.</p>
+<p>Here I want to see if the RMSE is decreased for a regression model based on 1960 through 2014 data that is predicting <code>Population, total</code> as a function of all other variables. I would need to filter by year, drop all but three columns (country, indicator type and value) and pivot the table on the country name to get a wide data set. This can be fed directly into the linear regression model.</p>
+<p>Then, iterate through random training and testing data split to get a distribution of RMSE values. Graph the RMSE of as the prediction error vs year on the x axis.</p>
+<p>This exercise was somewhat contrived, and I ended up using a simple time series manipulation of the data for demonstration purposes.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">indicators <span class="op">=</span> pd.read_csv(<span class="st">&#39;../../../../data/w5vis/Indicators.csv&#39;</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">indicators.head()</code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>CountryName</th>
+      <th>CountryCode</th>
+      <th>IndicatorName</th>
+      <th>IndicatorCode</th>
+      <th>Year</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Arab World</td>
+      <td>ARB</td>
+      <td>Adolescent fertility rate (births per 1,000 wo...</td>
+      <td>SP.ADO.TFRT</td>
+      <td>1960</td>
+      <td>1.335609e+02</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Arab World</td>
+      <td>ARB</td>
+      <td>Age dependency ratio (% of working-age populat...</td>
+      <td>SP.POP.DPND</td>
+      <td>1960</td>
+      <td>8.779760e+01</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Arab World</td>
+      <td>ARB</td>
+      <td>Age dependency ratio, old (% of working-age po...</td>
+      <td>SP.POP.DPND.OL</td>
+      <td>1960</td>
+      <td>6.634579e+00</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Arab World</td>
+      <td>ARB</td>
+      <td>Age dependency ratio, young (% of working-age ...</td>
+      <td>SP.POP.DPND.YG</td>
+      <td>1960</td>
+      <td>8.102333e+01</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Arab World</td>
+      <td>ARB</td>
+      <td>Arms exports (SIPRI trend indicator values)</td>
+      <td>MS.MIL.XPRT.KD</td>
+      <td>1960</td>
+      <td>3.000000e+06</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>CountryName</th>
+      <th>IndicatorName</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>4839015</th>
+      <td>Arab World</td>
+      <td>Access to electricity (% of population)</td>
+      <td>84.342225</td>
+    </tr>
+    <tr>
+      <th>4839016</th>
+      <td>Arab World</td>
+      <td>Access to electricity, rural (% of rural popul...</td>
+      <td>71.969903</td>
+    </tr>
+    <tr>
+      <th>4839017</th>
+      <td>Arab World</td>
+      <td>Access to electricity, urban (% of urban popul...</td>
+      <td>93.828463</td>
+    </tr>
+    <tr>
+      <th>4839018</th>
+      <td>Arab World</td>
+      <td>Access to non-solid fuel (% of population)</td>
+      <td>86.003666</td>
+    </tr>
+    <tr>
+      <th>4839019</th>
+      <td>Arab World</td>
+      <td>Access to non-solid fuel, rural (% of rural po...</td>
+      <td>74.552598</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="op">%%</span>capture
+<span class="co"># preallocate dataframe</span>
+output <span class="op">=</span> pd.DataFrame(columns <span class="op">=</span> [<span class="st">&#39;Year&#39;</span>, <span class="st">&#39;Amount of Data&#39;</span>, <span class="st">&#39;RMSE Average&#39;</span>, <span class="st">&#39;R Squared Average&#39;</span>], index <span class="op">=</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="dv">2015</span> <span class="op">-</span> <span class="dv">1960</span>))
+
+j <span class="op">=</span> <span class="dv">0</span><span class="op">;</span>
+
+<span class="co"># Calculate RMSE for each regression model based on year</span>
+<span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1960</span>, <span class="dv">2015</span>, <span class="dv">1</span>):
+    test <span class="op">=</span> indicators.copy()
+    test <span class="op">=</span> test[test[<span class="st">&#39;Year&#39;</span>] <span class="op">==</span> i]
+    <span class="kw">del</span> test[<span class="st">&#39;CountryCode&#39;</span>]
+    <span class="kw">del</span> test[<span class="st">&#39;IndicatorCode&#39;</span>]
+    <span class="kw">del</span> test[<span class="st">&#39;Year&#39;</span>]
+    wide <span class="op">=</span> test.pivot(index<span class="op">=</span><span class="st">&#39;CountryName&#39;</span>, columns<span class="op">=</span><span class="st">&#39;IndicatorName&#39;</span>, values<span class="op">=</span><span class="st">&#39;Value&#39;</span>)
+    wide <span class="op">=</span> wide[<span class="op">~</span>wide[<span class="st">&#39;Population, total&#39;</span>].isna()]<span class="co"># drop any rows missing the target variable - this ensures that I won&#39;t drop the column by accident later..</span>
+    wide <span class="op">=</span> wide.dropna(axis <span class="op">=</span> <span class="dv">1</span>, thresh <span class="op">=</span> <span class="fl">0.85</span><span class="op">*</span><span class="bu">len</span>(wide))
+    wide <span class="op">=</span> wide.dropna(axis <span class="op">=</span> <span class="dv">0</span>, how <span class="op">=</span> <span class="st">&quot;any&quot;</span>)
+    <span class="co">#print(&quot;Year: &quot;, i, &quot;; Remaining rows and columns&quot;, wide.shape, &quot;; Total amount of data: &quot;, wide.shape[0] * wide.shape[1], &quot;; Any Missing data? &quot;, wide.isnull().values.any())</span>
+    
+    x <span class="op">=</span> wide.loc[:, wide.columns <span class="op">!=</span> <span class="st">&#39;Population, total&#39;</span>]
+    y <span class="op">=</span> wide[<span class="st">&#39;Population, total&#39;</span>]
+    
+    RMSE <span class="op">=</span> [<span class="va">None</span>] <span class="op">*</span> <span class="dv">10</span>
+    r2 <span class="op">=</span> [<span class="va">None</span>] <span class="op">*</span> <span class="dv">10</span>
+    
+    <span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">1</span>):
+        x_train, x_test, y_train, y_test <span class="op">=</span> train_test_split(x, y, test_size<span class="op">=</span><span class="fl">0.33</span>, random_state<span class="op">=</span>randint(<span class="dv">0</span>,<span class="dv">1000000</span>))<span class="op">;</span>
+        regressor <span class="op">=</span> LinearRegression()<span class="op">;</span>
+        regressor.fit(x_train, y_train)<span class="op">;</span>
+        y_prediction <span class="op">=</span> regressor.predict(x_test)<span class="op">;</span>
+        RMSE[k] <span class="op">=</span> sqrt(mean_squared_error(y_true <span class="op">=</span> y_test, y_pred <span class="op">=</span> y_prediction))<span class="op">;</span>
+        r2[k] <span class="op">=</span> r2_score(y_true <span class="op">=</span> y_test, y_pred <span class="op">=</span> y_prediction)
+    output.iloc[j, <span class="dv">0</span>] <span class="op">=</span> i
+    output.iloc[j, <span class="dv">1</span>] <span class="op">=</span> wide.shape[<span class="dv">0</span>] <span class="op">*</span> wide.shape[<span class="dv">1</span>]
+    output.iloc[j, <span class="dv">2</span>] <span class="op">=</span> <span class="bu">sum</span>(RMSE)<span class="op">/</span><span class="bu">len</span>(RMSE)
+    output.iloc[j, <span class="dv">3</span>] <span class="op">=</span> <span class="bu">sum</span>(r2)<span class="op">/</span><span class="bu">len</span>(r2)
+    j<span class="op">+=</span><span class="dv">1</span></code></pre></div>
+<p>I tested the processing of data by year to get rid of NA values. When iterating through the available years I want to</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">output.head()</code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Year</th>
+      <th>Amount of Data</th>
+      <th>RMSE Average</th>
+      <th>R Squared Average</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1960</td>
+      <td>2254</td>
+      <td>9.11015e+07</td>
+      <td>0.036731</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1961</td>
+      <td>2688</td>
+      <td>1.01918e+08</td>
+      <td>0.877477</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1962</td>
+      <td>3330</td>
+      <td>1.35075e+08</td>
+      <td>0.853944</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1963</td>
+      <td>3162</td>
+      <td>4.26152e+08</td>
+      <td>-2.74594</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1964</td>
+      <td>3162</td>
+      <td>4.32376e+08</td>
+      <td>-2.71138</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<p>After being stumped for a while, I realized what I was doing wrong. This was a somewhat silly example because there are many columns which may be 100% colinear with the <code>Population, total</code> column.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">test <span class="op">=</span> indicators.copy()
+test <span class="op">=</span> test[test[<span class="st">&#39;Year&#39;</span>] <span class="op">==</span> i]
+<span class="kw">del</span> test[<span class="st">&#39;CountryCode&#39;</span>]
+<span class="kw">del</span> test[<span class="st">&#39;IndicatorCode&#39;</span>]
+<span class="kw">del</span> test[<span class="st">&#39;Year&#39;</span>]
+wide <span class="op">=</span> test.pivot(index<span class="op">=</span><span class="st">&#39;CountryName&#39;</span>, columns<span class="op">=</span><span class="st">&#39;IndicatorName&#39;</span>, values<span class="op">=</span><span class="st">&#39;Value&#39;</span>)
+wide.columns[wide.columns.<span class="bu">str</span>.contains(<span class="st">&quot;pop&quot;</span>)][<span class="dv">0</span>:<span class="dv">10</span>]
+<span class="bu">len</span>(wide.columns[wide.columns.<span class="bu">str</span>.contains(<span class="st">&quot;pop&quot;</span>)])</code></pre></div>
+<pre><code>Index([&#39;Adult literacy rate, population 15+ years, both sexes (%)&#39;,
+       &#39;Adult literacy rate, population 15+ years, female (%)&#39;,
+       &#39;Adult literacy rate, population 15+ years, male (%)&#39;,
+       &#39;Age dependency ratio (% of working-age population)&#39;,
+       &#39;Age dependency ratio, old (% of working-age population)&#39;,
+       &#39;Age dependency ratio, young (% of working-age population)&#39;,
+       &#39;Annualized average growth rate in per capita real survey mean consumption or income, bottom 40% of population (%)&#39;,
+       &#39;Annualized average growth rate in per capita real survey mean consumption or income, total population (%)&#39;,
+       &#39;Condom use, population ages 15-24, female (% of females ages 15-24)&#39;,
+       &#39;Condom use, population ages 15-24, male (% of males ages 15-24)&#39;],
+      dtype=&#39;object&#39;, name=&#39;IndicatorName&#39;)
+
+
+
+
+
+
+63</code></pre>
+<p>Therefore, I need to drop these rows to make my example actually 'predict' values.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="op">%%</span>capture
+<span class="co"># preallocate dataframe</span>
+output <span class="op">=</span> pd.DataFrame(columns <span class="op">=</span> [<span class="st">&#39;Year&#39;</span>, <span class="st">&#39;Amount of Data&#39;</span>, <span class="st">&#39;RMSE Average&#39;</span>, <span class="st">&#39;R Squared Average&#39;</span>], index <span class="op">=</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="dv">2015</span> <span class="op">-</span> <span class="dv">1960</span>))
+
+j <span class="op">=</span> <span class="dv">0</span><span class="op">;</span>
+
+<span class="co"># Calculate RMSE for each regression model based on year</span>
+<span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1960</span>, <span class="dv">2015</span>, <span class="dv">1</span>):
+    test <span class="op">=</span> indicators.copy()
+    test <span class="op">=</span> test[test[<span class="st">&#39;Year&#39;</span>] <span class="op">==</span> i]
+    <span class="kw">del</span> test[<span class="st">&#39;CountryCode&#39;</span>]
+    <span class="kw">del</span> test[<span class="st">&#39;IndicatorCode&#39;</span>]
+    <span class="kw">del</span> test[<span class="st">&#39;Year&#39;</span>]
+    wide <span class="op">=</span> test.pivot(index<span class="op">=</span><span class="st">&#39;CountryName&#39;</span>, columns<span class="op">=</span><span class="st">&#39;IndicatorName&#39;</span>, values<span class="op">=</span><span class="st">&#39;Value&#39;</span>)
+    
+    wide <span class="op">=</span> wide[<span class="op">~</span>wide[<span class="st">&#39;Population, total&#39;</span>].isna()]<span class="co"># drop any rows missing the target variable - this ensures that I won&#39;t drop the column by accident later..</span>
+    wide <span class="op">=</span> wide.dropna(axis <span class="op">=</span> <span class="dv">1</span>, thresh <span class="op">=</span> <span class="fl">0.85</span><span class="op">*</span><span class="bu">len</span>(wide))
+    wide <span class="op">=</span> wide.dropna(axis <span class="op">=</span> <span class="dv">0</span>, how <span class="op">=</span> <span class="st">&quot;any&quot;</span>)
+    <span class="co">#print(&quot;Year: &quot;, i, &quot;; Remaining rows and columns&quot;, wide.shape, &quot;; Total amount of data: &quot;, wide.shape[0] * wide.shape[1], &quot;; Any Missing data? &quot;, wide.isnull().values.any())</span>
+    
+    y <span class="op">=</span> wide[<span class="st">&#39;Population, total&#39;</span>]
+
+    <span class="co"># Drop potentially colinear variables (my guess)</span>
+    wide <span class="op">=</span> wide[wide.columns.drop(<span class="bu">list</span>(wide.<span class="bu">filter</span>(regex<span class="op">=</span><span class="st">&#39;pop&#39;</span>)))]
+    wide <span class="op">=</span> wide[wide.columns.drop(<span class="bu">list</span>(wide.<span class="bu">filter</span>(regex<span class="op">=</span><span class="st">&#39;Pop&#39;</span>)))]
+    x <span class="op">=</span> wide.loc[:, wide.columns <span class="op">!=</span> <span class="st">&#39;Population, total&#39;</span>]   
+    
+    RMSE <span class="op">=</span> [<span class="va">None</span>] <span class="op">*</span> <span class="dv">10</span>
+    r2 <span class="op">=</span> [<span class="va">None</span>] <span class="op">*</span> <span class="dv">10</span>
+    
+    <span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">1</span>):
+        x_train, x_test, y_train, y_test <span class="op">=</span> train_test_split(wide, y, test_size<span class="op">=</span><span class="fl">0.33</span>, random_state<span class="op">=</span><span class="dv">324</span>)<span class="op">;</span>
+        regressor <span class="op">=</span> LinearRegression()<span class="op">;</span>
+        regressor.fit(x_train, y_train)<span class="op">;</span>
+        y_prediction <span class="op">=</span> regressor.predict(x_test)<span class="op">;</span>
+        RMSE[k] <span class="op">=</span> sqrt(mean_squared_error(y_true <span class="op">=</span> y_test, y_pred <span class="op">=</span> y_prediction))<span class="op">;</span>
+        r2[k] <span class="op">=</span> r2_score(y_true <span class="op">=</span> y_test, y_pred <span class="op">=</span> y_prediction)
+    output.iloc[j, <span class="dv">0</span>] <span class="op">=</span> i
+    output.iloc[j, <span class="dv">1</span>] <span class="op">=</span> wide.shape[<span class="dv">0</span>] <span class="op">*</span> wide.shape[<span class="dv">1</span>]
+    output.iloc[j, <span class="dv">2</span>] <span class="op">=</span> <span class="bu">sum</span>(RMSE)<span class="op">/</span><span class="bu">len</span>(RMSE)
+    output.iloc[j, <span class="dv">3</span>] <span class="op">=</span> <span class="bu">sum</span>(r2)<span class="op">/</span><span class="bu">len</span>(r2)
+    j<span class="op">+=</span><span class="dv">1</span></code></pre></div>
+<p>Trying to get this example to work may be too contrived without manual PCA or feature selection, so I decided to just try another approach - generate a linear regression model for each country as a function of year.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="op">%%</span>capture
+countries <span class="op">=</span> indicators[<span class="st">&#39;CountryName&#39;</span>].unique().tolist()
+output <span class="op">=</span> pd.DataFrame(columns <span class="op">=</span> [<span class="st">&#39;Country&#39;</span>, <span class="st">&#39;RMSE Average&#39;</span>, <span class="st">&#39;R Squared Average&#39;</span>], index <span class="op">=</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(countries) <span class="op">+</span> <span class="dv">1</span>))
+k <span class="op">=</span> <span class="dv">0</span>
+<span class="cf">for</span> i <span class="kw">in</span> countries:
+    wide <span class="op">=</span> indicators.copy()
+    <span class="kw">del</span> wide[<span class="st">&#39;CountryCode&#39;</span>]
+    <span class="kw">del</span> wide[<span class="st">&#39;IndicatorCode&#39;</span>]
+    cond_1 <span class="op">=</span> wide[<span class="st">&#39;CountryName&#39;</span>] <span class="op">==</span> i
+    cond_2 <span class="op">=</span> wide[<span class="st">&#39;IndicatorName&#39;</span>] <span class="op">==</span> <span class="st">&#39;Population, total&#39;</span>
+    wide <span class="op">=</span> wide[cond_1 <span class="op">&amp;</span> cond_2]
+    <span class="kw">del</span> wide[<span class="st">&#39;IndicatorName&#39;</span>]
+    
+    RMSE <span class="op">=</span> [<span class="va">None</span>] <span class="op">*</span> <span class="dv">10</span>
+    r2 <span class="op">=</span> [<span class="va">None</span>] <span class="op">*</span> <span class="dv">10</span>
+    
+    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">1</span>):
+        x_train, x_test, y_train, y_test <span class="op">=</span> train_test_split(pd.DataFrame(wide[<span class="st">&#39;Year&#39;</span>]), pd.DataFrame(wide[<span class="st">&#39;Value&#39;</span>]), test_size<span class="op">=</span><span class="fl">0.33</span>, random_state<span class="op">=</span>randint(<span class="dv">0</span>,<span class="dv">1000000</span>))
+        regressor <span class="op">=</span> LinearRegression()<span class="op">;</span>
+        regressor.fit(x_train, y_train)<span class="op">;</span>
+        y_prediction <span class="op">=</span> regressor.predict(x_test)<span class="op">;</span>
+        RMSE[j] <span class="op">=</span> sqrt(mean_squared_error(y_true <span class="op">=</span> y_test, y_pred <span class="op">=</span> y_prediction))<span class="op">;</span>
+        r2[j] <span class="op">=</span> r2_score(y_true <span class="op">=</span> y_test, y_pred <span class="op">=</span> y_prediction)
+        
+    output.iloc[k, <span class="dv">0</span>] <span class="op">=</span> i
+    output.iloc[k, <span class="dv">1</span>] <span class="op">=</span> <span class="bu">sum</span>(RMSE)<span class="op">/</span><span class="bu">len</span>(RMSE)
+    output.iloc[k, <span class="dv">2</span>] <span class="op">=</span> <span class="bu">sum</span>(r2)<span class="op">/</span><span class="bu">len</span>(r2)
+    k<span class="op">+=</span><span class="dv">1</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">output.head()
+output <span class="op">=</span> output.dropna()
+output.sort_values(<span class="st">&#39;R Squared Average&#39;</span>).head()
+<span class="im">from</span> scipy.stats <span class="im">import</span> describe
+
+describe(output[<span class="st">&#39;R Squared Average&#39;</span>])</code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Country</th>
+      <th>RMSE Average</th>
+      <th>R Squared Average</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Arab World</td>
+      <td>1.19366e+07</td>
+      <td>0.981009</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Caribbean small states</td>
+      <td>80474.8</td>
+      <td>0.990475</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Central Europe and the Baltics</td>
+      <td>4.43389e+06</td>
+      <td>0.236114</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>East Asia &amp; Pacific (all income levels)</td>
+      <td>3.7243e+07</td>
+      <td>0.989137</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>East Asia &amp; Pacific (developing only)</td>
+      <td>3.27897e+07</td>
+      <td>0.991255</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Country</th>
+      <th>RMSE Average</th>
+      <th>R Squared Average</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>201</th>
+      <td>Sint Maarten (Dutch part)</td>
+      <td>2924.69</td>
+      <td>-0.297575</td>
+    </tr>
+    <tr>
+      <th>210</th>
+      <td>St. Kitts and Nevis</td>
+      <td>4084.1</td>
+      <td>-0.19532</td>
+    </tr>
+    <tr>
+      <th>80</th>
+      <td>Croatia</td>
+      <td>163570</td>
+      <td>-0.150368</td>
+    </tr>
+    <tr>
+      <th>145</th>
+      <td>Lithuania</td>
+      <td>272980</td>
+      <td>-0.14565</td>
+    </tr>
+    <tr>
+      <th>94</th>
+      <td>Estonia</td>
+      <td>92947.5</td>
+      <td>-0.117783</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<pre><code>DescribeResult(nobs=247, minmax=(-0.29757490589067603, 0.9996578791364774), mean=0.8691825934749658, variance=0.06901810751504184, skewness=-2.9841692292997424, kurtosis=8.029106379317444)</code></pre>
+<p>Running the code ended up taking about 10 minutes for 2460 linear regression models. I also graph the pop for a random country with a negative r2 value.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">wide <span class="op">=</span> indicators.copy()
+<span class="kw">del</span> wide[<span class="st">&#39;CountryCode&#39;</span>]
+<span class="kw">del</span> wide[<span class="st">&#39;IndicatorCode&#39;</span>]
+cond_1 <span class="op">=</span> wide[<span class="st">&#39;CountryName&#39;</span>] <span class="op">==</span> <span class="st">&#39;Ukraine&#39;</span>
+cond_2 <span class="op">=</span> wide[<span class="st">&#39;IndicatorName&#39;</span>] <span class="op">==</span> <span class="st">&#39;Population, total&#39;</span>
+wide <span class="op">=</span> wide[cond_1 <span class="op">&amp;</span> cond_2]
+<span class="kw">del</span> wide[<span class="st">&#39;IndicatorName&#39;</span>]
+sns.scatterplot(x <span class="op">=</span> <span class="st">&#39;Year&#39;</span>, y<span class="op">=</span><span class="st">&#39;Value&#39;</span>, data  <span class="op">=</span> wide)</code></pre></div>
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f3a9ed69cc0&gt;</code></pre>
+<p><img src="7_ML_Reg_files/7_ML_Reg_16_1.webp" alt="png" /></p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+</body>
+</html>

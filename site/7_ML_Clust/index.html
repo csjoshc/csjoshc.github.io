@@ -1,0 +1,2645 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Personal learning and note-taking website">
+    <meta name="author" content="Josh Chiu">
+    <link rel="canonical" href="https://csjoshc.github.io/7_ML_Clust/">
+    <link rel="shortcut icon" href="../img/favicon.ico">
+
+    
+    <title>7 ML Clust - Josh's Learning Notes</title>
+    
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
+    <link href='//rsms.me/inter/inter.css' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../css/base.min.css" rel="stylesheet">
+    <link href="../css/cinder.min.css" rel="stylesheet">
+
+    
+        
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/github.min.css">
+        
+    
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    
+
+     
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            
+              <a class="navbar-brand" href="..">Josh's Learning Notes</a>
+            
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="..">Home</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">General <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../General/base/">Overview</a>
+</li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">CS50x 2019</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../General/CS50x2019/cppbasics/">C++ Basics</a>
+</li>
+
+        
+            
+<li >
+    <a href="../General/CS50x2019/database/">Database</a>
+</li>
+
+        
+            
+<li >
+    <a href="../General/CS50x2019/flask/">Flask</a>
+</li>
+
+        
+            
+<li >
+    <a href="../General/CS50x2019/python/">Python</a>
+</li>
+
+        
+            
+<li >
+    <a href="../General/CS50x2019/webbasics/">Web Basics</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+<li >
+    <a href="../General/webdev2019/">Web Development 2019</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Python <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../Python/base/">Overview</a>
+</li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">General</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../Python/General/virtenv_jupyter_nb/">Virtual Environments & Jupyter</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/General/ifnameismain/">If Name Main</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Data Science Course</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../Python/PythonforDataScience/1_Introduction/">Introduction</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/PythonforDataScience/2_Basics/">Python Basics</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/PythonforDataScience/3_Numpy/">NumPy</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/PythonforDataScience/4_Pandas/">Pandas</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/PythonforDataScience/4_Pandas2/">Pandas 2</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/PythonforDataScience/4_Pandas3/">Pandas 3</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/PythonforDataScience/4_Pandas4/">Pandas 4</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/PythonforDataScience/4_Pandas5/">Pandas 5</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/PythonforDataScience/5_Matplotlib/">Matplotlib</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/PythonforDataScience/7_ML/">Machine Learning</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/PythonforDataScience/7_ML_Reg/">ML Regression</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/PythonforDataScience/7_ML_DT/">ML Decision Trees</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/PythonforDataScience/7_ML_Clust/">ML Clustering</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Probability & Statistics</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../Python/ProbabilityandStatistics/1_Introduction/">Introduction</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/ProbabilityandStatistics/2_Sets/">Sets</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">MIT Courses</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../Python/IntroCompSciPython/unit7/">Computer Science Unit 7</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/IntroCompThinkDataSci/unit1/unit1/">Data Science Unit 1</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/IntroCompThinkDataSci/unit1/problemset1/">Problem Set 1</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/IntroCompThinkDataSci/unit2/plotting/">Unit 2 Plotting</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/IntroCompThinkDataSci/unit2/unit2/">Unit 2</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/IntroCompThinkDataSci/unit2/ps2/">Problem Set 2</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/IntroCompThinkDataSci/unit3/unit3/">Unit 3</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/IntroCompThinkDataSci/unit3/ps3/">Problem Set 3</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/IntroCompThinkDataSci/unit4/unit4/">Unit 4</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/IntroCompThinkDataSci/unit4/ps4/">Problem Set 4</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/IntroCompThinkDataSci/unit5/unit5/">Unit 5</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">GitHub <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../Github/intro_gh/">Introduction</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../Github/bugs_gh/">Bug Reports</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Linux <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../Linux/base/">Overview</a>
+</li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Linux Journey</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../Linux/linux_journey/basic/01_comlin/">Command Line</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Linux/linux_journey/linux_journey_toc/">Table of Contents</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">DevOps <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../Devops/base/">Overview</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../Devops/roadmap_notes/">Roadmap Notes</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Utilities <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../utils/base/">Overview</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../utils/01_BatchConversions/">Batch Conversions</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Site Updates <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../site_updates/base/">Overview</a>
+</li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">March 2019</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../site_updates/3_2019/2_3_2019/">March 2nd</a>
+</li>
+
+        
+            
+<li >
+    <a href="../site_updates/3_2019/9_3_2019/">March 9th</a>
+</li>
+
+        
+            
+<li >
+    <a href="../site_updates/3_2019/16_3_2019/">March 16th</a>
+</li>
+
+        
+            
+<li >
+    <a href="../site_updates/3_2019/23_3_2019/">March 23rd</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">April 2019</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../site_updates/4_2019/13_4_2019/">April 13th</a>
+</li>
+
+        
+            
+<li >
+    <a href="../site_updates/4_2019/20_4_2019/">April 20th</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">May 2019</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../site_updates/5_2019/04_5_2019/">May 4th</a>
+</li>
+
+        
+            
+<li >
+    <a href="../site_updates/5_2019/11_5_2019/">May 11th</a>
+</li>
+
+        
+            
+<li >
+    <a href="../site_updates/5_2019/25_5_2019/">May 25th</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">June 2019</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../site_updates/6_2019/15_6_2019/">June 15th</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Project Ideas</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../site_updates/project_ideas/indeed_cloud/">Indeed Cloud</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../todo/">Todo</a>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#clustering-kmeans">Clustering - kmeans</a></li>
+        <li class="first-level "><a href="#data-prep">Data Prep</a></li>
+            <li class="second-level"><a href="#joining-data">Joining data</a></li>
+                
+            <li class="second-level"><a href="#splitting-columns-title-and-year">Splitting columns - title and year</a></li>
+                
+        <li class="first-level "><a href="#visualization">Visualization</a></li>
+            <li class="second-level"><a href="#exploring-correlation">Exploring Correlation</a></li>
+                
+            <li class="second-level"><a href="#whats-next">What's next?</a></li>
+                
+        <li class="first-level "><a href="#further-data-cleaning">Further Data Cleaning</a></li>
+        <li class="first-level "><a href="#returning-to-visualization">Returning to visualization</a></li>
+        <li class="first-level "><a href="#data-manipulations-binning">Data Manipulations - Binning</a></li>
+            <li class="second-level"><a href="#binning-results">Binning results</a></li>
+                
+        <li class="first-level "><a href="#modeling">Modeling</a></li>
+            <li class="second-level"><a href="#exploratory-elbow-plot">Exploratory elbow plot</a></li>
+                
+            <li class="second-level"><a href="#elbow-plot-defining-the-bend-mathematically">Elbow plot - defining the bend mathematically</a></li>
+                
+        <li class="first-level "><a href="#final-cluster-and-visualization">Final cluster and visualization</a></li>
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<p><head>
+<link rel="stylesheet" href="../../../cssthemes/github.css">
+<meta name="viewport" content="initial-scale=1, width=device-width">
+</head></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">time_start</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">executable</span><span class="p">)</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.core.interactiveshell</span><span class="w"> </span><span class="kn">import</span> <span class="n">InteractiveShell</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="n">InteractiveShell</span><span class="o">.</span><span class="n">ast_node_interactivity</span> <span class="o">=</span> <span class="s2">&quot;all&quot;</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="n">InteractiveShell</span><span class="o">.</span><span class="n">colors</span> <span class="o">=</span> <span class="s2">&quot;Linux&quot;</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="n">InteractiveShell</span><span class="o">.</span><span class="n">separate_in</span> <span class="o">=</span> <span class="mi">0</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>/home/jcmint/anaconda3/envs/learningenv/bin/python
+</code></pre></div>
+<h1 id="clustering-kmeans">Clustering - kmeans</h1>
+<p>The clustering tutorial was based on weather data and classifying them into hot or cold days based on 7-8 features. However, I wanted to try something on my own using the movies rating data. I wanted to 2-D graph movies by the number of raters and the average score, and plot. Then, I would use a third variable (the decade it was released) to color the points, to see if movies released in certain decades were more actively reviewed or had higher. A fourth variable, the average review timestamp, would be used as intensity for a heatmap for the color variable.
+After assessing the data, I would then run the data through a cluster algoritm, including generating an elbow curve.
+Installed seaborn from conda for leanringenv</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">StandardScaler</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.cluster</span><span class="w"> </span><span class="kn">import</span> <span class="n">KMeans</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="kn">from</span><span class="w"> </span><span class="nn">itertools</span><span class="w"> </span><span class="kn">import</span> <span class="n">cycle</span><span class="p">,</span> <span class="n">islice</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">style</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s2">&quot;ticks&quot;</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="s2">&quot;talk&quot;</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">movies</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../../../../data/w4pd/movies.csv&#39;</span><span class="p">)</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">ratings</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../../../../data/w4pd/ratings.csv&#39;</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">movies</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">ratings</span><span class="o">.</span><span class="n">shape</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">movies</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">ratings</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>((27278, 3), (20000263, 4))
+</code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>movieId</th>
+      <th>title</th>
+      <th>genres</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>Toy Story (1995)</td>
+      <td>Adventure|Animation|Children|Comedy|Fantasy</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>Jumanji (1995)</td>
+      <td>Adventure|Children|Fantasy</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>Grumpier Old Men (1995)</td>
+      <td>Comedy|Romance</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>Waiting to Exhale (1995)</td>
+      <td>Comedy|Drama|Romance</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>Father of the Bride Part II (1995)</td>
+      <td>Comedy</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>userId</th>
+      <th>movieId</th>
+      <th>rating</th>
+      <th>timestamp</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>2</td>
+      <td>3.5</td>
+      <td>1112486027</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>29</td>
+      <td>3.5</td>
+      <td>1112484676</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>32</td>
+      <td>3.5</td>
+      <td>1112484819</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>47</td>
+      <td>3.5</td>
+      <td>1112484727</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>50</td>
+      <td>3.5</td>
+      <td>1112484580</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h1 id="data-prep">Data Prep</h1>
+<h2 id="joining-data">Joining data</h2>
+<p>Here, I join together two tables and calculate aggregate values, so that I condense the information from million of rows into a few tens of thousands.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">movie_ratings</span> <span class="o">=</span> <span class="n">ratings</span><span class="p">[[</span><span class="s1">&#39;movieId&#39;</span><span class="p">,</span> <span class="s1">&#39;rating&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;movieId&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">movie_counts</span> <span class="o">=</span> <span class="n">ratings</span><span class="p">[[</span><span class="s1">&#39;movieId&#39;</span><span class="p">,</span> <span class="s1">&#39;rating&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;movieId&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">movie_timestamps</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">ratings</span><span class="p">[[</span><span class="s1">&#39;movieId&#39;</span><span class="p">,</span> <span class="s1">&#39;timestamp&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;movieId&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()[</span><span class="s1">&#39;timestamp&#39;</span><span class="p">],</span> <span class="n">unit</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">date</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Timestamp range is &quot;</span><span class="p">,</span> <span class="n">movie_timestamps</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="s2">&quot; to &quot;</span><span class="p">,</span> <span class="n">movie_timestamps</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Timestamp range is  1997-03-02  to  2015-03-30
+</code></pre></div>
+<p>Join all three on Movie ID</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">merged_1</span> <span class="o">=</span> <span class="n">movie_ratings</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">movie_counts</span><span class="p">,</span> <span class="n">on</span> <span class="o">=</span> <span class="s1">&#39;movieId&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">movie_timestamps</span><span class="p">,</span> <span class="n">on</span> <span class="o">=</span> <span class="s1">&#39;movieId&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">)</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">merged_1</span> <span class="o">=</span> <span class="n">merged_1</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">movies</span><span class="p">[[</span><span class="s1">&#39;movieId&#39;</span><span class="p">,</span> <span class="s1">&#39;title&#39;</span><span class="p">]],</span> <span class="n">on</span> <span class="o">=</span> <span class="s1">&#39;movieId&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">)</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">merged_1</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>movieId</th>
+      <th>rating_x</th>
+      <th>rating_y</th>
+      <th>timestamp</th>
+      <th>title</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>3.921240</td>
+      <td>49695</td>
+      <td>2003-05-11</td>
+      <td>Toy Story (1995)</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>3.211977</td>
+      <td>22243</td>
+      <td>2002-11-18</td>
+      <td>Jumanji (1995)</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>3.151040</td>
+      <td>12735</td>
+      <td>2000-05-30</td>
+      <td>Grumpier Old Men (1995)</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>2.861393</td>
+      <td>2756</td>
+      <td>1999-04-15</td>
+      <td>Waiting to Exhale (1995)</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>3.064592</td>
+      <td>12161</td>
+      <td>2000-06-26</td>
+      <td>Father of the Bride Part II (1995)</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="splitting-columns-title-and-year">Splitting columns - title and year</h2>
+<p>Next, extract the year from the title and bin into a decade</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">Title</span> <span class="o">=</span> <span class="n">merged_1</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="s1">&#39;(.+?) \(&#39;</span><span class="p">)</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">Year</span>  <span class="o">=</span> <span class="n">merged_1</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="s1">&#39;(\d\d\d\d)&#39;</span><span class="p">)</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="n">Title</span> <span class="o">=</span> <span class="n">Title</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">{</span><span class="n">Title</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span> <span class="s2">&quot;Name&quot;</span><span class="p">})</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="n">Year</span> <span class="o">=</span> <span class="n">Year</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">{</span><span class="n">Year</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span> <span class="s2">&quot;Year&quot;</span><span class="p">})</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="n">merged_1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">merged_1</span><span class="p">,</span> <span class="n">Title</span><span class="p">,</span> <span class="n">Year</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">join</span> <span class="o">=</span> <span class="s2">&quot;inner&quot;</span><span class="p">)</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="n">merged_1</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>movieId</th>
+      <th>rating_x</th>
+      <th>rating_y</th>
+      <th>timestamp</th>
+      <th>title</th>
+      <th>Name</th>
+      <th>Year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>3.921240</td>
+      <td>49695</td>
+      <td>2003-05-11</td>
+      <td>Toy Story (1995)</td>
+      <td>Toy Story</td>
+      <td>1995</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>3.211977</td>
+      <td>22243</td>
+      <td>2002-11-18</td>
+      <td>Jumanji (1995)</td>
+      <td>Jumanji</td>
+      <td>1995</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>3.151040</td>
+      <td>12735</td>
+      <td>2000-05-30</td>
+      <td>Grumpier Old Men (1995)</td>
+      <td>Grumpier Old Men</td>
+      <td>1995</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>2.861393</td>
+      <td>2756</td>
+      <td>1999-04-15</td>
+      <td>Waiting to Exhale (1995)</td>
+      <td>Waiting to Exhale</td>
+      <td>1995</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>3.064592</td>
+      <td>12161</td>
+      <td>2000-06-26</td>
+      <td>Father of the Bride Part II (1995)</td>
+      <td>Father of the Bride Part II</td>
+      <td>1995</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p>Finally, drop the title column since it's been split</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">del</span> <span class="n">merged_1</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">]</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">merged_1</span> <span class="o">=</span> <span class="n">merged_1</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="n">merged_1</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="s2">&quot;Score&quot;</span><span class="p">,</span> <span class="n">merged_1</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="p">:</span> <span class="s2">&quot;Ratings&quot;</span><span class="p">,</span> <span class="n">merged_1</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">3</span><span class="p">]:</span><span class="s2">&quot;Date&quot;</span><span class="p">})</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="n">merged_1</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>movieId</th>
+      <th>Score</th>
+      <th>Ratings</th>
+      <th>Date</th>
+      <th>Name</th>
+      <th>Year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>3.921240</td>
+      <td>49695</td>
+      <td>2003-05-11</td>
+      <td>Toy Story</td>
+      <td>1995</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>3.211977</td>
+      <td>22243</td>
+      <td>2002-11-18</td>
+      <td>Jumanji</td>
+      <td>1995</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>3.151040</td>
+      <td>12735</td>
+      <td>2000-05-30</td>
+      <td>Grumpier Old Men</td>
+      <td>1995</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>2.861393</td>
+      <td>2756</td>
+      <td>1999-04-15</td>
+      <td>Waiting to Exhale</td>
+      <td>1995</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>3.064592</td>
+      <td>12161</td>
+      <td>2000-06-26</td>
+      <td>Father of the Bride Part II</td>
+      <td>1995</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p>I need to actually hold onto the POSIX average rating timestamps so that I can convert them to numbers for analysis.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">scaled_1</span> <span class="o">=</span> <span class="n">merged_1</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="k">del</span> <span class="n">scaled_1</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">]</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="k">del</span> <span class="n">scaled_1</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="n">scaled_1</span> <span class="o">=</span> <span class="n">scaled_1</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">ratings</span><span class="p">[[</span><span class="s1">&#39;movieId&#39;</span><span class="p">,</span> <span class="s1">&#39;timestamp&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;movieId&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">),</span> <span class="n">on</span> <span class="o">=</span> <span class="s1">&#39;movieId&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">)</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="k">del</span> <span class="n">scaled_1</span><span class="p">[</span><span class="s1">&#39;movieId&#39;</span><span class="p">]</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="n">scaled_1</span> <span class="o">=</span> <span class="n">scaled_1</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="n">scaled_1</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">3</span><span class="p">]:</span> <span class="s2">&quot;Date&quot;</span><span class="p">})</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="n">scaled_1</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Score</th>
+      <th>Ratings</th>
+      <th>Year</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>3.921240</td>
+      <td>49695</td>
+      <td>1995</td>
+      <td>1052654098</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>3.211977</td>
+      <td>22243</td>
+      <td>1995</td>
+      <td>1037616295</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3.151040</td>
+      <td>12735</td>
+      <td>1995</td>
+      <td>959648019</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2.861393</td>
+      <td>2756</td>
+      <td>1995</td>
+      <td>924214411</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>3.064592</td>
+      <td>12161</td>
+      <td>1995</td>
+      <td>962016085</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="o">%%</span><span class="n">capture</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="n">scaled_1</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">scaled_1</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">])</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="n">var_corr</span> <span class="o">=</span> <span class="n">scaled_1</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="n">normalized</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">scaled_1</span><span class="p">)</span>
+</code></pre></div>
+<h1 id="visualization">Visualization</h1>
+<h2 id="exploring-correlation">Exploring Correlation</h2>
+<p>Finally, we can graph our data, starting with a heatmap for correlation between numerical variables (this is why I needed to hold onto the rating timestamp in POSIX format, since I wasn't able top pass a human readable format directly into the method.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">var_corr</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f09d13d7f28&gt;
+</code></pre></div>
+<p><img alt="png" src="../7_ML_Clust_files/7_ML_Clust_19_1.png" /></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="n">fig</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="n">fig</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">(</span><span class="mf">11.7</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="n">axis</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Ratings vs Rating Date&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">26</span><span class="p">)</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="n">axis</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Average Date of Ratings&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="n">axis</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Number of Ratings&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot_date</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;Date&#39;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;Ratings&#39;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">merged_1</span><span class="p">)</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">();</span>
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="n">fig</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="n">fig</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="n">axis</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Score vs Ratings&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">26</span><span class="p">)</span>
+<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="n">axis</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Number of Ratings&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="n">axis</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Average Score&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;Ratings&#39;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;Score&#39;</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">merged_1</span><span class="p">)</span>
+<a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">();</span>
+</code></pre></div>
+<p><img alt="png" src="../7_ML_Clust_files/7_ML_Clust_20_0.png" /></p>
+<p><img alt="png" src="../7_ML_Clust_files/7_ML_Clust_20_1.png" /></p>
+<h2 id="whats-next">What's next?</h2>
+<ul>
+<li>Bin 'Year' column into decades so I can color by the different buckets. Use this to compare to the clusters generated by kmeans clustering (color by either classification and compare side by side)</li>
+<li>Since I'm already familiar with ggplot, I would want to try to use <a href="https://github.com/has2k1/plotnine">python ggplot</a> to color and facet by categorical variable and see if I can do something with it
+Try using plotnine
+<code>conda install -c conda-forge plotnine</code></li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="n">merged_1</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">merged_1</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">])</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">plotnine</span><span class="w"> </span><span class="kn">import</span> <span class="n">ggplot</span><span class="p">,</span> <span class="n">geom_point</span><span class="p">,</span> <span class="n">aes</span><span class="p">,</span> <span class="n">stat_smooth</span><span class="p">,</span> <span class="n">geom_histogram</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="n">ggplot</span><span class="p">()</span> <span class="o">+</span> <span class="n">geom_histogram</span><span class="p">(</span><span class="n">aes</span><span class="p">(</span><span class="s1">&#39;Year&#39;</span><span class="p">),</span> <span class="n">data</span> <span class="o">=</span> <span class="n">merged_1</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>/home/jcmint/anaconda3/envs/learningenv/lib/python3.7/site-packages/plotnine/stats/stat_bin.py:93: UserWarning: &#39;stat_bin()&#39; using &#39;bins = 3865&#39;. Pick better value with &#39;binwidth&#39;.
+  warn(msg.format(params[&#39;bins&#39;]))
+/home/jcmint/anaconda3/envs/learningenv/lib/python3.7/site-packages/plotnine/layer.py:360: UserWarning: stat_bin : Removed 19 rows containing non-finite values.
+  data = self.stat.compute_layer(data, params, layout)
+</code></pre></div>
+<p><img alt="png" src="../7_ML_Clust_files/7_ML_Clust_23_1.png" /></p>
+<div class="highlight"><pre><span></span><code>&lt;ggplot: (8729985344730)&gt;
+</code></pre></div>
+<p>What is going on with the Year column of merged_1? Very odd, so I look at min and max.</p>
+<h1 id="further-data-cleaning">Further Data Cleaning</h1>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="n">merged_1</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">merged_1</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="n">movies</span><span class="p">[</span><span class="n">movies</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;1000&#39;</span><span class="p">)]</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="n">movies</span><span class="p">[</span><span class="n">movies</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;9012&#39;</span><span class="p">)]</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="n">merged_1</span><span class="p">[</span><span class="n">merged_1</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">1000</span><span class="p">]</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="n">merged_1</span><span class="p">[</span><span class="n">merged_1</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">9012</span><span class="p">]</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>(1000.0, 9012.0)
+</code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>movieId</th>
+      <th>title</th>
+      <th>genres</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>6191</th>
+      <td>6290</td>
+      <td>House of 1000 Corpses (2003)</td>
+      <td>Horror</td>
+    </tr>
+    <tr>
+      <th>7695</th>
+      <td>8198</td>
+      <td>1000 Eyes of Dr. Mabuse, The (Die 1000 Augen d...</td>
+      <td>Crime|Horror|Mystery|Thriller</td>
+    </tr>
+    <tr>
+      <th>22287</th>
+      <td>107155</td>
+      <td>Captive Women (1000 Years from Now) (3000 A.D....</td>
+      <td>Sci-Fi</td>
+    </tr>
+    <tr>
+      <th>26429</th>
+      <td>126999</td>
+      <td>1000 Journals (2007)</td>
+      <td>(no genres listed)</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>movieId</th>
+      <th>title</th>
+      <th>genres</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>18578</th>
+      <td>92477</td>
+      <td>Yes: 9012 Live (1985)</td>
+      <td>Documentary|Musical</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>movieId</th>
+      <th>Score</th>
+      <th>Ratings</th>
+      <th>Date</th>
+      <th>Name</th>
+      <th>Year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>6191</th>
+      <td>6290</td>
+      <td>2.855172</td>
+      <td>870</td>
+      <td>2007-08-23</td>
+      <td>House of 1000 Corpses</td>
+      <td>1000.0</td>
+    </tr>
+    <tr>
+      <th>7695</th>
+      <td>8198</td>
+      <td>3.398438</td>
+      <td>64</td>
+      <td>2008-06-21</td>
+      <td>1000 Eyes of Dr. Mabuse, The</td>
+      <td>1000.0</td>
+    </tr>
+    <tr>
+      <th>22185</th>
+      <td>107155</td>
+      <td>0.500000</td>
+      <td>1</td>
+      <td>2014-04-13</td>
+      <td>Captive Women</td>
+      <td>1000.0</td>
+    </tr>
+    <tr>
+      <th>25962</th>
+      <td>126999</td>
+      <td>2.000000</td>
+      <td>1</td>
+      <td>2015-01-30</td>
+      <td>1000 Journals</td>
+      <td>1000.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>movieId</th>
+      <th>Score</th>
+      <th>Ratings</th>
+      <th>Date</th>
+      <th>Name</th>
+      <th>Year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>18533</th>
+      <td>92477</td>
+      <td>1.5</td>
+      <td>1</td>
+      <td>2012-01-22</td>
+      <td>Yes: 9012 Live</td>
+      <td>9012.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p>I guess I could fiddle with the regex more but I'd rather just manually assign these and move on. I need to find the release years for the movie titles that were cut off first, and then find the correct index by the movieId in the merged dataframe. It seems like movie with Id 6290 wasn't actually misassigned since its year doesn't equal 1000 in the merged table.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Movie row number 7695, movieId 8198:&quot;</span><span class="p">,</span> <span class="n">movies</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">7695</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Movie row number 22287, movieId 107155:&quot;</span><span class="p">,</span> <span class="n">movies</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">22287</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="c1"># fixing the year = 1000 entry</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="n">merged_1</span><span class="p">[</span><span class="n">merged_1</span><span class="p">[</span><span class="s1">&#39;movieId&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">8198</span><span class="p">]</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="n">merged_1</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">7695</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1960</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="n">merged_1</span><span class="p">[</span><span class="n">merged_1</span><span class="p">[</span><span class="s1">&#39;movieId&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">107155</span><span class="p">]</span>
+<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="n">merged_1</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">22185</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1960</span>
+<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="n">merged_1</span><span class="p">[</span><span class="n">merged_1</span><span class="p">[</span><span class="s1">&#39;movieId&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">126999</span><span class="p">]</span>
+<a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="n">merged_1</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">25962</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2007</span>
+<a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a><span class="c1"># Fixing the year = 9012 entry</span>
+<a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="n">merged_1</span><span class="p">[</span><span class="n">merged_1</span><span class="p">[</span><span class="s1">&#39;movieId&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">92477</span><span class="p">]</span>
+<a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a><span class="n">merged_1</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">18533</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1985</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Movie row number 7695, movieId 8198: 1000 Eyes of Dr. Mabuse, The (Die 1000 Augen des Dr. Mabuse) (1960)
+Movie row number 22287, movieId 107155: Captive Women (1000 Years from Now) (3000 A.D.) (1952)
+</code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>movieId</th>
+      <th>Score</th>
+      <th>Ratings</th>
+      <th>Date</th>
+      <th>Name</th>
+      <th>Year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>7695</th>
+      <td>8198</td>
+      <td>3.398438</td>
+      <td>64</td>
+      <td>2008-06-21</td>
+      <td>1000 Eyes of Dr. Mabuse, The</td>
+      <td>1000.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>movieId</th>
+      <th>Score</th>
+      <th>Ratings</th>
+      <th>Date</th>
+      <th>Name</th>
+      <th>Year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>22185</th>
+      <td>107155</td>
+      <td>0.5</td>
+      <td>1</td>
+      <td>2014-04-13</td>
+      <td>Captive Women</td>
+      <td>1000.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>movieId</th>
+      <th>Score</th>
+      <th>Ratings</th>
+      <th>Date</th>
+      <th>Name</th>
+      <th>Year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>25962</th>
+      <td>126999</td>
+      <td>2.0</td>
+      <td>1</td>
+      <td>2015-01-30</td>
+      <td>1000 Journals</td>
+      <td>1000.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>movieId</th>
+      <th>Score</th>
+      <th>Ratings</th>
+      <th>Date</th>
+      <th>Name</th>
+      <th>Year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>18533</th>
+      <td>92477</td>
+      <td>1.5</td>
+      <td>1</td>
+      <td>2012-01-22</td>
+      <td>Yes: 9012 Live</td>
+      <td>9012.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="n">merged_1</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">merged_1</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>(1000.0, 9000.0)
+</code></pre></div>
+<p>So at this point, I want to just find all the values from before 1900 and after 2018. Based on this the regex matching needs a bit of work to accurately grab values. Since I did want to focus more on machine learning rather than string manipulation for now I'll just drop these rows, since they only represent a tiny, tiny subset of data (I have 27 thousand rows)</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="n">cond_1</span> <span class="o">=</span> <span class="n">merged_1</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">2016</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="n">cond_2</span> <span class="o">=</span> <span class="n">merged_1</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">1900</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="n">merged_1</span><span class="p">[</span><span class="n">cond_1</span> <span class="o">|</span> <span class="n">cond_2</span><span class="p">]</span>
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="nb">len</span><span class="p">(</span><span class="n">merged_1</span><span class="p">[</span><span class="n">cond_1</span> <span class="o">|</span> <span class="n">cond_2</span><span class="p">])</span>
+</code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>movieId</th>
+      <th>Score</th>
+      <th>Ratings</th>
+      <th>Date</th>
+      <th>Name</th>
+      <th>Year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>662</th>
+      <td>671</td>
+      <td>3.676938</td>
+      <td>6361</td>
+      <td>2002-04-07</td>
+      <td>Mystery Science Theater 3000: The Movie</td>
+      <td>3000.0</td>
+    </tr>
+    <tr>
+      <th>1388</th>
+      <td>1422</td>
+      <td>3.058688</td>
+      <td>2820</td>
+      <td>2001-09-22</td>
+      <td>Murder at 1600</td>
+      <td>1600.0</td>
+    </tr>
+    <tr>
+      <th>2223</th>
+      <td>2308</td>
+      <td>2.800000</td>
+      <td>35</td>
+      <td>2004-01-05</td>
+      <td>Detroit 9000</td>
+      <td>9000.0</td>
+    </tr>
+    <tr>
+      <th>4065</th>
+      <td>4159</td>
+      <td>2.741048</td>
+      <td>1508</td>
+      <td>2005-07-06</td>
+      <td>3000 Miles to Graceland</td>
+      <td>3000.0</td>
+    </tr>
+    <tr>
+      <th>4216</th>
+      <td>4311</td>
+      <td>1.968750</td>
+      <td>16</td>
+      <td>2005-11-21</td>
+      <td>Bloody Angels</td>
+      <td>1732.0</td>
+    </tr>
+    <tr>
+      <th>5213</th>
+      <td>5310</td>
+      <td>2.311798</td>
+      <td>356</td>
+      <td>2004-05-23</td>
+      <td>Transylvania 6-5000</td>
+      <td>5000.0</td>
+    </tr>
+    <tr>
+      <th>5375</th>
+      <td>5472</td>
+      <td>3.452809</td>
+      <td>445</td>
+      <td>2006-01-24</td>
+      <td>1776</td>
+      <td>1776.0</td>
+    </tr>
+    <tr>
+      <th>6191</th>
+      <td>6290</td>
+      <td>2.855172</td>
+      <td>870</td>
+      <td>2007-08-23</td>
+      <td>House of 1000 Corpses</td>
+      <td>1000.0</td>
+    </tr>
+    <tr>
+      <th>6535</th>
+      <td>6645</td>
+      <td>3.454427</td>
+      <td>1152</td>
+      <td>2007-08-05</td>
+      <td>THX 1138</td>
+      <td>1138.0</td>
+    </tr>
+    <tr>
+      <th>8181</th>
+      <td>8864</td>
+      <td>2.640323</td>
+      <td>310</td>
+      <td>2007-03-22</td>
+      <td>Mr. 3000</td>
+      <td>3000.0</td>
+    </tr>
+    <tr>
+      <th>8222</th>
+      <td>8905</td>
+      <td>3.084810</td>
+      <td>395</td>
+      <td>2008-03-19</td>
+      <td>1492: Conquest of Paradise</td>
+      <td>1492.0</td>
+    </tr>
+    <tr>
+      <th>9252</th>
+      <td>27266</td>
+      <td>3.673495</td>
+      <td>1196</td>
+      <td>2008-11-09</td>
+      <td>2046</td>
+      <td>2046.0</td>
+    </tr>
+    <tr>
+      <th>9490</th>
+      <td>27800</td>
+      <td>3.762500</td>
+      <td>280</td>
+      <td>2011-02-05</td>
+      <td>Interstella 5555: The 5tory of the 5ecret 5tar...</td>
+      <td>5555.0</td>
+    </tr>
+    <tr>
+      <th>11954</th>
+      <td>53953</td>
+      <td>3.290909</td>
+      <td>2365</td>
+      <td>2010-04-05</td>
+      <td>1408</td>
+      <td>1408.0</td>
+    </tr>
+    <tr>
+      <th>13737</th>
+      <td>68874</td>
+      <td>3.542857</td>
+      <td>35</td>
+      <td>2011-07-11</td>
+      <td>Jeanne Dielman, 23 Quai du Commerce, 1080 Brux...</td>
+      <td>1080.0</td>
+    </tr>
+    <tr>
+      <th>14749</th>
+      <td>73862</td>
+      <td>3.722222</td>
+      <td>9</td>
+      <td>2011-08-20</td>
+      <td>Note by Note: The Making of Steinway L1037</td>
+      <td>1037.0</td>
+    </tr>
+    <tr>
+      <th>14859</th>
+      <td>74491</td>
+      <td>3.461538</td>
+      <td>13</td>
+      <td>2011-08-30</td>
+      <td>1066</td>
+      <td>1066.0</td>
+    </tr>
+    <tr>
+      <th>14903</th>
+      <td>74706</td>
+      <td>3.571429</td>
+      <td>7</td>
+      <td>2012-02-23</td>
+      <td>Commune, La</td>
+      <td>1871.0</td>
+    </tr>
+    <tr>
+      <th>16077</th>
+      <td>81453</td>
+      <td>3.000000</td>
+      <td>2</td>
+      <td>2010-10-31</td>
+      <td>Dial 1119</td>
+      <td>1119.0</td>
+    </tr>
+    <tr>
+      <th>16289</th>
+      <td>82337</td>
+      <td>3.750000</td>
+      <td>10</td>
+      <td>2013-04-06</td>
+      <td>Four Heads Are Better Than One</td>
+      <td>1898.0</td>
+    </tr>
+    <tr>
+      <th>16294</th>
+      <td>82362</td>
+      <td>3.625000</td>
+      <td>4</td>
+      <td>2011-07-24</td>
+      <td>Pyramid of Triboulet, The</td>
+      <td>1899.0</td>
+    </tr>
+    <tr>
+      <th>16697</th>
+      <td>84551</td>
+      <td>3.125000</td>
+      <td>4</td>
+      <td>2011-07-17</td>
+      <td>44500 Max</td>
+      <td>4450.0</td>
+    </tr>
+    <tr>
+      <th>17086</th>
+      <td>86637</td>
+      <td>2.250000</td>
+      <td>2</td>
+      <td>2011-12-24</td>
+      <td>1612: Khroniki smutnogo vremeni</td>
+      <td>1612.0</td>
+    </tr>
+    <tr>
+      <th>17597</th>
+      <td>88674</td>
+      <td>2.714286</td>
+      <td>7</td>
+      <td>2011-10-13</td>
+      <td>Edison Kinetoscopic Record of a Sneeze</td>
+      <td>1894.0</td>
+    </tr>
+    <tr>
+      <th>18004</th>
+      <td>90460</td>
+      <td>2.750000</td>
+      <td>8</td>
+      <td>2012-11-21</td>
+      <td>2019: After the Fall of New York</td>
+      <td>2019.0</td>
+    </tr>
+    <tr>
+      <th>18242</th>
+      <td>91421</td>
+      <td>2.333333</td>
+      <td>3</td>
+      <td>2012-07-21</td>
+      <td>Red Line 7000</td>
+      <td>7000.0</td>
+    </tr>
+    <tr>
+      <th>18934</th>
+      <td>94431</td>
+      <td>5.000000</td>
+      <td>1</td>
+      <td>2012-05-09</td>
+      <td>Ella Lola, a la Trilby</td>
+      <td>1898.0</td>
+    </tr>
+    <tr>
+      <th>18964</th>
+      <td>94657</td>
+      <td>5.000000</td>
+      <td>1</td>
+      <td>2012-05-21</td>
+      <td>Turkish Dance, Ella Lola</td>
+      <td>1898.0</td>
+    </tr>
+    <tr>
+      <th>19032</th>
+      <td>94951</td>
+      <td>3.428571</td>
+      <td>7</td>
+      <td>2013-02-24</td>
+      <td>Dickson Experimental Sound Film</td>
+      <td>1894.0</td>
+    </tr>
+    <tr>
+      <th>19160</th>
+      <td>95541</td>
+      <td>3.375000</td>
+      <td>4</td>
+      <td>2013-03-02</td>
+      <td>Blacksmith Scene</td>
+      <td>1893.0</td>
+    </tr>
+    <tr>
+      <th>19265</th>
+      <td>96009</td>
+      <td>2.928571</td>
+      <td>7</td>
+      <td>2013-01-14</td>
+      <td>Kiss, The</td>
+      <td>1896.0</td>
+    </tr>
+    <tr>
+      <th>19601</th>
+      <td>97242</td>
+      <td>3.166667</td>
+      <td>6</td>
+      <td>2013-09-27</td>
+      <td>Daleks' Invasion Earth: 2150 A.D.</td>
+      <td>2150.0</td>
+    </tr>
+    <tr>
+      <th>19785</th>
+      <td>98019</td>
+      <td>3.205882</td>
+      <td>17</td>
+      <td>2014-01-03</td>
+      <td>Vexille</td>
+      <td>2077.0</td>
+    </tr>
+    <tr>
+      <th>20023</th>
+      <td>98981</td>
+      <td>3.437500</td>
+      <td>16</td>
+      <td>2013-10-05</td>
+      <td>Arrival of a Train, The</td>
+      <td>1896.0</td>
+    </tr>
+    <tr>
+      <th>20971</th>
+      <td>102762</td>
+      <td>3.500000</td>
+      <td>3</td>
+      <td>2013-07-12</td>
+      <td>My Wrongs 8245-8249 and 117</td>
+      <td>8245.0</td>
+    </tr>
+    <tr>
+      <th>20996</th>
+      <td>102856</td>
+      <td>3.333333</td>
+      <td>6</td>
+      <td>2014-06-04</td>
+      <td>3096 Days</td>
+      <td>3096.0</td>
+    </tr>
+    <tr>
+      <th>21082</th>
+      <td>103130</td>
+      <td>4.000000</td>
+      <td>2</td>
+      <td>2014-03-10</td>
+      <td>AM1200</td>
+      <td>1200.0</td>
+    </tr>
+    <tr>
+      <th>21430</th>
+      <td>104370</td>
+      <td>3.000000</td>
+      <td>1</td>
+      <td>2013-10-25</td>
+      <td>Wartorn: 1861-2010</td>
+      <td>1861.0</td>
+    </tr>
+    <tr>
+      <th>21543</th>
+      <td>104798</td>
+      <td>3.500000</td>
+      <td>2</td>
+      <td>2013-12-13</td>
+      <td>6954 Kilometriä Kotiin</td>
+      <td>6954.0</td>
+    </tr>
+    <tr>
+      <th>22630</th>
+      <td>108862</td>
+      <td>2.000000</td>
+      <td>1</td>
+      <td>2014-02-05</td>
+      <td>New Gladiators</td>
+      <td>2072.0</td>
+    </tr>
+    <tr>
+      <th>22741</th>
+      <td>109277</td>
+      <td>3.375000</td>
+      <td>4</td>
+      <td>2014-11-20</td>
+      <td>Love Story 2050</td>
+      <td>2050.0</td>
+    </tr>
+    <tr>
+      <th>22804</th>
+      <td>109514</td>
+      <td>3.000000</td>
+      <td>2</td>
+      <td>2014-03-03</td>
+      <td>Apartment 1303</td>
+      <td>1303.0</td>
+    </tr>
+    <tr>
+      <th>22805</th>
+      <td>109516</td>
+      <td>1.333333</td>
+      <td>3</td>
+      <td>2014-11-11</td>
+      <td>Apartment 1303 3D</td>
+      <td>1303.0</td>
+    </tr>
+    <tr>
+      <th>23160</th>
+      <td>110867</td>
+      <td>3.500000</td>
+      <td>2</td>
+      <td>2014-11-09</td>
+      <td>Conquest 1453</td>
+      <td>1453.0</td>
+    </tr>
+    <tr>
+      <th>23358</th>
+      <td>111856</td>
+      <td>2.833333</td>
+      <td>3</td>
+      <td>2014-10-25</td>
+      <td>7500</td>
+      <td>7500.0</td>
+    </tr>
+    <tr>
+      <th>23633</th>
+      <td>113048</td>
+      <td>2.250000</td>
+      <td>2</td>
+      <td>2014-10-18</td>
+      <td>Tables Turned on the Gardener</td>
+      <td>1895.0</td>
+    </tr>
+    <tr>
+      <th>23653</th>
+      <td>113143</td>
+      <td>1.000000</td>
+      <td>1</td>
+      <td>2014-12-23</td>
+      <td>America 3000</td>
+      <td>3000.0</td>
+    </tr>
+    <tr>
+      <th>23847</th>
+      <td>113968</td>
+      <td>3.666667</td>
+      <td>3</td>
+      <td>2014-11-16</td>
+      <td>2081</td>
+      <td>2081.0</td>
+    </tr>
+    <tr>
+      <th>24024</th>
+      <td>114721</td>
+      <td>2.944444</td>
+      <td>9</td>
+      <td>2014-11-23</td>
+      <td>Bugs Bunny's 3rd Movie: 1001 Rabbit Tales</td>
+      <td>1001.0</td>
+    </tr>
+    <tr>
+      <th>24330</th>
+      <td>116157</td>
+      <td>3.750000</td>
+      <td>2</td>
+      <td>2014-11-12</td>
+      <td>Electronic Labyrinth THX 1138 4EB</td>
+      <td>1138.0</td>
+    </tr>
+    <tr>
+      <th>25193</th>
+      <td>120869</td>
+      <td>4.000000</td>
+      <td>1</td>
+      <td>2015-01-05</td>
+      <td>Employees Leaving the Lumière Factory</td>
+      <td>1895.0</td>
+    </tr>
+    <tr>
+      <th>25724</th>
+      <td>125978</td>
+      <td>2.500000</td>
+      <td>1</td>
+      <td>2015-01-22</td>
+      <td>Santa Claus</td>
+      <td>1898.0</td>
+    </tr>
+    <tr>
+      <th>25812</th>
+      <td>126164</td>
+      <td>2.000000</td>
+      <td>1</td>
+      <td>2015-01-22</td>
+      <td>1001 Nights</td>
+      <td>1001.0</td>
+    </tr>
+    <tr>
+      <th>26481</th>
+      <td>129849</td>
+      <td>3.000000</td>
+      <td>1</td>
+      <td>2015-03-12</td>
+      <td>Old Man Drinking a Glass of Beer</td>
+      <td>1898.0</td>
+    </tr>
+    <tr>
+      <th>26482</th>
+      <td>129851</td>
+      <td>3.000000</td>
+      <td>1</td>
+      <td>2015-03-12</td>
+      <td>Dickson Greeting</td>
+      <td>1891.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="highlight"><pre><span></span><code>55
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="c1"># drop buggy rows</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="n">merged_1</span> <span class="o">=</span> <span class="n">merged_1</span><span class="p">[</span><span class="o">~</span><span class="p">(</span><span class="n">cond_1</span> <span class="o">|</span> <span class="n">cond_2</span><span class="p">)]</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="n">cond_1</span> <span class="o">=</span> <span class="n">merged_1</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">2016</span>
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="n">cond_2</span> <span class="o">=</span> <span class="n">merged_1</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">1900</span>
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="n">merged_1</span><span class="p">[</span><span class="n">cond_1</span> <span class="o">|</span> <span class="n">cond_2</span><span class="p">]</span>
+<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="n">ggplot</span><span class="p">()</span> <span class="o">+</span> <span class="n">geom_histogram</span><span class="p">(</span><span class="n">aes</span><span class="p">(</span><span class="s1">&#39;Year&#39;</span><span class="p">),</span> <span class="n">data</span> <span class="o">=</span> <span class="n">merged_1</span><span class="p">)</span>
+<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">var_corr</span><span class="p">)</span>
+</code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>movieId</th>
+      <th>Score</th>
+      <th>Ratings</th>
+      <th>Date</th>
+      <th>Name</th>
+      <th>Year</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+</div>
+
+<div class="highlight"><pre><span></span><code>/home/jcmint/anaconda3/envs/learningenv/lib/python3.7/site-packages/plotnine/stats/stat_bin.py:93: UserWarning: &#39;stat_bin()&#39; using &#39;bins = 56&#39;. Pick better value with &#39;binwidth&#39;.
+  warn(msg.format(params[&#39;bins&#39;]))
+/home/jcmint/anaconda3/envs/learningenv/lib/python3.7/site-packages/plotnine/layer.py:360: UserWarning: stat_bin : Removed 19 rows containing non-finite values.
+  data = self.stat.compute_layer(data, params, layout)
+</code></pre></div>
+<p><img alt="png" src="../7_ML_Clust_files/7_ML_Clust_31_2.png" /></p>
+<div class="highlight"><pre><span></span><code>&lt;ggplot: (-9223363306851432774)&gt;
+
+
+
+
+
+
+&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f09cc69b518&gt;
+</code></pre></div>
+<p><img alt="png" src="../7_ML_Clust_files/7_ML_Clust_31_5.png" /></p>
+<h1 id="returning-to-visualization">Returning to visualization</h1>
+<p>Compare the heatmaps before and after removing the outlier years, and get a new scaled version</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="n">scaled_1</span> <span class="o">=</span> <span class="n">merged_1</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="k">del</span> <span class="n">scaled_1</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">]</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="k">del</span> <span class="n">scaled_1</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span>
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="n">scaled_1</span> <span class="o">=</span> <span class="n">scaled_1</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">ratings</span><span class="p">[[</span><span class="s1">&#39;movieId&#39;</span><span class="p">,</span> <span class="s1">&#39;timestamp&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;movieId&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">),</span> <span class="n">on</span> <span class="o">=</span> <span class="s1">&#39;movieId&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">)</span>
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="k">del</span> <span class="n">scaled_1</span><span class="p">[</span><span class="s1">&#39;movieId&#39;</span><span class="p">]</span>
+<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="n">scaled_1</span> <span class="o">=</span> <span class="n">scaled_1</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="n">scaled_1</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">3</span><span class="p">]:</span> <span class="s2">&quot;Date&quot;</span><span class="p">})</span>
+<a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a><span class="n">scaled_1</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">scaled_1</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">])</span>
+<a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a><span class="n">var_corr</span> <span class="o">=</span> <span class="n">scaled_1</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+<a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a><span class="n">normalized</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">scaled_1</span><span class="p">)</span>
+<a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a><span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">var_corr</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>/home/jcmint/anaconda3/envs/learningenv/lib/python3.7/site-packages/sklearn/preprocessing/data.py:645: DataConversionWarning: Data with input dtype int64, float64 were all converted to float64 by StandardScaler.
+  return self.partial_fit(X, y)
+/home/jcmint/anaconda3/envs/learningenv/lib/python3.7/site-packages/sklearn/base.py:464: DataConversionWarning: Data with input dtype int64, float64 were all converted to float64 by StandardScaler.
+  return self.fit(X, **fit_params).transform(X)
+
+
+
+
+
+&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f09c037e630&gt;
+</code></pre></div>
+<p><img alt="png" src="../7_ML_Clust_files/7_ML_Clust_33_2.png" /></p>
+<p>So it seems like the outliers and misidentified values had some influence on the Year correlation with other variables.</p>
+<h1 id="data-manipulations-binning">Data Manipulations - Binning</h1>
+<p>Here, I want to bin the release year into decade buckets so that I can use that as a factor level to color the plots.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="n">bins</span> <span class="o">=</span>  <span class="p">[</span><span class="s2">&quot;</span><span class="si">{0}</span><span class="s2">s&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">decades</span><span class="p">)</span> <span class="k">for</span> <span class="n">decades</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1900</span><span class="p">,</span> <span class="mi">2020</span><span class="p">,</span> <span class="mi">10</span><span class="p">)]</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="n">num_bins</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">bins</span><span class="p">)</span>
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="n">scaled_1</span><span class="p">[</span><span class="s1">&#39;decade&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">scaled_1</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="n">num_bins</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">bins</span><span class="p">)</span>
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="n">scaled_1</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="n">scaled_1</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Score</th>
+      <th>Ratings</th>
+      <th>Year</th>
+      <th>Date</th>
+      <th>decade</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>3.921240</td>
+      <td>49695</td>
+      <td>1995.0</td>
+      <td>1052654098</td>
+      <td>1990s</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>3.211977</td>
+      <td>22243</td>
+      <td>1995.0</td>
+      <td>1037616295</td>
+      <td>1990s</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3.151040</td>
+      <td>12735</td>
+      <td>1995.0</td>
+      <td>959648019</td>
+      <td>1990s</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2.861393</td>
+      <td>2756</td>
+      <td>1995.0</td>
+      <td>924214411</td>
+      <td>1990s</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>3.064592</td>
+      <td>12161</td>
+      <td>1995.0</td>
+      <td>962016085</td>
+      <td>1990s</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Score</th>
+      <th>Ratings</th>
+      <th>Year</th>
+      <th>Date</th>
+      <th>decade</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>26684</th>
+      <td>4.0</td>
+      <td>1</td>
+      <td>2007.0</td>
+      <td>1427743979</td>
+      <td>2010s</td>
+    </tr>
+    <tr>
+      <th>26685</th>
+      <td>4.0</td>
+      <td>1</td>
+      <td>2002.0</td>
+      <td>1427744888</td>
+      <td>2000s</td>
+    </tr>
+    <tr>
+      <th>26686</th>
+      <td>2.5</td>
+      <td>1</td>
+      <td>2014.0</td>
+      <td>1427745392</td>
+      <td>2010s</td>
+    </tr>
+    <tr>
+      <th>26687</th>
+      <td>3.0</td>
+      <td>1</td>
+      <td>2001.0</td>
+      <td>1427745466</td>
+      <td>2000s</td>
+    </tr>
+    <tr>
+      <th>26688</th>
+      <td>4.0</td>
+      <td>1</td>
+      <td>2014.0</td>
+      <td>1427747966</td>
+      <td>2010s</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="binning-results">Binning results</h2>
+<p>Plot all the data, divided by decade of release.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="c1"># Drop na year values</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="n">scaled_1</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="n">scaled_1</span><span class="p">[</span><span class="s1">&#39;log_Ratings&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">scaled_1</span><span class="p">[</span><span class="s1">&#39;Ratings&#39;</span><span class="p">])</span>
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">plotnine</span><span class="w"> </span><span class="kn">import</span> <span class="n">options</span> <span class="k">as</span> <span class="n">ops</span>
+<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="kn">from</span><span class="w"> </span><span class="nn">plotnine</span><span class="w"> </span><span class="kn">import</span> <span class="n">facet_wrap</span>
+<a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="n">ops</span><span class="o">.</span><span class="n">figure_size</span> <span class="o">=</span> <span class="p">(</span><span class="mf">10.4</span><span class="p">,</span> <span class="mf">6.8</span><span class="p">)</span>
+<a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a><span class="n">ggplot</span><span class="p">(</span><span class="n">scaled_1</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="s1">&#39;log_Ratings&#39;</span><span class="p">,</span> <span class="s1">&#39;Score&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;Year&#39;</span><span class="p">))</span> <span class="o">+</span> <span class="n">geom_point</span><span class="p">()</span> <span class="o">+</span> <span class="n">stat_smooth</span><span class="p">()</span> <span class="o">+</span> <span class="n">facet_wrap</span><span class="p">(</span><span class="s1">&#39;~decade&#39;</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>/home/jcmint/anaconda3/envs/learningenv/lib/python3.7/site-packages/numpy/core/fromnumeric.py:2389: FutureWarning: Method .ptp is deprecated and will be removed in a future version. Use numpy.ptp instead.
+  return ptp(axis=axis, out=out, **kwargs)
+</code></pre></div>
+<p><img alt="png" src="../7_ML_Clust_files/7_ML_Clust_37_1.png" /></p>
+<div class="highlight"><pre><span></span><code>&lt;ggplot: (8729992780783)&gt;
+</code></pre></div>
+<h1 id="modeling">Modeling</h1>
+<h2 id="exploratory-elbow-plot">Exploratory elbow plot</h2>
+<p>I generate an elbow plot to see how many clusters might be a good value.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="o">%%</span><span class="n">capture</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="n">X</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">scaled_1</span><span class="p">[[</span><span class="s1">&#39;Score&#39;</span><span class="p">,</span> <span class="s1">&#39;Ratings&#39;</span><span class="p">,</span> <span class="s1">&#39;Date&#39;</span><span class="p">]])</span>
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="n">error</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">20</span><span class="p">):</span>
+<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a><span class="n">kmeans_model</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span> <span class="o">=</span> <span class="n">k</span><span class="p">);</span>
+<a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a><span class="n">kmeans_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">);</span>
+<a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a><span class="n">error</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">kmeans_model</span><span class="o">.</span><span class="n">inertia_</span><span class="p">);</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="n">error</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="n">elbow</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Clusters&#39;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">20</span><span class="p">)),</span> <span class="s1">&#39;Error&#39;</span> <span class="p">:</span> <span class="n">error</span><span class="p">}</span> <span class="p">)</span>
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="n">elbow</span>
+<a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">plotnine</span><span class="w"> </span><span class="kn">import</span> <span class="n">geom_line</span>
+<a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a><span class="kn">from</span><span class="w"> </span><span class="nn">plotnine</span><span class="w"> </span><span class="kn">import</span> <span class="n">scale_x_continuous</span>
+<a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a><span class="n">ggplot</span><span class="p">(</span><span class="n">elbow</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;Clusters&#39;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;Error&#39;</span><span class="p">))</span> <span class="o">+</span> <span class="n">geom_line</span><span class="p">()</span> <span class="o">+</span> <span class="n">scale_x_continuous</span><span class="p">(</span><span class="n">breaks</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">20</span><span class="p">)))</span>
+</code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Clusters</th>
+      <th>Error</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2</td>
+      <td>56811.269952</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>3</td>
+      <td>40924.920341</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4</td>
+      <td>27773.559122</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>5</td>
+      <td>23374.464711</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>6</td>
+      <td>19266.801939</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>7</td>
+      <td>16360.115736</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>8</td>
+      <td>14559.723656</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>9</td>
+      <td>13013.149628</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>10</td>
+      <td>11561.152691</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>11</td>
+      <td>10591.417401</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>12</td>
+      <td>9788.753401</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>13</td>
+      <td>8926.882872</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>14</td>
+      <td>8267.855712</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>15</td>
+      <td>7703.456423</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>16</td>
+      <td>7303.171993</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>17</td>
+      <td>6815.445542</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>18</td>
+      <td>6496.663156</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>19</td>
+      <td>6190.330783</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p><img alt="png" src="../7_ML_Clust_files/7_ML_Clust_40_1.png" /></p>
+<div class="highlight"><pre><span></span><code>&lt;ggplot: (-9223363306868393342)&gt;
+</code></pre></div>
+<h2 id="elbow-plot-defining-the-bend-mathematically">Elbow plot - defining the bend mathematically</h2>
+<p>In most cases you would just eyeball the curve to see where the dropoff starts to plateau. But since we are using code and there are builtin functions we can easily grab the max of the second derivative as the point where the elbow plot is plateauing most quickly</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">elbow</span><span class="p">[</span><span class="s1">&#39;Error&#39;</span><span class="p">])</span>
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">elbow</span><span class="p">[</span><span class="s1">&#39;Error&#39;</span><span class="p">]))</span>
+<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">elbow</span><span class="p">[</span><span class="s1">&#39;Error&#39;</span><span class="p">]))</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>array([-15886.34961051, -13151.36121902,  -4399.09441152,  -4107.66277137,
+        -2906.68620346,  -1800.3920797 ,  -1546.5740278 ,  -1451.99693761,
+         -969.73528993,   -802.66399959,   -861.87052968,   -659.02715945,
+         -564.39928912,   -400.28443027,   -487.72645071,   -318.78238598,
+         -306.33237349])
+
+
+
+
+
+
+array([2734.98839149, 8752.2668075 ,  291.43164015, 1200.97656791,
+       1106.29412376,  253.8180519 ,   94.57709019,  482.26164768,
+        167.07129033,  -59.20653009,  202.84337023,   94.62787033,
+        164.11485886,  -87.44202044,  168.94406473,   12.45001249])
+
+
+
+
+
+
+8752.266807496679
+</code></pre></div>
+<p>For added confirmation we can plot the first (blue line) and second (red line) derivatives. Indeed, the max of the 2nd derivative is at k = 5.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="n">diff_1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="n">elbow</span><span class="p">[</span><span class="s1">&#39;First Derivative&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">elbow</span><span class="p">[</span><span class="s1">&#39;Error&#39;</span><span class="p">]))</span>
+<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="n">elbow</span><span class="p">[</span><span class="s1">&#39;Second Derivative&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">elbow</span><span class="p">[</span><span class="s1">&#39;Error&#39;</span><span class="p">])))</span>
+<a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a><span class="n">elbow_d</span> <span class="o">=</span> <span class="n">ggplot</span><span class="p">(</span><span class="n">elbow</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;Clusters&#39;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;Error&#39;</span><span class="p">))</span> <span class="o">+</span> <span class="n">geom_line</span><span class="p">()</span> <span class="o">+</span> <span class="n">scale_x_continuous</span><span class="p">(</span><span class="n">breaks</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">20</span><span class="p">)))</span>
+<a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a><span class="n">elbow_d</span> <span class="o">+</span> <span class="n">geom_line</span><span class="p">(</span><span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;Clusters&#39;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;First Derivative&#39;</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="n">geom_line</span><span class="p">(</span><span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;Clusters&#39;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;Second Derivative&#39;</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">)</span>
+</code></pre></div>
+<p><img alt="png" src="../7_ML_Clust_files/7_ML_Clust_44_0.png" /></p>
+<div class="highlight"><pre><span></span><code>&lt;ggplot: (8729990934669)&gt;
+</code></pre></div>
+<h1 id="final-cluster-and-visualization">Final cluster and visualization</h1>
+<p>From this plot we can see that the bend of the elbow plot is mathematically at k = 5 clusters. We can finally move on to the last part, return to using the KMeans model to generate label assignments, and color our data by the different clusters.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="n">kmeans_model</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span> <span class="o">=</span> <span class="mi">5</span><span class="p">);</span>
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="n">kmeans_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">);</span>
+<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a><span class="n">scaled_1</span><span class="p">[</span><span class="s1">&#39;Cluster&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kmeans_model</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a><span class="n">ops</span><span class="o">.</span><span class="n">figure_size</span> <span class="o">=</span> <span class="p">(</span><span class="mf">10.4</span><span class="p">,</span> <span class="mf">6.8</span><span class="p">)</span>
+<a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a><span class="n">ggplot</span><span class="p">(</span><span class="n">scaled_1</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="s1">&#39;log_Ratings&#39;</span><span class="p">,</span> <span class="s1">&#39;Score&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;Cluster&#39;</span><span class="p">))</span> <span class="o">+</span> <span class="n">geom_point</span><span class="p">()</span> <span class="o">+</span> <span class="n">facet_wrap</span><span class="p">(</span><span class="s1">&#39;~decade&#39;</span><span class="p">)</span>
+<a id="__codelineno-27-6" name="__codelineno-27-6" href="#__codelineno-27-6"></a><span class="n">ggplot</span><span class="p">(</span><span class="n">scaled_1</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="s1">&#39;log_Ratings&#39;</span><span class="p">,</span> <span class="s1">&#39;Year&#39;</span><span class="p">,</span>  <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;Cluster&#39;</span><span class="p">))</span> <span class="o">+</span> <span class="n">geom_point</span><span class="p">()</span> <span class="o">+</span> <span class="n">facet_wrap</span><span class="p">(</span><span class="s1">&#39;~decade&#39;</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>KMeans(algorithm=&#39;auto&#39;, copy_x=True, init=&#39;k-means++&#39;, max_iter=300,
+    n_clusters=5, n_init=10, n_jobs=None, precompute_distances=&#39;auto&#39;,
+    random_state=None, tol=0.0001, verbose=0)
+</code></pre></div>
+<p><img alt="png" src="../7_ML_Clust_files/7_ML_Clust_46_1.png" /></p>
+<div class="highlight"><pre><span></span><code>&lt;ggplot: (-9223363306863402254)&gt;
+</code></pre></div>
+<p><img alt="png" src="../7_ML_Clust_files/7_ML_Clust_46_3.png" /></p>
+<div class="highlight"><pre><span></span><code>&lt;ggplot: (8729991373488)&gt;
+</code></pre></div>
+<p>Since I've faceted the graphs by decade of the movie release year, these plots are slices of a 3d plot. If we imagine that the Ratings and Score are the x and y dimensions when looking straight down, then the Year is the vertical dimensions. Here, I also I give a side view of the decade slices on the Ratings side. Finally, how long did this entire file take to run?</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="n">time_stop</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="n">time_stop</span> <span class="o">-</span> <span class="n">time_start</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>datetime.timedelta(seconds=46, microseconds=211675)
+</code></pre></div></div>
+        
+        
+    </div>
+
+    
+      <footer class="col-md-12 text-center">
+          
+          
+            <hr>
+            <p>
+            <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</small>
+            </p>
+          
+
+          
+          
+      </footer>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../js/bootstrap-3.0.3.min.js"></script>
+
+    
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
+        
+                <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/languages/python.min.js"></script>
+                <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/languages/javascript.min.js"></script>
+                <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/languages/html.min.js"></script>
+                <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/languages/css.min.js"></script>
+                <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/languages/bash.min.js"></script>
+                <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/languages/yaml.min.js"></script>
+                <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/languages/markdown.min.js"></script>
+        
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    <script>var base_url = ".."</script>
+    
+    <script src="../js/base.js"></script>
+    <script src="../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+
+</html>

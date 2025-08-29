@@ -1,0 +1,220 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="date" content="2019-06-14" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #232629; color: #cfcfc2; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; background-color: #232629; color: #7a7c7d; border-right: 1px solid #7a7c7d; }
+td.sourceCode { padding-left: 5px; }
+pre, code { color: #cfcfc2; background-color: #232629; }
+code > span.kw { color: #cfcfc2; } /* Keyword */
+code > span.dt { color: #2980b9; } /* DataType */
+code > span.dv { color: #f67400; } /* DecVal */
+code > span.bn { color: #f67400; } /* BaseN */
+code > span.fl { color: #f67400; } /* Float */
+code > span.cn { color: #27aeae; } /* Constant */
+code > span.ch { color: #3daee9; } /* Char */
+code > span.sc { color: #3daee9; } /* SpecialChar */
+code > span.st { color: #f44f4f; } /* String */
+code > span.vs { color: #da4453; } /* VerbatimString */
+code > span.ss { color: #da4453; } /* SpecialString */
+code > span.im { color: #27ae60; } /* Import */
+code > span.co { color: #7a7c7d; } /* Comment */
+code > span.do { color: #a43340; } /* Documentation */
+code > span.an { color: #3f8058; } /* Annotation */
+code > span.cv { color: #7f8c8d; } /* CommentVar */
+code > span.ot { color: #27ae60; } /* Other */
+code > span.fu { color: #8e44ad; } /* Function */
+code > span.va { color: #27aeae; } /* Variable */
+code > span.cf { color: #fdbc4b; } /* ControlFlow */
+code > span.op { color: #cfcfc2; } /* Operator */
+code > span.bu { color: #7f8c8d; } /* BuiltIn */
+code > span.ex { color: #0099ff; } /* Extension */
+code > span.pp { color: #27ae60; } /* Preprocessor */
+code > span.at { color: #2980b9; } /* Attribute */
+code > span.re { color: #2980b9; } /* RegionMarker */
+code > span.in { color: #c45b00; } /* Information */
+code > span.wa { color: #da4453; } /* Warning */
+code > span.al { color: #95da4c; } /* Alert */
+code > span.er { color: #da4453; } /* Error */
+code > span. { color: #cfcfc2; } /* Normal */
+  </style>
+</head>
+<body>
+<div id="TOC">
+<ul>
+<li><a href="#mvc">MVC</a></li>
+<li><a href="#frameworks">Frameworks</a></li>
+<li><a href="#webapp-example">webapp example</a></li>
+<li><a href="#html-templates">HTML templates</a></li>
+<li><a href="#displaying-persistent-data">Displaying persistent data</a></li>
+<li><a href="#javascript-error-checking">Javascript error checking</a></li>
+<li><a href="#jquery">jQuery</a></li>
+</ul>
+</div>
+<p><a href="../../../index.html">Go back to index</a></p>
+<p><a href="../base.html">Go back to General topics portal</a></p>
+<head>
+  
+  <meta name="viewport" content="initial-scale=1, width=device-width">
+</head>
+<h1 id="mvc">MVC</h1>
+<ul>
+<li>Controller - business and functional logic (Python)</li>
+<li>View - aesthetics that is user-facing</li>
+<li>Model - a database that handles requests</li>
+</ul>
+<h1 id="frameworks">Frameworks</h1>
+<p>Frameworks are a way to have a web app dynamically generate content. This would be instead of using a BaseHTTPRequestHandler and writing HTML through Python line by line, such as adding <code>&lt;!DOCTYPE HTML&gt;</code>, <code>&lt;body&gt;text&lt;/body&gt;</code> tags and so on. Also necessary is setting the server_address as <code>(&quot;0.0.0.0&quot;, 8080)</code>. Flask is an example of such a framework. It abstracts away the line-by-line.</p>
+<h1 id="webapp-example">webapp example</h1>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">from</span> flask <span class="im">import</span> Flask, render_template, request, jsonify
+
+<span class="co"># turn this .py file into a webapp</span>
+app <span class="op">=</span> Flask(<span class="va">__name__</span>)
+
+namelist<span class="op">=</span>[] <span class="co"># persistent data structure - before db</span>
+
+<span class="co"># listen for a forward slash</span>
+<span class="at">@app.route</span>(<span class="st">&quot;/&quot;</span>)
+
+<span class="co"># call the following when a user requests </span>
+<span class="co"># the forward slash (e.g. the root dir)</span>
+<span class="kw">def</span> index():
+    <span class="cf">return</span> <span class="st">&quot;hello world&quot;</span></code></pre></div>
+<p>Then, on the command line you just use the following lines. The first two are required only the first time the application is run. The below is for Linux:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">export</span> <span class="va">FLASK_APP=</span>application.py
+<span class="bu">export</span> <span class="va">FLASK_DEBUG=</span>1
+<span class="ex">flask</span> run</code></pre></div>
+<p>Alternatively, on windows it would be</p>
+<pre class="shell"><code>set FLASK_APP=application.py
+set FLASK_DEBUG=1
+flask run</code></pre>
+<p>Alternative - the index.html is in a /templates folder by convention.</p>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="dt">&lt;!DOCTYPE </span>html<span class="dt">&gt;</span>
+
+<span class="kw">&lt;html</span><span class="ot"> lang=</span><span class="st">&quot;en&quot;</span><span class="kw">&gt;</span>
+    <span class="kw">&lt;head&gt;</span>
+        <span class="kw">&lt;meta</span><span class="ot"> name=</span><span class="st">&quot;viewport&quot;</span><span class="ot"> content=</span><span class="st">&quot;initial-scale=1, width=device-width&quot;</span><span class="kw">&gt;</span>
+        `<span class="kw">&lt;title&gt;</span>hello<span class="kw">&lt;/title&gt;</span>
+    <span class="kw">&lt;/head&gt;</span>
+    <span class="kw">&lt;body&gt;</span>
+        hello {{ name }}
+        <span class="kw">&lt;form</span><span class="ot"> action=</span><span class="st">&quot;/nextpage&quot;</span><span class="ot"> method=</span><span class="st">&quot;post&quot;</span><span class="kw">&gt;</span>//post will send info 
+            <span class="kw">&lt;input</span><span class="ot"> autofocus name=</span><span class="st">&quot;name&quot;</span><span class="ot"> placeholder=</span><span class="st">&quot;Name&quot;</span><span class="ot"> type=</span><span class="st">&quot;text&quot;</span><span class="kw">&gt;</span>
+            <span class="kw">&lt;input</span><span class="ot"> type=</span><span class="st">&quot;submit&quot;</span><span class="ot"> value=</span><span class="st">&quot;Enter&quot;</span><span class="kw">&gt;</span>
+        <span class="kw">&lt;/form&gt;</span>    
+    <span class="kw">&lt;/body&gt;</span>
+<span class="kw">&lt;/html&gt;</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> index(): 
+    name <span class="op">=</span> request.args.get(<span class="st">&quot;name&quot;</span>, <span class="st">&quot;default_name&quot;</span>) <span class="co"># default if none</span>
+    <span class="co"># this comes from the ?name=myname in the url</span>
+    <span class="cf">return</span> render_template(<span class="st">&quot;index.html&quot;</span>, name<span class="op">=</span>name)</code></pre></div>
+<p>Then, in the browser you would append a ?name=myname to the url to simulate a GET request - and this would dynamically update the website to use that name.</p>
+<p>For other requests, such as the submission, we can implement separate request listeners. You can also set methods to allow both GET and POST, and include a if switch in the associated method to handle the page load or submission, respectively.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="at">@app.route</span>(<span class="st">&quot;/nextpage&quot;</span>, methods<span class="op">=</span>[<span class="st">&quot;POST&quot;</span>])
+<span class="kw">def</span> nextpage_func():
+    <span class="co"># what to do with a name submission? this comes from the form submission</span>
+    name <span class="op">=</span> request.form.get(<span class="st">&quot;name&quot;</span>)
+    <span class="cf">if</span> <span class="kw">not</span> name:
+        <span class="cf">return</span> <span class="st">&quot;failure&quot;</span>
+    namelist.append(name)
+    <span class="cf">return</span> render_template(<span class="st">&quot;good_job.html&quot;</span>)</code></pre></div>
+<h1 id="html-templates">HTML templates</h1>
+<p>Flask also allows placeholders for chunks of html. In a <code>layouts.html</code> file inside a templates directory:</p>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;body&gt;</span>
+{% raw %}{% block body %}{% endblock %}{% endraw %}
+<span class="kw">&lt;/body&gt;</span></code></pre></div>
+<p>Then, in other HTML files that are based off this layouts file, we can get rid of the doctype, html/lang and header tags. We can just include the HTML that is <strong>specific</strong> to the particular page. This might be an exampel of &quot;good_job.html&quot; that I used above:</p>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html">{% raw %}
+{% extends &quot;layout.html&quot; %}
+{% block body %}
+
+    <span class="kw">&lt;h1&gt;</span>Good job!<span class="kw">&lt;/h1&gt;</span>
+    // unique stuff here
+{% endblock %}
+{% endraw %}</code></pre></div>
+<h1 id="displaying-persistent-data">Displaying persistent data</h1>
+<p>Now that we have a namelist that gets appended to with each submission, we can also have a page dynamically updated with that list. Update the nextpage_func() to redirect to another page and add another function to handle the generating of that redirected page:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="at">@app.route</span>(<span class="st">&quot;/nextpage&quot;</span>, methods<span class="op">=</span>[<span class="st">&quot;POST&quot;</span>])
+<span class="kw">def</span> nextpage_func():
+    <span class="co"># what to do with a name submission? this comes from the form submission</span>
+    name <span class="op">=</span> request.form.get(<span class="st">&quot;name&quot;</span>)
+    <span class="cf">if</span> <span class="kw">not</span> name:
+        <span class="cf">return</span> <span class="st">&quot;failure&quot;</span>
+    namelist.append(name)
+    <span class="co"># redirect to the names.html page using the route</span>
+    <span class="cf">return</span> redirect(<span class="st">&quot;/displaynames&quot;</span>)
+
+<span class="at">@app.route</span>(<span class="st">&quot;/displaynames&quot;</span>)
+<span class="kw">def</span> enterednames_func():
+    <span class="cf">return</span> render_template(<span class="st">&quot;names.html&quot;</span>, namelist<span class="op">=</span>namelist)</code></pre></div>
+<p>Then, in names.html in templates directory:</p>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html">{% raw %}
+{% extends &quot;layout.html&quot; %}
+{% block body %}
+    <span class="kw">&lt;ul&gt;</span> //list 
+        {% for name in namelist %}
+            <span class="kw">&lt;li&gt;</span>{{ name }}<span class="kw">&lt;/li</span><span class="er">?</span>
+        <span class="er">{%</span> <span class="er">endfor</span> <span class="er">%}</span>
+    <span class="er">&lt;/ul</span><span class="kw">&gt;</span>
+{% endblock %}
+{% endraw %}</code></pre></div>
+<p>You can also set up the entered_names() function to save the file at the same time the page loads, and to display a link to the file as a href as a download link. <code>&lt;a href=&quot;/myfiles.zip&quot;&gt;Download&lt;/a&gt;</code></p>
+<h1 id="javascript-error-checking">Javascript error checking</h1>
+<p>For checking user input, it would be good to check it on the client side.</p>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;script&gt;</span>
+<span class="va">document</span>.<span class="at">querySelector</span>(<span class="st">&#39;form&#39;</span>).<span class="at">onsubmit</span> <span class="op">=</span> <span class="kw">function</span>()<span class="op">{</span>
+    <span class="cf">if</span>(<span class="op">!</span><span class="va">document</span>.<span class="at">querySelector</span>(<span class="st">&#39;input&#39;</span>).<span class="at">value</span>)<span class="op">{</span>
+        <span class="at">alert</span>(<span class="st">&#39;You must enter a name&#39;</span>)<span class="op">;</span>
+        <span class="cf">return</span> <span class="kw">false</span><span class="op">;</span>
+    <span class="op">}</span>
+    <span class="cf">return</span> <span class="kw">true</span><span class="op">;</span>
+<span class="op">}</span>
+<span class="kw">&lt;/script&gt;</span></code></pre></div>
+<p>For fancier checking, you can use bootstrap to check user input without generating alert popups.</p>
+<h1 id="jquery">jQuery</h1>
+<p>jQuery can enable calling a function using <code>$</code> notation with a <code>.get()</code> function to load snippets of HTML after a page is already loaded. Under an input field, reactive output can be shown using a javascript snippet. This changes the contents inside the <code>&lt;ul&gt;&lt;/ul&gt;</code> tags in reaction to user input</p>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;ul&gt;&lt;/ul&gt;</span>
+<span class="kw">&lt;script</span><span class="ot"> src=</span><span class="st">&quot;https://code.jquery.com/jquery-3.3.1.min.js&quot;</span><span class="kw">&gt;&lt;/script&gt;</span>
+<span class="kw">&lt;script&gt;</span>
+    <span class="kw">let</span> input <span class="op">=</span> <span class="va">document</span>.<span class="at">querySelector</span>(<span class="st">&quot;input&quot;</span>)<span class="op">;</span>
+    <span class="va">input</span>.<span class="at">onkeyup</span> <span class="op">=</span> <span class="kw">function</span>()<span class="op">{</span>
+        <span class="va">$</span>.<span class="at">get</span>(<span class="st">&#39;/search?q=&#39;</span> <span class="op">+</span> <span class="va">input</span>.<span class="at">value</span><span class="op">,</span> <span class="kw">function</span>(data) <span class="op">{</span>
+            <span class="va">document</span>.<span class="at">querySelector</span>(<span class="st">&#39;ul&#39;</span>).<span class="at">innerHTML</span><span class="op">=</span>data<span class="op">;</span>
+        <span class="op">}</span>)<span class="op">;</span>
+
+    <span class="op">};</span>
+<span class="kw">&lt;/script&gt;</span></code></pre></div>
+<p>On the server side there is a app route for the jQuery script that returns a JSON of the matching entries.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="at">@app.route</span>(<span class="st">&quot;/search&quot;</span>)
+<span class="kw">def</span> search():
+    q <span class="op">=</span> request.args.get(<span class="st">&quot;q&quot;</span>)
+    words <span class="op">=</span> [w <span class="cf">for</span> w <span class="kw">in</span> words <span class="cf">if</span> q <span class="kw">and</span> w.startswith(q)]
+    <span class="cf">return</span> jsonify(words)</code></pre></div>
+<p>Finally, its possible to replace server side Python with JavaScript and implement lookup using a .js array loaded into the browser.</p>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;script&gt;</span>
+    
+    <span class="kw">let</span> input <span class="op">=</span> <span class="va">document</span>.<span class="at">querySelector</span>(<span class="st">&#39;input&#39;</span>)<span class="op">;</span>
+    <span class="va">input</span>.<span class="at">onkeyup</span> <span class="op">=</span> <span class="kw">function</span>() <span class="op">{</span>
+        <span class="kw">let</span> html <span class="op">=</span> <span class="st">&#39;&#39;</span><span class="op">;</span>
+        <span class="cf">if</span> (<span class="va">input</span>.<span class="at">value</span>) <span class="op">{</span>
+            <span class="cf">for</span> (word of WORDS) <span class="op">{</span>
+                <span class="cf">if</span> (<span class="va">word</span>.<span class="at">startsWith</span>(<span class="va">input</span>.<span class="at">value</span>)) <span class="op">{</span>
+                    html <span class="op">+=</span> <span class="st">&#39;&lt;li&gt;&#39;</span> <span class="op">+</span> word <span class="op">+</span> <span class="st">&#39;&lt;/li&gt;&#39;</span><span class="op">;</span>
+                <span class="op">}</span>
+            <span class="op">}</span>
+        <span class="op">}</span>
+        <span class="va">document</span>.<span class="at">querySelector</span>(<span class="st">&#39;ul&#39;</span>).<span class="at">innerHTML</span> <span class="op">=</span> html<span class="op">;</span>
+    <span class="op">};</span>
+
+<span class="kw">&lt;/script&gt;</span></code></pre></div>
+</body>
+</html>

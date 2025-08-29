@@ -1,0 +1,10 @@
+<!-- Python General Notebook Navigation Template -->
+<!-- This template provides navigation for Python General notebook pages -->
+
+<div class="return-navigation">
+  <a href="../../../index.md" class="nav-button index-button">🏠 Home</a>
+  <a href="../base.md" class="nav-button portal-button">🐍 Python</a>
+  <a href="base.md" class="nav-button section-button">🔧 General</a>
+</div>
+
+<!-- Content starts here -->

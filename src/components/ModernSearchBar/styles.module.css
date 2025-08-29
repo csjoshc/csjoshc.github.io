@@ -1,0 +1,103 @@
+.searchContainer {
+  display: flex;
+  align-items: center;
+  margin: 0 0.5rem;
+}
+
+.searchForm {
+  margin: 0;
+}
+
+.searchWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  padding: 0.25rem 0.5rem;
+  min-width: 180px;
+  transition: all 0.15s ease;
+}
+
+.searchWrapper:hover {
+  border-color: var(--ifm-color-primary);
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+}
+
+.searchWrapper.focused {
+  background-color: transparent;
+  border-color: var(--ifm-color-primary);
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+}
+
+.searchIcon {
+  color: var(--ifm-color-emphasis-500);
+  margin-right: 0.5rem;
+  flex-shrink: 0;
+}
+
+.searchInput {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text-primary);
+  font-size: 0.875rem;
+  font-family: inherit;
+  flex: 1;
+  min-width: 0;
+  padding: 0;
+}
+
+.searchInput::placeholder {
+  color: var(--ifm-color-emphasis-500);
+}
+
+.searchInput:focus {
+  outline: none;
+}
+
+.keyboardShortcut {
+  display: flex;
+  align-items: center;
+  gap: 0.125rem;
+  margin-left: 0.5rem;
+  flex-shrink: 0;
+}
+
+.keyboardShortcut kbd {
+  display: inline-block;
+  padding: 0.125rem 0.25rem;
+  font-size: 0.75rem;
+  line-height: 1;
+  color: var(--ifm-color-emphasis-500);
+  background-color: var(--ifm-color-emphasis-100);
+  border: 1px solid var(--border-light);
+  border-radius: 3px;
+  box-shadow: none;
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Consolas,
+    "Liberation Mono", Menlo, monospace;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .searchWrapper {
+    min-width: 200px;
+  }
+
+  .keyboardShortcut {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .searchWrapper {
+    min-width: 160px;
+  }
+
+  .searchContainer {
+    margin-right: 0.5rem;
+  }
+}

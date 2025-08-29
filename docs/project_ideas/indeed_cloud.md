@@ -1,0 +1,2 @@
+# Indeed job search cloud and visualizations
+This idea is to create a webapp that can aggregate search results from Indeed through the API, and create word clouds and other visualizations from the set of resulting job descriptions. Users should be able to submit a search with basic filtering.

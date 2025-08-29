@@ -1,0 +1,777 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="date" content="2019-05-30" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #232629; color: #cfcfc2; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; background-color: #232629; color: #7a7c7d; border-right: 1px solid #7a7c7d; }
+td.sourceCode { padding-left: 5px; }
+pre, code { color: #cfcfc2; background-color: #232629; }
+code > span.kw { color: #cfcfc2; } /* Keyword */
+code > span.dt { color: #2980b9; } /* DataType */
+code > span.dv { color: #f67400; } /* DecVal */
+code > span.bn { color: #f67400; } /* BaseN */
+code > span.fl { color: #f67400; } /* Float */
+code > span.cn { color: #27aeae; } /* Constant */
+code > span.ch { color: #3daee9; } /* Char */
+code > span.sc { color: #3daee9; } /* SpecialChar */
+code > span.st { color: #f44f4f; } /* String */
+code > span.vs { color: #da4453; } /* VerbatimString */
+code > span.ss { color: #da4453; } /* SpecialString */
+code > span.im { color: #27ae60; } /* Import */
+code > span.co { color: #7a7c7d; } /* Comment */
+code > span.do { color: #a43340; } /* Documentation */
+code > span.an { color: #3f8058; } /* Annotation */
+code > span.cv { color: #7f8c8d; } /* CommentVar */
+code > span.ot { color: #27ae60; } /* Other */
+code > span.fu { color: #8e44ad; } /* Function */
+code > span.va { color: #27aeae; } /* Variable */
+code > span.cf { color: #fdbc4b; } /* ControlFlow */
+code > span.op { color: #cfcfc2; } /* Operator */
+code > span.bu { color: #7f8c8d; } /* BuiltIn */
+code > span.ex { color: #0099ff; } /* Extension */
+code > span.pp { color: #27ae60; } /* Preprocessor */
+code > span.at { color: #2980b9; } /* Attribute */
+code > span.re { color: #2980b9; } /* RegionMarker */
+code > span.in { color: #c45b00; } /* Information */
+code > span.wa { color: #da4453; } /* Warning */
+code > span.al { color: #95da4c; } /* Alert */
+code > span.er { color: #da4453; } /* Error */
+code > span. { color: #cfcfc2; } /* Normal */
+  </style>
+</head>
+<body>
+<div id="TOC">
+<ul>
+<li><a href="#decision-tree">Decision Tree</a><ul>
+<li><a href="#cleaning-data">Cleaning Data</a></li>
+<li><a href="#prep-data-for-analysis">Prep data for analysis</a></li>
+<li><a href="#fit-decision-tree-classifier-and-generate-predictions">Fit decision tree classifier and generate predictions</a></li>
+<li><a href="#extending-the-example">Extending the example</a></li>
+<li><a href="#roc-curve">ROC Curve</a></li>
+<li><a href="#classification-accuracy-vs-threshold-for-classifying-as-high-humidity">Classification accuracy vs Threshold for classifying as high humidity</a></li>
+</ul></li>
+</ul>
+</div>
+<p><a href="../../../index.html">Go back to index</a></p>
+<p><a href="../base.html">Go back to Python Portal</a></p>
+<head>
+  
+  <meta name="viewport" content="initial-scale=1, width=device-width">
+</head>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> sys
+<span class="bu">print</span>(sys.executable)
+<span class="im">from</span> IPython.core.interactiveshell <span class="im">import</span> InteractiveShell
+InteractiveShell.ast_node_interactivity <span class="op">=</span> <span class="st">&quot;all&quot;</span>
+InteractiveShell.colors <span class="op">=</span> <span class="st">&quot;Linux&quot;</span>
+InteractiveShell.separate_in <span class="op">=</span> <span class="dv">0</span>
+
+<span class="im">import</span> matplotlib
+<span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt
+<span class="im">import</span> numpy <span class="im">as</span> np
+<span class="im">from</span> matplotlib <span class="im">import</span> style
+style.use(<span class="st">&#39;fivethirtyeight&#39;</span>)</code></pre></div>
+<pre><code>/home/jcmint/anaconda3/envs/learningenv/bin/python</code></pre>
+<h1 id="decision-tree">Decision Tree</h1>
+<p>Needed to install scikit-learn package with conda.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Import libraries for decision tree</span>
+<span class="im">import</span> pandas <span class="im">as</span> pd
+<span class="im">import</span> numpy <span class="im">as</span> np
+<span class="im">from</span> sklearn.metrics <span class="im">import</span> accuracy_score
+<span class="im">from</span> sklearn.metrics <span class="im">import</span> confusion_matrix
+<span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split
+<span class="im">from</span> sklearn.tree <span class="im">import</span> DecisionTreeClassifier
+<span class="im">from</span> random <span class="im">import</span> randint
+<span class="co"># Import Data</span>
+data <span class="op">=</span> pd.read_csv(<span class="st">&#39;Week-7-MachineLearning/weather/daily_weather.csv&#39;</span>)
+data.head()</code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>number</th>
+      <th>air_pressure_9am</th>
+      <th>air_temp_9am</th>
+      <th>avg_wind_direction_9am</th>
+      <th>avg_wind_speed_9am</th>
+      <th>max_wind_direction_9am</th>
+      <th>max_wind_speed_9am</th>
+      <th>rain_accumulation_9am</th>
+      <th>rain_duration_9am</th>
+      <th>relative_humidity_9am</th>
+      <th>relative_humidity_3pm</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>918.060000</td>
+      <td>74.822000</td>
+      <td>271.100000</td>
+      <td>2.080354</td>
+      <td>295.400000</td>
+      <td>2.863283</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>42.420000</td>
+      <td>36.160000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>917.347688</td>
+      <td>71.403843</td>
+      <td>101.935179</td>
+      <td>2.443009</td>
+      <td>140.471548</td>
+      <td>3.533324</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>24.328697</td>
+      <td>19.426597</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>923.040000</td>
+      <td>60.638000</td>
+      <td>51.000000</td>
+      <td>17.067852</td>
+      <td>63.700000</td>
+      <td>22.100967</td>
+      <td>0.0</td>
+      <td>20.0</td>
+      <td>8.900000</td>
+      <td>14.460000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>920.502751</td>
+      <td>70.138895</td>
+      <td>198.832133</td>
+      <td>4.337363</td>
+      <td>211.203341</td>
+      <td>5.190045</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>12.189102</td>
+      <td>12.742547</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>921.160000</td>
+      <td>44.294000</td>
+      <td>277.800000</td>
+      <td>1.856660</td>
+      <td>136.500000</td>
+      <td>2.863283</td>
+      <td>8.9</td>
+      <td>14730.0</td>
+      <td>92.410000</td>
+      <td>76.740000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<h2 id="cleaning-data">Cleaning Data</h2>
+<p>The tutorial wants to do a few things with the data</p>
+<ul>
+<li>drop 'number' column</li>
+<li>drop NA rows</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">clean_data <span class="op">=</span> data.copy()
+clean_data[clean_data.isnull().<span class="bu">any</span>(axis <span class="op">=</span> <span class="dv">1</span>)].head()</code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>number</th>
+      <th>air_pressure_9am</th>
+      <th>air_temp_9am</th>
+      <th>avg_wind_direction_9am</th>
+      <th>avg_wind_speed_9am</th>
+      <th>max_wind_direction_9am</th>
+      <th>max_wind_speed_9am</th>
+      <th>rain_accumulation_9am</th>
+      <th>rain_duration_9am</th>
+      <th>relative_humidity_9am</th>
+      <th>relative_humidity_3pm</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>16</th>
+      <td>16</td>
+      <td>917.890000</td>
+      <td>NaN</td>
+      <td>169.200000</td>
+      <td>2.192201</td>
+      <td>196.800000</td>
+      <td>2.930391</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>48.990000</td>
+      <td>51.190000</td>
+    </tr>
+    <tr>
+      <th>111</th>
+      <td>111</td>
+      <td>915.290000</td>
+      <td>58.820000</td>
+      <td>182.600000</td>
+      <td>15.613841</td>
+      <td>189.000000</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>21.500000</td>
+      <td>29.690000</td>
+    </tr>
+    <tr>
+      <th>177</th>
+      <td>177</td>
+      <td>915.900000</td>
+      <td>NaN</td>
+      <td>183.300000</td>
+      <td>4.719943</td>
+      <td>189.900000</td>
+      <td>5.346287</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>29.260000</td>
+      <td>46.500000</td>
+    </tr>
+    <tr>
+      <th>262</th>
+      <td>262</td>
+      <td>923.596607</td>
+      <td>58.380598</td>
+      <td>47.737753</td>
+      <td>10.636273</td>
+      <td>67.145843</td>
+      <td>13.671423</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>17.990876</td>
+      <td>16.461685</td>
+    </tr>
+    <tr>
+      <th>277</th>
+      <td>277</td>
+      <td>920.480000</td>
+      <td>62.600000</td>
+      <td>194.400000</td>
+      <td>2.751436</td>
+      <td>NaN</td>
+      <td>3.869906</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>52.580000</td>
+      <td>54.030000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<p>I will drop these rows for now. However, that isn't the only thing you can do with them (you could use linear interpolation since they are numeric and this is time series data with evenly spaces intervals)</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">del</span> clean_data[<span class="st">&#39;number&#39;</span>]
+clean_data <span class="op">=</span> clean_data.dropna()</code></pre></div>
+<h2 id="prep-data-for-analysis">Prep data for analysis</h2>
+<ul>
+<li>Bin humidity values into low (0) and high (1) to make it a binary classification problem and store in <code>high_humidity_label</code></li>
+<li>store bin labels as <code>y</code></li>
+<li>Store training variables names into <code>morning_features</code>, then store training data into <code>x</code></li>
+<li>split <code>x</code> and <code>y</code> into training and testing subsets, <code>x_train</code>, <code>x_test</code>, <code>y_train</code>, <code>y_test</code></li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">clean_data[<span class="st">&#39;high_humidity_label&#39;</span>] <span class="op">=</span> (clean_data[<span class="st">&#39;relative_humidity_3pm&#39;</span>] <span class="op">&gt;=</span> <span class="dv">25</span>)<span class="op">*</span><span class="dv">1</span>
+clean_data[[<span class="st">&#39;high_humidity_label&#39;</span>,<span class="st">&#39;relative_humidity_3pm&#39;</span>]].head(<span class="dv">8</span>)
+y<span class="op">=</span>clean_data[[<span class="st">&#39;high_humidity_label&#39;</span>]].copy()
+morning_features <span class="op">=</span> [<span class="st">&#39;air_pressure_9am&#39;</span>,<span class="st">&#39;air_temp_9am&#39;</span>,<span class="st">&#39;avg_wind_direction_9am&#39;</span>,<span class="st">&#39;avg_wind_speed_9am&#39;</span>,
+        <span class="st">&#39;max_wind_direction_9am&#39;</span>,<span class="st">&#39;max_wind_speed_9am&#39;</span>,<span class="st">&#39;rain_accumulation_9am&#39;</span>,
+        <span class="st">&#39;rain_duration_9am&#39;</span>]
+x <span class="op">=</span> clean_data[morning_features].copy()
+
+x_train, x_test, y_train, y_test <span class="op">=</span> train_test_split(x, y, test_size<span class="op">=</span><span class="fl">0.33</span>, random_state<span class="op">=</span><span class="dv">324</span>).copy()</code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>high_humidity_label</th>
+      <th>relative_humidity_3pm</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>36.160000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+      <td>19.426597</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0</td>
+      <td>14.460000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0</td>
+      <td>12.742547</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>76.740000</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>1</td>
+      <td>33.930000</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>0</td>
+      <td>21.385657</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>1</td>
+      <td>74.920000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<h2 id="fit-decision-tree-classifier-and-generate-predictions">Fit decision tree classifier and generate predictions</h2>
+<ul>
+<li>Create decision tree object (object attributes passed)</li>
+<li>run decision tree method with training data</li>
+<li>run decision tree method with testing intput data</li>
+<li>look at results, calculate average accuracy</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">humidity_classifier <span class="op">=</span> DecisionTreeClassifier(max_leaf_nodes<span class="op">=</span><span class="dv">10</span>, random_state<span class="op">=</span><span class="dv">0</span>)<span class="op">;</span>
+humidity_classifier.fit(x_train, y_train)<span class="op">;</span>
+y_test.loc[:,<span class="st">&#39;predictions&#39;</span>] <span class="op">=</span> humidity_classifier.predict(x_test)
+y_test.head(<span class="dv">10</span>)
+(y_test.iloc[:,<span class="dv">0</span>] <span class="op">==</span> y_test.iloc[:,<span class="dv">1</span>]).mean()</code></pre></div>
+<pre><code>DecisionTreeClassifier(class_weight=None, criterion=&#39;gini&#39;, max_depth=None,
+            max_features=None, max_leaf_nodes=10,
+            min_impurity_decrease=0.0, min_impurity_split=None,
+            min_samples_leaf=1, min_samples_split=2,
+            min_weight_fraction_leaf=0.0, presort=False, random_state=0,
+            splitter=&#39;best&#39;)</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>high_humidity_label</th>
+      <th>predictions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>456</th>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>845</th>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>693</th>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>259</th>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>723</th>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>224</th>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>300</th>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>442</th>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>585</th>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1057</th>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<pre><code>0.8153409090909091</code></pre>
+<h2 id="extending-the-example">Extending the example</h2>
+<ul>
+<li>I want to see how the 'threshold' for binning affects the classification accuracy (e.g. if the cutoff is closer to the mean then it should be less accurate)</li>
+<li>Instead of dropping the null values, linear impute and create a new variable to as a shadow variable (1 in this column means that another column was imputed)</li>
+<li>Iterate through random states for splitting into test and train sets (10 tries) - return vector of accuracy values</li>
+<li>refactor decision tree to a method to return vectors of classification accuracy and recall (true positive rate for the high humidity label) for a specific threshold</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">clean_data <span class="op">=</span> data.copy()
+clean_data.loc[clean_data.isnull().<span class="bu">any</span>(axis <span class="op">=</span> <span class="dv">1</span>),<span class="st">&#39;Missing&#39;</span>] <span class="op">=</span> <span class="dv">1</span>
+clean_data[<span class="st">&#39;Missing&#39;</span>] <span class="op">=</span> clean_data[<span class="st">&#39;Missing&#39;</span>].fillna(<span class="dv">0</span>)
+<span class="bu">print</span>(<span class="st">&quot;Number of interpolated values:&quot;</span>, <span class="bu">sum</span>(clean_data[<span class="st">&#39;Missing&#39;</span>]))
+clean_data <span class="op">=</span> clean_data.interpolate()
+morning_features.append(<span class="st">&#39;Missing&#39;</span>)
+x <span class="op">=</span> clean_data[morning_features].copy()
+<span class="kw">def</span> tree_acc_recall(threshold):
+    clean_data[<span class="st">&#39;high_humidity_label&#39;</span>] <span class="op">=</span> (clean_data[<span class="st">&#39;relative_humidity_3pm&#39;</span>] <span class="op">&gt;=</span> threshold)<span class="op">*</span><span class="dv">1</span>
+    y<span class="op">=</span>clean_data[[<span class="st">&#39;high_humidity_label&#39;</span>]]
+    <span class="co"># x stays the same</span>
+    my_val <span class="op">=</span> pd.DataFrame(columns <span class="op">=</span> [<span class="st">&#39;Accuracy&#39;</span>, <span class="st">&#39;True Positives&#39;</span>, <span class="st">&#39;False Positives&#39;</span>], index <span class="op">=</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">20</span>))
+    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">20</span>): <span class="co"># 20 trials for each threshold</span>
+        x_train, x_test, y_train, y_test <span class="op">=</span> train_test_split(x, y, test_size<span class="op">=</span><span class="fl">0.33</span>, random_state<span class="op">=</span>randint(<span class="dv">99</span>,<span class="dv">100000000</span>))
+        humidity_classifier <span class="op">=</span> DecisionTreeClassifier(max_leaf_nodes<span class="op">=</span><span class="dv">10</span>, random_state<span class="op">=</span><span class="dv">0</span>)<span class="op">;</span>
+        humidity_classifier.fit(x_train, y_train)<span class="op">;</span>
+        y_test[<span class="st">&#39;predictions&#39;</span>] <span class="op">=</span> humidity_classifier.predict(x_test)
+        
+        
+        nums <span class="op">=</span> confusion_matrix(y_test[<span class="st">&#39;high_humidity_label&#39;</span>], y_test[<span class="st">&#39;predictions&#39;</span>]).ravel()
+        <span class="cf">if</span> (<span class="bu">len</span>(nums) <span class="op">==</span> <span class="dv">1</span>):
+            tn, fp, fn, tp <span class="op">=</span> <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>
+        <span class="cf">else</span>:
+            tn, fp, fn, tp <span class="op">=</span> nums
+            my_val.iloc[[i],<span class="dv">0</span>] <span class="op">=</span> (tp <span class="op">+</span> tn)<span class="op">/</span>(tn <span class="op">+</span> fp <span class="op">+</span> fn <span class="op">+</span> tp)
+            my_val.iloc[[i],<span class="dv">1</span>] <span class="op">=</span> tp<span class="op">/</span>(tp <span class="op">+</span> fn)
+            my_val.iloc[[i],<span class="dv">2</span>] <span class="op">=</span> fp<span class="op">/</span>(fp <span class="op">+</span> tn)
+        <span class="co"># Too many chained operations, too confusing</span>
+        <span class="co">#my_val.iloc[[i],0]  = (y_test.iloc[:,0] == y_test.iloc[:,1]).mean() # accuracy</span>
+        <span class="co">#my_val.iloc[[i],1] = ((y_test.iloc[:,1] == 1)&amp;(y_test.iloc[:,0] == y_test.iloc[:,1])).sum()/(y_test.iloc[:,0].sum()) # true positive </span>
+        <span class="co">#my_val.iloc[[i],2] = ((y_test.iloc[:,1] == 1)&amp;(y_test.iloc[:,0] != y_test.iloc[:,1])).sum()/(y_test.iloc[:,0].sum()) # false positive</span>
+
+    <span class="cf">return</span>(my_val)</code></pre></div>
+<pre><code>Number of interpolated values: 31.0</code></pre>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">list</span>(x)</code></pre></div>
+<pre><code>[&#39;air_pressure_9am&#39;,
+ &#39;air_temp_9am&#39;,
+ &#39;avg_wind_direction_9am&#39;,
+ &#39;avg_wind_speed_9am&#39;,
+ &#39;max_wind_direction_9am&#39;,
+ &#39;max_wind_speed_9am&#39;,
+ &#39;rain_accumulation_9am&#39;,
+ &#39;rain_duration_9am&#39;,
+ &#39;Missing&#39;]</code></pre>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="op">%%</span>capture
+my_out <span class="op">=</span> pd.DataFrame(columns <span class="op">=</span> [<span class="st">&#39;Humidity Threshold&#39;</span>, <span class="st">&#39;Average Accuracy&#39;</span>, <span class="st">&#39;Average True Positives&#39;</span>, <span class="st">&#39;Average False Positives&#39;</span>], index <span class="op">=</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">101</span>))
+k <span class="op">=</span> <span class="dv">0</span>
+<span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">101</span>, <span class="dv">1</span>):
+    temp <span class="op">=</span> tree_acc_recall(i)
+    my_out.iloc[[k],<span class="dv">0</span>] <span class="op">=</span> i
+    my_out.iloc[[k],<span class="dv">1</span>] <span class="op">=</span> temp[<span class="st">&#39;Accuracy&#39;</span>].mean()
+    my_out.iloc[[k],<span class="dv">2</span>] <span class="op">=</span> temp[<span class="st">&#39;True Positives&#39;</span>].mean()
+    my_out.iloc[[k],<span class="dv">3</span>] <span class="op">=</span> temp[<span class="st">&#39;False Positives&#39;</span>].mean()
+    k<span class="op">+=</span><span class="dv">1</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">my_out.head(<span class="dv">10</span>)
+my_out.tail(<span class="dv">10</span>)</code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Humidity Threshold</th>
+      <th>Average Accuracy</th>
+      <th>Average True Positives</th>
+      <th>Average False Positives</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>5</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>6</td>
+      <td>0.994911</td>
+      <td>0.996361</td>
+      <td>0.909091</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>7</td>
+      <td>0.99294</td>
+      <td>0.996611</td>
+      <td>0.75</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>8</td>
+      <td>0.985221</td>
+      <td>0.992595</td>
+      <td>0.637024</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>9</td>
+      <td>0.977901</td>
+      <td>0.990382</td>
+      <td>0.576939</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Humidity Threshold</th>
+      <th>Average Accuracy</th>
+      <th>Average True Positives</th>
+      <th>Average False Positives</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>91</th>
+      <td>91</td>
+      <td>0.979282</td>
+      <td>0.194167</td>
+      <td>0.0124086</td>
+    </tr>
+    <tr>
+      <th>92</th>
+      <td>92</td>
+      <td>0.989677</td>
+      <td>0.125</td>
+      <td>0.00670898</td>
+    </tr>
+    <tr>
+      <th>93</th>
+      <td>93</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>94</th>
+      <td>94</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>95</th>
+      <td>95</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>96</th>
+      <td>96</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>97</th>
+      <td>97</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>98</th>
+      <td>98</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>99</th>
+      <td>99</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>100</th>
+      <td>100</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<h2 id="roc-curve">ROC Curve</h2>
+<ul>
+<li><code>my_out</code> has NaN when it is dividing by 0, when the threshold is so high that there are no true or false positives</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">fig, axis <span class="op">=</span> plt.subplots()
+axis.yaxis.grid(<span class="va">True</span>)
+axis.set_title(<span class="st">&#39;ROC Curve&#39;</span>,fontsize<span class="op">=</span><span class="dv">16</span>)
+axis.set_xlabel(<span class="st">&#39;False positive rate&#39;</span>,fontsize<span class="op">=</span><span class="dv">10</span>)
+axis.set_ylabel(<span class="st">&#39;True Positive Rate&#39;</span>,fontsize<span class="op">=</span><span class="dv">10</span>)
+
+axis.plot(my_out.iloc[:,<span class="dv">3</span>], my_out.iloc[:,<span class="dv">2</span>])
+plt.show()<span class="op">;</span></code></pre></div>
+<p><img src="7_ML_DT_files/7_ML_DT_18_0.webp" alt="png" /></p>
+<h2 id="classification-accuracy-vs-threshold-for-classifying-as-high-humidity">Classification accuracy vs Threshold for classifying as high humidity</h2>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">fig, axis <span class="op">=</span> plt.subplots()
+axis.yaxis.grid(<span class="va">True</span>)
+axis.set_title(<span class="st">&#39;Accuracy vs Threshold&#39;</span>,fontsize<span class="op">=</span><span class="dv">16</span>)
+axis.set_xlabel(<span class="st">&#39;High humidiy threshold&#39;</span>,fontsize<span class="op">=</span><span class="dv">10</span>)
+axis.set_ylabel(<span class="st">&#39;Overall classification accuracy&#39;</span>,fontsize<span class="op">=</span><span class="dv">10</span>)
+
+axis.plot(my_out.iloc[:,<span class="dv">0</span>], my_out.iloc[:,<span class="dv">1</span>])
+plt.show()<span class="op">;</span></code></pre></div>
+<p><img src="7_ML_DT_files/7_ML_DT_20_0.webp" alt="png" /></p>
+</body>
+</html>

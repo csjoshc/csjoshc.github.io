@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "/Users/joshchiu/repos/csjoshc.github.io/.venv/bin/python",
+    "-m",
+    "ipykernel_launcher",
+    "-f",
+    "{connection_file}"
+  ],
+  "display_name": "Python 3.11 (csjoshc)",
+  "language": "python",
+  "metadata": {
+    "debugger": true
+  }
+}

@@ -1,0 +1,287 @@
+/* Enhanced Navigation Tabs Styling */
+/* This file specifically targets the .md-tabs navigation element */
+
+/* Increase font size and improve readability */
+.md-tabs {
+  height: auto !important;
+  min-height: 3.5rem;
+  background: var(--neutral-100) !important;
+  border-bottom: 2px solid var(--accent-amber);
+  padding: 0.5rem 0;
+}
+
+/* Dark mode tabs background */
+[data-md-color-scheme="slate"] .md-tabs {
+  background: var(--neutral-800) !important;
+  border-bottom-color: var(--accent-amber-light);
+}
+
+/* Tabs container */
+.md-tabs .md-grid {
+  max-width: none;
+  padding: 0 1rem;
+}
+
+/* Tabs list - make it a grid on wider screens */
+.md-tabs__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Individual tab items */
+.md-tabs__item {
+  margin: 0;
+  padding: 0;
+}
+
+/* Tab links - increase font size and improve styling */
+.md-tabs__link {
+  display: block;
+  padding: 0.75rem 1rem !important;
+  margin: 0;
+  color: var(--neutral-700) !important;
+  text-decoration: none !important;
+  font-size: 1.1rem !important; /* Increased from default */
+  font-weight: 600 !important;
+  text-align: center;
+  background: var(--neutral-50);
+  border: 2px solid var(--neutral-200);
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-height: 3rem;
+  line-height: 1.2;
+}
+
+/* Hover effects for tab links */
+.md-tabs__link:hover {
+  background: var(--primary-blue-light) !important;
+  color: white !important;
+  border-color: var(--primary-blue-light);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Active tab styling */
+.md-tabs__item--active .md-tabs__link {
+  background: var(--primary-blue) !important;
+  color: white !important;
+  border-color: var(--primary-blue);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-1px);
+}
+
+/* Dark mode tab links */
+[data-md-color-scheme="slate"] .md-tabs__link {
+  color: var(--neutral-300) !important;
+  background: var(--neutral-700);
+  border-color: var(--neutral-600);
+}
+
+[data-md-color-scheme="slate"] .md-tabs__link:hover {
+  background: var(--primary-blue-light) !important;
+  color: var(--neutral-900) !important;
+  border-color: var(--primary-blue-light);
+}
+
+[data-md-color-scheme="slate"] .md-tabs__item--active .md-tabs__link {
+  background: var(--primary-blue-light) !important;
+  color: var(--neutral-900) !important;
+  border-color: var(--primary-blue-light);
+}
+
+/* Responsive grid adjustments */
+@media screen and (min-width: 1200px) {
+  .md-tabs__list {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 0.75rem;
+  }
+
+  .md-tabs__link {
+    font-size: 1.2rem !important;
+    padding: 0.875rem 1.25rem !important;
+    min-height: 3.5rem;
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  .md-tabs__list {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1rem;
+  }
+
+  .md-tabs__link {
+    font-size: 1.3rem !important;
+    padding: 1rem 1.5rem !important;
+    min-height: 4rem;
+  }
+}
+
+/* Mobile adjustments */
+@media screen and (max-width: 768px) {
+  .md-tabs__list {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 0.25rem;
+  }
+
+  .md-tabs__link {
+    font-size: 1rem !important;
+    padding: 0.5rem 0.75rem !important;
+    min-height: 2.5rem;
+    line-height: 1.1;
+  }
+
+  .md-tabs {
+    min-height: 3rem;
+    padding: 0.25rem 0;
+  }
+}
+
+/* Very small screens - stack vertically */
+@media screen and (max-width: 480px) {
+  .md-tabs__list {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+
+  .md-tabs__link {
+    text-align: left;
+    padding: 0.75rem 1rem !important;
+    min-height: 2.5rem;
+  }
+}
+
+/* Focus states for accessibility */
+.md-tabs__link:focus {
+  outline: 3px solid var(--accent-amber);
+  outline-offset: 2px;
+  background: var(--accent-amber-light) !important;
+  color: var(--neutral-900) !important;
+}
+
+/* Animation for tab transitions */
+.md-tabs__link {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Hover animations */
+.md-tabs__link:hover {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Active tab animations */
+.md-tabs__item--active .md-tabs__link {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Print styles */
+@media print {
+  .md-tabs {
+    display: none !important;
+  }
+}
+
+/* Ensure tabs are always visible */
+.md-tabs {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: relative !important;
+  z-index: 100 !important;
+}
+
+/* Force tabs to be visible even if theme tries to hide them */
+.md-tabs[hidden],
+.md-tabs[style*="display: none"],
+.md-tabs[style*="display:none"] {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Ensure tabs container is properly positioned */
+.md-tabs .md-grid {
+  display: block !important;
+  visibility: visible !important;
+}
+
+/* Force tabs list to be visible */
+.md-tabs__list {
+  display: grid !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Fix for potential theme conflicts */
+.md-tabs[hidden] {
+  display: block !important;
+}
+
+/* Ensure proper z-index */
+.md-tabs {
+  z-index: 100;
+  position: relative;
+}
+
+/* Tab content area adjustments */
+.md-tabs + .md-main {
+  margin-top: 0;
+}
+
+/* Smooth scrolling for tab navigation */
+.md-tabs__list {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar for tabs if needed */
+.md-tabs__list::-webkit-scrollbar {
+  height: 4px;
+}
+
+.md-tabs__list::-webkit-scrollbar-track {
+  background: var(--neutral-200);
+  border-radius: 2px;
+}
+
+.md-tabs__list::-webkit-scrollbar-thumb {
+  background: var(--primary-blue);
+  border-radius: 2px;
+}
+
+.md-tabs__list::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-blue-dark);
+}
+
+/* Fix duplicate Home button in left sidebar */
+/* Hide the label text when there's also a link with the same text */
+.md-nav__item--active .md-nav__toggle + .md-nav__link label .md-ellipsis {
+  display: none !important;
+}
+
+/* Alternative approach - hide the entire label when there's a link */
+.md-nav__item--active .md-nav__toggle + .md-nav__link {
+  display: none !important;
+}
+
+/* Ensure the actual link is visible */
+.md-nav__item--active .md-nav__link[href] {
+  display: block !important;
+}
+
+/* Fix for the specific Home navigation item */
+.md-nav__item--active .md-nav__toggle + .md-nav__link .md-ellipsis {
+  display: none !important;
+}
+
+/* Make sure the Home link is properly styled */
+.md-nav__item--active .md-nav__link[href="/"] {
+  display: block !important;
+  color: var(--primary-blue) !important;
+  font-weight: 600 !important;
+}

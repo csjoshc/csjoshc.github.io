@@ -1,0 +1,584 @@
+/**
+ * Main Custom CSS File - Following Docusaurus Best Practices
+ *
+ * This file is organized to be maintainable and follows modern CSS practices.
+ * It imports modular CSS files for better organization and reusability.
+ *
+ * Original file reorganized following Docusaurus best practices for:
+ * - Responsive design
+ * - Maintainable CSS architecture
+ * - Modern CSS practices
+ * - Accessibility
+ * - Performance
+ */
+
+/* ==========================================================================
+   Import Modular CSS Files
+   ========================================================================== */
+
+/* Import utility classes and variables */
+@import "./utilities.css";
+
+/* Import reusable component styles */
+@import "./components.css";
+
+/* ==========================================================================
+   Global Styles and Overrides
+   ========================================================================== */
+
+/* Global typography improvements */
+body {
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0,
+    "onum" 1, "lnum" 0, "dlig" 0;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Code blocks improvements */
+.theme-code-block {
+  position: relative;
+  border-radius: var(--ifm-radius-lg);
+  overflow: hidden;
+}
+
+.theme-code-block:hover {
+  box-shadow: var(--ifm-shadow-lg);
+}
+
+/* Admonition improvements */
+.theme-admonition {
+  border-radius: var(--ifm-radius-lg);
+  border-left: 4px solid;
+  box-shadow: var(--ifm-shadow-sm);
+}
+
+.theme-admonition:hover {
+  box-shadow: var(--ifm-shadow-md);
+}
+
+/* Table improvements */
+.theme-doc-markdown table {
+  border-radius: var(--ifm-radius-md);
+  overflow: hidden;
+  box-shadow: var(--ifm-shadow-sm);
+}
+
+.theme-doc-markdown table:hover {
+  box-shadow: var(--ifm-shadow-md);
+}
+
+/* ==========================================================================
+   Sidebar Responsive Design
+   ========================================================================== */
+
+/* Default sidebar width - compact for main pages */
+.theme-doc-sidebar-container {
+  width: 200px;
+  min-width: 200px;
+  max-width: 200px;
+  transition: width var(--ifm-transition-fast);
+}
+
+/* Main page (homepage) - most compact sidebar */
+body:not(.theme-doc-page) .theme-doc-sidebar-container {
+  width: 180px;
+  min-width: 180px;
+  max-width: 180px;
+}
+
+/* Wider sidebar for documentation pages with nested content */
+.theme-doc-sidebar-container:has(.theme-doc-sidebar-item-category--level-2) {
+  width: 280px;
+  min-width: 280px;
+  max-width: 280px;
+}
+
+/* Even wider sidebar for deeply nested documentation */
+.theme-doc-sidebar-container:has(.theme-doc-sidebar-item-category--level-3) {
+  width: 320px;
+  min-width: 320px;
+  max-width: 320px;
+}
+
+/* Responsive breakpoints for sidebar */
+@media (max-width: 1200px) {
+  /* Default documentation pages */
+  .theme-doc-sidebar-container {
+    width: 200px;
+    min-width: 200px;
+    max-width: 200px;
+  }
+
+  /* Main page - more compact */
+  body:not(.theme-doc-page) .theme-doc-sidebar-container {
+    width: 170px;
+    min-width: 170px;
+    max-width: 170px;
+  }
+
+  .theme-doc-sidebar-container:has(.theme-doc-sidebar-item-category--level-2) {
+    width: 250px;
+    min-width: 250px;
+    max-width: 250px;
+  }
+
+  .theme-doc-sidebar-container:has(.theme-doc-sidebar-item-category--level-3) {
+    width: 270px;
+    min-width: 270px;
+    max-width: 270px;
+  }
+}
+
+@media (max-width: 996px) {
+  /* Default documentation pages */
+  .theme-doc-sidebar-container {
+    width: 180px;
+    min-width: 180px;
+    max-width: 180px;
+  }
+
+  /* Main page - more compact */
+  body:not(.theme-doc-page) .theme-doc-sidebar-container {
+    width: 160px;
+    min-width: 160px;
+    max-width: 160px;
+  }
+
+  .theme-doc-sidebar-container:has(.theme-doc-sidebar-item-category--level-2) {
+    width: 220px;
+    min-width: 220px;
+    max-width: 220px;
+  }
+
+  .theme-doc-sidebar-container:has(.theme-doc-sidebar-item-category--level-3) {
+    width: 240px;
+    min-width: 240px;
+    max-width: 240px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Default documentation pages */
+  .theme-doc-sidebar-container {
+    width: 160px;
+    min-width: 160px;
+    max-width: 160px;
+  }
+
+  /* Main page - more compact */
+  body:not(.theme-doc-page) .theme-doc-sidebar-container {
+    width: 140px;
+    min-width: 140px;
+    max-width: 140px;
+  }
+
+  .theme-doc-sidebar-container:has(.theme-doc-sidebar-item-category--level-2) {
+    width: 180px;
+    min-width: 180px;
+    max-width: 180px;
+  }
+
+  .theme-doc-sidebar-container:has(.theme-doc-sidebar-item-category--level-3) {
+    width: 200px;
+    min-width: 200px;
+    max-width: 200px;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  /* Default documentation pages */
+  .theme-doc-sidebar-container {
+    width: 140px;
+    min-width: 140px;
+    max-width: 140px;
+  }
+
+  /* Main page - most compact */
+  body:not(.theme-doc-page) .theme-doc-sidebar-container {
+    width: 120px;
+    min-width: 120px;
+    max-width: 120px;
+  }
+
+  .theme-doc-sidebar-container:has(.theme-doc-sidebar-item-category--level-2),
+  .theme-doc-sidebar-container:has(.theme-doc-sidebar-item-category--level-3) {
+    width: 160px;
+    min-width: 160px;
+    max-width: 160px;
+  }
+}
+
+/* ==========================================================================
+   Sidebar Content Optimization
+   ========================================================================== */
+
+/* Ensure sidebar text doesn't overflow and wraps properly */
+.theme-doc-sidebar-item-link,
+.theme-doc-sidebar-item-category {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+  line-height: 1.4;
+}
+
+/* Adjust sidebar item padding for better readability */
+.theme-doc-sidebar-item-link {
+  padding: var(--ifm-menu-link-padding-vertical)
+    var(--ifm-menu-link-padding-horizontal);
+}
+
+.theme-doc-sidebar-item-category {
+  padding: var(--ifm-menu-link-padding-vertical)
+    var(--ifm-menu-link-padding-horizontal);
+}
+
+/* Improve spacing for nested items */
+.theme-doc-sidebar-item-category--level-2 .theme-doc-sidebar-item-link,
+.theme-doc-sidebar-item-category--level-3 .theme-doc-sidebar-item-link {
+  padding-left: calc(var(--ifm-menu-link-padding-horizontal) + 1rem);
+}
+
+.theme-doc-sidebar-item-category--level-3 .theme-doc-sidebar-item-link {
+  padding-left: calc(var(--ifm-menu-link-padding-horizontal) + 2rem);
+}
+
+/* ==========================================================================
+   Responsive Design Overrides
+   ========================================================================== */
+
+/* Mobile-first responsive adjustments */
+@media (max-width: 996px) {
+  /* Improve mobile readability */
+  body {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  /* Better mobile spacing */
+  .container {
+    padding-left: var(--ifm-spacing-md);
+    padding-right: var(--ifm-spacing-md);
+  }
+
+  /* Improve mobile navigation */
+  .navbar {
+    padding: var(--ifm-spacing-sm) var(--ifm-spacing-md);
+  }
+
+  .navbar__item {
+    padding: var(--ifm-spacing-xs) var(--ifm-spacing-sm);
+  }
+}
+
+/* Tablet adjustments */
+@media (max-width: 768px) {
+  .container {
+    padding-left: var(--ifm-spacing-sm);
+    padding-right: var(--ifm-spacing-sm);
+  }
+}
+
+/* Small mobile adjustments */
+@media (max-width: 480px) {
+  .container {
+    padding-left: var(--ifm-spacing-xs);
+    padding-right: var(--ifm-spacing-xs);
+  }
+
+  /* Better touch targets on mobile */
+  .navbar__item {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+}
+
+/* ==========================================================================
+   Theme-specific Overrides
+   ========================================================================== */
+
+/* Light theme specific adjustments */
+[data-theme="light"] {
+  /* Ensure proper contrast in light mode */
+  --ifm-color-emphasis-900: #24292f;
+  --ifm-color-emphasis-800: #2f363d;
+}
+
+/* Dark theme specific adjustments */
+[data-theme="dark"] {
+  /* Enhanced readability in dark mode */
+  --ifm-color-emphasis-100: #242424;
+  --ifm-color-emphasis-200: #2d2d2d;
+
+  /* Better contrast for dark mode */
+  --text-primary: #f0f6fc;
+  --text-secondary: #c9d1d9;
+}
+
+/* ==========================================================================
+   Animation and Interaction Improvements
+   ========================================================================== */
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus improvements for accessibility */
+*:focus-visible {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+  border-radius: var(--ifm-radius-sm);
+}
+
+/* Better hover states */
+.theme-doc-sidebar-item-link:hover,
+.theme-doc-sidebar-item-category:hover {
+  background: var(--ifm-color-emphasis-100);
+  transform: translateX(2px);
+}
+
+[data-theme="dark"] .theme-doc-sidebar-item-link:hover,
+[data-theme="dark"] .theme-doc-sidebar-item-category:hover {
+  background: var(--ifm-color-emphasis-200);
+}
+
+/* ==========================================================================
+   Print Styles
+   ========================================================================== */
+
+@media print {
+  /* Hide navigation and interactive elements when printing */
+  .navbar,
+  .theme-doc-sidebar-container,
+  .theme-doc-footer,
+  .theme-doc-toc-mobile,
+  .theme-back-to-top-button {
+    display: none !important;
+  }
+
+  /* Improve print layout */
+  .theme-doc-markdown {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Ensure code blocks are readable when printed */
+  .theme-code-block {
+    page-break-inside: avoid;
+    margin: 1rem 0;
+  }
+}
+
+/* ==========================================================================
+   Legacy Styles (Preserved from Original)
+   ========================================================================== */
+
+/* Include any critical legacy styles that need to be preserved */
+/* These should be gradually migrated to the modular system above */
+
+/* Enhanced Navbar with clean design */
+.navbar {
+  background: var(--ifm-background-color);
+  border-bottom: 1px solid var(--border-light);
+  box-shadow: var(--ifm-shadow-sm);
+  transition: all var(--ifm-transition-fast);
+}
+
+[data-theme="dark"] .navbar {
+  border-bottom: 1px solid var(--border-light);
+  box-shadow: var(--ifm-shadow-sm);
+  background: var(--ifm-background-color);
+}
+
+.navbar__title {
+  color: var(--text-primary) !important;
+  transition: all var(--ifm-transition-fast);
+  border-radius: var(--ifm-radius-md);
+  padding: var(--ifm-spacing-sm) var(--ifm-spacing-md);
+}
+
+.navbar__title:hover {
+  color: var(--ifm-color-primary) !important;
+  background: var(--ifm-color-emphasis-100);
+  transform: translateY(-1px);
+}
+
+.navbar__title:focus {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 0;
+  background: var(--ifm-color-emphasis-100);
+  box-shadow: 0 0 0 2px var(--ifm-color-primary);
+}
+
+[data-theme="dark"] .navbar__title:hover {
+  background: var(--ifm-color-emphasis-200);
+}
+
+[data-theme="dark"] .navbar__title:focus {
+  background: var(--ifm-color-emphasis-200);
+}
+
+.navbar__item {
+  color: var(--text-secondary) !important;
+  transition: all var(--ifm-transition-fast);
+  border-radius: var(--ifm-radius-md);
+  padding: var(--ifm-spacing-sm) var(--ifm-spacing-md);
+}
+
+.navbar__item:hover {
+  color: var(--ifm-color-primary) !important;
+  background: var(--ifm-color-emphasis-100);
+  transform: translateY(-1px);
+}
+
+.navbar__item:focus {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 0;
+  background: var(--ifm-color-emphasis-100);
+  color: var(--ifm-color-primary) !important;
+  box-shadow: 0 0 0 2px var(--ifm-color-primary);
+}
+
+[data-theme="dark"] .navbar__item:hover {
+  background: var(--ifm-color-emphasis-200);
+}
+
+[data-theme="dark"] .navbar__item:focus {
+  background: var(--ifm-color-emphasis-200);
+}
+
+/* ==========================================================================
+   Navbar Social Links and Search - Always in Top Right
+   ========================================================================== */
+
+/* Ensure social navigation items stay in navbar, never in sidebar */
+.navbar .social-nav-item,
+.navbar .github-nav-item,
+.navbar .linkedin-nav-item,
+.navbar .search-nav-item {
+  display: flex !important;
+  align-items: center;
+  margin: 0 var(--ifm-navbar-item-padding-horizontal);
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Hide social labels on narrow screens but keep icons */
+@media (max-width: 996px) {
+  .navbar .social-label {
+    opacity: 0;
+    width: 0;
+    margin: 0;
+    overflow: hidden;
+    transition: all var(--ifm-transition-fast);
+  }
+
+  .navbar .social-nav-item {
+    gap: 0;
+    padding: var(--ifm-spacing-sm);
+    min-width: 44px;
+    justify-content: center;
+  }
+
+  .navbar .social-nav-item:hover .social-label {
+    opacity: 0;
+    width: 0;
+  }
+}
+
+/* Modern search button styling */
+.search-nav-item {
+  display: inline-flex !important;
+  align-items: center;
+  gap: var(--ifm-spacing-xs);
+  padding: var(--ifm-spacing-xs) var(--ifm-spacing-sm) !important;
+  border: 1px solid var(--border-light);
+  background: var(--ifm-background-color);
+  color: var(--text-secondary);
+  border-radius: var(--ifm-radius-md);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--ifm-transition-fast);
+  white-space: nowrap;
+  margin: 0 var(--ifm-navbar-item-padding-horizontal);
+}
+
+.search-nav-item:hover {
+  border-color: var(--ifm-color-primary);
+  background: var(--ifm-color-emphasis-100);
+  color: var(--ifm-color-primary);
+  transform: translateY(-1px);
+}
+
+.search-nav-item:focus {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+  background: var(--ifm-color-emphasis-100);
+}
+
+.search-nav-item:active {
+  transform: translateY(0);
+}
+
+.search-icon {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.search-shortcut {
+  opacity: 0.6;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: var(--ifm-color-emphasis-200);
+  padding: 0.125rem 0.25rem;
+  border-radius: var(--ifm-radius-sm);
+  margin-left: var(--ifm-spacing-xs);
+}
+
+/* Hide search shortcut on narrow screens */
+@media (max-width: 996px) {
+  .search-shortcut {
+    display: none;
+  }
+}
+
+/* Dark theme adjustments */
+[data-theme="dark"] .search-nav-item {
+  background: var(--ifm-background-color);
+  border-color: var(--border-light);
+  color: var(--text-secondary);
+}
+
+[data-theme="dark"] .search-nav-item:hover {
+  background: var(--ifm-color-emphasis-200);
+  border-color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+}
+
+[data-theme="dark"] .search-nav-item:focus {
+  background: var(--ifm-color-emphasis-200);
+}
+
+[data-theme="dark"] .search-shortcut {
+  background: var(--ifm-color-emphasis-300);
+}
+
+/* Prevent social items from appearing in mobile sidebar */
+.navbar-sidebar .social-nav-item,
+.navbar-sidebar .github-nav-item,
+.navbar-sidebar .linkedin-nav-item,
+.navbar-sidebar .search-nav-item {
+  display: none !important;
+}
+
+/* Ensure navbar right items are properly aligned */
+.navbar__items--right {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}

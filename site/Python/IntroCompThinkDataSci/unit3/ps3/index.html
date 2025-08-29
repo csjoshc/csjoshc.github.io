@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Personal learning and note-taking website">
+    <meta name="author" content="Josh Chiu">
+    <link rel="canonical" href="https://csjoshc.github.io/Python/IntroCompThinkDataSci/unit3/ps3/">
+    <link rel="shortcut icon" href="../../../../img/favicon.ico">
+
+    
+    <title>Problem Set 3 - Josh's Learning Notes</title>
+    
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
+    <link href='//rsms.me/inter/inter.css' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../../../../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../../../../css/base.min.css" rel="stylesheet">
+    <link href="../../../../css/cinder.min.css" rel="stylesheet">
+
+    
+        
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/github.min.css">
+        
+    
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    
+
+     
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            
+              <a class="navbar-brand" href="../../../..">Josh's Learning Notes</a>
+            
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="../../../..">Home</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">General <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../../General/base/">Overview</a>
+</li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">CS50x 2019</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../../General/CS50x2019/cppbasics/">C++ Basics</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../../General/CS50x2019/database/">Database</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../../General/CS50x2019/flask/">Flask</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../../General/CS50x2019/python/">Python</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../../General/CS50x2019/webbasics/">Web Basics</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+<li >
+    <a href="../../../../General/webdev2019/">Web Development 2019</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Python <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../base/">Overview</a>
+</li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">General</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../General/virtenv_jupyter_nb/">Virtual Environments & Jupyter</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../General/ifnameismain/">If Name Main</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Data Science Course</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../PythonforDataScience/1_Introduction/">Introduction</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../PythonforDataScience/2_Basics/">Python Basics</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../PythonforDataScience/3_Numpy/">NumPy</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../PythonforDataScience/4_Pandas/">Pandas</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../PythonforDataScience/4_Pandas2/">Pandas 2</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../PythonforDataScience/4_Pandas3/">Pandas 3</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../PythonforDataScience/4_Pandas4/">Pandas 4</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../PythonforDataScience/4_Pandas5/">Pandas 5</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../PythonforDataScience/5_Matplotlib/">Matplotlib</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../PythonforDataScience/7_ML/">Machine Learning</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../PythonforDataScience/7_ML_Reg/">ML Regression</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../PythonforDataScience/7_ML_DT/">ML Decision Trees</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../PythonforDataScience/7_ML_Clust/">ML Clustering</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Probability & Statistics</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../ProbabilityandStatistics/1_Introduction/">Introduction</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../ProbabilityandStatistics/2_Sets/">Sets</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">MIT Courses</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../IntroCompSciPython/unit7/">Computer Science Unit 7</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../unit1/unit1/">Data Science Unit 1</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../unit1/problemset1/">Problem Set 1</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../unit2/plotting/">Unit 2 Plotting</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../unit2/unit2/">Unit 2</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../unit2/ps2/">Problem Set 2</a>
+</li>
+
+        
+            
+<li >
+    <a href="../unit3/">Unit 3</a>
+</li>
+
+        
+            
+<li class="active">
+    <a href="./">Problem Set 3</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../unit4/unit4/">Unit 4</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../unit4/ps4/">Problem Set 4</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../unit5/unit5/">Unit 5</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">GitHub <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../../Github/intro_gh/">Introduction</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../../Github/bugs_gh/">Bug Reports</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Linux <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../../Linux/base/">Overview</a>
+</li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Linux Journey</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../../Linux/linux_journey/basic/01_comlin/">Command Line</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../../Linux/linux_journey/linux_journey_toc/">Table of Contents</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">DevOps <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../../Devops/base/">Overview</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../../Devops/roadmap_notes/">Roadmap Notes</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Utilities <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../../utils/base/">Overview</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../../utils/01_BatchConversions/">Batch Conversions</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Site Updates <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../../../site_updates/base/">Overview</a>
+</li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">March 2019</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../../site_updates/3_2019/2_3_2019/">March 2nd</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../../site_updates/3_2019/9_3_2019/">March 9th</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../../site_updates/3_2019/16_3_2019/">March 16th</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../../site_updates/3_2019/23_3_2019/">March 23rd</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">April 2019</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../../site_updates/4_2019/13_4_2019/">April 13th</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../../site_updates/4_2019/20_4_2019/">April 20th</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">May 2019</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../../site_updates/5_2019/04_5_2019/">May 4th</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../../site_updates/5_2019/11_5_2019/">May 11th</a>
+</li>
+
+        
+            
+<li >
+    <a href="../../../../site_updates/5_2019/25_5_2019/">May 25th</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">June 2019</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../../site_updates/6_2019/15_6_2019/">June 15th</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Project Ideas</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../../../../site_updates/project_ideas/indeed_cloud/">Indeed Cloud</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../../../../todo/">Todo</a>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../unit3/">
+                            <i class="fas fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="next" href="../../unit4/unit4/">
+                            Next <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#virus-drug-treatments-and-computational-models">Virus, Drug Treatments and Computational Models</a></li>
+        <li class="first-level "><a href="#results">Results</a></li>
+        <li class="first-level "><a href="#code">Code</a></li>
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<!-- Python Portal Navigation Template -->
+<!-- This template provides navigation for Python Portal pages -->
+
+<div class="return-navigation">
+  <a href="../../index.md" class="nav-button index-button">🏠 Home</a>
+  <a href="base.md" class="nav-button portal-button">🐍 Python</a>
+</div>
+
+<!-- Content starts here -->
+
+<h1 id="virus-drug-treatments-and-computational-models">Virus, Drug Treatments and Computational Models</h1>
+<p>This problem will be an implementation of computational modeling for viral infection, such as how drug therapy and viral drug resistance affect viral load over time. </p>
+<h1 id="results">Results</h1>
+<p>These are plots of viral load over 300 time steps in various scenarios. The first image is for virus load without any drugs, while the latter two are for a scenario where all the viruses start off either being resistant or not resistant. 
+<img alt="" src="virus_sim1.webp" />
+<img alt="" src="virus_sim2.webp" />
+<img alt="" src="virus_sim3.webp" />
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">simulationWithoutDrug</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>   
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">simulationWithDrug</span><span class="p">(</span><span class="mi">75</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mf">.8</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;guttagonol&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">simulationWithDrug</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;guttagonol&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span> <span class="mf">0.005</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</code></pre></div></p>
+<h1 id="code">Code</h1>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pylab</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ps3b_precompiled_37</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;OPENBLAS_NUM_THREADS&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;1&quot;</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="k">class</span><span class="w"> </span><span class="nc">NoChildException</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="sd">    NoChildException is raised by the reproduce() method in the SimpleVirus</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="sd">    and ResistantVirus classes to indicate that a virus particle does not</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="sd">    reproduce. You can use NoChildException as is, you do not need to</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="sd">    modify/add any code.</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="k">class</span><span class="w"> </span><span class="nc">SimpleVirus</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="sd">    Representation of a simple virus (does not model drug effects/resistance).</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maxBirthProb</span><span class="p">,</span> <span class="n">clearProb</span><span class="p">):</span>
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">maxBirthProb</span> <span class="o">=</span> <span class="n">maxBirthProb</span>
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">clearProb</span> <span class="o">=</span> <span class="n">clearProb</span>
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">getMaxBirthProb</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">maxBirthProb</span>
+<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">getClearProb</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">clearProb</span>
+<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">doesClear</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>        <span class="k">if</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getClearProb</span><span class="p">():</span>
+<a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>            <span class="k">return</span> <span class="kc">True</span>
+<a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a>        <span class="k">else</span><span class="p">:</span> 
+<a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a>            <span class="k">return</span> <span class="kc">False</span>
+<a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">reproduce</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">popDensity</span><span class="p">):</span>
+<a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a>
+<a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a>        <span class="k">if</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getMaxBirthProb</span><span class="p">()</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">popDensity</span><span class="p">):</span>
+<a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a>            <span class="k">return</span> <span class="n">SimpleVirus</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getMaxBirthProb</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">getClearProb</span><span class="p">())</span>
+<a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a>        <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a>            <span class="k">raise</span> <span class="n">NoChildException</span>
+<a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a><span class="k">class</span><span class="w"> </span><span class="nc">Patient</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">viruses</span><span class="p">,</span> <span class="n">maxPop</span><span class="p">):</span>
+<a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">viruses</span> <span class="o">=</span> <span class="n">viruses</span>
+<a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">maxPop</span> <span class="o">=</span> <span class="n">maxPop</span>
+<a id="__codelineno-1-41" name="__codelineno-1-41" href="#__codelineno-1-41"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">getViruses</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-1-42" name="__codelineno-1-42" href="#__codelineno-1-42"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">viruses</span>
+<a id="__codelineno-1-43" name="__codelineno-1-43" href="#__codelineno-1-43"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">getMaxPop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-1-44" name="__codelineno-1-44" href="#__codelineno-1-44"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">maxPop</span>
+<a id="__codelineno-1-45" name="__codelineno-1-45" href="#__codelineno-1-45"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">getTotalPop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-1-46" name="__codelineno-1-46" href="#__codelineno-1-46"></a>        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">viruses</span><span class="p">)</span>
+<a id="__codelineno-1-47" name="__codelineno-1-47" href="#__codelineno-1-47"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-1-48" name="__codelineno-1-48" href="#__codelineno-1-48"></a>        <span class="c1"># virus.doesClear() returns true if it IS cleared - therefore only keep if it isn&#39;t!</span>
+<a id="__codelineno-1-49" name="__codelineno-1-49" href="#__codelineno-1-49"></a>        <span class="n">survived</span> <span class="o">=</span> <span class="p">[</span><span class="n">virus</span> <span class="k">for</span> <span class="n">virus</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">viruses</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">virus</span><span class="o">.</span><span class="n">doesClear</span><span class="p">()]</span>
+<a id="__codelineno-1-50" name="__codelineno-1-50" href="#__codelineno-1-50"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">viruses</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-1-51" name="__codelineno-1-51" href="#__codelineno-1-51"></a>        <span class="k">for</span> <span class="n">virus</span> <span class="ow">in</span> <span class="n">survived</span><span class="p">:</span>
+<a id="__codelineno-1-52" name="__codelineno-1-52" href="#__codelineno-1-52"></a>            <span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-1-53" name="__codelineno-1-53" href="#__codelineno-1-53"></a>                <span class="bp">self</span><span class="o">.</span><span class="n">viruses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">virus</span><span class="p">)</span>
+<a id="__codelineno-1-54" name="__codelineno-1-54" href="#__codelineno-1-54"></a>                <span class="bp">self</span><span class="o">.</span><span class="n">viruses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">virus</span><span class="o">.</span><span class="n">reproduce</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getTotalPop</span><span class="p">()</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">getMaxPop</span><span class="p">()))</span>
+<a id="__codelineno-1-55" name="__codelineno-1-55" href="#__codelineno-1-55"></a>            <span class="k">except</span> <span class="n">NoChildException</span><span class="p">:</span>
+<a id="__codelineno-1-56" name="__codelineno-1-56" href="#__codelineno-1-56"></a>                <span class="k">pass</span>
+<a id="__codelineno-1-57" name="__codelineno-1-57" href="#__codelineno-1-57"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">getTotalPop</span><span class="p">()</span>
+<a id="__codelineno-1-58" name="__codelineno-1-58" href="#__codelineno-1-58"></a><span class="k">def</span><span class="w"> </span><span class="nf">simulationWithoutDrug</span><span class="p">(</span><span class="n">numViruses</span><span class="p">,</span> <span class="n">maxPop</span><span class="p">,</span> <span class="n">maxBirthProb</span><span class="p">,</span> <span class="n">clearProb</span><span class="p">,</span>
+<a id="__codelineno-1-59" name="__codelineno-1-59" href="#__codelineno-1-59"></a>                          <span class="n">numTrials</span><span class="p">):</span>
+<a id="__codelineno-1-60" name="__codelineno-1-60" href="#__codelineno-1-60"></a>    <span class="n">mydata</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">([</span><span class="mi">300</span><span class="p">,</span> <span class="n">numTrials</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>
+<a id="__codelineno-1-61" name="__codelineno-1-61" href="#__codelineno-1-61"></a>    <span class="n">mydata</span><span class="p">[:,</span> <span class="p">:]</span> <span class="o">=</span> <span class="kc">None</span>
+<a id="__codelineno-1-62" name="__codelineno-1-62" href="#__codelineno-1-62"></a>    <span class="n">viruslist</span> <span class="o">=</span> <span class="p">[</span><span class="n">SimpleVirus</span><span class="p">(</span><span class="n">maxBirthProb</span> <span class="o">=</span> <span class="n">maxBirthProb</span><span class="p">,</span> <span class="n">clearProb</span> <span class="o">=</span> <span class="n">clearProb</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">numViruses</span><span class="p">)]</span>
+<a id="__codelineno-1-63" name="__codelineno-1-63" href="#__codelineno-1-63"></a>    <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">numTrials</span><span class="p">):</span>
+<a id="__codelineno-1-64" name="__codelineno-1-64" href="#__codelineno-1-64"></a>        <span class="n">patient</span> <span class="o">=</span> <span class="n">Patient</span><span class="p">(</span><span class="n">viruslist</span><span class="p">,</span> <span class="n">maxPop</span><span class="p">)</span>
+<a id="__codelineno-1-65" name="__codelineno-1-65" href="#__codelineno-1-65"></a>        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">300</span><span class="p">):</span>
+<a id="__codelineno-1-66" name="__codelineno-1-66" href="#__codelineno-1-66"></a>            <span class="n">mydata</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">patient</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+<a id="__codelineno-1-67" name="__codelineno-1-67" href="#__codelineno-1-67"></a>    <span class="n">mydata</span><span class="p">[:,</span> <span class="n">numTrials</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">mydata</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="n">numTrials</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-1-68" name="__codelineno-1-68" href="#__codelineno-1-68"></a>    <span class="n">pylab</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mydata</span><span class="p">[:,</span><span class="n">numTrials</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;SimpleVirus&quot;</span><span class="p">)</span>
+<a id="__codelineno-1-69" name="__codelineno-1-69" href="#__codelineno-1-69"></a>    <span class="n">pylab</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;SimpleVirus simulation&quot;</span><span class="p">)</span>
+<a id="__codelineno-1-70" name="__codelineno-1-70" href="#__codelineno-1-70"></a>    <span class="n">pylab</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time Steps&quot;</span><span class="p">)</span>
+<a id="__codelineno-1-71" name="__codelineno-1-71" href="#__codelineno-1-71"></a>    <span class="n">pylab</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Average Virus Population&quot;</span><span class="p">)</span>
+<a id="__codelineno-1-72" name="__codelineno-1-72" href="#__codelineno-1-72"></a>    <span class="n">pylab</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s2">&quot;best&quot;</span><span class="p">)</span>
+<a id="__codelineno-1-73" name="__codelineno-1-73" href="#__codelineno-1-73"></a>    <span class="n">pylab</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<a id="__codelineno-1-74" name="__codelineno-1-74" href="#__codelineno-1-74"></a><span class="k">class</span><span class="w"> </span><span class="nc">ResistantVirus</span><span class="p">(</span><span class="n">SimpleVirus</span><span class="p">):</span>
+<a id="__codelineno-1-75" name="__codelineno-1-75" href="#__codelineno-1-75"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-1-76" name="__codelineno-1-76" href="#__codelineno-1-76"></a><span class="sd">    Representation of a virus which can have drug resistance.</span>
+<a id="__codelineno-1-77" name="__codelineno-1-77" href="#__codelineno-1-77"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-1-78" name="__codelineno-1-78" href="#__codelineno-1-78"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maxBirthProb</span><span class="p">,</span> <span class="n">clearProb</span><span class="p">,</span> <span class="n">resistances</span><span class="p">,</span> <span class="n">mutProb</span><span class="p">):</span>
+<a id="__codelineno-1-79" name="__codelineno-1-79" href="#__codelineno-1-79"></a>        <span class="n">SimpleVirus</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">maxBirthProb</span><span class="p">,</span> <span class="n">clearProb</span><span class="p">)</span>
+<a id="__codelineno-1-80" name="__codelineno-1-80" href="#__codelineno-1-80"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">resistances</span> <span class="o">=</span> <span class="n">resistances</span>
+<a id="__codelineno-1-81" name="__codelineno-1-81" href="#__codelineno-1-81"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">mutProb</span> <span class="o">=</span> <span class="n">mutProb</span>
+<a id="__codelineno-1-82" name="__codelineno-1-82" href="#__codelineno-1-82"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">getResistances</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-1-83" name="__codelineno-1-83" href="#__codelineno-1-83"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">resistances</span>
+<a id="__codelineno-1-84" name="__codelineno-1-84" href="#__codelineno-1-84"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">getMutProb</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-1-85" name="__codelineno-1-85" href="#__codelineno-1-85"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">mutProb</span>
+<a id="__codelineno-1-86" name="__codelineno-1-86" href="#__codelineno-1-86"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">isResistantTo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">drug</span><span class="p">):</span>
+<a id="__codelineno-1-87" name="__codelineno-1-87" href="#__codelineno-1-87"></a>        <span class="k">if</span> <span class="n">drug</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">getResistances</span><span class="p">()</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+<a id="__codelineno-1-88" name="__codelineno-1-88" href="#__codelineno-1-88"></a>            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">getResistances</span><span class="p">()[</span><span class="n">drug</span><span class="p">]</span>
+<a id="__codelineno-1-89" name="__codelineno-1-89" href="#__codelineno-1-89"></a>        <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-1-90" name="__codelineno-1-90" href="#__codelineno-1-90"></a>            <span class="k">return</span> <span class="kc">False</span>
+<a id="__codelineno-1-91" name="__codelineno-1-91" href="#__codelineno-1-91"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">reproduce</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">popDensity</span><span class="p">,</span> <span class="n">activeDrugs</span><span class="p">):</span>
+<a id="__codelineno-1-92" name="__codelineno-1-92" href="#__codelineno-1-92"></a>        <span class="c1"># If virus reproduces: generate info for initiating new ResistantVirus</span>
+<a id="__codelineno-1-93" name="__codelineno-1-93" href="#__codelineno-1-93"></a>        <span class="n">enough_space</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getMaxBirthProb</span><span class="p">()</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">popDensity</span><span class="p">)</span>
+<a id="__codelineno-1-94" name="__codelineno-1-94" href="#__codelineno-1-94"></a>        <span class="n">resisted_drug</span> <span class="o">=</span> <span class="kc">False</span>
+<a id="__codelineno-1-95" name="__codelineno-1-95" href="#__codelineno-1-95"></a>        <span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-1-96" name="__codelineno-1-96" href="#__codelineno-1-96"></a>            <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getResistances</span><span class="p">()[</span><span class="n">drug</span><span class="p">]</span> <span class="o">==</span> <span class="kc">True</span> <span class="k">for</span> <span class="n">drug</span> <span class="ow">in</span> <span class="n">activeDrugs</span><span class="p">):</span> 
+<a id="__codelineno-1-97" name="__codelineno-1-97" href="#__codelineno-1-97"></a>                <span class="n">resisted_drug</span> <span class="o">=</span> <span class="kc">True</span>
+<a id="__codelineno-1-98" name="__codelineno-1-98" href="#__codelineno-1-98"></a>            <span class="k">if</span> <span class="p">(</span><span class="n">enough_space</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">resisted_drug</span><span class="p">):</span>
+<a id="__codelineno-1-99" name="__codelineno-1-99" href="#__codelineno-1-99"></a>                <span class="n">new_resistances</span> <span class="o">=</span> <span class="p">{}</span>
+<a id="__codelineno-1-100" name="__codelineno-1-100" href="#__codelineno-1-100"></a>                <span class="c1"># Generate new resistance dictionary</span>
+<a id="__codelineno-1-101" name="__codelineno-1-101" href="#__codelineno-1-101"></a>                <span class="k">for</span> <span class="n">drug</span><span class="p">,</span> <span class="n">resistance</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">getResistances</span><span class="p">()</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<a id="__codelineno-1-102" name="__codelineno-1-102" href="#__codelineno-1-102"></a>                    <span class="c1"># If random num is less than mutation prob, the mutation occurs</span>
+<a id="__codelineno-1-103" name="__codelineno-1-103" href="#__codelineno-1-103"></a>                    <span class="k">if</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getMutProb</span><span class="p">():</span>
+<a id="__codelineno-1-104" name="__codelineno-1-104" href="#__codelineno-1-104"></a>                        <span class="n">new_resistances</span><span class="p">[</span><span class="n">drug</span><span class="p">]</span> <span class="o">=</span> <span class="ow">not</span><span class="p">(</span><span class="n">resistance</span><span class="p">)</span>
+<a id="__codelineno-1-105" name="__codelineno-1-105" href="#__codelineno-1-105"></a>                    <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-1-106" name="__codelineno-1-106" href="#__codelineno-1-106"></a>                        <span class="n">new_resistances</span><span class="p">[</span><span class="n">drug</span><span class="p">]</span> <span class="o">=</span> <span class="n">resistance</span>
+<a id="__codelineno-1-107" name="__codelineno-1-107" href="#__codelineno-1-107"></a>                <span class="k">return</span> <span class="n">ResistantVirus</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getMaxBirthProb</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">getClearProb</span><span class="p">(),</span> <span class="n">new_resistances</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">getMutProb</span><span class="p">())</span>
+<a id="__codelineno-1-108" name="__codelineno-1-108" href="#__codelineno-1-108"></a>            <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-1-109" name="__codelineno-1-109" href="#__codelineno-1-109"></a>                <span class="k">raise</span> <span class="n">NoChildException</span>
+<a id="__codelineno-1-110" name="__codelineno-1-110" href="#__codelineno-1-110"></a>        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+<a id="__codelineno-1-111" name="__codelineno-1-111" href="#__codelineno-1-111"></a>            <span class="c1"># If the Virus doesn&#39;t have the drug in its resistances, it isn&#39;t resistant by definition</span>
+<a id="__codelineno-1-112" name="__codelineno-1-112" href="#__codelineno-1-112"></a>            <span class="k">raise</span> <span class="n">NoChildException</span>
+<a id="__codelineno-1-113" name="__codelineno-1-113" href="#__codelineno-1-113"></a><span class="k">class</span><span class="w"> </span><span class="nc">TreatedPatient</span><span class="p">(</span><span class="n">Patient</span><span class="p">):</span>
+<a id="__codelineno-1-114" name="__codelineno-1-114" href="#__codelineno-1-114"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-1-115" name="__codelineno-1-115" href="#__codelineno-1-115"></a><span class="sd">    Representation of a patient. The patient is able to take drugs and his/her</span>
+<a id="__codelineno-1-116" name="__codelineno-1-116" href="#__codelineno-1-116"></a><span class="sd">    virus population can acquire resistance to the drugs he/she takes.</span>
+<a id="__codelineno-1-117" name="__codelineno-1-117" href="#__codelineno-1-117"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-1-118" name="__codelineno-1-118" href="#__codelineno-1-118"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">viruses</span><span class="p">,</span> <span class="n">maxPop</span><span class="p">):</span>
+<a id="__codelineno-1-119" name="__codelineno-1-119" href="#__codelineno-1-119"></a>        <span class="n">Patient</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">viruses</span><span class="p">,</span> <span class="n">maxPop</span><span class="p">)</span>
+<a id="__codelineno-1-120" name="__codelineno-1-120" href="#__codelineno-1-120"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">treatments</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-1-121" name="__codelineno-1-121" href="#__codelineno-1-121"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">addPrescription</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">newDrug</span><span class="p">):</span>
+<a id="__codelineno-1-122" name="__codelineno-1-122" href="#__codelineno-1-122"></a>        <span class="k">if</span> <span class="n">newDrug</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">treatments</span><span class="p">:</span>
+<a id="__codelineno-1-123" name="__codelineno-1-123" href="#__codelineno-1-123"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">treatments</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">newDrug</span><span class="p">)</span>
+<a id="__codelineno-1-124" name="__codelineno-1-124" href="#__codelineno-1-124"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">getPrescriptions</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-1-125" name="__codelineno-1-125" href="#__codelineno-1-125"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">treatments</span>
+<a id="__codelineno-1-126" name="__codelineno-1-126" href="#__codelineno-1-126"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">getResistPop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">drugResist</span><span class="p">):</span>
+<a id="__codelineno-1-127" name="__codelineno-1-127" href="#__codelineno-1-127"></a>        <span class="n">num_vir</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-1-128" name="__codelineno-1-128" href="#__codelineno-1-128"></a>        <span class="k">for</span> <span class="n">virus</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">getViruses</span><span class="p">():</span>
+<a id="__codelineno-1-129" name="__codelineno-1-129" href="#__codelineno-1-129"></a>            <span class="c1"># Check that drug is in Resistances before trying to access - avoids KeyError </span>
+<a id="__codelineno-1-130" name="__codelineno-1-130" href="#__codelineno-1-130"></a>            <span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-1-131" name="__codelineno-1-131" href="#__codelineno-1-131"></a>                <span class="k">if</span> <span class="p">(</span><span class="n">drugResist</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="nb">all</span><span class="p">(</span><span class="n">virus</span><span class="o">.</span><span class="n">getResistances</span><span class="p">()[</span><span class="n">drug</span><span class="p">]</span> <span class="o">==</span> <span class="kc">True</span> <span class="k">for</span> <span class="n">drug</span> <span class="ow">in</span> <span class="n">drugResist</span><span class="p">)):</span> 
+<a id="__codelineno-1-132" name="__codelineno-1-132" href="#__codelineno-1-132"></a>                    <span class="n">num_vir</span> <span class="o">+=</span> <span class="mi">1</span>
+<a id="__codelineno-1-133" name="__codelineno-1-133" href="#__codelineno-1-133"></a>            <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+<a id="__codelineno-1-134" name="__codelineno-1-134" href="#__codelineno-1-134"></a>                <span class="k">pass</span>
+<a id="__codelineno-1-135" name="__codelineno-1-135" href="#__codelineno-1-135"></a>        <span class="k">return</span> <span class="n">num_vir</span>
+<a id="__codelineno-1-136" name="__codelineno-1-136" href="#__codelineno-1-136"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-1-137" name="__codelineno-1-137" href="#__codelineno-1-137"></a>        <span class="n">survived</span> <span class="o">=</span> <span class="p">[</span><span class="n">virus</span> <span class="k">for</span> <span class="n">virus</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">viruses</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">virus</span><span class="o">.</span><span class="n">doesClear</span><span class="p">()]</span>
+<a id="__codelineno-1-138" name="__codelineno-1-138" href="#__codelineno-1-138"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">viruses</span> <span class="o">=</span> <span class="n">survived</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<a id="__codelineno-1-139" name="__codelineno-1-139" href="#__codelineno-1-139"></a>        <span class="k">for</span> <span class="n">virus</span> <span class="ow">in</span> <span class="n">survived</span><span class="p">:</span>
+<a id="__codelineno-1-140" name="__codelineno-1-140" href="#__codelineno-1-140"></a>            <span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-1-141" name="__codelineno-1-141" href="#__codelineno-1-141"></a>                <span class="n">popdensity</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getTotalPop</span><span class="p">()</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">getMaxPop</span><span class="p">()</span>
+<a id="__codelineno-1-142" name="__codelineno-1-142" href="#__codelineno-1-142"></a>                <span class="bp">self</span><span class="o">.</span><span class="n">viruses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">virus</span><span class="o">.</span><span class="n">reproduce</span><span class="p">(</span><span class="n">popdensity</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">getPrescriptions</span><span class="p">()))</span>
+<a id="__codelineno-1-143" name="__codelineno-1-143" href="#__codelineno-1-143"></a>            <span class="k">except</span> <span class="n">NoChildException</span><span class="p">:</span>
+<a id="__codelineno-1-144" name="__codelineno-1-144" href="#__codelineno-1-144"></a>                <span class="k">pass</span>
+<a id="__codelineno-1-145" name="__codelineno-1-145" href="#__codelineno-1-145"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">getTotalPop</span><span class="p">()</span>
+<a id="__codelineno-1-146" name="__codelineno-1-146" href="#__codelineno-1-146"></a><span class="k">def</span><span class="w"> </span><span class="nf">simulationWithDrug</span><span class="p">(</span><span class="n">numViruses</span><span class="p">,</span> <span class="n">maxPop</span><span class="p">,</span> <span class="n">maxBirthProb</span><span class="p">,</span> <span class="n">clearProb</span><span class="p">,</span> <span class="n">resistances</span><span class="p">,</span>
+<a id="__codelineno-1-147" name="__codelineno-1-147" href="#__codelineno-1-147"></a>                       <span class="n">mutProb</span><span class="p">,</span> <span class="n">numTrials</span><span class="p">):</span>
+<a id="__codelineno-1-148" name="__codelineno-1-148" href="#__codelineno-1-148"></a>    <span class="n">mydata</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">([</span><span class="mi">300</span><span class="p">,</span> <span class="n">numTrials</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>
+<a id="__codelineno-1-149" name="__codelineno-1-149" href="#__codelineno-1-149"></a>    <span class="n">mydata</span><span class="p">[:,</span> <span class="p">:]</span> <span class="o">=</span> <span class="kc">None</span>
+<a id="__codelineno-1-150" name="__codelineno-1-150" href="#__codelineno-1-150"></a>    <span class="n">resist_vir</span> <span class="o">=</span> <span class="n">mydata</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<a id="__codelineno-1-151" name="__codelineno-1-151" href="#__codelineno-1-151"></a>    <span class="n">viruslist</span> <span class="o">=</span> <span class="p">[</span><span class="n">ResistantVirus</span><span class="p">(</span><span class="n">maxBirthProb</span> <span class="o">=</span> <span class="n">maxBirthProb</span><span class="p">,</span> <span class="n">clearProb</span> <span class="o">=</span> <span class="n">clearProb</span><span class="p">,</span>
+<a id="__codelineno-1-152" name="__codelineno-1-152" href="#__codelineno-1-152"></a>        <span class="n">resistances</span> <span class="o">=</span> <span class="n">resistances</span><span class="p">,</span> <span class="n">mutProb</span> <span class="o">=</span> <span class="n">mutProb</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">numViruses</span><span class="p">)]</span>
+<a id="__codelineno-1-153" name="__codelineno-1-153" href="#__codelineno-1-153"></a>    <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">numTrials</span><span class="p">):</span>
+<a id="__codelineno-1-154" name="__codelineno-1-154" href="#__codelineno-1-154"></a>        <span class="n">patient</span> <span class="o">=</span> <span class="n">TreatedPatient</span><span class="p">(</span><span class="n">viruslist</span><span class="p">,</span> <span class="n">maxPop</span><span class="p">)</span>
+<a id="__codelineno-1-155" name="__codelineno-1-155" href="#__codelineno-1-155"></a>        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">300</span><span class="p">):</span>
+<a id="__codelineno-1-156" name="__codelineno-1-156" href="#__codelineno-1-156"></a>            <span class="k">if</span> <span class="n">row</span> <span class="o">==</span> <span class="mi">150</span><span class="p">:</span>
+<a id="__codelineno-1-157" name="__codelineno-1-157" href="#__codelineno-1-157"></a>                <span class="n">patient</span><span class="o">.</span><span class="n">addPrescription</span><span class="p">(</span><span class="s2">&quot;guttagonol&quot;</span><span class="p">)</span>
+<a id="__codelineno-1-158" name="__codelineno-1-158" href="#__codelineno-1-158"></a>            <span class="n">mydata</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">patient</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+<a id="__codelineno-1-159" name="__codelineno-1-159" href="#__codelineno-1-159"></a>            <span class="n">resist_vir</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">patient</span><span class="o">.</span><span class="n">getResistPop</span><span class="p">([</span><span class="s2">&quot;guttagonol&quot;</span><span class="p">])</span>
+<a id="__codelineno-1-160" name="__codelineno-1-160" href="#__codelineno-1-160"></a>    <span class="n">mydata</span><span class="p">[:,</span> <span class="n">numTrials</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">mydata</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="n">numTrials</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-1-161" name="__codelineno-1-161" href="#__codelineno-1-161"></a>    <span class="n">resist_vir</span><span class="p">[:,</span> <span class="n">numTrials</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">resist_vir</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="n">numTrials</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-1-162" name="__codelineno-1-162" href="#__codelineno-1-162"></a>    <span class="n">pylab</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mydata</span><span class="p">[:,</span><span class="n">numTrials</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;ResistantVirus Total Population&quot;</span><span class="p">)</span>
+<a id="__codelineno-1-163" name="__codelineno-1-163" href="#__codelineno-1-163"></a>    <span class="n">pylab</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">resist_vir</span><span class="p">[:,</span><span class="n">numTrials</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;ResistantVirus Resistant Population&quot;</span><span class="p">)</span>
+<a id="__codelineno-1-164" name="__codelineno-1-164" href="#__codelineno-1-164"></a>    <span class="n">pylab</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;ResistantVirus, Total and Resistant simulation&quot;</span><span class="p">)</span>
+<a id="__codelineno-1-165" name="__codelineno-1-165" href="#__codelineno-1-165"></a>    <span class="n">pylab</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time Steps&quot;</span><span class="p">)</span>
+<a id="__codelineno-1-166" name="__codelineno-1-166" href="#__codelineno-1-166"></a>    <span class="n">pylab</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Average Virus Population&quot;</span><span class="p">)</span>
+<a id="__codelineno-1-167" name="__codelineno-1-167" href="#__codelineno-1-167"></a>    <span class="n">pylab</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s2">&quot;best&quot;</span><span class="p">)</span>
+<a id="__codelineno-1-168" name="__codelineno-1-168" href="#__codelineno-1-168"></a>    <span class="n">pylab</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+        
+        
+    </div>
+
+    
+      <footer class="col-md-12 text-center">
+          
+          
+            <hr>
+            <p>
+            <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</small>
+            </p>
+          
+
+          
+          
+      </footer>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../../../../js/bootstrap-3.0.3.min.js"></script>
+
+    
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
+        
+                <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/languages/python.min.js"></script>
+                <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/languages/javascript.min.js"></script>
+                <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/languages/html.min.js"></script>
+                <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/languages/css.min.js"></script>
+                <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/languages/bash.min.js"></script>
+                <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/languages/yaml.min.js"></script>
+                <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/languages/markdown.min.js"></script>
+        
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    <script>var base_url = "../../../.."</script>
+    
+    <script src="../../../../js/base.js"></script>
+    <script src="../../../../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+
+</html>

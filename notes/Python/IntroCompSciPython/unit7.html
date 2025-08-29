@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="date" content="2019-03-30" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+</head>
+<body>
+<div id="TOC">
+<ul>
+<li><a href="#testing-and-debugging">Testing and Debugging</a><ul>
+<li><a href="#types-of-testing">Types of Testing</a></li>
+<li><a href="#black-box-testing">Black box testing</a></li>
+<li><a href="#glass-box">Glass box</a></li>
+<li><a href="#bugs">Bugs</a></li>
+</ul></li>
+</ul>
+</div>
+<p><a href="../../../index.html">Go back to index</a></p>
+<p><a href="../base.html">Go back to Python Portal</a> <head>  </head></p>
+<h1 id="testing-and-debugging">Testing and Debugging</h1>
+<ul>
+<li>Write function specifications</li>
+<li>Modularize programs</li>
+<li>Each part can be tested in turn</li>
+<li>Check input &amp; output conditions w/ assertions</li>
+<li>Be aware of edge cases, and compare input output pairs</li>
+</ul>
+<h2 id="types-of-testing">Types of Testing</h2>
+<ul>
+<li>Unit testing - validate each function by testing separately</li>
+<li>Regression testing - test for bugs that may be been introduced or reintroduced</li>
+<li>Integration testing - for the overall program</li>
+</ul>
+<h2 id="black-box-testing">Black box testing</h2>
+<p>Reason through the paths in the specification, separate from the code, focusing on edge cases.</p>
+<ul>
+<li>If it is on lists, consider an empty list, a one element list, and so on.</li>
+<li>If it is on numbers, consider 0, perfect squares, numbers less than 1, negative numbers, extremes, and so on.</li>
+</ul>
+<h2 id="glass-box">Glass box</h2>
+<p>Base test cases on paths through the code, aiming to be path complete by running though all potential paths. Make sure to hit every branch in a branching if tree, enter for and while loops and test exit conditions.</p>
+<h2 id="bugs">Bugs</h2>
+<p>Overt - obvious case with crashing or doesn't stop Covert - code runs but return not correct Persistent - occurs predictably Intermittent - occurs sometimes</p>
+<p>Good defensive programming will ensure that bugs will be overt and persistent. Intermittent and Covert bugs are worse.</p>
+<p>Add in print statements liberally to isolate where things might be wrong.</p>
+</body>
+</html>

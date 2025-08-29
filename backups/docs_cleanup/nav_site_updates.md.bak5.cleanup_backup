@@ -1,0 +1,7 @@
+<!-- Site Updates Navigation Template -->
+<!-- This template provides navigation for site update pages -->
+<div class="return-navigation">
+  <a href="../../index.md" class="nav-button index-button">🏠 Home</a>
+  <a href="../base.md" class="nav-button portal-button">📝 Site Updates</a>
+</div>
+<!-- Content starts here -->

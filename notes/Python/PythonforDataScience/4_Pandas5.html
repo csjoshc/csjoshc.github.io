@@ -1,0 +1,688 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="date" content="2019-05-30" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #232629; color: #cfcfc2; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; background-color: #232629; color: #7a7c7d; border-right: 1px solid #7a7c7d; }
+td.sourceCode { padding-left: 5px; }
+pre, code { color: #cfcfc2; background-color: #232629; }
+code > span.kw { color: #cfcfc2; } /* Keyword */
+code > span.dt { color: #2980b9; } /* DataType */
+code > span.dv { color: #f67400; } /* DecVal */
+code > span.bn { color: #f67400; } /* BaseN */
+code > span.fl { color: #f67400; } /* Float */
+code > span.cn { color: #27aeae; } /* Constant */
+code > span.ch { color: #3daee9; } /* Char */
+code > span.sc { color: #3daee9; } /* SpecialChar */
+code > span.st { color: #f44f4f; } /* String */
+code > span.vs { color: #da4453; } /* VerbatimString */
+code > span.ss { color: #da4453; } /* SpecialString */
+code > span.im { color: #27ae60; } /* Import */
+code > span.co { color: #7a7c7d; } /* Comment */
+code > span.do { color: #a43340; } /* Documentation */
+code > span.an { color: #3f8058; } /* Annotation */
+code > span.cv { color: #7f8c8d; } /* CommentVar */
+code > span.ot { color: #27ae60; } /* Other */
+code > span.fu { color: #8e44ad; } /* Function */
+code > span.va { color: #27aeae; } /* Variable */
+code > span.cf { color: #fdbc4b; } /* ControlFlow */
+code > span.op { color: #cfcfc2; } /* Operator */
+code > span.bu { color: #7f8c8d; } /* BuiltIn */
+code > span.ex { color: #0099ff; } /* Extension */
+code > span.pp { color: #27ae60; } /* Preprocessor */
+code > span.at { color: #2980b9; } /* Attribute */
+code > span.re { color: #2980b9; } /* RegionMarker */
+code > span.in { color: #c45b00; } /* Information */
+code > span.wa { color: #da4453; } /* Warning */
+code > span.al { color: #95da4c; } /* Alert */
+code > span.er { color: #da4453; } /* Error */
+code > span. { color: #cfcfc2; } /* Normal */
+  </style>
+</head>
+<body>
+<div id="TOC">
+<ul>
+<li><a href="#dataframe-data-types---strings-timestamps">Dataframe data types - strings &amp; timestamps</a><ul>
+<li><a href="#string-functions">String functions</a><ul>
+<li><a href="#dfcol1.str.split---splitting-columns-of-dataframe"><code>df['col1'].str.split(' ')</code> - Splitting columns of dataframe</a></li>
+<li><a href="#dfcol.str.contains---testing-for-string-contents"><code>df['col'].str.contains(' ')</code> - Testing for string contents</a></li>
+<li><a href="#dfcol1.str.replacefrom-to---replace-strings-with-other-strings"><code>df['col1].str.replace('from', 'to')</code> - Replace strings with other strings</a></li>
+<li><a href="#dfcol1.str.extract---match-regex"><code>df['col1'].str.extract('*')</code> - Match regex</a></li>
+<li><a href="#dfcol1.str.split-expand-true---split-str-column"><code>df['col1'].str.split(' ', expand = True)</code> - Split str column</a></li>
+<li><a href="#cleanup">Cleanup</a></li>
+</ul></li>
+<li><a href="#dealing-with-timestamps">Dealing with timestamps</a><ul>
+<li><a href="#pd.to_datetimedfcol1-unit-s---convert-timestamp"><code>pd.to_datetime(df['col1'], unit = 's')</code> - Convert timestamp</a></li>
+<li><a href="#using-timestamp-to-filter">Using timestamp to filter</a></li>
+<li><a href="#df.sort_valuesby-col1-ascending-false-sort-based-on-time"><code>df.sort_values(by ='col1', ascending = False)</code> Sort based on time</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<p><a href="../../../index.html">Go back to index</a></p>
+<p><a href="../base.html">Go back to Python Portal</a></p>
+<head>
+  
+  <meta name="viewport" content="initial-scale=1, width=device-width">
+</head>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> sys
+<span class="bu">print</span>(sys.executable)
+<span class="im">from</span> IPython.core.interactiveshell <span class="im">import</span> InteractiveShell
+InteractiveShell.ast_node_interactivity <span class="op">=</span> <span class="st">&quot;all&quot;</span>
+InteractiveShell.colors <span class="op">=</span> <span class="st">&quot;Linux&quot;</span>
+InteractiveShell.separate_in <span class="op">=</span> <span class="dv">0</span>
+<span class="im">from</span> tabulate <span class="im">import</span> tabulate
+<span class="im">import</span> pandas <span class="im">as</span> pd
+<span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt
+<span class="im">import</span> os, sys
+
+os.chdir(sys.path[<span class="dv">0</span>]) <span class="co"># Change dir to the folder this .ipynb file is in</span>
+tags <span class="op">=</span> pd.read_csv(<span class="st">&#39;../../../../data/w4pd/tags.csv&#39;</span>)</code></pre></div>
+<pre><code>/home/jcmint/anaconda3/envs/learningenv/bin/python</code></pre>
+<h1 id="dataframe-data-types---strings-timestamps">Dataframe data types - strings &amp; timestamps</h1>
+<h2 id="string-functions">String functions</h2>
+<p>Str functions don't seem to mutate the original dataframe</p>
+<h3 id="dfcol1.str.split---splitting-columns-of-dataframe"><code>df['col1'].str.split(' ')</code> - Splitting columns of dataframe</h3>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">tags[<span class="st">&#39;tag&#39;</span>].<span class="bu">str</span>.split(<span class="st">&#39; &#39;</span>).head()</code></pre></div>
+<pre><code>0      [Mark, Waters]
+1        [dark, hero]
+2        [dark, hero]
+3    [noir, thriller]
+4        [dark, hero]
+Name: tag, dtype: object</code></pre>
+<h3 id="dfcol.str.contains---testing-for-string-contents"><code>df['col'].str.contains(' ')</code> - Testing for string contents</h3>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">tags[<span class="st">&#39;isdark&#39;</span>] <span class="op">=</span> tags[<span class="st">&#39;tag&#39;</span>].<span class="bu">str</span>.contains(<span class="st">&#39;dark&#39;</span>) 
+tags.head()</code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>userId</th>
+      <th>movieId</th>
+      <th>tag</th>
+      <th>timestamp</th>
+      <th>isdark</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>18</td>
+      <td>4141</td>
+      <td>Mark Waters</td>
+      <td>1240597180</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>65</td>
+      <td>208</td>
+      <td>dark hero</td>
+      <td>1368150078</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>65</td>
+      <td>353</td>
+      <td>dark hero</td>
+      <td>1368150079</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>65</td>
+      <td>521</td>
+      <td>noir thriller</td>
+      <td>1368149983</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>65</td>
+      <td>592</td>
+      <td>dark hero</td>
+      <td>1368150078</td>
+      <td>True</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<h3 id="dfcol1.str.replacefrom-to---replace-strings-with-other-strings"><code>df['col1].str.replace('from', 'to')</code> - Replace strings with other strings</h3>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">tags[<span class="st">&#39;light tag&#39;</span>] <span class="op">=</span> tags[<span class="st">&#39;tag&#39;</span>].<span class="bu">str</span>.replace(<span class="st">&#39;dark&#39;</span>, <span class="st">&#39;light&#39;</span>).head()
+tags.head()</code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>userId</th>
+      <th>movieId</th>
+      <th>tag</th>
+      <th>timestamp</th>
+      <th>isdark</th>
+      <th>light tag</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>18</td>
+      <td>4141</td>
+      <td>Mark Waters</td>
+      <td>1240597180</td>
+      <td>False</td>
+      <td>Mark Waters</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>65</td>
+      <td>208</td>
+      <td>dark hero</td>
+      <td>1368150078</td>
+      <td>True</td>
+      <td>light hero</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>65</td>
+      <td>353</td>
+      <td>dark hero</td>
+      <td>1368150079</td>
+      <td>True</td>
+      <td>light hero</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>65</td>
+      <td>521</td>
+      <td>noir thriller</td>
+      <td>1368149983</td>
+      <td>False</td>
+      <td>noir thriller</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>65</td>
+      <td>592</td>
+      <td>dark hero</td>
+      <td>1368150078</td>
+      <td>True</td>
+      <td>light hero</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<h3 id="dfcol1.str.extract---match-regex"><code>df['col1'].str.extract('*')</code> - Match regex</h3>
+<p>Get the string that matches the reg expression</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">tags[<span class="st">&#39;first tag&#39;</span>] <span class="op">=</span> tags[<span class="st">&#39;tag&#39;</span>].<span class="bu">str</span>.extract(<span class="st">&#39;([a-zA-Z][A-Za-z])&#39;</span>) 
+tags.head()</code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>userId</th>
+      <th>movieId</th>
+      <th>tag</th>
+      <th>timestamp</th>
+      <th>isdark</th>
+      <th>light tag</th>
+      <th>first tag</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>18</td>
+      <td>4141</td>
+      <td>Mark Waters</td>
+      <td>1240597180</td>
+      <td>False</td>
+      <td>Mark Waters</td>
+      <td>Ma</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>65</td>
+      <td>208</td>
+      <td>dark hero</td>
+      <td>1368150078</td>
+      <td>True</td>
+      <td>light hero</td>
+      <td>da</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>65</td>
+      <td>353</td>
+      <td>dark hero</td>
+      <td>1368150079</td>
+      <td>True</td>
+      <td>light hero</td>
+      <td>da</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>65</td>
+      <td>521</td>
+      <td>noir thriller</td>
+      <td>1368149983</td>
+      <td>False</td>
+      <td>noir thriller</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>65</td>
+      <td>592</td>
+      <td>dark hero</td>
+      <td>1368150078</td>
+      <td>True</td>
+      <td>light hero</td>
+      <td>da</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<h3 id="dfcol1.str.split-expand-true---split-str-column"><code>df['col1'].str.split(' ', expand = True)</code> - Split str column</h3>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">output <span class="op">=</span> tags[<span class="st">&#39;light tag&#39;</span>].<span class="bu">str</span>.split(<span class="st">&#39; &#39;</span>, expand <span class="op">=</span><span class="va">True</span>) 
+output.head()</code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Mark</td>
+      <td>Waters</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>light</td>
+      <td>hero</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>light</td>
+      <td>hero</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>noir</td>
+      <td>thriller</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>light</td>
+      <td>hero</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<h3 id="cleanup">Cleanup</h3>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">tags.drop(tags.columns[<span class="dv">4</span>:<span class="dv">7</span>], axis <span class="op">=</span> <span class="dv">1</span>, inplace<span class="op">=</span><span class="va">True</span>)
+tags.head()</code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>userId</th>
+      <th>movieId</th>
+      <th>tag</th>
+      <th>timestamp</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>18</td>
+      <td>4141</td>
+      <td>Mark Waters</td>
+      <td>1240597180</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>65</td>
+      <td>208</td>
+      <td>dark hero</td>
+      <td>1368150078</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>65</td>
+      <td>353</td>
+      <td>dark hero</td>
+      <td>1368150079</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>65</td>
+      <td>521</td>
+      <td>noir thriller</td>
+      <td>1368149983</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>65</td>
+      <td>592</td>
+      <td>dark hero</td>
+      <td>1368150078</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<h2 id="dealing-with-timestamps">Dealing with timestamps</h2>
+<p>Need to convert UNIX POSIX timestamp to Python format before using it.</p>
+<h3 id="pd.to_datetimedfcol1-unit-s---convert-timestamp"><code>pd.to_datetime(df['col1'], unit = 's')</code> - Convert timestamp</h3>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">tags[<span class="st">&#39;parsed time&#39;</span>] <span class="op">=</span> pd.to_datetime(tags[<span class="st">&#39;timestamp&#39;</span>], unit<span class="op">=</span><span class="st">&#39;s&#39;</span>) 
+tags.head()</code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>userId</th>
+      <th>movieId</th>
+      <th>tag</th>
+      <th>timestamp</th>
+      <th>parsed time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>18</td>
+      <td>4141</td>
+      <td>Mark Waters</td>
+      <td>1240597180</td>
+      <td>2009-04-24 18:19:40</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>65</td>
+      <td>208</td>
+      <td>dark hero</td>
+      <td>1368150078</td>
+      <td>2013-05-10 01:41:18</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>65</td>
+      <td>353</td>
+      <td>dark hero</td>
+      <td>1368150079</td>
+      <td>2013-05-10 01:41:19</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>65</td>
+      <td>521</td>
+      <td>noir thriller</td>
+      <td>1368149983</td>
+      <td>2013-05-10 01:39:43</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>65</td>
+      <td>592</td>
+      <td>dark hero</td>
+      <td>1368150078</td>
+      <td>2013-05-10 01:41:18</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<h3 id="using-timestamp-to-filter">Using timestamp to filter</h3>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">tags[<span class="st">&#39;After Dec 31 2013&#39;</span>] <span class="op">=</span> tags[<span class="st">&#39;parsed time&#39;</span>] <span class="op">&gt;</span> <span class="st">&#39;2013-12-31&#39;</span> 
+tags.head()</code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>userId</th>
+      <th>movieId</th>
+      <th>tag</th>
+      <th>timestamp</th>
+      <th>parsed time</th>
+      <th>After Dec 31 2013</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>18</td>
+      <td>4141</td>
+      <td>Mark Waters</td>
+      <td>1240597180</td>
+      <td>2009-04-24 18:19:40</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>65</td>
+      <td>208</td>
+      <td>dark hero</td>
+      <td>1368150078</td>
+      <td>2013-05-10 01:41:18</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>65</td>
+      <td>353</td>
+      <td>dark hero</td>
+      <td>1368150079</td>
+      <td>2013-05-10 01:41:19</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>65</td>
+      <td>521</td>
+      <td>noir thriller</td>
+      <td>1368149983</td>
+      <td>2013-05-10 01:39:43</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>65</td>
+      <td>592</td>
+      <td>dark hero</td>
+      <td>1368150078</td>
+      <td>2013-05-10 01:41:18</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<h3 id="df.sort_valuesby-col1-ascending-false-sort-based-on-time"><code>df.sort_values(by ='col1', ascending = False)</code> Sort based on time</h3>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">tags <span class="op">=</span> tags.sort_values(by <span class="op">=</span> <span class="st">&#39;parsed time&#39;</span>, ascending <span class="op">=</span><span class="va">False</span>) 
+tags.head()</code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>userId</th>
+      <th>movieId</th>
+      <th>tag</th>
+      <th>timestamp</th>
+      <th>parsed time</th>
+      <th>After Dec 31 2013</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>339178</th>
+      <td>102853</td>
+      <td>115149</td>
+      <td>russian mafia</td>
+      <td>1427771352</td>
+      <td>2015-03-31 03:09:12</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>158780</th>
+      <td>46072</td>
+      <td>6058</td>
+      <td>premonition</td>
+      <td>1427760764</td>
+      <td>2015-03-31 00:12:44</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>158763</th>
+      <td>46072</td>
+      <td>3409</td>
+      <td>premonition</td>
+      <td>1427760726</td>
+      <td>2015-03-31 00:12:06</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>288375</th>
+      <td>87797</td>
+      <td>215</td>
+      <td>Vienna</td>
+      <td>1427755801</td>
+      <td>2015-03-30 22:50:01</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>290535</th>
+      <td>88044</td>
+      <td>106782</td>
+      <td>profanity</td>
+      <td>1427754096</td>
+      <td>2015-03-30 22:21:36</td>
+      <td>True</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="date" content="2019-05-30" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #232629; color: #cfcfc2; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; background-color: #232629; color: #7a7c7d; border-right: 1px solid #7a7c7d; }
+td.sourceCode { padding-left: 5px; }
+pre, code { color: #cfcfc2; background-color: #232629; }
+code > span.kw { color: #cfcfc2; } /* Keyword */
+code > span.dt { color: #2980b9; } /* DataType */
+code > span.dv { color: #f67400; } /* DecVal */
+code > span.bn { color: #f67400; } /* BaseN */
+code > span.fl { color: #f67400; } /* Float */
+code > span.cn { color: #27aeae; } /* Constant */
+code > span.ch { color: #3daee9; } /* Char */
+code > span.sc { color: #3daee9; } /* SpecialChar */
+code > span.st { color: #f44f4f; } /* String */
+code > span.vs { color: #da4453; } /* VerbatimString */
+code > span.ss { color: #da4453; } /* SpecialString */
+code > span.im { color: #27ae60; } /* Import */
+code > span.co { color: #7a7c7d; } /* Comment */
+code > span.do { color: #a43340; } /* Documentation */
+code > span.an { color: #3f8058; } /* Annotation */
+code > span.cv { color: #7f8c8d; } /* CommentVar */
+code > span.ot { color: #27ae60; } /* Other */
+code > span.fu { color: #8e44ad; } /* Function */
+code > span.va { color: #27aeae; } /* Variable */
+code > span.cf { color: #fdbc4b; } /* ControlFlow */
+code > span.op { color: #cfcfc2; } /* Operator */
+code > span.bu { color: #7f8c8d; } /* BuiltIn */
+code > span.ex { color: #0099ff; } /* Extension */
+code > span.pp { color: #27ae60; } /* Preprocessor */
+code > span.at { color: #2980b9; } /* Attribute */
+code > span.re { color: #2980b9; } /* RegionMarker */
+code > span.in { color: #c45b00; } /* Information */
+code > span.wa { color: #da4453; } /* Warning */
+code > span.al { color: #95da4c; } /* Alert */
+code > span.er { color: #da4453; } /* Error */
+code > span. { color: #cfcfc2; } /* Normal */
+  </style>
+</head>
+<body>
+<div id="TOC">
+<ul>
+<li><a href="#using-pylab-for-plotting---tips-and-tricks">Using pylab for plotting - tips and tricks</a></li>
+<li><a href="#controlling-more-display-parameters">Controlling more display parameters</a></li>
+</ul>
+</div>
+<p><a href="../../../../index.html">Go back to index</a></p>
+<p><a href="../../base.html">Go back to Python Portal</a></p>
+<head>
+  
+  <meta name="viewport" content="initial-scale=1, width=device-width">
+</head>
+<h1 id="using-pylab-for-plotting---tips-and-tricks">Using pylab for plotting - tips and tricks</h1>
+<p>pylab as plt can be used in console or interactive windows. The plots will be overlaid, however, if we plot in this way:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> pylab <span class="im">as</span> plt
+x <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]
+y <span class="op">=</span> [<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">10</span>]
+z <span class="op">=</span> [<span class="dv">100</span>, <span class="dv">200</span>, <span class="dv">300</span>, <span class="dv">400</span>, <span class="dv">500</span>]
+
+plt.plot(x, y)
+plt.plot(x, z)
+plt.show()</code></pre></div>
+<p><img src="Figure_1.webp" /></p>
+<p>Instead, we can plot in this way:</p>
+<pre><code>plt.figure(&quot;one&quot;)
+plt.plot(x, y)
+plt.figure(&quot;two&quot;)
+plt.plot(x, z)
+plt.show()</code></pre>
+<p>The final plt.show() call displays both figures simultaneously:</p>
+<p><img src="one.webp" /> <img src="two.webp" /></p>
+<p>This way, each plot has its own scale depending on the range of the list. The way <code>plt.figure(&quot;name&quot;)</code> works is that it initializes it the first time it is called, and every subsequent time it changes the scope to the existing figure so any plt.function() calls are applied to the scoped figure - this is useful for labeling, titling, scaling, setting limits and so on.</p>
+<p>Some caveats:</p>
+<ul>
+<li>The figure window is persistent, so if a procedure was applied to a figure but then removed, the feature will stay. Remember to clear figures before redrawing using <code>plt.clf()</code></li>
+<li>The colors are the same because each figure is independent and starts on the same default initial color</li>
+</ul>
+<p>Other tips:</p>
+<ul>
+<li>use <code>label = &quot;label name&quot;</code> in <code>plt.plot()</code> in combination with adding <code>plt.legend(loc = 'upper left')</code> (loc is optional) to get a legend for each named curve</li>
+<li>use <code>plt.yscale('log')</code> to use log scale with powers of 10 as labels.</li>
+</ul>
+<h1 id="controlling-more-display-parameters">Controlling more display parameters</h1>
+<ul>
+<li>changing color or style of data sets (curves)</li>
+<li>use matplot style syntax: for example, use <code>'ro'</code> to specify red points; use <code>'g--'</code> to specify a green dashed line, etc.</li>
+<li>width of lines and displays</li>
+<li>using subplots</li>
+<li>use <code>plt.subplot(rci)</code> where r (rows), c(columns) and i (index) are all digits.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">plt.figure(<span class="st">&quot;one&quot;</span>)
+plt.clf()
+plt.plot(x, y, <span class="st">&quot;r--&quot;</span>, linewidth <span class="op">=</span> <span class="dv">10</span>, label <span class="op">=</span> <span class="st">&#39;test label&#39;</span>)
+plt.show()</code></pre></div>
+<p><img src="one1.webp" /></p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">plt.clf()
+plt.subplot(<span class="dv">121</span>)
+plt.plot(x, y, <span class="st">&quot;b^&quot;</span>, linewidth <span class="op">=</span> <span class="dv">10</span>, label <span class="op">=</span> <span class="st">&#39;test label&#39;</span>)
+plt.subplot(<span class="dv">122</span>)
+plt.plot(x, z, <span class="st">&quot;go&quot;</span>, linewidth <span class="op">=</span> <span class="dv">10</span>, label <span class="op">=</span> <span class="st">&#39;test label 2&#39;</span>)
+plt.legend()
+plt.show()</code></pre></div>
+<p><img src="subplot.webp" /></p>
+</body>
+</html>

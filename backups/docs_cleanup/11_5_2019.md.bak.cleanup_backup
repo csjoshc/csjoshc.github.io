@@ -1,0 +1,27 @@
+## May 11, 2019
+Enabled windows subsystem for linux (ubuntu)
+* Installed Anaconda (no need for subsystem virtual env - it seems vscode can't be pointed at Python env installed on WSL?)
+* Installed nbconvert and pandoc
+* WSL is the default terminal in vscode1
+* based on suggestions [here](https://medium.com/hugo-ferreiras-blog/using-windows-subsystem-for-linux-for-data-science-9a8e68d7610c)
+* Able to run command line tools to build web pages using WSL:
+* When I have the chance, I plan to look at syntax to run these from powershell. 
+  
+```bash
+unixuser@DESKTOP-OMGDD98:/mnt/d/csjoshc.github.io$ find . -name "*.ipynb" -mtime -7  -exec jupyter nbconvert --to markdo
+wn {} \;
+[NbConvertApp] Converting notebook ./utils/01_BatchConversions.ipynb to markdown
+[NbConvertApp] Writing 1836 bytes to ./utils/01_BatchConversions.md
+unixuser@DESKTOP-OMGDD98:/mnt/d/csjoshc.github.io$ find ./ -iname "*.md" -mtime -1 -ls -exec sh -c 'pandoc ${0} -s --toc --highlight-style breezedark -M date="`date "+%B %e, %Y"`" -f markdown_strict+backtick_code_block+auto_identifiers -t html  -o  ${0%.md}.md' {} \;
+281474977923978      4 -rwxrwxrwx   1 unixuser unixuser     1450 May 10 04:03 ./notes/General/CS50x2019/basics.md
+281474977932239      0 -rwxrwxrwx   1 unixuser unixuser      670 May 10 04:03 ./site_updates/5_2019/11_5_2019.md
+562949954578866      4 -rwxrwxrwx   1 unixuser unixuser     1836 May 10 04:27 ./utils/01_BatchConversions.md
+```
+Created Virtual env - learningenv - for Anaconda installed on windows.
+* Added debug configuration for Python in launch.json (default settings)
+* Running same command line tools doesn't work in PowerShell:
+  
+```bash
+PS D:\csjoshc.github.io> cd ..; find . -name "*.ipynb" -mtime -7  -exec jupyter nbconvert --to markdown {} \;
+File not found - *.ipynb
+```

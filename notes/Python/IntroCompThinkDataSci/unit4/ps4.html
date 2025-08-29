@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="date" content="2019-05-30" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #232629; color: #cfcfc2; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; background-color: #232629; color: #7a7c7d; border-right: 1px solid #7a7c7d; }
+td.sourceCode { padding-left: 5px; }
+pre, code { color: #cfcfc2; background-color: #232629; }
+code > span.kw { color: #cfcfc2; } /* Keyword */
+code > span.dt { color: #2980b9; } /* DataType */
+code > span.dv { color: #f67400; } /* DecVal */
+code > span.bn { color: #f67400; } /* BaseN */
+code > span.fl { color: #f67400; } /* Float */
+code > span.cn { color: #27aeae; } /* Constant */
+code > span.ch { color: #3daee9; } /* Char */
+code > span.sc { color: #3daee9; } /* SpecialChar */
+code > span.st { color: #f44f4f; } /* String */
+code > span.vs { color: #da4453; } /* VerbatimString */
+code > span.ss { color: #da4453; } /* SpecialString */
+code > span.im { color: #27ae60; } /* Import */
+code > span.co { color: #7a7c7d; } /* Comment */
+code > span.do { color: #a43340; } /* Documentation */
+code > span.an { color: #3f8058; } /* Annotation */
+code > span.cv { color: #7f8c8d; } /* CommentVar */
+code > span.ot { color: #27ae60; } /* Other */
+code > span.fu { color: #8e44ad; } /* Function */
+code > span.va { color: #27aeae; } /* Variable */
+code > span.cf { color: #fdbc4b; } /* ControlFlow */
+code > span.op { color: #cfcfc2; } /* Operator */
+code > span.bu { color: #7f8c8d; } /* BuiltIn */
+code > span.ex { color: #0099ff; } /* Extension */
+code > span.pp { color: #27ae60; } /* Preprocessor */
+code > span.at { color: #2980b9; } /* Attribute */
+code > span.re { color: #2980b9; } /* RegionMarker */
+code > span.in { color: #c45b00; } /* Information */
+code > span.wa { color: #da4453; } /* Warning */
+code > span.al { color: #95da4c; } /* Alert */
+code > span.er { color: #da4453; } /* Error */
+code > span. { color: #cfcfc2; } /* Normal */
+  </style>
+</head>
+<body>
+<div id="TOC">
+<ul>
+<li><a href="#fitting-and-evaluating-linear-models">Fitting and evaluating linear models</a><ul>
+<li><a href="#results-for-single-date-model">Results for single date model</a></li>
+<li><a href="#results-for-averaged-yearly-data">Results for averaged yearly data</a></li>
+<li><a href="#code">Code</a></li>
+</ul></li>
+</ul>
+</div>
+<p><a href="../../../../index.html">Go back to index</a></p>
+<p><a href="../../base.html">Go back to Python Portal</a> <head> <meta name="viewport" content="initial-scale=1, width=device-width">  </head></p>
+<h1 id="fitting-and-evaluating-linear-models">Fitting and evaluating linear models</h1>
+<p>This problem set had me write functions to generate various linear models of various degrees, evaluate based on R squared and plot the results. These are the results, training a regression line of temperature vs year based on a single yearly date (Jan 10) as representative data, or the entire averaged yearly data.</p>
+<h2 id="results-for-single-date-model">Results for single date model</h2>
+<p><img src="Figure_1.webp" /></p>
+<h2 id="results-for-averaged-yearly-data">Results for averaged yearly data</h2>
+<p><img src="Figure_2.webp" /></p>
+<h2 id="code">Code</h2>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> generate_models(x, y, degs):
+    my_models <span class="op">=</span> [<span class="va">None</span>] <span class="op">*</span> <span class="bu">len</span>(degs)
+    <span class="cf">for</span> index, degree <span class="kw">in</span> <span class="bu">enumerate</span>(degs):
+        my_models[index] <span class="op">=</span> np.polyfit(x, y, degree)
+    <span class="cf">return</span> my_models
+
+<span class="kw">def</span> r_squared(y, estimated):
+    mean <span class="op">=</span> <span class="bu">sum</span>(y)<span class="op">/</span><span class="bu">len</span>(y)
+    <span class="cf">return</span> <span class="dv">1</span> <span class="op">-</span> <span class="bu">sum</span>((y[i] <span class="op">-</span> estimated[i])<span class="op">**</span><span class="dv">2</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(y))) <span class="op">/\</span>
+        <span class="bu">sum</span>((y[i] <span class="op">-</span> mean)<span class="op">**</span><span class="dv">2</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(y)))
+
+<span class="kw">def</span> evaluate_models_on_training(x, y, models):
+    plt.plot(x , y, <span class="st">&#39;.&#39;</span>, color<span class="op">=</span><span class="st">&#39;blue&#39;</span>)
+    plt.ylabel(<span class="st">&#39;Temperature&#39;</span>)
+    plt.xlabel(<span class="st">&#39;Year&#39;</span>)
+    plt.title(<span class="st">&#39;Temperature vs Year&#39;</span>)
+    <span class="cf">for</span> model <span class="kw">in</span> models:
+        <span class="co"># y_pred = [sum(coeff * x_val ** power for power, coeff in enumerate(model)) for x_val in x]</span>
+        y_pred <span class="op">=</span> np.polyval(model, x)
+        r_2 <span class="op">=</span> r_squared(y, y_pred)
+        plt.plot(x, y_pred, <span class="st">&#39;-&#39;</span>, color<span class="op">=</span><span class="st">&#39;red&#39;</span>, <span class="op">\</span>
+        label <span class="op">=</span> <span class="st">&#39;Fit of degree &#39;</span>\
+            <span class="op">+</span> <span class="bu">str</span>(<span class="bu">len</span>(model) <span class="op">-</span> <span class="dv">1</span>)<span class="op">\</span>
+                <span class="op">+</span><span class="st">&#39;, R2 = &#39;</span> <span class="op">+</span> <span class="bu">str</span>(<span class="bu">round</span>(r_2, <span class="dv">5</span>)))
+    plt.legend()
+    plt.show()</code></pre></div>
+</body>
+</html>

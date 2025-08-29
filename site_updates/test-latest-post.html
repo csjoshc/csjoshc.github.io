@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test Latest Post Navigation</title>
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          sans-serif;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        line-height: 1.6;
+      }
+      .test-section {
+        background: #f8f9fa;
+        padding: 20px;
+        margin: 20px 0;
+        border-radius: 8px;
+        border-left: 4px solid #007bff;
+      }
+      .code {
+        background: #e9ecef;
+        padding: 10px;
+        border-radius: 4px;
+        font-family: "Courier New", monospace;
+        overflow-x: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>🧪 Test Latest Post Navigation</h1>
+
+    <div class="test-section">
+      <h2>What This Does</h2>
+      <p>
+        This page demonstrates the client-side JavaScript functionality that:
+      </p>
+      <ul>
+        <li>Automatically finds the most recent blog post</li>
+        <li>Creates a navigation button to the latest post</li>
+        <li>Works entirely on static sites like GitHub Pages</li>
+        <li>Uses JSON index files for efficient post discovery</li>
+      </ul>
+    </div>
+
+    <div class="test-section">
+      <h2>How It Works</h2>
+      <ol>
+        <li>
+          <strong>Index Generation</strong>: Python script scans directories and
+          creates JSON indexes
+        </li>
+        <li>
+          <strong>Client-Side Discovery</strong>: JavaScript reads JSON files to
+          find latest posts
+        </li>
+        <li>
+          <strong>Smart Navigation</strong>: Button appears with latest post
+          info and navigates on click
+        </li>
+        <li>
+          <strong>Fallback Handling</strong>: Multiple fallback paths if primary
+          navigation fails
+        </li>
+      </ol>
+    </div>
+
+    <div class="test-section">
+      <h2>Usage</h2>
+      <p>
+        <strong>Regenerate indexes:</strong> <code>just update-indexes</code>
+      </p>
+      <p>
+        <strong>Add to HTML:</strong> Include
+        <code>&lt;script src="latest-post.js"&gt;&lt;/script&gt;</code>
+      </p>
+      <p>
+        <strong>Automatic:</strong> Button appears automatically after the main
+        heading
+      </p>
+    </div>
+
+    <div class="test-section">
+      <h2>Generated Files</h2>
+      <ul>
+        <li><code>year-index.json</code> - List of all year directories</li>
+        <li><code>8_2025/post-index.json</code> - Posts for 2025</li>
+        <li><code>6_2019/post-index.json</code> - Posts for June 2019</li>
+        <li><code>latest-post.js</code> - Client-side navigation logic</li>
+      </ul>
+    </div>
+
+    <div class="test-section">
+      <h2>Benefits</h2>
+      <ul>
+        <li>
+          ✅ <strong>Static Site Compatible</strong> - No server-side processing
+          needed
+        </li>
+        <li>
+          ✅ <strong>Automatic Updates</strong> - Just run the index script
+        </li>
+        <li>
+          ✅ <strong>User Friendly</strong> - One-click navigation to latest
+          content
+        </li>
+        <li>✅ <strong>Maintainable</strong> - Clear separation of concerns</li>
+        <li>
+          ✅ <strong>Fallback Safe</strong> - Multiple navigation strategies
+        </li>
+      </ul>
+    </div>
+
+    <script src="latest-post.js"></script>
+  </body>
+</html>

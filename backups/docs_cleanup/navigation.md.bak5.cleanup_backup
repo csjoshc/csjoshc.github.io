@@ -1,0 +1,18 @@
+<!-- Navigation Template - Include this at the top of any page -->
+<!-- Usage: Include this file and replace the placeholders with actual paths -->
+<!-- Navigation buttons container -->
+<div class="return-navigation">
+  <!-- Index link - always present -->
+  <a href="{{ index_path }}" class="nav-button index-button">Go back to index</a>
+  
+  <!-- Portal link - conditional, only show if portal_path is defined -->
+  {% if portal_path %}
+  <a href="{{ portal_path }}" class="nav-button portal-button">Go back to {{ portal_name }}</a>
+  {% endif %}
+  
+  <!-- Section link - conditional, only show if section_path is defined -->
+  {% if section_path %}
+  <a href="{{ section_path }}" class="nav-button section-button">Go back to {{ section_name }}</a>
+  {% endif %}
+</div>
+<!-- Content starts here -->

@@ -1,0 +1,257 @@
+
+  🏠 Home
+  🐍 Python
+
+```python
+
+print(sys.executable)
+from IPython.core.interactiveshell import InteractiveShell
+InteractiveShell.ast_node_interactivity = "all"
+```
+
+    /home/jcmint/anaconda3/envs/learningenv/bin/python
+
+# Sets
+
+Sets are defined as a collection of elements, and can be defined explicitly `{heads, tails}`, or implicitly `{1:9}`, `{A:Z}`.
+*[Image:  - file not found]*
+
+## Convention - CAPITAL for sets, lowercase for its elements
+
+- An element can belong to (∈) or not belong to(∉) a set
+- A set can contain (∋) or lack a member (∌)
+- Repetition may or may not matter
+  Different set types:
+  *[Image:  - file not found]*
+
+# Sets in Python
+
+Sets are unordered collections of unique elements in Python. They are mutable and support mathematical operations like union, intersection, difference, and symmetric difference.
+
+## Creating Sets
+
+```python
+# Empty set
+empty_set = set()
+
+# Set from list
+numbers = {1, 2, 3, 4, 5}
+
+# Set from string (unique characters)
+characters = set("hello")  # {'h', 'e', 'l', 'o'}
+
+# Set from range
+range_set = set(range(5))  # {0, 1, 2, 3, 4}
+```
+
+## Set Properties
+
+```python
+# Sets only contain unique elements
+duplicate_numbers = {1, 2, 2, 3, 3, 4}
+print(duplicate_numbers)  # {1, 2, 3, 4}
+
+# Sets are unordered
+unordered = {3, 1, 4, 1, 5, 9, 2, 6}
+print(unordered)  # Order may vary
+```
+
+## Adding and Removing Elements
+
+```python
+# Add elements
+my_set = {1, 2, 3}
+my_set.add(4)
+my_set.update([5, 6, 7])
+print(my_set)
+
+# Remove elements
+my_set.remove(4)  # Raises error if element doesn't exist
+my_set.discard(8)  # No error if element doesn't exist
+popped = my_set.pop()  # Removes and returns arbitrary element
+print(my_set)
+```
+
+## Set Visualization with Venn Diagrams
+
+```python
+import matplotlib.pyplot as plt
+import matplotlib_venn as venn
+
+S = {1, 2, 3}
+T = {0, 22, 1, 3}
+venn.venn2([S, T], set_labels=('S', 'T'))
+plt.show()
+```
+
+## Working with Multiple Sets
+
+```python
+s1 = {0, 1}
+s2 = {1, 0}
+s3 = {1, 0, 1}  # Duplicates are automatically removed
+s4 = {0, 2}
+s5 = {3, 4}
+
+print(f"s1: {s1}")
+print(f"s2: {s2}")
+print(f"s3: {s3}")  # Will be {0, 1}
+print(f"s4: {s4}")
+print(f"s5: {s5}")
+```
+
+# Set Relations
+
+Return a logical value that describes the relations between sets.
+
+## Equality
+
+**Code:** `==`
+
+Two sets are equal if they have exactly the same elements:
+
+```python
+print(s1 == s2)  # True
+print(s1 == s3)  # True
+print(s1 == s5)  # False
+```
+
+Since all elements need to be in both sets for the sets to be equal, Equality is difficult to achieve.
+
+## Disjoint sets
+
+**Code:** `isdisjoint()`, `!=`
+
+Two sets are disjoint if they share NO values - overlap region is EMPTY. Empty set is disjoint with all sets except all other empty sets.
+
+```python
+print(s1 != s2)  # False
+print(s1.isdisjoint(s4))  # False (they share element 0)
+print(s1.isdisjoint(s5))  # True (no common elements)
+```
+
+## Subset: `issubset()`, `<=`; strict: `<`
+
+If every element in a set is in another set, then it is a subset of that set. {0} is a subset of every set.
+
+If two sets are subsets of each other, then they are equal (A ⊆ B & B ⊆ A means A == B)
+
+A strict subset - a subset that is NOT equal to its superset.
+
+```python
+print("1.", s1 <= s2, s1.issubset(s4))
+# Check for STRICT subset: using `<`
+print("2.", s1 < s2, s1 < {0, 1, 2})
+```
+
+# Set Operations
+
+Obtain a set that is the result of an operation between sets.
+
+## Complement
+
+- Complement is a set of every element NOT in a set.
+- Not definable in python without defining the 'Universe' first.
+- De Morgan's Law: The Complement of the Intersection of two sets.
+
+## Intersection: `intersection()`, `&`
+
+- Intersection is a set of the common elements between sets.
+- The infinite set intersects every set.
+
+```python
+print(s1.intersection(s1))  # {0, 1}
+print(s1.intersection(s4))  # {0}
+print(s1.intersection(s5))  # set() (empty set)
+```
+
+## Union: `union()`, `|`
+
+Union is a non repetitive collection of elements in multiple sets.
+
+```python
+print(s1 | s2)  # {0, 1}
+print(s1.union(s5))  # {0, 1, 3, 4}
+```
+
+## Set difference: `.difference()`, `-`
+
+A - B is the set of elements in A but not B:
+
+```python
+print(s1 - s2)  # set() (empty set)
+print(s1 - s4)  # {1}
+print(s4 - s1)  # {2}
+```
+
+## Symmetric Difference (XOR): `symmetric_difference()`, `^`
+
+The set of elements that are in one but NOT BOTH sets:
+
+```python
+print(s1 ^ s2)  # set() (empty set)
+print(s1 ^ s4)  # {1, 2}
+print(s5.symmetric_difference(s4))  # {0, 2, 3, 4}
+```
+
+# Cartesian Products
+
+Basically, the Cartesian Product of two sets is the set of all combinations of the elements in both sets. You essentially generate `a * b` combinations where `a` and `b` are the number of elements in set `A` and `B`. For `n` sets, you generate a **cartesian coordinate**, an `n` element tuple ordered pair.
+
+- for A and B, it is the set A × B of (a, b) ordered pairs where a ∈ A and b ∈ B
+- The first element must come from set A, and likewise the second from B
+- The cartesian product of the real numbers, R² = `{(x, y): x, y ∈ R}` is the cartesian plane, the 2D plane containing all real numbers
+- Likewise, if A and B are sets with real numbers, then A × B will produce a rectangle in the cartesian plane.
+- Tables are essentially cartesian products, as are 3D cubes (A × B × C)
+
+## Generating Cartesian products in Python
+
+```python
+
+faces = {'J', 'Q', 'K'}  # Jack, queen, King
+suits = {'Dia', 'Spa'}   # diamond, spade
+
+for i in product(faces, suits):
+    print(i)
+
+# Output:
+# ('J', 'Dia')
+# ('J', 'Spa')
+# ('Q', 'Dia')
+# ('Q', 'Spa')
+# ('K', 'Dia')
+# ('K', 'Spa')
+```
+
+## Practical Applications
+
+```python
+# Finding unique combinations
+colors = {'red', 'blue', 'green'}
+sizes = {'S', 'M', 'L'}
+
+combinations = set(product(colors, sizes))
+print(f"Total combinations: {len(combinations)}")
+print(combinations)
+
+# Set comprehension
+even_squares = {x**2 for x in range(10) if x % 2 == 0}
+print(f"Even squares: {even_squares}")
+```
+
+## Summary
+
+Sets in Python provide:
+
+- **Uniqueness**: No duplicate elements
+- **Mathematical operations**: Union, intersection, difference
+- **Efficient membership testing**: `in` operator
+- **Set comprehensions**: Create sets from expressions
+- **Immutable variants**: `frozenset` for hashable sets
+
+Sets are particularly useful for:
+
+- Removing duplicates from collections
+- Mathematical set operations
+- Efficient lookups
+- Finding unique elements

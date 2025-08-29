@@ -1,0 +1,1213 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="date" content="2019-05-30" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #232629; color: #cfcfc2; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; background-color: #232629; color: #7a7c7d; border-right: 1px solid #7a7c7d; }
+td.sourceCode { padding-left: 5px; }
+pre, code { color: #cfcfc2; background-color: #232629; }
+code > span.kw { color: #cfcfc2; } /* Keyword */
+code > span.dt { color: #2980b9; } /* DataType */
+code > span.dv { color: #f67400; } /* DecVal */
+code > span.bn { color: #f67400; } /* BaseN */
+code > span.fl { color: #f67400; } /* Float */
+code > span.cn { color: #27aeae; } /* Constant */
+code > span.ch { color: #3daee9; } /* Char */
+code > span.sc { color: #3daee9; } /* SpecialChar */
+code > span.st { color: #f44f4f; } /* String */
+code > span.vs { color: #da4453; } /* VerbatimString */
+code > span.ss { color: #da4453; } /* SpecialString */
+code > span.im { color: #27ae60; } /* Import */
+code > span.co { color: #7a7c7d; } /* Comment */
+code > span.do { color: #a43340; } /* Documentation */
+code > span.an { color: #3f8058; } /* Annotation */
+code > span.cv { color: #7f8c8d; } /* CommentVar */
+code > span.ot { color: #27ae60; } /* Other */
+code > span.fu { color: #8e44ad; } /* Function */
+code > span.va { color: #27aeae; } /* Variable */
+code > span.cf { color: #fdbc4b; } /* ControlFlow */
+code > span.op { color: #cfcfc2; } /* Operator */
+code > span.bu { color: #7f8c8d; } /* BuiltIn */
+code > span.ex { color: #0099ff; } /* Extension */
+code > span.pp { color: #27ae60; } /* Preprocessor */
+code > span.at { color: #2980b9; } /* Attribute */
+code > span.re { color: #2980b9; } /* RegionMarker */
+code > span.in { color: #c45b00; } /* Information */
+code > span.wa { color: #da4453; } /* Warning */
+code > span.al { color: #95da4c; } /* Alert */
+code > span.er { color: #da4453; } /* Error */
+code > span. { color: #cfcfc2; } /* Normal */
+  </style>
+</head>
+<body>
+<div id="TOC">
+<ul>
+<li><a href="#manipulating-data">Manipulating Data</a><ul>
+<li><a href="#dfcol1-col2.groupbycol1---aggregating-and-grouping"><code>df[['col1', 'col2']].groupby('col1')</code> - Aggregating and Grouping</a></li>
+<li><a href="#plotting-aggregated-data">Plotting aggregated data</a></li>
+<li><a href="#filtering">Filtering</a><ul>
+<li><a href="#filtering-based-on-string-matching">Filtering based on string matching</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#joining-data">Joining Data</a><ul>
+<li><a href="#pd.concatdf1-df2---stack-dataframes"><code>pd.concat([df1, df2])</code> - Stack dataframes</a></li>
+<li><a href="#df1.appenddf2---stack-dataframes"><code>df1.append(df2)</code> - Stack dataframes</a></li>
+<li><a href="#inner-join---usingpd.concat-with-axis-1-join-inner"><strong>Inner join</strong> - using<code>*pd.concat</code> with <code>axis = 1, join = &quot;inner&quot;</code></a></li>
+<li><a href="#df1.mergedf2-on-col1-howinner---the-actual-inner-join"><code>df1.merge(df2, on = 'col1', how='inner')</code> - The actual inner join</a></li>
+<li><a href="#chaining-together-merges">Chaining together merges</a></li>
+</ul></li>
+<li><a href="#combining-everything">Combining everything</a></li>
+</ul>
+</div>
+<p><a href="../../../index.html">Go back to index</a></p>
+<p><a href="../base.html">Go back to Python Portal</a></p>
+<head>
+  
+  <meta name="viewport" content="initial-scale=1, width=device-width">
+</head>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> sys
+<span class="bu">print</span>(sys.executable)
+<span class="im">from</span> IPython.core.interactiveshell <span class="im">import</span> InteractiveShell
+InteractiveShell.ast_node_interactivity <span class="op">=</span> <span class="st">&quot;all&quot;</span>
+InteractiveShell.colors <span class="op">=</span> <span class="st">&quot;Linux&quot;</span>
+InteractiveShell.separate_in <span class="op">=</span> <span class="dv">0</span>
+<span class="im">from</span> tabulate <span class="im">import</span> tabulate
+<span class="im">import</span> pandas <span class="im">as</span> pd
+<span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt
+<span class="im">from</span> matplotlib <span class="im">import</span> style
+style.use(<span class="st">&#39;fivethirtyeight&#39;</span>)
+<span class="im">import</span> os, sys</code></pre></div>
+<pre><code>/home/jcmint/anaconda3/envs/learningenv/bin/python</code></pre>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">os.chdir(sys.path[<span class="dv">0</span>]) <span class="co"># Change dir to the folder this .ipynb file is in</span>
+<span class="bu">print</span>(os.listdir(<span class="st">&#39;../../../../data/w4pd&#39;</span>))
+movies <span class="op">=</span> pd.read_csv(<span class="st">&#39;../../../../data/w4pd/movies.csv&#39;</span>)
+tags <span class="op">=</span> pd.read_csv(<span class="st">&#39;../../../../data/w4pd/tags.csv&#39;</span>)
+ratings <span class="op">=</span> pd.read_csv(<span class="st">&#39;../../../../data/w4pd/ratings.csv&#39;</span>)</code></pre></div>
+<pre><code>[&#39;genome-scores.csv&#39;, &#39;genome-tags.csv&#39;, &#39;Icon\r&#39;, &#39;links.csv&#39;, &#39;movies.csv&#39;, &#39;ratings.csv&#39;, &#39;README.txt&#39;, &#39;tags.csv&#39;]</code></pre>
+<h1 id="manipulating-data">Manipulating Data</h1>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">ratings.head(<span class="dv">5</span>)</code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>userId</th>
+      <th>movieId</th>
+      <th>rating</th>
+      <th>timestamp</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>2</td>
+      <td>3.5</td>
+      <td>1112486027</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>29</td>
+      <td>3.5</td>
+      <td>1112484676</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>32</td>
+      <td>3.5</td>
+      <td>1112484819</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>47</td>
+      <td>3.5</td>
+      <td>1112484727</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>50</td>
+      <td>3.5</td>
+      <td>1112484580</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<h2 id="dfcol1-col2.groupbycol1---aggregating-and-grouping"><code>df[['col1', 'col2']].groupby('col1')</code> - Aggregating and Grouping</h2>
+<p>It makes sense to calculate different aggregate stats for different groupings. <code>groupby</code> doesn't do any aggregate calculations by default - it just reorders the df so that the same values in the grouping column are all consecutive. You can also use .count() on a grouping.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">user_ratings <span class="op">=</span> ratings[[<span class="st">&#39;userId&#39;</span>, <span class="st">&#39;rating&#39;</span>]].groupby(<span class="st">&#39;userId&#39;</span>).mean() 
+user_ratings.head()
+movie_ratings <span class="op">=</span> ratings[[<span class="st">&#39;movieId&#39;</span>, <span class="st">&#39;rating&#39;</span>]].groupby(<span class="st">&#39;movieId&#39;</span>).mean() 
+movie_ratings.head()</code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>rating</th>
+    </tr>
+    <tr>
+      <th>userId</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>3.742857</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4.000000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4.122995</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>3.571429</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>4.272727</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>rating</th>
+    </tr>
+    <tr>
+      <th>movieId</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>3.921240</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3.211977</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3.151040</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2.861393</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>3.064592</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<h2 id="plotting-aggregated-data">Plotting aggregated data</h2>
+<p>Generate a histogram of movie ratings (so group by the ratings column).</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">ratings_hist <span class="op">=</span> ratings[[<span class="st">&#39;movieId&#39;</span>, <span class="st">&#39;rating&#39;</span>]].groupby(<span class="st">&#39;rating&#39;</span>).count()
+<span class="bu">print</span>(ratings_hist)
+
+<span class="co"># Now we plot</span>
+
+<span class="im">import</span> matplotlib
+
+ratings_hist.plot(kind <span class="op">=</span> <span class="st">&quot;bar&quot;</span>, figsize <span class="op">=</span> (<span class="dv">5</span>, <span class="dv">5</span>)) 
+
+plt.show() </code></pre></div>
+<pre><code>        movieId
+rating         
+0.5      239125
+1.0      680732
+1.5      279252
+2.0     1430997
+2.5      883398
+3.0     4291193
+3.5     2200156
+4.0     5561926
+4.5     1534824
+5.0     2898660
+
+
+
+
+
+&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f642ce23f98&gt;</code></pre>
+<p><img src="4_Pandas4_files/4_Pandas4_8_2.webp" alt="png" /></p>
+<h2 id="filtering">Filtering</h2>
+<p>Encode a filter that saves the indices of a dataframe (for which a condition is true), and then apply the filter as a mask to extract the desired values. (This can also apply to 3D image matrices).</p>
+<p>Below - find the most active raters (count of userId groupings of the ratings df). Looking at the mean and standard dev set the cutoff at 2000! movie ratings.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">active_raters <span class="op">=</span> ratings[[<span class="st">&#39;userId&#39;</span>, <span class="st">&#39;rating&#39;</span>]].groupby(<span class="st">&#39;userId&#39;</span>).count()
+<span class="bu">print</span>(active_raters.mean(), active_raters.std())
+highly_active_raters <span class="op">=</span> active_raters[active_raters[<span class="st">&#39;rating&#39;</span>] <span class="op">&gt;</span> <span class="dv">2000</span>]
+<span class="bu">print</span>(highly_active_raters.shape[<span class="dv">0</span>])</code></pre></div>
+<pre><code>rating    144.41353
+dtype: float64 rating    230.267257
+dtype: float64
+255</code></pre>
+<h3 id="filtering-based-on-string-matching">Filtering based on string matching</h3>
+<p>Using the movies dataframe, filter for movies with Animation as a genre:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">movies.head()
+is_anime <span class="op">=</span> movies[<span class="st">&#39;genres&#39;</span>].<span class="bu">str</span>.contains(<span class="st">&#39;Ani*&#39;</span>) 
+the_anime <span class="op">=</span> movies[is_anime]
+the_anime.shape[<span class="dv">0</span>]
+the_anime.head()</code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>movieId</th>
+      <th>title</th>
+      <th>genres</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>Toy Story (1995)</td>
+      <td>Adventure|Animation|Children|Comedy|Fantasy</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>Jumanji (1995)</td>
+      <td>Adventure|Children|Fantasy</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>Grumpier Old Men (1995)</td>
+      <td>Comedy|Romance</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>Waiting to Exhale (1995)</td>
+      <td>Comedy|Drama|Romance</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>Father of the Bride Part II (1995)</td>
+      <td>Comedy</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<pre><code>1027</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>movieId</th>
+      <th>title</th>
+      <th>genres</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>Toy Story (1995)</td>
+      <td>Adventure|Animation|Children|Comedy|Fantasy</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>13</td>
+      <td>Balto (1995)</td>
+      <td>Adventure|Animation|Children</td>
+    </tr>
+    <tr>
+      <th>47</th>
+      <td>48</td>
+      <td>Pocahontas (1995)</td>
+      <td>Animation|Children|Drama|Musical|Romance</td>
+    </tr>
+    <tr>
+      <th>236</th>
+      <td>239</td>
+      <td>Goofy Movie, A (1995)</td>
+      <td>Animation|Children|Comedy|Romance</td>
+    </tr>
+    <tr>
+      <th>241</th>
+      <td>244</td>
+      <td>Gumby: The Movie (1995)</td>
+      <td>Animation|Children</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<h1 id="joining-data">Joining Data</h1>
+<p>Combining data from multiple dataframes or sources.</p>
+<h2 id="pd.concatdf1-df2---stack-dataframes"><code>pd.concat([df1, df2])</code> - Stack dataframes</h2>
+<p>The stacking is not really ideal in this scenario - it would be better to stack df's that have matched columns and data types.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">stack_1 <span class="op">=</span> pd.concat([tags.head(), movies.head()])
+stack_1</code></pre></div>
+<pre><code>/home/jcmint/anaconda3/envs/learningenv/lib/python3.7/site-packages/ipykernel_launcher.py:1: FutureWarning: Sorting because non-concatenation axis is not aligned. A future version
+of pandas will change to not sort by default.
+
+To accept the future behavior, pass &#39;sort=False&#39;.
+
+To retain the current behavior and silence the warning, pass &#39;sort=True&#39;.
+
+  &quot;&quot;&quot;Entry point for launching an IPython kernel.</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>genres</th>
+      <th>movieId</th>
+      <th>tag</th>
+      <th>timestamp</th>
+      <th>title</th>
+      <th>userId</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>NaN</td>
+      <td>4141</td>
+      <td>Mark Waters</td>
+      <td>1.240597e+09</td>
+      <td>NaN</td>
+      <td>18.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>NaN</td>
+      <td>208</td>
+      <td>dark hero</td>
+      <td>1.368150e+09</td>
+      <td>NaN</td>
+      <td>65.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>NaN</td>
+      <td>353</td>
+      <td>dark hero</td>
+      <td>1.368150e+09</td>
+      <td>NaN</td>
+      <td>65.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>NaN</td>
+      <td>521</td>
+      <td>noir thriller</td>
+      <td>1.368150e+09</td>
+      <td>NaN</td>
+      <td>65.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>NaN</td>
+      <td>592</td>
+      <td>dark hero</td>
+      <td>1.368150e+09</td>
+      <td>NaN</td>
+      <td>65.0</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>Adventure|Animation|Children|Comedy|Fantasy</td>
+      <td>1</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Toy Story (1995)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Adventure|Children|Fantasy</td>
+      <td>2</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Jumanji (1995)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Comedy|Romance</td>
+      <td>3</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Grumpier Old Men (1995)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Comedy|Drama|Romance</td>
+      <td>4</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Waiting to Exhale (1995)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Comedy</td>
+      <td>5</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Father of the Bride Part II (1995)</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<h2 id="df1.appenddf2---stack-dataframes"><code>df1.append(df2)</code> - Stack dataframes</h2>
+<p>This gives the same results as using stack.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">append_1 <span class="op">=</span> tags.head().append(movies.head())
+append_1 </code></pre></div>
+<pre><code>/home/jcmint/anaconda3/envs/learningenv/lib/python3.7/site-packages/pandas/core/frame.py:6692: FutureWarning: Sorting because non-concatenation axis is not aligned. A future version
+of pandas will change to not sort by default.
+
+To accept the future behavior, pass &#39;sort=False&#39;.
+
+To retain the current behavior and silence the warning, pass &#39;sort=True&#39;.
+
+  sort=sort)</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>genres</th>
+      <th>movieId</th>
+      <th>tag</th>
+      <th>timestamp</th>
+      <th>title</th>
+      <th>userId</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>NaN</td>
+      <td>4141</td>
+      <td>Mark Waters</td>
+      <td>1.240597e+09</td>
+      <td>NaN</td>
+      <td>18.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>NaN</td>
+      <td>208</td>
+      <td>dark hero</td>
+      <td>1.368150e+09</td>
+      <td>NaN</td>
+      <td>65.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>NaN</td>
+      <td>353</td>
+      <td>dark hero</td>
+      <td>1.368150e+09</td>
+      <td>NaN</td>
+      <td>65.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>NaN</td>
+      <td>521</td>
+      <td>noir thriller</td>
+      <td>1.368150e+09</td>
+      <td>NaN</td>
+      <td>65.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>NaN</td>
+      <td>592</td>
+      <td>dark hero</td>
+      <td>1.368150e+09</td>
+      <td>NaN</td>
+      <td>65.0</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>Adventure|Animation|Children|Comedy|Fantasy</td>
+      <td>1</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Toy Story (1995)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Adventure|Children|Fantasy</td>
+      <td>2</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Jumanji (1995)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Comedy|Romance</td>
+      <td>3</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Grumpier Old Men (1995)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Comedy|Drama|Romance</td>
+      <td>4</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Waiting to Exhale (1995)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Comedy</td>
+      <td>5</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Father of the Bride Part II (1995)</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<h2 id="inner-join---usingpd.concat-with-axis-1-join-inner"><strong>Inner join</strong> - using<code>*pd.concat</code> with <code>axis = 1, join = &quot;inner&quot;</code></h2>
+<p>This is NOT the same as an INNER JOIN ON tb1.field1 = tbl2.field1 as it would be in SQL As a result, this isn't particularly useful since you're not matching as you combine data.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">joined <span class="op">=</span> pd.concat([tags.head(), movies.head()], axis <span class="op">=</span> <span class="dv">1</span>, join <span class="op">=</span> <span class="st">&quot;inner&quot;</span>)
+joined </code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>userId</th>
+      <th>movieId</th>
+      <th>tag</th>
+      <th>timestamp</th>
+      <th>movieId</th>
+      <th>title</th>
+      <th>genres</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>18</td>
+      <td>4141</td>
+      <td>Mark Waters</td>
+      <td>1240597180</td>
+      <td>1</td>
+      <td>Toy Story (1995)</td>
+      <td>Adventure|Animation|Children|Comedy|Fantasy</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>65</td>
+      <td>208</td>
+      <td>dark hero</td>
+      <td>1368150078</td>
+      <td>2</td>
+      <td>Jumanji (1995)</td>
+      <td>Adventure|Children|Fantasy</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>65</td>
+      <td>353</td>
+      <td>dark hero</td>
+      <td>1368150079</td>
+      <td>3</td>
+      <td>Grumpier Old Men (1995)</td>
+      <td>Comedy|Romance</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>65</td>
+      <td>521</td>
+      <td>noir thriller</td>
+      <td>1368149983</td>
+      <td>4</td>
+      <td>Waiting to Exhale (1995)</td>
+      <td>Comedy|Drama|Romance</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>65</td>
+      <td>592</td>
+      <td>dark hero</td>
+      <td>1368150078</td>
+      <td>5</td>
+      <td>Father of the Bride Part II (1995)</td>
+      <td>Comedy</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<h2 id="df1.mergedf2-on-col1-howinner---the-actual-inner-join"><code>df1.merge(df2, on = 'col1', how='inner')</code> - The actual inner join</h2>
+<p>The <strong>actual</strong> INNER JOIN</p>
+<p>Below, inner jon the aggregated mean movie<em>ratings and a new movie</em>counts (the number of ratings per movie). Then inner join again to <code>movies</code> dataframe.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">movie_counts <span class="op">=</span> ratings[[<span class="st">&#39;movieId&#39;</span>, <span class="st">&#39;rating&#39;</span>]].groupby(<span class="st">&#39;movieId&#39;</span>).count() 
+movie_ratings.head()
+movie_counts.head()
+merged_1 <span class="op">=</span> movie_ratings.merge(movie_counts, on <span class="op">=</span> <span class="st">&#39;movieId&#39;</span>, how<span class="op">=</span><span class="st">&#39;inner&#39;</span>)
+merged_1.head()</code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>rating</th>
+    </tr>
+    <tr>
+      <th>movieId</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>3.921240</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3.211977</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3.151040</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2.861393</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>3.064592</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>rating</th>
+    </tr>
+    <tr>
+      <th>movieId</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>49695</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>22243</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>12735</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2756</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>12161</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>rating_x</th>
+      <th>rating_y</th>
+    </tr>
+    <tr>
+      <th>movieId</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>3.921240</td>
+      <td>49695</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3.211977</td>
+      <td>22243</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3.151040</td>
+      <td>12735</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2.861393</td>
+      <td>2756</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>3.064592</td>
+      <td>12161</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<h2 id="chaining-together-merges">Chaining together merges</h2>
+<p>Chained merging on a merged dataframe without a new object is possible, but becomes unreadable after a few in a row:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">merged_2 <span class="op">=</span> merged_1.merge(movies, on <span class="op">=</span> <span class="st">&#39;movieId&#39;</span>, how<span class="op">=</span><span class="st">&#39;inner&#39;</span>)
+merged_3 <span class="op">=</span> movie_ratings.merge(movie_counts, on <span class="op">=</span> <span class="st">&#39;movieId&#39;</span>, how<span class="op">=</span><span class="st">&#39;inner&#39;</span>).merge(movies, on <span class="op">=</span> <span class="st">&#39;movieId&#39;</span>, how<span class="op">=</span><span class="st">&#39;inner&#39;</span>)
+merged_2.head() 
+merged_3.head()</code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>movieId</th>
+      <th>rating_x</th>
+      <th>rating_y</th>
+      <th>title</th>
+      <th>genres</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>3.921240</td>
+      <td>49695</td>
+      <td>Toy Story (1995)</td>
+      <td>Adventure|Animation|Children|Comedy|Fantasy</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>3.211977</td>
+      <td>22243</td>
+      <td>Jumanji (1995)</td>
+      <td>Adventure|Children|Fantasy</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>3.151040</td>
+      <td>12735</td>
+      <td>Grumpier Old Men (1995)</td>
+      <td>Comedy|Romance</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>2.861393</td>
+      <td>2756</td>
+      <td>Waiting to Exhale (1995)</td>
+      <td>Comedy|Drama|Romance</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>3.064592</td>
+      <td>12161</td>
+      <td>Father of the Bride Part II (1995)</td>
+      <td>Comedy</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>movieId</th>
+      <th>rating_x</th>
+      <th>rating_y</th>
+      <th>title</th>
+      <th>genres</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>3.921240</td>
+      <td>49695</td>
+      <td>Toy Story (1995)</td>
+      <td>Adventure|Animation|Children|Comedy|Fantasy</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>3.211977</td>
+      <td>22243</td>
+      <td>Jumanji (1995)</td>
+      <td>Adventure|Children|Fantasy</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>3.151040</td>
+      <td>12735</td>
+      <td>Grumpier Old Men (1995)</td>
+      <td>Comedy|Romance</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>2.861393</td>
+      <td>2756</td>
+      <td>Waiting to Exhale (1995)</td>
+      <td>Comedy|Drama|Romance</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>3.064592</td>
+      <td>12161</td>
+      <td>Father of the Bride Part II (1995)</td>
+      <td>Comedy</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<h1 id="combining-everything">Combining everything</h1>
+<p>After merging three dataframes with aggregated ratings and rating counts data, we can apply a filter - the <code>is_anime</code> which was a string filter, as well as a new filter for movies that were both highly rated (more than 4) and actively rated (more than 2000 ratings).</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">ani_summary <span class="op">=</span> merged_3[is_anime <span class="op">&amp;</span> (merged_3[<span class="st">&#39;rating_x&#39;</span>] <span class="op">&gt;</span> <span class="dv">4</span>) <span class="op">&amp;</span> (merged_3[<span class="st">&#39;rating_y&#39;</span>] <span class="op">&gt;</span> <span class="dv">2000</span>)]
+ani_summary
+ani_summary.shape[<span class="dv">0</span>]</code></pre></div>
+<pre><code>/home/jcmint/anaconda3/envs/learningenv/lib/python3.7/site-packages/ipykernel_launcher.py:1: UserWarning: Boolean Series key will be reindexed to match DataFrame index.
+  &quot;&quot;&quot;Entry point for launching an IPython kernel.</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>movieId</th>
+      <th>rating_x</th>
+      <th>rating_y</th>
+      <th>title</th>
+      <th>genres</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>708</th>
+      <td>720</td>
+      <td>4.109473</td>
+      <td>8171</td>
+      <td>Wallace &amp; Gromit: The Best of Aardman Animatio...</td>
+      <td>Adventure|Animation|Comedy</td>
+    </tr>
+    <tr>
+      <th>732</th>
+      <td>745</td>
+      <td>4.167315</td>
+      <td>12073</td>
+      <td>Wallace &amp; Gromit: A Close Shave (1995)</td>
+      <td>Animation|Children|Comedy</td>
+    </tr>
+    <tr>
+      <th>1125</th>
+      <td>1148</td>
+      <td>4.181068</td>
+      <td>15022</td>
+      <td>Wallace &amp; Gromit: The Wrong Trousers (1993)</td>
+      <td>Animation|Children|Comedy|Crime</td>
+    </tr>
+    <tr>
+      <th>1197</th>
+      <td>1223</td>
+      <td>4.066765</td>
+      <td>7781</td>
+      <td>Grand Day Out with Wallace and Gromit, A (1989)</td>
+      <td>Adventure|Animation|Children|Comedy|Sci-Fi</td>
+    </tr>
+    <tr>
+      <th>2914</th>
+      <td>3000</td>
+      <td>4.096299</td>
+      <td>9564</td>
+      <td>Princess Mononoke (Mononoke-hime) (1997)</td>
+      <td>Action|Adventure|Animation|Drama|Fantasy</td>
+    </tr>
+    <tr>
+      <th>3340</th>
+      <td>3429</td>
+      <td>4.120696</td>
+      <td>2585</td>
+      <td>Creature Comforts (1989)</td>
+      <td>Animation|Comedy</td>
+    </tr>
+    <tr>
+      <th>5519</th>
+      <td>5618</td>
+      <td>4.203810</td>
+      <td>13466</td>
+      <td>Spirited Away (Sen to Chihiro no kamikakushi) ...</td>
+      <td>Adventure|Animation|Fantasy</td>
+    </tr>
+    <tr>
+      <th>5591</th>
+      <td>5690</td>
+      <td>4.089744</td>
+      <td>3198</td>
+      <td>Grave of the Fireflies (Hotaru no haka) (1988)</td>
+      <td>Animation|Drama|War</td>
+    </tr>
+    <tr>
+      <th>5872</th>
+      <td>5971</td>
+      <td>4.149481</td>
+      <td>5489</td>
+      <td>My Neighbor Totoro (Tonari no Totoro) (1988)</td>
+      <td>Animation|Children|Drama|Fantasy</td>
+    </tr>
+    <tr>
+      <th>6251</th>
+      <td>6350</td>
+      <td>4.061917</td>
+      <td>3537</td>
+      <td>Laputa: Castle in the Sky (Tenkû no shiro Rapy...</td>
+      <td>Action|Adventure|Animation|Children|Fantasy|Sc...</td>
+    </tr>
+    <tr>
+      <th>6987</th>
+      <td>7099</td>
+      <td>4.092082</td>
+      <td>3334</td>
+      <td>Nausicaä of the Valley of the Wind (Kaze no ta...</td>
+      <td>Adventure|Animation|Drama|Fantasy|Sci-Fi</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<pre><code>11</code></pre>
+<p>In conclusion, it seems that the two big categories were Wallance &amp; Gromit and Anime, which makes sense, although it misses some Pixar and Disney films which I would've expected to make the cut.</p>
+</body>
+</html>

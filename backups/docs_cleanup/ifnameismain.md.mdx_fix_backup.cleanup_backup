@@ -1,0 +1,38 @@
+<!-- Python General Navigation Template -->
+<!-- This template provides navigation for Python General pages -->
+
+<div class="return-navigation">
+  <a href="../../../index.md" class="nav-button index-button">🏠 Home</a>
+  <a href="../base.md" class="nav-button portal-button">🐍 Python</a>
+</div>
+
+<!-- Content starts here -->
+
+# Using `if __name__ == "__main__"
+Given two files:
+`controlling.py`
+```python
+def controltest(func, x):
+    for i in range(0, x):
+        func(x)
+if __name__ == "__main__":
+    from testing import testfunc
+    controltest(testfunc, 3)
+```
+`testing.py`
+``` python
+def testfunc(i):
+    print("This is twice what you entered: ", 2 * i)
+if __name__ == "__main__":
+    testfunc("nice")
+    pass
+```
+```bash
+python controlling.py
+This is twice what you entered:  6
+This is twice what you entered:  6
+This is twice what you entered:  6
+python controlling.py
+This is twice what you entered:  nicenice
+```
+* I had forgotten that you can pass a function to another function

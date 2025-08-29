@@ -1,0 +1,641 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="date" content="2019-05-30" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #232629; color: #cfcfc2; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; background-color: #232629; color: #7a7c7d; border-right: 1px solid #7a7c7d; }
+td.sourceCode { padding-left: 5px; }
+pre, code { color: #cfcfc2; background-color: #232629; }
+code > span.kw { color: #cfcfc2; } /* Keyword */
+code > span.dt { color: #2980b9; } /* DataType */
+code > span.dv { color: #f67400; } /* DecVal */
+code > span.bn { color: #f67400; } /* BaseN */
+code > span.fl { color: #f67400; } /* Float */
+code > span.cn { color: #27aeae; } /* Constant */
+code > span.ch { color: #3daee9; } /* Char */
+code > span.sc { color: #3daee9; } /* SpecialChar */
+code > span.st { color: #f44f4f; } /* String */
+code > span.vs { color: #da4453; } /* VerbatimString */
+code > span.ss { color: #da4453; } /* SpecialString */
+code > span.im { color: #27ae60; } /* Import */
+code > span.co { color: #7a7c7d; } /* Comment */
+code > span.do { color: #a43340; } /* Documentation */
+code > span.an { color: #3f8058; } /* Annotation */
+code > span.cv { color: #7f8c8d; } /* CommentVar */
+code > span.ot { color: #27ae60; } /* Other */
+code > span.fu { color: #8e44ad; } /* Function */
+code > span.va { color: #27aeae; } /* Variable */
+code > span.cf { color: #fdbc4b; } /* ControlFlow */
+code > span.op { color: #cfcfc2; } /* Operator */
+code > span.bu { color: #7f8c8d; } /* BuiltIn */
+code > span.ex { color: #0099ff; } /* Extension */
+code > span.pp { color: #27ae60; } /* Preprocessor */
+code > span.at { color: #2980b9; } /* Attribute */
+code > span.re { color: #2980b9; } /* RegionMarker */
+code > span.in { color: #c45b00; } /* Information */
+code > span.wa { color: #da4453; } /* Warning */
+code > span.al { color: #95da4c; } /* Alert */
+code > span.er { color: #da4453; } /* Error */
+code > span. { color: #cfcfc2; } /* Normal */
+  </style>
+</head>
+<body>
+<div id="TOC">
+<ul>
+<li><a href="#pandas---introduction">Pandas - Introduction</a></li>
+<li><a href="#series">Series</a><ul>
+<li><a href="#accessing-values-by-key-or-index">Accessing values by key or index</a><ul>
+<li><a href="#listing-keys">Listing keys</a></li>
+<li><a href="#access-value-by-key-or-index">Access value by key or Index</a></li>
+<li><a href="#test-if-key-is-in-series">Test if key is in Series</a></li>
+<li><a href="#multiply-numbers-and-strings">Multiply numbers and strings</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#dataframes">Dataframes</a><ul>
+<li><a href="#access-operations">Access &amp; Operations</a><ul>
+<li><a href="#accessing-columns">Accessing Columns</a></li>
+<li><a href="#creating-new-columns">Creating new columns</a></li>
+<li><a href="#removing-columns---del">Removing columns - <code>del</code></a></li>
+<li><a href="#inserting-columnns">Inserting columnns</a></li>
+<li><a href="#accessing-a-subslice">Accessing a subslice</a></li>
+</ul></li>
+<li><a href="#dictionary---dataframe">Dictionary -&gt; Dataframe</a></li>
+</ul></li>
+</ul>
+</div>
+<p><a href="../../../index.html">Go back to index</a></p>
+<p><a href="../base.html">Go back to Python Portal</a></p>
+<head>
+  
+  <meta name="viewport" content="initial-scale=1, width=device-width">
+</head>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> sys
+<span class="bu">print</span>(sys.executable)
+<span class="im">from</span> IPython.core.interactiveshell <span class="im">import</span> InteractiveShell
+InteractiveShell.ast_node_interactivity <span class="op">=</span> <span class="st">&quot;all&quot;</span>
+InteractiveShell.colors <span class="op">=</span> <span class="st">&quot;Linux&quot;</span>
+InteractiveShell.separate_in <span class="op">=</span> <span class="dv">0</span>
+<span class="im">from</span> tabulate <span class="im">import</span> tabulate
+<span class="co"># print(tabulate(df, headers=df.columns, tablefmt=&#39;psql&#39;))</span></code></pre></div>
+<pre><code>/home/jcmint/anaconda3/envs/learningenv/bin/python</code></pre>
+<h1 id="pandas---introduction">Pandas - Introduction</h1>
+<ul>
+<li>Merge and join data sets</li>
+<li>Better visualizations</li>
+<li>Exploratory data analysis</li>
+<li>Time series data</li>
+<li>Data pivoting, sorting, cleaning</li>
+</ul>
+<h1 id="series">Series</h1>
+<ul>
+<li>One dimensional labeled array</li>
+<li>Similar to fixed size dictionary</li>
+</ul>
+<p>Need to install pandas</p>
+<pre><code>conda activate learningenv
+conda install pandas</code></pre>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> pandas <span class="im">as</span> pd
+ser <span class="op">=</span> pd.Series([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="st">&quot;letter&quot;</span>, <span class="st">&quot;word&quot;</span>],[<span class="st">&#39;a&#39;</span>, <span class="st">&#39;b&#39;</span>, <span class="st">&#39;c&#39;</span>, <span class="st">&#39;d&#39;</span>, <span class="st">&#39;e&#39;</span>])
+ser</code></pre></div>
+<pre><code>a         1
+b         2
+c         3
+d    letter
+e      word
+dtype: object</code></pre>
+<h2 id="accessing-values-by-key-or-index">Accessing values by key or index</h2>
+<h3 id="listing-keys">Listing keys</h3>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">ser.index</code></pre></div>
+<pre><code>Index([&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;], dtype=&#39;object&#39;)</code></pre>
+<h3 id="access-value-by-key-or-index">Access value by key or Index</h3>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span>(ser.loc[<span class="st">&#39;a&#39;</span>], ser[<span class="st">&#39;a&#39;</span>]) <span class="co">#key</span>
+<span class="bu">print</span>(ser.iloc[<span class="dv">2</span>]) <span class="co">#Index</span></code></pre></div>
+<pre><code>1 1
+3</code></pre>
+<h3 id="test-if-key-is-in-series">Test if key is in Series</h3>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="dv">1</span> <span class="kw">in</span> ser, <span class="st">&#39;a&#39;</span> <span class="kw">in</span> ser <span class="co"># test if key is in Series</span></code></pre></div>
+<pre><code>(False, True)</code></pre>
+<h3 id="multiply-numbers-and-strings">Multiply numbers and strings</h3>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">ser<span class="op">*</span><span class="dv">2</span> <span class="co"># Multiply</span></code></pre></div>
+<pre><code>a               2
+b               4
+c               6
+d    letterletter
+e        wordword
+dtype: object</code></pre>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">ser[<span class="st">&#39;b&#39;</span>]<span class="op">**</span><span class="dv">2</span> <span class="co"># Square</span></code></pre></div>
+<pre><code>4</code></pre>
+<h1 id="dataframes">Dataframes</h1>
+<ul>
+<li>Contains axes and columns for heterogenous data storage.</li>
+<li>Easy way of creating a data table.</li>
+<li>Create series first, then load them into a new dataframe</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">s1 <span class="op">=</span> pd.Series([<span class="dv">1</span>., <span class="dv">2</span>., <span class="dv">3</span>.], index<span class="op">=</span>[<span class="st">&#39;apple&#39;</span>, <span class="st">&#39;ball&#39;</span>, <span class="st">&#39;clock&#39;</span>]) 
+s2 <span class="op">=</span> pd.Series([<span class="dv">5</span>., <span class="dv">10</span>., <span class="dv">15</span>., <span class="dv">20</span>.], index<span class="op">=</span>[<span class="st">&#39;apple&#39;</span>, <span class="st">&#39;ball&#39;</span>, <span class="st">&#39;cerill&#39;</span>, <span class="st">&#39;nancy&#39;</span>]) 
+df <span class="op">=</span> pd.DataFrame({<span class="st">&#39;one&#39;</span>: s1, <span class="st">&#39;two&#39;</span> : s2} ) 
+df</code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>one</th>
+      <th>two</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>apple</th>
+      <td>1.0</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>ball</th>
+      <td>2.0</td>
+      <td>10.0</td>
+    </tr>
+    <tr>
+      <th>cerill</th>
+      <td>NaN</td>
+      <td>15.0</td>
+    </tr>
+    <tr>
+      <th>clock</th>
+      <td>3.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>nancy</th>
+      <td>NaN</td>
+      <td>20.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<h2 id="access-operations">Access &amp; Operations</h2>
+<h3 id="accessing-columns">Accessing Columns</h3>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">df[<span class="st">&#39;one&#39;</span>]</code></pre></div>
+<pre><code>apple     1.0
+ball      2.0
+cerill    NaN
+clock     3.0
+nancy     NaN
+Name: one, dtype: float64</code></pre>
+<h3 id="creating-new-columns">Creating new columns</h3>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">df[<span class="st">&#39;product&#39;</span>] <span class="op">=</span> df[<span class="st">&#39;one&#39;</span>] <span class="op">*</span> df[<span class="st">&#39;two&#39;</span>] 
+df[<span class="st">&#39;big&#39;</span>] <span class="op">=</span> df[<span class="st">&#39;two&#39;</span>] <span class="op">&gt;</span> <span class="dv">10</span> 
+df</code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>one</th>
+      <th>two</th>
+      <th>product</th>
+      <th>big</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>apple</th>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>ball</th>
+      <td>2.0</td>
+      <td>10.0</td>
+      <td>20.0</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>cerill</th>
+      <td>NaN</td>
+      <td>15.0</td>
+      <td>NaN</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>clock</th>
+      <td>3.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>nancy</th>
+      <td>NaN</td>
+      <td>20.0</td>
+      <td>NaN</td>
+      <td>True</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Removing columns - pop</span>
+unneeded <span class="op">=</span> df.pop(<span class="st">&#39;product&#39;</span>)
+unneeded
+df</code></pre></div>
+<pre><code>apple      5.0
+ball      20.0
+cerill     NaN
+clock      NaN
+nancy      NaN
+Name: product, dtype: float64</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>one</th>
+      <th>two</th>
+      <th>big</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>apple</th>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>ball</th>
+      <td>2.0</td>
+      <td>10.0</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>cerill</th>
+      <td>NaN</td>
+      <td>15.0</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>clock</th>
+      <td>3.0</td>
+      <td>NaN</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>nancy</th>
+      <td>NaN</td>
+      <td>20.0</td>
+      <td>True</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<h3 id="removing-columns---del">Removing columns - <code>del</code></h3>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">del</span>(df[<span class="st">&#39;two&#39;</span>])
+df</code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>one</th>
+      <th>big</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>apple</th>
+      <td>1.0</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>ball</th>
+      <td>2.0</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>cerill</th>
+      <td>NaN</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>clock</th>
+      <td>3.0</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>nancy</th>
+      <td>NaN</td>
+      <td>True</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<h3 id="inserting-columnns">Inserting columnns</h3>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">df.insert(<span class="dv">2</span>, <span class="st">&#39;copy one&#39;</span>, df[<span class="st">&#39;one&#39;</span>])
+df</code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>one</th>
+      <th>big</th>
+      <th>copy one</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>apple</th>
+      <td>1.0</td>
+      <td>False</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>ball</th>
+      <td>2.0</td>
+      <td>False</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>cerill</th>
+      <td>NaN</td>
+      <td>True</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>clock</th>
+      <td>3.0</td>
+      <td>False</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>nancy</th>
+      <td>NaN</td>
+      <td>True</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<h3 id="accessing-a-subslice">Accessing a subslice</h3>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> df.iloc[<span class="dv">3</span>:<span class="dv">4</span>]
+b <span class="op">=</span> df[<span class="st">&#39;one&#39;</span>][:<span class="dv">2</span>] <span class="co"># values in column &#39;one&#39;, rows under 2</span>
+c <span class="op">=</span> df[<span class="dv">1</span>:<span class="dv">3</span>] 
+
+a
+b
+c</code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>one</th>
+      <th>big</th>
+      <th>copy one</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>clock</th>
+      <td>3.0</td>
+      <td>False</td>
+      <td>3.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<pre><code>apple    1.0
+ball     2.0
+Name: one, dtype: float64</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>one</th>
+      <th>big</th>
+      <th>copy one</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>ball</th>
+      <td>2.0</td>
+      <td>False</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>cerill</th>
+      <td>NaN</td>
+      <td>True</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<h2 id="dictionary---dataframe">Dictionary -&gt; Dataframe</h2>
+<ul>
+<li>Automatically alphabetized</li>
+<li>All the keys become columns, each row in the new df represent the values of one of the dictionaries</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">data <span class="op">=</span> [{<span class="st">&#39;alex&#39;</span>: <span class="dv">1</span>, <span class="st">&#39;joe&#39;</span>: <span class="dv">2</span>}, {<span class="st">&#39;ema&#39;</span>: <span class="dv">5</span>, <span class="st">&#39;dora&#39;</span>:<span class="dv">10</span>, <span class="st">&#39;alice&#39;</span>: <span class="dv">20</span>}] <span class="co"># a list</span>
+data <span class="op">=</span> pd.DataFrame(data, index  <span class="op">=</span> [<span class="st">&#39;orange&#39;</span>, <span class="st">&#39;red&#39;</span>]) 
+data
+
+d <span class="op">=</span> pd.DataFrame(data, columns <span class="op">=</span> [<span class="st">&#39;joe&#39;</span>, <span class="st">&#39;dora&#39;</span>, <span class="st">&#39;alice&#39;</span>] )
+d</code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>alex</th>
+      <th>alice</th>
+      <th>dora</th>
+      <th>ema</th>
+      <th>joe</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>orange</th>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>red</th>
+      <td>NaN</td>
+      <td>20.0</td>
+      <td>10.0</td>
+      <td>5.0</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>joe</th>
+      <th>dora</th>
+      <th>alice</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>orange</th>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>red</th>
+      <td>NaN</td>
+      <td>10.0</td>
+      <td>20.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span>(data.head)
+<span class="bu">print</span>(data.columns)</code></pre></div>
+<pre><code>&lt;bound method NDFrame.head of         alex  alice  dora  ema  joe
+orange   1.0    NaN   NaN  NaN  2.0
+red      NaN   20.0  10.0  5.0  NaN&gt;
+Index([&#39;alex&#39;, &#39;alice&#39;, &#39;dora&#39;, &#39;ema&#39;, &#39;joe&#39;], dtype=&#39;object&#39;)</code></pre>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+</body>
+</html>

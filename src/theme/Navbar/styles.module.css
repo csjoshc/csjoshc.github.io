@@ -1,0 +1,96 @@
+/* Search bar is now handled by the navbar configuration */
+.searchBarWrapper {
+  display: none; /* Hide the custom search wrapper since we use navbar config */
+}
+
+/* Style the search button from navbar config */
+.search-nav-item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ifm-spacing-xs);
+  padding: var(--ifm-spacing-sm) var(--ifm-spacing-md);
+  background: none;
+  border: 1px solid var(--border-light);
+  border-radius: var(--ifm-radius-md);
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all var(--ifm-transition-fast);
+  white-space: nowrap;
+}
+
+.search-nav-item:hover {
+  background: var(--ifm-color-emphasis-100);
+  border-color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+  transform: translateY(-1px);
+}
+
+[data-theme="dark"] .search-nav-item:hover {
+  background: var(--ifm-color-emphasis-200);
+}
+
+.search-nav-item:focus {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+  background: var(--ifm-color-emphasis-100);
+}
+
+[data-theme="dark"] .search-nav-item:focus {
+  background: var(--ifm-color-emphasis-200);
+}
+
+.search-icon {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.search-label {
+  transition: all var(--ifm-transition-fast);
+}
+
+.search-shortcut {
+  margin-left: var(--ifm-spacing-xs);
+  padding: 0.125rem 0.25rem;
+  background: var(--ifm-color-emphasis-200);
+  border-radius: var(--ifm-radius-sm);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+[data-theme="dark"] .search-shortcut {
+  background: var(--ifm-color-emphasis-300);
+}
+
+/* Responsive search button */
+@media (max-width: 996px) {
+  .search-nav-item {
+    gap: 0;
+    padding: var(--ifm-spacing-sm);
+    min-width: 44px;
+    justify-content: center;
+  }
+
+  .search-nav-item .search-label,
+  .search-nav-item .search-shortcut {
+    opacity: 0;
+    width: 0;
+    margin: 0;
+    overflow: hidden;
+    transition: all var(--ifm-transition-fast);
+  }
+
+  .search-nav-item:hover .search-label,
+  .search-nav-item:hover .search-shortcut {
+    opacity: 0;
+    width: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .search-nav-item {
+    padding: var(--ifm-spacing-xs);
+  }
+}

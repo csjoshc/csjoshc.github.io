@@ -1,0 +1,97 @@
+/* Card Component Styles - Following Docusaurus Best Practices */
+
+.card {
+  background: var(--ifm-background-color);
+  border: 1px solid var(--border-light);
+  border-radius: var(--ifm-radius-lg);
+  box-shadow: var(--ifm-shadow-sm);
+  transition: all var(--ifm-transition-fast);
+  overflow: hidden;
+  position: relative;
+}
+
+[data-theme="dark"] .card {
+  background: var(--ifm-background-color);
+  border-color: var(--border-light);
+  box-shadow: var(--ifm-shadow-sm);
+}
+
+.card:hover {
+  border-color: var(--ifm-color-primary);
+  box-shadow: var(--ifm-shadow-md);
+  transform: translateY(-2px);
+}
+
+.cardHeader {
+  padding: var(--ifm-spacing-lg);
+  border-bottom: 1px solid var(--border-light);
+  background: var(--ifm-color-emphasis-100);
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .cardHeader {
+  border-bottom-color: var(--border-light);
+  background: var(--ifm-color-emphasis-200);
+}
+
+.cardBody {
+  padding: var(--ifm-spacing-lg);
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.cardLink {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: all var(--ifm-transition-fast);
+}
+
+.cardLink:hover .card {
+  border-color: var(--ifm-color-primary);
+  box-shadow: var(--ifm-shadow-lg);
+  transform: translateY(-4px);
+}
+
+.cardButton {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  transition: all var(--ifm-transition-fast);
+}
+
+.cardButton:hover .card {
+  border-color: var(--ifm-color-primary);
+  box-shadow: var(--ifm-shadow-lg);
+  transform: translateY(-4px);
+}
+
+.cardButton:focus {
+  outline: none;
+}
+
+.cardButton:focus .card {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .card {
+    margin-bottom: var(--ifm-spacing-md);
+  }
+
+  .cardHeader {
+    padding: var(--ifm-spacing-md);
+    font-size: 1rem;
+  }
+
+  .cardBody {
+    padding: var(--ifm-spacing-md);
+  }
+}

@@ -1,0 +1,2127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Personal learning and note-taking website">
+    <meta name="author" content="Josh Chiu">
+    <link rel="canonical" href="https://csjoshc.github.io/4_Pandas4/">
+    <link rel="shortcut icon" href="../img/favicon.ico">
+
+    
+    <title>4 Pandas4 - Josh's Learning Notes</title>
+    
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
+    <link href='//rsms.me/inter/inter.css' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../css/base.min.css" rel="stylesheet">
+    <link href="../css/cinder.min.css" rel="stylesheet">
+
+    
+        
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/github.min.css">
+        
+    
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    
+
+     
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            
+              <a class="navbar-brand" href="..">Josh's Learning Notes</a>
+            
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="..">Home</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">General <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../General/base/">Overview</a>
+</li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">CS50x 2019</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../General/CS50x2019/cppbasics/">C++ Basics</a>
+</li>
+
+        
+            
+<li >
+    <a href="../General/CS50x2019/database/">Database</a>
+</li>
+
+        
+            
+<li >
+    <a href="../General/CS50x2019/flask/">Flask</a>
+</li>
+
+        
+            
+<li >
+    <a href="../General/CS50x2019/python/">Python</a>
+</li>
+
+        
+            
+<li >
+    <a href="../General/CS50x2019/webbasics/">Web Basics</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+<li >
+    <a href="../General/webdev2019/">Web Development 2019</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Python <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../Python/base/">Overview</a>
+</li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">General</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../Python/General/virtenv_jupyter_nb/">Virtual Environments & Jupyter</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/General/ifnameismain/">If Name Main</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Data Science Course</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../Python/PythonforDataScience/1_Introduction/">Introduction</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/PythonforDataScience/2_Basics/">Python Basics</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/PythonforDataScience/3_Numpy/">NumPy</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/PythonforDataScience/4_Pandas/">Pandas</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/PythonforDataScience/4_Pandas2/">Pandas 2</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/PythonforDataScience/4_Pandas3/">Pandas 3</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/PythonforDataScience/4_Pandas4/">Pandas 4</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/PythonforDataScience/4_Pandas5/">Pandas 5</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/PythonforDataScience/5_Matplotlib/">Matplotlib</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/PythonforDataScience/7_ML/">Machine Learning</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/PythonforDataScience/7_ML_Reg/">ML Regression</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/PythonforDataScience/7_ML_DT/">ML Decision Trees</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/PythonforDataScience/7_ML_Clust/">ML Clustering</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Probability & Statistics</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../Python/ProbabilityandStatistics/1_Introduction/">Introduction</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/ProbabilityandStatistics/2_Sets/">Sets</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">MIT Courses</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../Python/IntroCompSciPython/unit7/">Computer Science Unit 7</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/IntroCompThinkDataSci/unit1/unit1/">Data Science Unit 1</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/IntroCompThinkDataSci/unit1/problemset1/">Problem Set 1</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/IntroCompThinkDataSci/unit2/plotting/">Unit 2 Plotting</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/IntroCompThinkDataSci/unit2/unit2/">Unit 2</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/IntroCompThinkDataSci/unit2/ps2/">Problem Set 2</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/IntroCompThinkDataSci/unit3/unit3/">Unit 3</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/IntroCompThinkDataSci/unit3/ps3/">Problem Set 3</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/IntroCompThinkDataSci/unit4/unit4/">Unit 4</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/IntroCompThinkDataSci/unit4/ps4/">Problem Set 4</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Python/IntroCompThinkDataSci/unit5/unit5/">Unit 5</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">GitHub <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../Github/intro_gh/">Introduction</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../Github/bugs_gh/">Bug Reports</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Linux <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../Linux/base/">Overview</a>
+</li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Linux Journey</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../Linux/linux_journey/basic/01_comlin/">Command Line</a>
+</li>
+
+        
+            
+<li >
+    <a href="../Linux/linux_journey/linux_journey_toc/">Table of Contents</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">DevOps <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../Devops/base/">Overview</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../Devops/roadmap_notes/">Roadmap Notes</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Utilities <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../utils/base/">Overview</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../utils/01_BatchConversions/">Batch Conversions</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Site Updates <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../site_updates/base/">Overview</a>
+</li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">March 2019</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../site_updates/3_2019/2_3_2019/">March 2nd</a>
+</li>
+
+        
+            
+<li >
+    <a href="../site_updates/3_2019/9_3_2019/">March 9th</a>
+</li>
+
+        
+            
+<li >
+    <a href="../site_updates/3_2019/16_3_2019/">March 16th</a>
+</li>
+
+        
+            
+<li >
+    <a href="../site_updates/3_2019/23_3_2019/">March 23rd</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">April 2019</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../site_updates/4_2019/13_4_2019/">April 13th</a>
+</li>
+
+        
+            
+<li >
+    <a href="../site_updates/4_2019/20_4_2019/">April 20th</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">May 2019</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../site_updates/5_2019/04_5_2019/">May 4th</a>
+</li>
+
+        
+            
+<li >
+    <a href="../site_updates/5_2019/11_5_2019/">May 11th</a>
+</li>
+
+        
+            
+<li >
+    <a href="../site_updates/5_2019/25_5_2019/">May 25th</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">June 2019</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../site_updates/6_2019/15_6_2019/">June 15th</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                            
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="">Project Ideas</a>
+    <ul class="dropdown-menu">
+        
+            
+<li >
+    <a href="../site_updates/project_ideas/indeed_cloud/">Indeed Cloud</a>
+</li>
+
+        
+    </ul>
+  </li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../todo/">Todo</a>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#manipulating-data">Manipulating Data</a></li>
+        <li class="first-level "><a href="#change-dir-to-the-folder-this-ipynb-file-is-in">Change dir to the folder this .ipynb file is in</a></li>
+            <li class="second-level"><a href="#aggregating-and-grouping">Aggregating and Grouping</a></li>
+                
+            <li class="second-level"><a href="#plotting-aggregated-datagenerate-a-histogram-of-movie-ratings-so-group-by-the-ratings-column">Plotting aggregated dataGenerate a histogram of movie ratings (so group by the ratings column).</a></li>
+                
+            <li class="second-level"><a href="#filteringencode-a-filter-that-saves-the-indices-of-a-dataframe-for-which-a-condition-is-true-and-then-apply-the-filter-as-a-mask-to-extract-the-desired-values-this-can-also-apply-to-3d-image-matricesbelow-find-the-most-active-raters-count-of-userid-groupings-of-the-ratings-df-looking-at-the-mean-and-standard-dev-set-the-cutoff-at-2000-movie-ratings">FilteringEncode a filter that saves the indices of a dataframe (for which a condition is true), and then apply the filter as a mask to extract the desired values. (This can also apply to 3D image matrices).Below - find the most active raters (count of userId groupings of the ratings df). Looking at the mean and standard dev set the cutoff at 2000! movie ratings.</a></li>
+                
+                <li class="third-level"><a href="#filtering-based-on-string-matchingusing-the-movies-dataframe-filter-for-movies-with-animation-as-a-genre">Filtering based on string matchingUsing the movies dataframe, filter for movies with Animation as a genre:</a></li>
+        <li class="first-level "><a href="#joining-datacombining-data-from-multiple-dataframes-or-sources-plotting-aggregated-data">Joining DataCombining data from multiple dataframes or sources. ## Plotting aggregated data</a></li>
+            <li class="second-level"><a href="#filtering">Filtering</a></li>
+                
+                <li class="third-level"><a href="#filtering-based-on-string-matching">Filtering based on string matching</a></li>
+        <li class="first-level "><a href="#joining-data">Joining Data</a></li>
+            <li class="second-level"><a href="#stack-dataframes">Stack dataframes</a></li>
+                
+            <li class="second-level"><a href="#stack-dataframes-append-method">Stack dataframes (append method)</a></li>
+                
+            <li class="second-level"><a href="#inner-join-with-pdconcat">Inner join with pd.concat</a></li>
+                
+            <li class="second-level"><a href="#the-actual-inner-join">The actual inner join</a></li>
+                
+            <li class="second-level"><a href="#chaining-together-mergeschained-merging-on-a-merged-dataframe-without-a-new-object-is-possible-but-becomes-unreadable-after-a-few-in-a-row">Chaining together mergesChained merging on a merged dataframe without a new object is possible, but becomes unreadable after a few in a row:</a></li>
+                
+        <li class="first-level "><a href="#combining-everythingafter-merging-three-dataframes-with-aggregated-ratings-and-rating-counts-data-we-can-apply-a-filter-the-is_anime-which-was-a-string-filter-as-well-as-a-new-filter-for-movies-that-were-both-highly-rated-more-than-4-and-actively-rated-more-than-2000-ratings">Combining everythingAfter merging three dataframes with aggregated ratings and rating counts data, we can apply a filter - the is_anime which was a string filter, as well as a new filter for movies that were both highly rated (more than 4) and actively rated (more than 2000 ratings).</a></li>
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">executable</span><span class="p">)</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.core.interactiveshell</span><span class="w"> </span><span class="kn">import</span> <span class="n">InteractiveShell</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">InteractiveShell</span><span class="o">.</span><span class="n">ast_node_interactivity</span> <span class="o">=</span> <span class="s2">&quot;all&quot;</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">InteractiveShell</span><span class="o">.</span><span class="n">colors</span> <span class="o">=</span> <span class="s2">&quot;Linux&quot;</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="n">InteractiveShell</span><span class="o">.</span><span class="n">separate_in</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="kn">from</span><span class="w"> </span><span class="nn">tabulate</span><span class="w"> </span><span class="kn">import</span> <span class="n">tabulate</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">style</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;fivethirtyeight&#39;</span><span class="p">)</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span><span class="o">,</span><span class="w"> </span><span class="nn">sys</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>/home/jcmint/anaconda3/envs/learningenv/bin/python
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="c1"># Change dir to the folder this .ipynb file is in</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s1">&#39;../../../../data/w4pd&#39;</span><span class="p">))</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">movies</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../../../../data/w4pd/movies.csv&#39;</span><span class="p">)</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">tags</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../../../../data/w4pd/tags.csv&#39;</span><span class="p">)</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">ratings</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../../../../data/w4pd/ratings.csv&#39;</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>[&#39;genome-scores.csv&#39;, &#39;genome-tags.csv&#39;, &#39;Icon\r&#39;, &#39;links.csv&#39;, &#39;movies.csv&#39;, &#39;ratings.csv&#39;, &#39;README.txt&#39;, &#39;tags.csv&#39;]
+</code></pre></div>
+<h1 id="manipulating-data">Manipulating Data</h1>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">ratings</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>userId</th>
+      <th>movieId</th>
+      <th>rating</th>
+      <th>timestamp</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>2</td>
+      <td>3.5</td>
+      <td>1112486027</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>29</td>
+      <td>3.5</td>
+      <td>1112484676</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>32</td>
+      <td>3.5</td>
+      <td>1112484819</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>47</td>
+      <td>3.5</td>
+      <td>1112484727</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>50</td>
+      <td>3.5</td>
+      <td>1112484580</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h1 id="change-dir-to-the-folder-this-ipynb-file-is-in">Change dir to the folder this .ipynb file is in</h1>
+<p>print(os.listdir('../../../../data/w4pd'))
+movies = pd.read_csv('../../../../data/w4pd/movies.csv')
+tags = pd.read_csv('../../../../data/w4pd/tags.csv')
+ratings = pd.read_csv('../../../../data/w4pd/ratings.csv')
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>[&#39;genome-scores.csv&#39;, &#39;genome-tags.csv&#39;, &#39;Icon\r&#39;, &#39;links.csv&#39;, &#39;movies.csv&#39;, &#39;ratings.csv&#39;, &#39;README.txt&#39;, &#39;tags.csv&#39;]
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a># Manipulating Data
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>```python
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>ratings.head(5)
+</code></pre></div></p>
+<div>
+<style scoped>
+.dataframe tbody tr th:only-of-type {
+vertical-align: middle;
+}
+.dataframe tbody tr th {
+vertical-align: top;
+}
+.dataframe thead th {
+text-align: right;
+}
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>userId</th>
+<th>movieId</th>
+<th>rating</th>
+<th>timestamp</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>1</td>
+<td>2</td>
+<td>3.5</td>
+<td>1112486027</td>
+</tr>
+<tr>
+<th>1</th>
+<td>1</td>
+<td>29</td>
+<td>3.5</td>
+<td>1112484676</td>
+</tr>
+<tr>
+<th>2</th>
+<td>1</td>
+<td>32</td>
+<td>3.5</td>
+<td>1112484819</td>
+</tr>
+<tr>
+<th>3</th>
+<td>1</td>
+<td>47</td>
+<td>3.5</td>
+<td>1112484727</td>
+</tr>
+<tr>
+<th>4</th>
+<td>1</td>
+<td>50</td>
+<td>3.5</td>
+<td>1112484580</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="aggregating-and-grouping">Aggregating and Grouping</h2>
+<p><strong>Code:</strong> <code>df[['col1', 'col2']].groupby('col1')</code>It makes sense to calculate different aggregate stats for different groupings. <code>groupby</code> doesn't do any aggregate calculations by default - it just reorders the df so that the same values in the grouping column are all consecutive. You can also use .count() on a grouping.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">user_ratings</span> <span class="o">=</span> <span class="n">ratings</span><span class="p">[[</span><span class="s1">&#39;userId&#39;</span><span class="p">,</span> <span class="s1">&#39;rating&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;userId&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">user_ratings</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">movie_ratings</span> <span class="o">=</span> <span class="n">ratings</span><span class="p">[[</span><span class="s1">&#39;movieId&#39;</span><span class="p">,</span> <span class="s1">&#39;rating&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;movieId&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="n">movie_ratings</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>rating</th>
+    </tr>
+    <tr>
+      <th>userId</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>3.742857</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4.000000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4.122995</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>3.571429</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>4.272727</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>rating</th>
+    </tr>
+    <tr>
+      <th>movieId</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>3.921240</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3.211977</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3.151040</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2.861393</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>3.064592</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="plotting-aggregated-datagenerate-a-histogram-of-movie-ratings-so-group-by-the-ratings-column">Plotting aggregated dataGenerate a histogram of movie ratings (so group by the ratings column).</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">ratings_hist</span> <span class="o">=</span> <span class="n">ratings</span><span class="p">[[</span><span class="s1">&#39;movieId&#39;</span><span class="p">,</span> <span class="s1">&#39;rating&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;rating&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">ratings_hist</span><span class="p">)</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="c1"># Now we plot</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="n">ratings_hist</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>        movieId
+rating         
+0.5      239125
+1.0      680732
+1.5      279252
+2.0     1430997
+2.5      883398
+3.0     4291193
+3.5     2200156
+4.0     5561926
+4.5     1534824
+5.0     2898660
+
+
+
+
+
+&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f642ce23f98&gt;
+</code></pre></div>
+<p><img alt="png" src="../4_Pandas4_files/4_Pandas4_8_2.png" /></p>
+<h2 id="filteringencode-a-filter-that-saves-the-indices-of-a-dataframe-for-which-a-condition-is-true-and-then-apply-the-filter-as-a-mask-to-extract-the-desired-values-this-can-also-apply-to-3d-image-matricesbelow-find-the-most-active-raters-count-of-userid-groupings-of-the-ratings-df-looking-at-the-mean-and-standard-dev-set-the-cutoff-at-2000-movie-ratings">FilteringEncode a filter that saves the indices of a dataframe (for which a condition is true), and then apply the filter as a mask to extract the desired values. (This can also apply to 3D image matrices).Below - find the most active raters (count of userId groupings of the ratings df). Looking at the mean and standard dev set the cutoff at 2000! movie ratings.</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">active_raters</span> <span class="o">=</span> <span class="n">ratings</span><span class="p">[[</span><span class="s1">&#39;userId&#39;</span><span class="p">,</span> <span class="s1">&#39;rating&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;userId&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">active_raters</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">active_raters</span><span class="o">.</span><span class="n">std</span><span class="p">())</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">highly_active_raters</span> <span class="o">=</span> <span class="n">active_raters</span><span class="p">[</span><span class="n">active_raters</span><span class="p">[</span><span class="s1">&#39;rating&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">2000</span><span class="p">]</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">highly_active_raters</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>rating    144.41353
+dtype: float64 rating    230.267257
+dtype: float64
+255
+</code></pre></div>
+<h3 id="filtering-based-on-string-matchingusing-the-movies-dataframe-filter-for-movies-with-animation-as-a-genre">Filtering based on string matchingUsing the movies dataframe, filter for movies with Animation as a genre:</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">movies</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">is_anime</span> <span class="o">=</span> <span class="n">movies</span><span class="p">[</span><span class="s1">&#39;genres&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;Ani*&#39;</span><span class="p">)</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="n">the_anime</span> <span class="o">=</span> <span class="n">movies</span><span class="p">[</span><span class="n">is_anime</span><span class="p">]</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="n">the_anime</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="n">the_anime</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>movieId</th>
+      <th>title</th>
+      <th>genres</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>Toy Story (1995)</td>
+      <td>Adventure|Animation|Children|Comedy|Fantasy</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>Jumanji (1995)</td>
+      <td>Adventure|Children|Fantasy</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>Grumpier Old Men (1995)</td>
+      <td>Comedy|Romance</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>Waiting to Exhale (1995)</td>
+      <td>Comedy|Drama|Romance</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>Father of the Bride Part II (1995)</td>
+      <td>Comedy</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="highlight"><pre><span></span><code>1027
+</code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>movieId</th>
+      <th>title</th>
+      <th>genres</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>Toy Story (1995)</td>
+      <td>Adventure|Animation|Children|Comedy|Fantasy</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>13</td>
+      <td>Balto (1995)</td>
+      <td>Adventure|Animation|Children</td>
+    </tr>
+    <tr>
+      <th>47</th>
+      <td>48</td>
+      <td>Pocahontas (1995)</td>
+      <td>Animation|Children|Drama|Musical|Romance</td>
+    </tr>
+    <tr>
+      <th>236</th>
+      <td>239</td>
+      <td>Goofy Movie, A (1995)</td>
+      <td>Animation|Children|Comedy|Romance</td>
+    </tr>
+    <tr>
+      <th>241</th>
+      <td>244</td>
+      <td>Gumby: The Movie (1995)</td>
+      <td>Animation|Children</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h1 id="joining-datacombining-data-from-multiple-dataframes-or-sources-plotting-aggregated-data">Joining DataCombining data from multiple dataframes or sources. ## Plotting aggregated data</h1>
+<p>Generate a histogram of movie ratings (so group by the ratings column).
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">ratings_hist</span> <span class="o">=</span> <span class="n">ratings</span><span class="p">[[</span><span class="s1">&#39;movieId&#39;</span><span class="p">,</span> <span class="s1">&#39;rating&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;rating&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">ratings_hist</span><span class="p">)</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="c1"># Now we plot</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="n">ratings_hist</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+movieId
+rating
+0.5      239125
+1.0      680732
+1.5      279252
+2.0     1430997
+2.5      883398
+3.0     4291193
+3.5     2200156
+4.0     5561926
+4.5     1534824
+5.0     2898660
+<matplotlib.axes._subplots.AxesSubplot at 0x7f642ce23f98>
+<img alt="png" src="../4_Pandas4_files/4_Pandas4_8_2.png" /></p>
+<h2 id="filtering">Filtering</h2>
+<p>Encode a filter that saves the indices of a dataframe (for which a condition is true), and then apply the filter as a mask to extract the desired values. (This can also apply to 3D image matrices).
+Below - find the most active raters (count of userId groupings of the ratings df). Looking at the mean and standard dev set the cutoff at 2000! movie ratings.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">active_raters</span> <span class="o">=</span> <span class="n">ratings</span><span class="p">[[</span><span class="s1">&#39;userId&#39;</span><span class="p">,</span> <span class="s1">&#39;rating&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;userId&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">active_raters</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">active_raters</span><span class="o">.</span><span class="n">std</span><span class="p">())</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="n">highly_active_raters</span> <span class="o">=</span> <span class="n">active_raters</span><span class="p">[</span><span class="n">active_raters</span><span class="p">[</span><span class="s1">&#39;rating&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">2000</span><span class="p">]</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">highly_active_raters</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</code></pre></div>
+rating    144.41353
+dtype: float64 rating    230.267257
+dtype: float64
+255</p>
+<h3 id="filtering-based-on-string-matching">Filtering based on string matching</h3>
+<p>Using the movies dataframe, filter for movies with Animation as a genre:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">movies</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="n">is_anime</span> <span class="o">=</span> <span class="n">movies</span><span class="p">[</span><span class="s1">&#39;genres&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;Ani*&#39;</span><span class="p">)</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="n">the_anime</span> <span class="o">=</span> <span class="n">movies</span><span class="p">[</span><span class="n">is_anime</span><span class="p">]</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="n">the_anime</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="n">the_anime</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div></p>
+<div>
+<style scoped>
+.dataframe tbody tr th:only-of-type {
+vertical-align: middle;
+}
+.dataframe tbody tr th {
+vertical-align: top;
+}
+.dataframe thead th {
+text-align: right;
+}
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>movieId</th>
+<th>title</th>
+<th>genres</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>1</td>
+<td>Toy Story (1995)</td>
+<td>Adventure|Animation|Children|Comedy|Fantasy</td>
+</tr>
+<tr>
+<th>1</th>
+<td>2</td>
+<td>Jumanji (1995)</td>
+<td>Adventure|Children|Fantasy</td>
+</tr>
+<tr>
+<th>2</th>
+<td>3</td>
+<td>Grumpier Old Men (1995)</td>
+<td>Comedy|Romance</td>
+</tr>
+<tr>
+<th>3</th>
+<td>4</td>
+<td>Waiting to Exhale (1995)</td>
+<td>Comedy|Drama|Romance</td>
+</tr>
+<tr>
+<th>4</th>
+<td>5</td>
+<td>Father of the Bride Part II (1995)</td>
+<td>Comedy</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>1027</p>
+<div>
+<style scoped>
+.dataframe tbody tr th:only-of-type {
+vertical-align: middle;
+}
+.dataframe tbody tr th {
+vertical-align: top;
+}
+.dataframe thead th {
+text-align: right;
+}
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>movieId</th>
+<th>title</th>
+<th>genres</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>1</td>
+<td>Toy Story (1995)</td>
+<td>Adventure|Animation|Children|Comedy|Fantasy</td>
+</tr>
+<tr>
+<th>12</th>
+<td>13</td>
+<td>Balto (1995)</td>
+<td>Adventure|Animation|Children</td>
+</tr>
+<tr>
+<th>47</th>
+<td>48</td>
+<td>Pocahontas (1995)</td>
+<td>Animation|Children|Drama|Musical|Romance</td>
+</tr>
+<tr>
+<th>236</th>
+<td>239</td>
+<td>Goofy Movie, A (1995)</td>
+<td>Animation|Children|Comedy|Romance</td>
+</tr>
+<tr>
+<th>241</th>
+<td>244</td>
+<td>Gumby: The Movie (1995)</td>
+<td>Animation|Children</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h1 id="joining-data">Joining Data</h1>
+<p>Combining data from multiple dataframes or sources.</p>
+<h2 id="stack-dataframes">Stack dataframes</h2>
+<p><strong>Code:</strong> <code>pd.concat([df1, df2])</code>The stacking is not really ideal in this scenario - it would be better to stack df's that have matched columns and data types.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">stack_1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">tags</span><span class="o">.</span><span class="n">head</span><span class="p">(),</span> <span class="n">movies</span><span class="o">.</span><span class="n">head</span><span class="p">()])</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="n">stack_1</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>/home/jcmint/anaconda3/envs/learningenv/lib/python3.7/site-packages/ipykernel_launcher.py:1: FutureWarning: Sorting because non-concatenation axis is not aligned. A future version
+of pandas will change to not sort by default.
+
+To accept the future behavior, pass &#39;sort=False&#39;.
+
+To retain the current behavior and silence the warning, pass &#39;sort=True&#39;.
+
+  &quot;&quot;&quot;Entry point for launching an IPython kernel.
+</code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>genres</th>
+      <th>movieId</th>
+      <th>tag</th>
+      <th>timestamp</th>
+      <th>title</th>
+      <th>userId</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>NaN</td>
+      <td>4141</td>
+      <td>Mark Waters</td>
+      <td>1.240597e+09</td>
+      <td>NaN</td>
+      <td>18.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>NaN</td>
+      <td>208</td>
+      <td>dark hero</td>
+      <td>1.368150e+09</td>
+      <td>NaN</td>
+      <td>65.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>NaN</td>
+      <td>353</td>
+      <td>dark hero</td>
+      <td>1.368150e+09</td>
+      <td>NaN</td>
+      <td>65.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>NaN</td>
+      <td>521</td>
+      <td>noir thriller</td>
+      <td>1.368150e+09</td>
+      <td>NaN</td>
+      <td>65.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>NaN</td>
+      <td>592</td>
+      <td>dark hero</td>
+      <td>1.368150e+09</td>
+      <td>NaN</td>
+      <td>65.0</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>Adventure|Animation|Children|Comedy|Fantasy</td>
+      <td>1</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Toy Story (1995)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Adventure|Children|Fantasy</td>
+      <td>2</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Jumanji (1995)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Comedy|Romance</td>
+      <td>3</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Grumpier Old Men (1995)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Comedy|Drama|Romance</td>
+      <td>4</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Waiting to Exhale (1995)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Comedy</td>
+      <td>5</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Father of the Bride Part II (1995)</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="stack-dataframes-append-method">Stack dataframes (append method)</h2>
+<p><strong>Code:</strong> <code>df1.append(df2)</code>This gives the same results as using stack.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="n">append_1</span> <span class="o">=</span> <span class="n">tags</span><span class="o">.</span><span class="n">head</span><span class="p">()</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">movies</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="n">append_1</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>/home/jcmint/anaconda3/envs/learningenv/lib/python3.7/site-packages/pandas/core/frame.py:6692: FutureWarning: Sorting because non-concatenation axis is not aligned. A future version
+of pandas will change to not sort by default.
+
+To accept the future behavior, pass &#39;sort=False&#39;.
+
+To retain the current behavior and silence the warning, pass &#39;sort=True&#39;.
+
+  sort=sort)
+</code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>genres</th>
+      <th>movieId</th>
+      <th>tag</th>
+      <th>timestamp</th>
+      <th>title</th>
+      <th>userId</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>NaN</td>
+      <td>4141</td>
+      <td>Mark Waters</td>
+      <td>1.240597e+09</td>
+      <td>NaN</td>
+      <td>18.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>NaN</td>
+      <td>208</td>
+      <td>dark hero</td>
+      <td>1.368150e+09</td>
+      <td>NaN</td>
+      <td>65.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>NaN</td>
+      <td>353</td>
+      <td>dark hero</td>
+      <td>1.368150e+09</td>
+      <td>NaN</td>
+      <td>65.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>NaN</td>
+      <td>521</td>
+      <td>noir thriller</td>
+      <td>1.368150e+09</td>
+      <td>NaN</td>
+      <td>65.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>NaN</td>
+      <td>592</td>
+      <td>dark hero</td>
+      <td>1.368150e+09</td>
+      <td>NaN</td>
+      <td>65.0</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>Adventure|Animation|Children|Comedy|Fantasy</td>
+      <td>1</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Toy Story (1995)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Adventure|Children|Fantasy</td>
+      <td>2</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Jumanji (1995)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Comedy|Romance</td>
+      <td>3</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Grumpier Old Men (1995)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Comedy|Drama|Romance</td>
+      <td>4</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Waiting to Exhale (1995)</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Comedy</td>
+      <td>5</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Father of the Bride Part II (1995)</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="inner-join-with-pdconcat">Inner join with pd.concat</h2>
+<p><strong>Code:</strong> <code>pd.concat</code>This is NOT the same as an INNER JOIN ON tb1.field1 = tbl2.field1 as it would be in SQLAs a result, this isn't particularly useful since you're not matching as you combine data.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="n">joined</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">tags</span><span class="o">.</span><span class="n">head</span><span class="p">(),</span> <span class="n">movies</span><span class="o">.</span><span class="n">head</span><span class="p">()],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">join</span> <span class="o">=</span> <span class="s2">&quot;inner&quot;</span><span class="p">)</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="n">joined</span>
+</code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>userId</th>
+      <th>movieId</th>
+      <th>tag</th>
+      <th>timestamp</th>
+      <th>movieId</th>
+      <th>title</th>
+      <th>genres</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>18</td>
+      <td>4141</td>
+      <td>Mark Waters</td>
+      <td>1240597180</td>
+      <td>1</td>
+      <td>Toy Story (1995)</td>
+      <td>Adventure|Animation|Children|Comedy|Fantasy</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>65</td>
+      <td>208</td>
+      <td>dark hero</td>
+      <td>1368150078</td>
+      <td>2</td>
+      <td>Jumanji (1995)</td>
+      <td>Adventure|Children|Fantasy</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>65</td>
+      <td>353</td>
+      <td>dark hero</td>
+      <td>1368150079</td>
+      <td>3</td>
+      <td>Grumpier Old Men (1995)</td>
+      <td>Comedy|Romance</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>65</td>
+      <td>521</td>
+      <td>noir thriller</td>
+      <td>1368149983</td>
+      <td>4</td>
+      <td>Waiting to Exhale (1995)</td>
+      <td>Comedy|Drama|Romance</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>65</td>
+      <td>592</td>
+      <td>dark hero</td>
+      <td>1368150078</td>
+      <td>5</td>
+      <td>Father of the Bride Part II (1995)</td>
+      <td>Comedy</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="the-actual-inner-join">The actual inner join</h2>
+<p><strong>Code:</strong> <code>df1.merge(df2, on = 'col1', how='inner')</code>The <strong>actual</strong> INNER JOINBelow, inner jon the aggregated mean movie_ratings and a new movie_counts (the number of ratings per movie). Then inner join again to <code>movies</code> dataframe.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">movie_counts</span> <span class="o">=</span> <span class="n">ratings</span><span class="p">[[</span><span class="s1">&#39;movieId&#39;</span><span class="p">,</span> <span class="s1">&#39;rating&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;movieId&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="n">movie_ratings</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="n">movie_counts</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="n">merged_1</span> <span class="o">=</span> <span class="n">movie_ratings</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">movie_counts</span><span class="p">,</span> <span class="n">on</span> <span class="o">=</span> <span class="s1">&#39;movieId&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">)</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="n">merged_1</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>rating</th>
+    </tr>
+    <tr>
+      <th>movieId</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>3.921240</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3.211977</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3.151040</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2.861393</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>3.064592</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>rating</th>
+    </tr>
+    <tr>
+      <th>movieId</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>49695</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>22243</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>12735</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2756</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>12161</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>rating_x</th>
+      <th>rating_y</th>
+    </tr>
+    <tr>
+      <th>movieId</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>3.921240</td>
+      <td>49695</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3.211977</td>
+      <td>22243</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3.151040</td>
+      <td>12735</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2.861393</td>
+      <td>2756</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>3.064592</td>
+      <td>12161</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="chaining-together-mergeschained-merging-on-a-merged-dataframe-without-a-new-object-is-possible-but-becomes-unreadable-after-a-few-in-a-row">Chaining together mergesChained merging on a merged dataframe without a new object is possible, but becomes unreadable after a few in a row:</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="n">merged_2</span> <span class="o">=</span> <span class="n">merged_1</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">movies</span><span class="p">,</span> <span class="n">on</span> <span class="o">=</span> <span class="s1">&#39;movieId&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">)</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="n">merged_3</span> <span class="o">=</span> <span class="n">movie_ratings</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">movie_counts</span><span class="p">,</span> <span class="n">on</span> <span class="o">=</span> <span class="s1">&#39;movieId&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">movies</span><span class="p">,</span> <span class="n">on</span> <span class="o">=</span> <span class="s1">&#39;movieId&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">)</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="n">merged_2</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="n">merged_3</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>movieId</th>
+      <th>rating_x</th>
+      <th>rating_y</th>
+      <th>title</th>
+      <th>genres</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>3.921240</td>
+      <td>49695</td>
+      <td>Toy Story (1995)</td>
+      <td>Adventure|Animation|Children|Comedy|Fantasy</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>3.211977</td>
+      <td>22243</td>
+      <td>Jumanji (1995)</td>
+      <td>Adventure|Children|Fantasy</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>3.151040</td>
+      <td>12735</td>
+      <td>Grumpier Old Men (1995)</td>
+      <td>Comedy|Romance</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>2.861393</td>
+      <td>2756</td>
+      <td>Waiting to Exhale (1995)</td>
+      <td>Comedy|Drama|Romance</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>3.064592</td>
+      <td>12161</td>
+      <td>Father of the Bride Part II (1995)</td>
+      <td>Comedy</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>movieId</th>
+      <th>rating_x</th>
+      <th>rating_y</th>
+      <th>title</th>
+      <th>genres</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>3.921240</td>
+      <td>49695</td>
+      <td>Toy Story (1995)</td>
+      <td>Adventure|Animation|Children|Comedy|Fantasy</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>3.211977</td>
+      <td>22243</td>
+      <td>Jumanji (1995)</td>
+      <td>Adventure|Children|Fantasy</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>3.151040</td>
+      <td>12735</td>
+      <td>Grumpier Old Men (1995)</td>
+      <td>Comedy|Romance</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>2.861393</td>
+      <td>2756</td>
+      <td>Waiting to Exhale (1995)</td>
+      <td>Comedy|Drama|Romance</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>3.064592</td>
+      <td>12161</td>
+      <td>Father of the Bride Part II (1995)</td>
+      <td>Comedy</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h1 id="combining-everythingafter-merging-three-dataframes-with-aggregated-ratings-and-rating-counts-data-we-can-apply-a-filter-the-is_anime-which-was-a-string-filter-as-well-as-a-new-filter-for-movies-that-were-both-highly-rated-more-than-4-and-actively-rated-more-than-2000-ratings">Combining everythingAfter merging three dataframes with aggregated ratings and rating counts data, we can apply a filter - the <code>is_anime</code> which was a string filter, as well as a new filter for movies that were both highly rated (more than 4) and actively rated (more than 2000 ratings).</h1>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="n">ani_summary</span> <span class="o">=</span> <span class="n">merged_3</span><span class="p">[</span><span class="n">is_anime</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">merged_3</span><span class="p">[</span><span class="s1">&#39;rating_x&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">4</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">merged_3</span><span class="p">[</span><span class="s1">&#39;rating_y&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">2000</span><span class="p">)]</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="n">ani_summary</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="n">ani_summary</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>/home/jcmint/anaconda3/envs/learningenv/lib/python3.7/site-packages/ipykernel_launcher.py:1: UserWarning: Boolean Series key will be reindexed to match DataFrame index.
+  &quot;&quot;&quot;Entry point for launching an IPython kernel.
+</code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>movieId</th>
+      <th>rating_x</th>
+      <th>rating_y</th>
+      <th>title</th>
+      <th>genres</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>708</th>
+      <td>720</td>
+      <td>4.109473</td>
+      <td>8171</td>
+      <td>Wallace &amp; Gromit: The Best of Aardman Animatio...</td>
+      <td>Adventure|Animation|Comedy</td>
+    </tr>
+    <tr>
+      <th>732</th>
+      <td>745</td>
+      <td>4.167315</td>
+      <td>12073</td>
+      <td>Wallace &amp; Gromit: A Close Shave (1995)</td>
+      <td>Animation|Children|Comedy</td>
+    </tr>
+    <tr>
+      <th>1125</th>
+      <td>1148</td>
+      <td>4.181068</td>
+      <td>15022</td>
+      <td>Wallace &amp; Gromit: The Wrong Trousers (1993)</td>
+      <td>Animation|Children|Comedy|Crime</td>
+    </tr>
+    <tr>
+      <th>1197</th>
+      <td>1223</td>
+      <td>4.066765</td>
+      <td>7781</td>
+      <td>Grand Day Out with Wallace and Gromit, A (1989)</td>
+      <td>Adventure|Animation|Children|Comedy|Sci-Fi</td>
+    </tr>
+    <tr>
+      <th>2914</th>
+      <td>3000</td>
+      <td>4.096299</td>
+      <td>9564</td>
+      <td>Princess Mononoke (Mononoke-hime) (1997)</td>
+      <td>Action|Adventure|Animation|Drama|Fantasy</td>
+    </tr>
+    <tr>
+      <th>3340</th>
+      <td>3429</td>
+      <td>4.120696</td>
+      <td>2585</td>
+      <td>Creature Comforts (1989)</td>
+      <td>Animation|Comedy</td>
+    </tr>
+    <tr>
+      <th>5519</th>
+      <td>5618</td>
+      <td>4.203810</td>
+      <td>13466</td>
+      <td>Spirited Away (Sen to Chihiro no kamikakushi) ...</td>
+      <td>Adventure|Animation|Fantasy</td>
+    </tr>
+    <tr>
+      <th>5591</th>
+      <td>5690</td>
+      <td>4.089744</td>
+      <td>3198</td>
+      <td>Grave of the Fireflies (Hotaru no haka) (1988)</td>
+      <td>Animation|Drama|War</td>
+    </tr>
+    <tr>
+      <th>5872</th>
+      <td>5971</td>
+      <td>4.149481</td>
+      <td>5489</td>
+      <td>My Neighbor Totoro (Tonari no Totoro) (1988)</td>
+      <td>Animation|Children|Drama|Fantasy</td>
+    </tr>
+    <tr>
+      <th>6251</th>
+      <td>6350</td>
+      <td>4.061917</td>
+      <td>3537</td>
+      <td>Laputa: Castle in the Sky (Tenkû no shiro Rapy...</td>
+      <td>Action|Adventure|Animation|Children|Fantasy|Sc...</td>
+    </tr>
+    <tr>
+      <th>6987</th>
+      <td>7099</td>
+      <td>4.092082</td>
+      <td>3334</td>
+      <td>Nausicaä of the Valley of the Wind (Kaze no ta...</td>
+      <td>Adventure|Animation|Drama|Fantasy|Sci-Fi</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="highlight"><pre><span></span><code>11
+</code></pre></div>
+<p>In conclusion, it seems that the two big categories were Wallance &amp; Gromit and Anime, which makes sense, although it misses some Pixar and Disney films which I would've expected to make the cut.</p></div>
+        
+        
+    </div>
+
+    
+      <footer class="col-md-12 text-center">
+          
+          
+            <hr>
+            <p>
+            <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</small>
+            </p>
+          
+
+          
+          
+      </footer>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../js/bootstrap-3.0.3.min.js"></script>
+
+    
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
+        
+                <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/languages/python.min.js"></script>
+                <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/languages/javascript.min.js"></script>
+                <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/languages/html.min.js"></script>
+                <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/languages/css.min.js"></script>
+                <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/languages/bash.min.js"></script>
+                <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/languages/yaml.min.js"></script>
+                <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/languages/markdown.min.js"></script>
+        
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    <script>var base_url = ".."</script>
+    
+    <script src="../js/base.js"></script>
+    <script src="../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+
+</html>

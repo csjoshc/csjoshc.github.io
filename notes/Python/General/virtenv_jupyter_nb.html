@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="date" content="2019-05-30" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #232629; color: #cfcfc2; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; background-color: #232629; color: #7a7c7d; border-right: 1px solid #7a7c7d; }
+td.sourceCode { padding-left: 5px; }
+pre, code { color: #cfcfc2; background-color: #232629; }
+code > span.kw { color: #cfcfc2; } /* Keyword */
+code > span.dt { color: #2980b9; } /* DataType */
+code > span.dv { color: #f67400; } /* DecVal */
+code > span.bn { color: #f67400; } /* BaseN */
+code > span.fl { color: #f67400; } /* Float */
+code > span.cn { color: #27aeae; } /* Constant */
+code > span.ch { color: #3daee9; } /* Char */
+code > span.sc { color: #3daee9; } /* SpecialChar */
+code > span.st { color: #f44f4f; } /* String */
+code > span.vs { color: #da4453; } /* VerbatimString */
+code > span.ss { color: #da4453; } /* SpecialString */
+code > span.im { color: #27ae60; } /* Import */
+code > span.co { color: #7a7c7d; } /* Comment */
+code > span.do { color: #a43340; } /* Documentation */
+code > span.an { color: #3f8058; } /* Annotation */
+code > span.cv { color: #7f8c8d; } /* CommentVar */
+code > span.ot { color: #27ae60; } /* Other */
+code > span.fu { color: #8e44ad; } /* Function */
+code > span.va { color: #27aeae; } /* Variable */
+code > span.cf { color: #fdbc4b; } /* ControlFlow */
+code > span.op { color: #cfcfc2; } /* Operator */
+code > span.bu { color: #7f8c8d; } /* BuiltIn */
+code > span.ex { color: #0099ff; } /* Extension */
+code > span.pp { color: #27ae60; } /* Preprocessor */
+code > span.at { color: #2980b9; } /* Attribute */
+code > span.re { color: #2980b9; } /* RegionMarker */
+code > span.in { color: #c45b00; } /* Information */
+code > span.wa { color: #da4453; } /* Warning */
+code > span.al { color: #95da4c; } /* Alert */
+code > span.er { color: #da4453; } /* Error */
+code > span. { color: #cfcfc2; } /* Normal */
+  </style>
+</head>
+<body>
+<div id="TOC">
+<ul>
+<li><a href="#introduction">Introduction</a><ul>
+<li><a href="#setting-up-a-virtual-env-anaconda-navigator">Setting up a virtual env (Anaconda Navigator)</a></li>
+<li><a href="#setting-up-jupyter-with-my-new-env">Setting up Jupyter with my new env</a></li>
+<li><a href="#kernel-selection">Kernel selection</a></li>
+<li><a href="#other-points-about-jupyter-kernel-and-virtual-env">Other points about Jupyter, kernel and virtual env</a></li>
+<li><a href="#previews-and-formatting">Previews and formatting</a></li>
+</ul></li>
+</ul>
+</div>
+<p><a href="../../../index.html">Go back to index</a></p>
+<p><a href="../base.html">Go back to Python Portal</a></p>
+<head>
+  
+  <meta name="viewport" content="initial-scale=1, width=device-width">
+</head>
+<h1 id="introduction">Introduction</h1>
+<p>Having coded in Python for 6 months or so already, I had always used Spyder and pip install mindlessly (so I guess no virtual env either). I heard about virtual env from a colleague and looked into it, and then decided to implement it on my Linux machine.</p>
+<h2 id="setting-up-a-virtual-env-anaconda-navigator">Setting up a virtual env (Anaconda Navigator)</h2>
+<p>After Anaconda was installed, I created a new virtual env for learning purposes using the GUI:</p>
+<p><img src="https://i.imgur.com/VyaA3yh.webp" /></p>
+<p>Options included python 3.7 and MRO for R</p>
+<h2 id="setting-up-jupyter-with-my-new-env">Setting up Jupyter with my new env</h2>
+<pre><code>conda activate learningenv
+#
+source activate learningenv
+# output:
+(learningenv) jcmint@jcmint:/media/jcmint/Data Volume/csjoshc.github.io$</code></pre>
+<p>Next, I installed a few packages inside my learningenv</p>
+<pre><code>conda info --envs
+# conda environments: # just to be sure im not install packages into my github repository...
+#
+base                     /home/jcmint/anaconda3
+learningenv           *  /home/jcmint/anaconda3/envs/learningenv
+
+
+conda install jupyter 
+conda install ipykernel
+conda install nb_conda
+
+</code></pre>
+<h2 id="kernel-selection">Kernel selection</h2>
+<p>Jupyter notebook needs to be started <strong>inside</strong> of a virtualenv. A notebook created outside of it can still be used inside of it, if you close Jupyter and activate the correct env.</p>
+<p>In the bash Terminal:</p>
+<pre><code>jcmint@jcmint:~$ source activate learningenv
+(learningenv) jcmint@jcmint:~$ jupyter notebook
+[I 22:35:27.784 NotebookApp] [nb_conda_kernels] enabled, 1 kernels found
+[I 22:35:27.967 NotebookApp] [nb_conda] enabled</code></pre>
+<p><strong>Incorrect</strong></p>
+<pre><code>import sys
+print(sys.executable)
+
+
+# /home/jcmint/anaconda3/bin/python</code></pre>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># This code block verifies correct env selection </span>
+<span class="co"># Correct (if switched env before running jupyter notebook in bash)</span>
+<span class="im">import</span> sys
+sys.executable</code></pre></div>
+<pre><code>&#39;/home/jcmint/anaconda3/envs/learningenv/bin/python&#39;</code></pre>
+<p>The code block above should match the image below:</p>
+<p><img src="https://i.imgur.com/n8J3HcA.webp" /></p>
+<h2 id="other-points-about-jupyter-kernel-and-virtual-env">Other points about Jupyter, kernel and virtual env</h2>
+<p>You can see the list of available kernels in a jupyter notebook session in the <code>Conda</code> tab. Notebooks are not created within an environment, really. Rather, they can be created and run in any environment (although dependent code will obviously break if the package dependencies are unmet in different environments).</p>
+<p><img src="https://i.imgur.com/Wo2Q3lT.webp" /></p>
+<p>Basically, the kernel and environment that a jupyter session are in are not persistent once you close the session. It's therefore necessary to be disciplined and use <code>source activate learningenv</code> before <code>jupyter notebook</code> on the Terminal.</p>
+<h2 id="previews-and-formatting">Previews and formatting</h2>
+<p>The in-session formatting of jupyter has nothing to do with css. Also, downloading as HTML also doesn't use the embedded CSS stylesheet. Converting to markdown, then to html, will use the stylesheet. However, this means that I will need to copy and paste each .md from Downloads to the repository and then compile into HTML using vscode. The only way to get the formatting right for good is to override the default css by adding a file to the directory below <a href="https://stackoverflow.com/questions/32156248/how-do-i-set-custom-css-for-my-ipython-ihaskell-jupyter-notebook/32158550#32158550">(according to this guide)</a></p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> jupyter_core
+jupyter_core.paths.jupyter_config_dir()
+</code></pre></div>
+<pre><code>&#39;/home/jcmint/.jupyter&#39;</code></pre>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="op">!</span>ls <span class="op">/</span>media<span class="op">/</span>jcmint<span class="op">/</span><span class="st">&#39;Data Volume&#39;</span><span class="op">/</span>csjoshc.github.io<span class="op">/</span>css_themes
+<span class="op">!</span>ls <span class="op">/</span>home<span class="op">/</span>jcmint<span class="op">/</span>.jupyter
+<span class="op">!</span>mkdir <span class="op">/</span>home<span class="op">/</span>jcmint<span class="op">/</span>.jupyter<span class="op">/</span>custom
+<span class="op">!</span>cp <span class="op">/</span>media<span class="op">/</span>jcmint<span class="op">/</span><span class="st">&#39;Data Volume&#39;</span><span class="op">/</span>csjoshc.github.io<span class="op">/</span>css_themes<span class="op">/</span>github.css <span class="op">/</span>home<span class="op">/</span>jcmint<span class="op">/</span>.jupyter<span class="op">/</span>custom<span class="op">/</span>custom.css
+<span class="op">!</span>ls <span class="op">/</span>home<span class="op">/</span>jcmint<span class="op">/</span>.jupyter<span class="op">/</span>custom</code></pre></div>
+<pre><code>css_gh.css  github.css  vscode.css
+custom  jupyter_notebook_config.py  lab  migrated
+mkdir: cannot create directory ‘/home/jcmint/.jupyter/custom’: File exists
+custom.css</code></pre>
+</body>
+</html>

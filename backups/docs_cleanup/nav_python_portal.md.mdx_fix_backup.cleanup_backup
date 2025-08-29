@@ -1,0 +1,7 @@
+<!-- Python Portal Navigation Template -->
+<!-- This template provides navigation for Python Portal pages -->
+<div class="return-navigation">
+  <a href="../../../index.md" class="nav-button index-button">🏠 Home</a>
+  <a href="../base.md" class="nav-button portal-button">🐍 Python</a>
+</div>
+<!-- Content starts here -->

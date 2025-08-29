@@ -1,0 +1,501 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="date" content="2019-05-30" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #232629; color: #cfcfc2; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; background-color: #232629; color: #7a7c7d; border-right: 1px solid #7a7c7d; }
+td.sourceCode { padding-left: 5px; }
+pre, code { color: #cfcfc2; background-color: #232629; }
+code > span.kw { color: #cfcfc2; } /* Keyword */
+code > span.dt { color: #2980b9; } /* DataType */
+code > span.dv { color: #f67400; } /* DecVal */
+code > span.bn { color: #f67400; } /* BaseN */
+code > span.fl { color: #f67400; } /* Float */
+code > span.cn { color: #27aeae; } /* Constant */
+code > span.ch { color: #3daee9; } /* Char */
+code > span.sc { color: #3daee9; } /* SpecialChar */
+code > span.st { color: #f44f4f; } /* String */
+code > span.vs { color: #da4453; } /* VerbatimString */
+code > span.ss { color: #da4453; } /* SpecialString */
+code > span.im { color: #27ae60; } /* Import */
+code > span.co { color: #7a7c7d; } /* Comment */
+code > span.do { color: #a43340; } /* Documentation */
+code > span.an { color: #3f8058; } /* Annotation */
+code > span.cv { color: #7f8c8d; } /* CommentVar */
+code > span.ot { color: #27ae60; } /* Other */
+code > span.fu { color: #8e44ad; } /* Function */
+code > span.va { color: #27aeae; } /* Variable */
+code > span.cf { color: #fdbc4b; } /* ControlFlow */
+code > span.op { color: #cfcfc2; } /* Operator */
+code > span.bu { color: #7f8c8d; } /* BuiltIn */
+code > span.ex { color: #0099ff; } /* Extension */
+code > span.pp { color: #27ae60; } /* Preprocessor */
+code > span.at { color: #2980b9; } /* Attribute */
+code > span.re { color: #2980b9; } /* RegionMarker */
+code > span.in { color: #c45b00; } /* Information */
+code > span.wa { color: #da4453; } /* Warning */
+code > span.al { color: #95da4c; } /* Alert */
+code > span.er { color: #da4453; } /* Error */
+code > span. { color: #cfcfc2; } /* Normal */
+  </style>
+</head>
+<body>
+<div id="TOC">
+<ul>
+<li><a href="#dataframes---subsetting-cleaning">Dataframes - Subsetting &amp; Cleaning</a><ul>
+<li><a href="#df.copy"><code>df.copy()</code></a></li>
+<li><a href="#df.shape-df.isnull.any-df.dropna"><code>df.shape, df.isnull().any(), df.dropna()</code></a></li>
+<li><a href="#filling-replacing-imputations">Filling, Replacing, Imputations</a></li>
+<li><a href="#data-operations---slicing">Data Operations - Slicing</a><ul>
+<li><a href="#subset-rows">Subset rows</a></li>
+<li><a href="#df.value_counts---frequency-table"><code>df.value_counts()</code> - Frequency table</a></li>
+<li><a href="#create-derived-variable-column">Create derived variable column</a></li>
+<li><a href="#add-row-by-index-location">Add row by index location</a></li>
+<li><a href="#drop-row-by-index-location">Drop row by index location</a></li>
+<li><a href="#drop-column---del">Drop column - <strong>del</strong></a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<p><a href="../../../index.html">Go back to index</a></p>
+<p><a href="../base.html">Go back to Python Portal</a></p>
+<head>
+  
+  <meta name="viewport" content="initial-scale=1, width=device-width">
+</head>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> sys
+<span class="bu">print</span>(sys.executable)
+<span class="im">from</span> IPython.core.interactiveshell <span class="im">import</span> InteractiveShell
+InteractiveShell.ast_node_interactivity <span class="op">=</span> <span class="st">&quot;all&quot;</span>
+InteractiveShell.colors <span class="op">=</span> <span class="st">&quot;Linux&quot;</span>
+InteractiveShell.separate_in <span class="op">=</span> <span class="dv">0</span>
+<span class="im">from</span> tabulate <span class="im">import</span> tabulate
+<span class="im">import</span> pandas <span class="im">as</span> pd
+<span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt
+<span class="im">import</span> os, sys
+
+os.chdir(sys.path[<span class="dv">0</span>]) <span class="co"># Change dir to the folder this .ipynb file is in</span>
+<span class="bu">print</span>(os.listdir(<span class="st">&#39;../../../../data/w4pd&#39;</span>))
+movies <span class="op">=</span> pd.read_csv(<span class="st">&#39;../../../../data/w4pd/movies.csv&#39;</span>)
+tags <span class="op">=</span> pd.read_csv(<span class="st">&#39;../../../../data/w4pd/tags.csv&#39;</span>)
+ratings <span class="op">=</span> pd.read_csv(<span class="st">&#39;../../../../data/w4pd/ratings.csv&#39;</span>)</code></pre></div>
+<pre><code>/home/jcmint/anaconda3/envs/learningenv/bin/python
+[&#39;genome-scores.csv&#39;, &#39;genome-tags.csv&#39;, &#39;Icon\r&#39;, &#39;links.csv&#39;, &#39;movies.csv&#39;, &#39;ratings.csv&#39;, &#39;README.txt&#39;, &#39;tags.csv&#39;]</code></pre>
+<h1 id="dataframes---subsetting-cleaning">Dataframes - Subsetting &amp; Cleaning</h1>
+<h2 id="df.copy"><code>df.copy()</code></h2>
+<p>Certain ways of indexing will return a reference to the original object instead of a copy of an object. To make this explicit use <code>.copy()</code> when subsetting a df.</p>
+<h2 id="df.shape-df.isnull.any-df.dropna"><code>df.shape, df.isnull().any(), df.dropna()</code></h2>
+<ul>
+<li>Find the shape</li>
+<li>Test if any values in each column are NA</li>
+<li>Drop ROWS with null values.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span>(ratings.shape)
+<span class="bu">print</span>(ratings.isnull().<span class="bu">any</span>())</code></pre></div>
+<pre><code>(20000263, 4)
+userId       False
+movieId      False
+rating       False
+timestamp    False
+dtype: bool</code></pre>
+<h2 id="filling-replacing-imputations">Filling, Replacing, Imputations</h2>
+<p>Filling in Data</p>
+<ul>
+<li>Forward filling - take prior values to fill forward into missing values</li>
+<li><code>df.fillna(method = 'ffill')</code></li>
+<li>Backward filling</li>
+<li><code>df.fillna(method = 'backfill')</code></li>
+</ul>
+<p>Replacing</p>
+<ul>
+<li>Replace one value with another</li>
+<li><code>df = pd.replace(9999, 0)</code></li>
+<li>Replace 9999 with 0</li>
+</ul>
+<p>Dropping rows with missing values</p>
+<ul>
+<li><code>df.dropna(axis = 0)</code></li>
+<li>default 0 drops rows</li>
+</ul>
+<p>Linear interpolation (numeric)</p>
+<ul>
+<li>fill in missing values based on averaging the value before and after</li>
+<li><code>df.interpolate()</code></li>
+</ul>
+<h2 id="data-operations---slicing">Data Operations - Slicing</h2>
+<h3 id="subset-rows">Subset rows</h3>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">first_df <span class="op">=</span> ratings[<span class="dv">1</span>:<span class="dv">5</span>]
+last_df <span class="op">=</span> ratings[<span class="op">-</span><span class="dv">5</span>:]
+first_df
+last_df</code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>userId</th>
+      <th>movieId</th>
+      <th>rating</th>
+      <th>timestamp</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>29</td>
+      <td>3.5</td>
+      <td>1112484676</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>32</td>
+      <td>3.5</td>
+      <td>1112484819</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>47</td>
+      <td>3.5</td>
+      <td>1112484727</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>50</td>
+      <td>3.5</td>
+      <td>1112484580</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>userId</th>
+      <th>movieId</th>
+      <th>rating</th>
+      <th>timestamp</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>20000258</th>
+      <td>138493</td>
+      <td>68954</td>
+      <td>4.5</td>
+      <td>1258126920</td>
+    </tr>
+    <tr>
+      <th>20000259</th>
+      <td>138493</td>
+      <td>69526</td>
+      <td>4.5</td>
+      <td>1259865108</td>
+    </tr>
+    <tr>
+      <th>20000260</th>
+      <td>138493</td>
+      <td>69644</td>
+      <td>3.0</td>
+      <td>1260209457</td>
+    </tr>
+    <tr>
+      <th>20000261</th>
+      <td>138493</td>
+      <td>70286</td>
+      <td>5.0</td>
+      <td>1258126944</td>
+    </tr>
+    <tr>
+      <th>20000262</th>
+      <td>138493</td>
+      <td>71619</td>
+      <td>2.5</td>
+      <td>1255811136</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<h3 id="df.value_counts---frequency-table"><code>df.value_counts()</code> - Frequency table</h3>
+<p>One column frequency table.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">ratings[<span class="st">&#39;rating&#39;</span>].value_counts()</code></pre></div>
+<pre><code>4.0    5561926
+3.0    4291193
+5.0    2898660
+3.5    2200156
+4.5    1534824
+2.0    1430997
+2.5     883398
+1.0     680732
+1.5     279252
+0.5     239125
+Name: rating, dtype: int64</code></pre>
+<h3 id="create-derived-variable-column">Create derived variable column</h3>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">first_df[<span class="st">&#39;normalized&#39;</span>] <span class="op">=</span> first_df[<span class="st">&#39;rating&#39;</span>]<span class="op">/</span><span class="dv">5</span>
+first_df[[<span class="st">&#39;rating&#39;</span>, <span class="st">&#39;normalized&#39;</span>]]</code></pre></div>
+<pre><code>/home/jcmint/anaconda3/envs/learningenv/lib/python3.7/site-packages/ipykernel_launcher.py:1: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stable/indexing.html#indexing-view-versus-copy
+  &quot;&quot;&quot;Entry point for launching an IPython kernel.</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>rating</th>
+      <th>normalized</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>3.5</td>
+      <td>0.7</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3.5</td>
+      <td>0.7</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3.5</td>
+      <td>0.7</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>3.5</td>
+      <td>0.7</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<h3 id="add-row-by-index-location">Add row by index location</h3>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">first_df.loc[<span class="dv">3</span>] <span class="op">=</span> [<span class="st">&quot;test&quot;</span>, <span class="st">&quot;test2&quot;</span>, <span class="st">&quot;test3&quot;</span>, <span class="va">False</span>, <span class="va">True</span>]
+first_df</code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>userId</th>
+      <th>movieId</th>
+      <th>rating</th>
+      <th>timestamp</th>
+      <th>normalized</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>29</td>
+      <td>3.5</td>
+      <td>1112484676</td>
+      <td>0.7</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>32</td>
+      <td>3.5</td>
+      <td>1112484819</td>
+      <td>0.7</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>test</td>
+      <td>test2</td>
+      <td>test3</td>
+      <td>False</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>50</td>
+      <td>3.5</td>
+      <td>1112484580</td>
+      <td>0.7</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<h3 id="drop-row-by-index-location">Drop row by index location</h3>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">first_df <span class="op">=</span> first_df.drop(<span class="dv">3</span>)
+first_df</code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>userId</th>
+      <th>movieId</th>
+      <th>rating</th>
+      <th>timestamp</th>
+      <th>normalized</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>29</td>
+      <td>3.5</td>
+      <td>1112484676</td>
+      <td>0.7</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>32</td>
+      <td>3.5</td>
+      <td>1112484819</td>
+      <td>0.7</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>50</td>
+      <td>3.5</td>
+      <td>1112484580</td>
+      <td>0.7</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<h3 id="drop-column---del">Drop column - <strong>del</strong></h3>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">del</span> first_df[<span class="st">&#39;timestamp&#39;</span>]
+first_df</code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>userId</th>
+      <th>movieId</th>
+      <th>rating</th>
+      <th>normalized</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>29</td>
+      <td>3.5</td>
+      <td>0.7</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>32</td>
+      <td>3.5</td>
+      <td>0.7</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>50</td>
+      <td>3.5</td>
+      <td>0.7</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</body>
+</html>
