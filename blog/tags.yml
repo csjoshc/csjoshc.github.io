@@ -210,3 +210,19 @@ optimization:
   label: Optimization
   permalink: /optimization
   description: Performance and process optimization
+
+# Missing tags identified in build warnings
+linux:
+  label: Linux
+  permalink: /linux
+  description: Linux operating system and administration
+
+python:
+  label: Python
+  permalink: /python
+  description: Python programming language and development
+
+web-development:
+  label: Web Development
+  permalink: /web-development
+  description: Web development technologies and practices

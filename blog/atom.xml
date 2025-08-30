@@ -1,0 +1,886 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://csjoshc.github.io/blog</id>
+    <title>CSJoshC Learning Platform Blog</title>
+    <updated>2025-08-28T00:00:00.000Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://csjoshc.github.io/blog"/>
+    <subtitle>CSJoshC Learning Platform Blog</subtitle>
+    <icon>https://csjoshc.github.io/img/favicon-32x32.png</icon>
+    <entry>
+        <title type="html"><![CDATA[Major Site Overhaul - August 2025]]></title>
+        <id>https://csjoshc.github.io/blog/major-site-overhaul-2025</id>
+        <link href="https://csjoshc.github.io/blog/major-site-overhaul-2025"/>
+        <updated>2025-08-28T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[After a long break, we've implemented major overhauls to the style and layout of the website, making the best use of GitHub Pages static hosting capabilities.]]></summary>
+        <content type="html"><![CDATA[<p>After a long break from this site, we have some major overhauls of the style and layout of the website, making the best use of the GitHub Pages static hosting capabilities.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-new-additions">🚀 New Additions<a href="https://csjoshc.github.io/blog/major-site-overhaul-2025#-new-additions" class="hash-link" aria-label="Direct link to 🚀 New Additions" title="Direct link to 🚀 New Additions">​</a></h2>
+<ul>
+<li><strong>Docusaurus build tools</strong> - Modern static site generation</li>
+<li><strong>AI (Cursor) integration</strong> - To manage conversion process</li>
+<li><strong>Extensive cursor rules</strong> - Enforce high quality build pipelines</li>
+<li><strong>Quality assurance</strong> - Ensure all pages build without errors when converting from <code>.ipynb</code> or <code>.py</code> → <code>.md</code> → <code>.html</code></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-historical-context">📸 Historical Context<a href="https://csjoshc.github.io/blog/major-site-overhaul-2025#-historical-context" class="hash-link" aria-label="Direct link to 📸 Historical Context" title="Direct link to 📸 Historical Context">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="june-2019---original-site">June 2019 - Original Site<a href="https://csjoshc.github.io/blog/major-site-overhaul-2025#june-2019---original-site" class="hash-link" aria-label="Direct link to June 2019 - Original Site" title="Direct link to June 2019 - Original Site">​</a></h3>
+<p><img decoding="async" loading="lazy" alt="June 15, 2019 site screenshot" src="https://csjoshc.github.io/assets/images/15_6_2019-b7b1948d1448ad4472c8ffe51984f8f8.png" width="3414" height="1658" class="img_ev3q"></p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="august-2025---mkdocs-version-v1">August 2025 - MkDocs Version (v1)<a href="https://csjoshc.github.io/blog/major-site-overhaul-2025#august-2025---mkdocs-version-v1" class="hash-link" aria-label="Direct link to August 2025 - MkDocs Version (v1)" title="Direct link to August 2025 - MkDocs Version (v1)">​</a></h3>
+<p><img decoding="async" loading="lazy" alt="August 28, 2025 v1 site screenshot" src="https://csjoshc.github.io/assets/images/28_8_2025_v1-abb6a0aac1a9edd968f1ba36e8f61a77.png" width="3426" height="1776" class="img_ev3q"></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-current-status">🎯 Current Status<a href="https://csjoshc.github.io/blog/major-site-overhaul-2025#-current-status" class="hash-link" aria-label="Direct link to 🎯 Current Status" title="Direct link to 🎯 Current Status">​</a></h2>
+<p>The final version is just a bit more refined, but we could probably have achieved the same thing with MkDocs. However, Docusaurus provides better integration with modern web development workflows and enhanced features for documentation and blogging.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-migration-process">🔄 Migration Process<a href="https://csjoshc.github.io/blog/major-site-overhaul-2025#-migration-process" class="hash-link" aria-label="Direct link to 🔄 Migration Process" title="Direct link to 🔄 Migration Process">​</a></h2>
+<p>This migration involved:</p>
+<ol>
+<li><strong>Content conversion</strong> from various formats to markdown</li>
+<li><strong>Navigation restructuring</strong> for better user experience</li>
+<li><strong>Build pipeline optimization</strong> for faster development cycles</li>
+<li><strong>Quality enforcement</strong> through automated checks and AI assistance</li>
+</ol>
+<hr>
+<p><em>This post marks the beginning of a new era for the learning platform, with improved tools and processes for content management.</em></p>]]></content>
+        <author>
+            <name>Josh Chiu</name>
+            <uri>https://www.linkedin.com/in/joshua-chiu/</uri>
+        </author>
+        <category label="Site Updates" term="Site Updates"/>
+        <category label="Docusaurus" term="Docusaurus"/>
+        <category label="AI Tools" term="AI Tools"/>
+        <category label="Development" term="Development"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Welcome]]></title>
+        <id>https://csjoshc.github.io/blog/welcome</id>
+        <link href="https://csjoshc.github.io/blog/welcome"/>
+        <updated>2021-08-26T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Docusaurus blogging features are powered by the blog plugin.]]></summary>
+        <content type="html"><![CDATA[<p><a href="https://docusaurus.io/docs/blog" target="_blank" rel="noopener noreferrer">Docusaurus blogging features</a> are powered by the <a href="https://docusaurus.io/docs/api/plugins/@docusaurus/plugin-content-blog" target="_blank" rel="noopener noreferrer">blog plugin</a>.</p>
+<p>Here are a few tips you might find useful.</p>
+<p>Simply add Markdown files (or folders) to the <code>blog</code> directory.</p>
+<p>Regular blog authors can be added to <code>authors.yml</code>.</p>
+<p>The blog post date can be extracted from filenames, such as:</p>
+<ul>
+<li><code>2019-05-30-welcome.md</code></li>
+<li><code>2019-05-30-welcome/index.md</code></li>
+</ul>
+<p>A blog post folder can be convenient to co-locate blog post images:</p>
+<p><img decoding="async" loading="lazy" alt="Docusaurus Plushie" src="https://csjoshc.github.io/assets/images/docusaurus-plushie-banner-a60f7593abca1e3eef26a9afa244e4fb.jpeg" width="1500" height="500" class="img_ev3q"></p>
+<p>The blog supports tags as well!</p>
+<p><strong>And if you don't want a blog</strong>: just delete this directory, and use <code>blog: false</code> in your Docusaurus config.</p>]]></content>
+        <author>
+            <name>Sébastien Lorber</name>
+            <uri>https://sebastienlorber.com</uri>
+        </author>
+        <author>
+            <name>Yangshun Tay</name>
+            <uri>https://linkedin.com/in/yangshun</uri>
+        </author>
+        <category label="Facebook" term="Facebook"/>
+        <category label="Hello" term="Hello"/>
+        <category label="Docusaurus" term="Docusaurus"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Final June Update and Summer Planning - June 2019]]></title>
+        <id>https://csjoshc.github.io/blog/final-june-update-2019</id>
+        <link href="https://csjoshc.github.io/blog/final-june-update-2019"/>
+        <updated>2019-06-23T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Final update for June 2019 with reflection on progress and planning for summer learning activities.]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-june-progress-summary">📊 June Progress Summary<a href="https://csjoshc.github.io/blog/final-june-update-2019#-june-progress-summary" class="hash-link" aria-label="Direct link to 📊 June Progress Summary" title="Direct link to 📊 June Progress Summary">​</a></h2>
+<p>As June comes to a close, this final update reflects on the month's achievements and plans for the summer learning period.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-monthly-achievements">🎯 Monthly Achievements<a href="https://csjoshc.github.io/blog/final-june-update-2019#-monthly-achievements" class="hash-link" aria-label="Direct link to 🎯 Monthly Achievements" title="Direct link to 🎯 Monthly Achievements">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="technical-skills-developed">Technical Skills Developed<a href="https://csjoshc.github.io/blog/final-june-update-2019#technical-skills-developed" class="hash-link" aria-label="Direct link to Technical Skills Developed" title="Direct link to Technical Skills Developed">​</a></h3>
+<ul>
+<li><strong>Full-stack web development</strong> with Python frameworks</li>
+<li><strong>Database design</strong> and SQL optimization</li>
+<li><strong>Frontend development</strong> and responsive design</li>
+<li><strong>Deployment</strong> and hosting configuration</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="projects-completed">Projects Completed<a href="https://csjoshc.github.io/blog/final-june-update-2019#projects-completed" class="hash-link" aria-label="Direct link to Projects Completed" title="Direct link to Projects Completed">​</a></h3>
+<ul>
+<li><strong>Portfolio website</strong> fully functional and deployed</li>
+<li><strong>Data dashboard</strong> with real-time capabilities</li>
+<li><strong>Learning platform</strong> with content management</li>
+<li><strong>Documentation</strong> and code organization</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-summer-learning-plans">🌞 Summer Learning Plans<a href="https://csjoshc.github.io/blog/final-june-update-2019#-summer-learning-plans" class="hash-link" aria-label="Direct link to 🌞 Summer Learning Plans" title="Direct link to 🌞 Summer Learning Plans">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="advanced-python-topics">Advanced Python Topics<a href="https://csjoshc.github.io/blog/final-june-update-2019#advanced-python-topics" class="hash-link" aria-label="Direct link to Advanced Python Topics" title="Direct link to Advanced Python Topics">​</a></h3>
+<ul>
+<li><strong>Machine learning</strong> fundamentals and libraries</li>
+<li><strong>Data science</strong> tools and techniques</li>
+<li><strong>Advanced algorithms</strong> and optimization</li>
+<li><strong>System design</strong> and architecture patterns</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="skill-enhancement">Skill Enhancement<a href="https://csjoshc.github.io/blog/final-june-update-2019#skill-enhancement" class="hash-link" aria-label="Direct link to Skill Enhancement" title="Direct link to Skill Enhancement">​</a></h3>
+<ul>
+<li><strong>DevOps practices</strong> and automation</li>
+<li><strong>Cloud computing</strong> and infrastructure</li>
+<li><strong>Security</strong> and best practices</li>
+<li><strong>Performance engineering</strong> and optimization</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-learning-methodology">🔄 Learning Methodology<a href="https://csjoshc.github.io/blog/final-june-update-2019#-learning-methodology" class="hash-link" aria-label="Direct link to 🔄 Learning Methodology" title="Direct link to 🔄 Learning Methodology">​</a></h2>
+<p>The summer approach will focus on:</p>
+<ul>
+<li><strong>Project-based learning</strong> with real-world applications</li>
+<li><strong>Online courses</strong> and structured content</li>
+<li><strong>Community engagement</strong> and collaboration</li>
+<li><strong>Documentation</strong> and knowledge sharing</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-resource-planning">📚 Resource Planning<a href="https://csjoshc.github.io/blog/final-june-update-2019#-resource-planning" class="hash-link" aria-label="Direct link to 📚 Resource Planning" title="Direct link to 📚 Resource Planning">​</a></h2>
+<ul>
+<li><strong>Course selection</strong> for advanced topics</li>
+<li><strong>Project ideas</strong> and implementation planning</li>
+<li><strong>Learning schedule</strong> and time management</li>
+<li><strong>Progress tracking</strong> and milestone setting</li>
+</ul>
+<hr>
+<p><em>Completing a successful June with comprehensive web development skills and planning for advanced summer learning activities.</em></p>]]></content>
+        <author>
+            <name>Josh Chiu</name>
+            <uri>https://www.linkedin.com/in/joshua-chiu/</uri>
+        </author>
+        <category label="Summer Planning" term="Summer Planning"/>
+        <category label="Reflection" term="Reflection"/>
+        <category label="Learning" term="Learning"/>
+        <category label="python" term="python"/>
+        <category label="web-development" term="web-development"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Project Completion and Future Planning - June 2019]]></title>
+        <id>https://csjoshc.github.io/blog/project-completion-june-2019</id>
+        <link href="https://csjoshc.github.io/blog/project-completion-june-2019"/>
+        <updated>2019-06-20T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Completing the initial web development projects and planning future learning directions and advanced topics.]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-project-milestones-achieved">🎉 Project Milestones Achieved<a href="https://csjoshc.github.io/blog/project-completion-june-2019#-project-milestones-achieved" class="hash-link" aria-label="Direct link to 🎉 Project Milestones Achieved" title="Direct link to 🎉 Project Milestones Achieved">​</a></h2>
+<p>This week marked the completion of the initial web development projects, representing a significant milestone in the learning journey from basic Python to full-stack web development.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-completed-projects">✅ Completed Projects<a href="https://csjoshc.github.io/blog/project-completion-june-2019#-completed-projects" class="hash-link" aria-label="Direct link to ✅ Completed Projects" title="Direct link to ✅ Completed Projects">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="portfolio-website">Portfolio Website<a href="https://csjoshc.github.io/blog/project-completion-june-2019#portfolio-website" class="hash-link" aria-label="Direct link to Portfolio Website" title="Direct link to Portfolio Website">​</a></h3>
+<ul>
+<li><strong>Full-stack Django application</strong> deployed and live</li>
+<li><strong>Responsive design</strong> working across all devices</li>
+<li><strong>Content management</strong> system fully functional</li>
+<li><strong>User authentication</strong> and admin interface complete</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="data-dashboard">Data Dashboard<a href="https://csjoshc.github.io/blog/project-completion-june-2019#data-dashboard" class="hash-link" aria-label="Direct link to Data Dashboard" title="Direct link to Data Dashboard">​</a></h3>
+<ul>
+<li><strong>Flask API</strong> serving real-time data</li>
+<li><strong>Interactive visualizations</strong> and charts</li>
+<li><strong>Database integration</strong> and optimization</li>
+<li><strong>User sessions</strong> and data privacy implemented</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-future-learning-directions">🔮 Future Learning Directions<a href="https://csjoshc.github.io/blog/project-completion-june-2019#-future-learning-directions" class="hash-link" aria-label="Direct link to 🔮 Future Learning Directions" title="Direct link to 🔮 Future Learning Directions">​</a></h2>
+<p>With the foundation established, planning for advanced topics:</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="machine-learning-integration">Machine Learning Integration<a href="https://csjoshc.github.io/blog/project-completion-june-2019#machine-learning-integration" class="hash-link" aria-label="Direct link to Machine Learning Integration" title="Direct link to Machine Learning Integration">​</a></h3>
+<ul>
+<li><strong>Python ML libraries</strong> (scikit-learn, TensorFlow)</li>
+<li><strong>Data preprocessing</strong> and feature engineering</li>
+<li><strong>Model deployment</strong> and API integration</li>
+<li><strong>Real-time predictions</strong> and recommendations</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="devops-and-deployment">DevOps and Deployment<a href="https://csjoshc.github.io/blog/project-completion-june-2019#devops-and-deployment" class="hash-link" aria-label="Direct link to DevOps and Deployment" title="Direct link to DevOps and Deployment">​</a></h3>
+<ul>
+<li><strong>Containerization</strong> with Docker</li>
+<li><strong>CI/CD pipelines</strong> and automation</li>
+<li><strong>Cloud infrastructure</strong> and scaling</li>
+<li><strong>Monitoring</strong> and observability</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-advanced-course-planning">📚 Advanced Course Planning<a href="https://csjoshc.github.io/blog/project-completion-june-2019#-advanced-course-planning" class="hash-link" aria-label="Direct link to 📚 Advanced Course Planning" title="Direct link to 📚 Advanced Course Planning">​</a></h2>
+<ul>
+<li><strong>Advanced algorithms</strong> and data structures</li>
+<li><strong>System design</strong> and architecture patterns</li>
+<li><strong>Security</strong> and penetration testing</li>
+<li><strong>Performance engineering</strong> and optimization</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-long-term-goals">🎯 Long-term Goals<a href="https://csjoshc.github.io/blog/project-completion-june-2019#-long-term-goals" class="hash-link" aria-label="Direct link to 🎯 Long-term Goals" title="Direct link to 🎯 Long-term Goals">​</a></h2>
+<ul>
+<li><strong>Open source contributions</strong> to Python projects</li>
+<li><strong>Technical writing</strong> and knowledge sharing</li>
+<li><strong>Community engagement</strong> and mentoring</li>
+<li><strong>Professional development</strong> and career growth</li>
+</ul>
+<hr>
+<p><em>Completing the initial learning phase and planning for advanced topics in machine learning, DevOps, and system architecture.</em></p>]]></content>
+        <author>
+            <name>Josh Chiu</name>
+            <uri>https://www.linkedin.com/in/joshua-chiu/</uri>
+        </author>
+        <category label="Project Completion" term="Project Completion"/>
+        <category label="Future Planning" term="Future Planning"/>
+        <category label="python" term="python"/>
+        <category label="web-development" term="web-development"/>
+        <category label="Learning" term="Learning"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[CS50 Projects Update - June 2019]]></title>
+        <id>https://csjoshc.github.io/blog/cs50-projects-update-june-2019</id>
+        <link href="https://csjoshc.github.io/blog/cs50-projects-update-june-2019"/>
+        <updated>2019-06-15T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Update on CS50 course progress and upcoming project work including Similarities, Survey, Finance, and Indeed Cloud projects.]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-current-focus">🎯 Current Focus<a href="https://csjoshc.github.io/blog/cs50-projects-update-june-2019#-current-focus" class="hash-link" aria-label="Direct link to 🎯 Current Focus" title="Direct link to 🎯 Current Focus">​</a></h2>
+<p>In the short term, work on the following CS50 problem sets:</p>
+<ul>
+<li><strong><a href="https://docs.cs50.net/2019/x/psets/7/similarities/similarities.md" target="_blank" rel="noopener noreferrer">Similarities</a></strong> - Text similarity analysis</li>
+<li><strong><a href="https://docs.cs50.net/2019/x/psets/7/survey/survey.md" target="_blank" rel="noopener noreferrer">Survey</a></strong> - Data collection and analysis</li>
+<li><strong><a href="https://docs.cs50.net/2019/x/psets/8/finance/finance.md" target="_blank" rel="noopener noreferrer">Finance</a></strong> - Web application development</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-upcoming-projects">🚀 Upcoming Projects<a href="https://csjoshc.github.io/blog/cs50-projects-update-june-2019#-upcoming-projects" class="hash-link" aria-label="Direct link to 🚀 Upcoming Projects" title="Direct link to 🚀 Upcoming Projects">​</a></h2>
+<p>After completing the CS50 problem sets, the focus will shift to:</p>
+<ul>
+<li><strong><a href="https://csjoshc.github.io/docs/project_ideas/indeed_cloud/">Indeed Cloud Project</a></strong> - Cloud infrastructure and deployment</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-learning-progress">📚 Learning Progress<a href="https://csjoshc.github.io/blog/cs50-projects-update-june-2019#-learning-progress" class="hash-link" aria-label="Direct link to 📚 Learning Progress" title="Direct link to 📚 Learning Progress">​</a></h2>
+<p>This update reflects the ongoing journey through Harvard's CS50 course, building foundational programming skills through practical project work. Each problem set builds upon previous knowledge, creating a comprehensive understanding of computer science fundamentals.</p>
+<hr>
+<p><em>Part of the ongoing CS50x 2019 learning journey - building practical programming skills through hands-on projects.</em></p>]]></content>
+        <author>
+            <name>Josh Chiu</name>
+            <uri>https://www.linkedin.com/in/joshua-chiu/</uri>
+        </author>
+        <category label="CS50" term="CS50"/>
+        <category label="Programming" term="Programming"/>
+        <category label="Projects" term="Projects"/>
+        <category label="Learning" term="Learning"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Advanced Features and Optimization - June 2019]]></title>
+        <id>https://csjoshc.github.io/blog/advanced-features-june-2019</id>
+        <link href="https://csjoshc.github.io/blog/advanced-features-june-2019"/>
+        <updated>2019-06-11T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Implementing advanced features and optimization techniques for web applications.]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-advanced-feature-implementation">🚀 Advanced Feature Implementation<a href="https://csjoshc.github.io/blog/advanced-features-june-2019#-advanced-feature-implementation" class="hash-link" aria-label="Direct link to 🚀 Advanced Feature Implementation" title="Direct link to 🚀 Advanced Feature Implementation">​</a></h2>
+<p>Building on the basic functionality, this week focused on implementing advanced features and optimization techniques for the web applications.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-advanced-authentication">🔐 Advanced Authentication<a href="https://csjoshc.github.io/blog/advanced-features-june-2019#-advanced-authentication" class="hash-link" aria-label="Direct link to 🔐 Advanced Authentication" title="Direct link to 🔐 Advanced Authentication">​</a></h2>
+<ul>
+<li><strong>OAuth integration</strong> with social platforms</li>
+<li><strong>Two-factor authentication</strong> implementation</li>
+<li><strong>Role-based access</strong> control and permissions</li>
+<li><strong>Session management</strong> and security</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-progressive-web-app-features">📱 Progressive Web App Features<a href="https://csjoshc.github.io/blog/advanced-features-june-2019#-progressive-web-app-features" class="hash-link" aria-label="Direct link to 📱 Progressive Web App Features" title="Direct link to 📱 Progressive Web App Features">​</a></h2>
+<ul>
+<li><strong>Service worker</strong> implementation</li>
+<li><strong>Offline functionality</strong> and caching</li>
+<li><strong>Push notifications</strong> and user engagement</li>
+<li><strong>App-like experience</strong> on mobile devices</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-advanced-uiux-features">🎨 Advanced UI/UX Features<a href="https://csjoshc.github.io/blog/advanced-features-june-2019#-advanced-uiux-features" class="hash-link" aria-label="Direct link to 🎨 Advanced UI/UX Features" title="Direct link to 🎨 Advanced UI/UX Features">​</a></h2>
+<ul>
+<li><strong>Dark mode</strong> and theme switching</li>
+<li><strong>Advanced animations</strong> and transitions</li>
+<li><strong>Accessibility improvements</strong> and ARIA support</li>
+<li><strong>Internationalization</strong> and localization</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-performance-enhancements">⚡ Performance Enhancements<a href="https://csjoshc.github.io/blog/advanced-features-june-2019#-performance-enhancements" class="hash-link" aria-label="Direct link to ⚡ Performance Enhancements" title="Direct link to ⚡ Performance Enhancements">​</a></h2>
+<ul>
+<li><strong>Lazy loading</strong> and code splitting</li>
+<li><strong>Database connection</strong> pooling</li>
+<li><strong>Background task</strong> processing with Celery</li>
+<li><strong>Microservices</strong> architecture exploration</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-monitoring-and-analytics">🔍 Monitoring and Analytics<a href="https://csjoshc.github.io/blog/advanced-features-june-2019#-monitoring-and-analytics" class="hash-link" aria-label="Direct link to 🔍 Monitoring and Analytics" title="Direct link to 🔍 Monitoring and Analytics">​</a></h2>
+<ul>
+<li><strong>User behavior</strong> tracking and analytics</li>
+<li><strong>Performance monitoring</strong> and alerting</li>
+<li><strong>Error tracking</strong> and logging</li>
+<li><strong>A/B testing</strong> and optimization</li>
+</ul>
+<hr>
+<p><em>Implementing advanced features and optimization techniques to create professional-grade web applications.</em></p>]]></content>
+        <author>
+            <name>Josh Chiu</name>
+            <uri>https://www.linkedin.com/in/joshua-chiu/</uri>
+        </author>
+        <category label="Advanced Features" term="Advanced Features"/>
+        <category label="Optimization" term="Optimization"/>
+        <category label="python" term="python"/>
+        <category label="web-development" term="web-development"/>
+        <category label="Learning" term="Learning"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Project Implementation and Deployment - June 2019]]></title>
+        <id>https://csjoshc.github.io/blog/project-implementation-june-2019</id>
+        <link href="https://csjoshc.github.io/blog/project-implementation-june-2019"/>
+        <updated>2019-06-04T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Moving from project planning to actual implementation and deployment of web applications.]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-from-planning-to-implementation">🚀 From Planning to Implementation<a href="https://csjoshc.github.io/blog/project-implementation-june-2019#-from-planning-to-implementation" class="hash-link" aria-label="Direct link to 🚀 From Planning to Implementation" title="Direct link to 🚀 From Planning to Implementation">​</a></h2>
+<p>This week marked the transition from project planning to actual implementation and deployment of the web applications developed during the learning journey.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-development-progress">🔧 Development Progress<a href="https://csjoshc.github.io/blog/project-implementation-june-2019#-development-progress" class="hash-link" aria-label="Direct link to 🔧 Development Progress" title="Direct link to 🔧 Development Progress">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="portfolio-website">Portfolio Website<a href="https://csjoshc.github.io/blog/project-implementation-june-2019#portfolio-website" class="hash-link" aria-label="Direct link to Portfolio Website" title="Direct link to Portfolio Website">​</a></h3>
+<ul>
+<li><strong>Django backend</strong> implementation</li>
+<li><strong>Database models</strong> and admin interface</li>
+<li><strong>User authentication</strong> and content management</li>
+<li><strong>Responsive frontend</strong> with Bootstrap</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="data-dashboard">Data Dashboard<a href="https://csjoshc.github.io/blog/project-implementation-june-2019#data-dashboard" class="hash-link" aria-label="Direct link to Data Dashboard" title="Direct link to Data Dashboard">​</a></h3>
+<ul>
+<li><strong>Flask API</strong> development</li>
+<li><strong>Database integration</strong> and data models</li>
+<li><strong>Interactive charts</strong> with Chart.js</li>
+<li><strong>Real-time updates</strong> and user sessions</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-deployment-and-hosting">🌐 Deployment and Hosting<a href="https://csjoshc.github.io/blog/project-implementation-june-2019#-deployment-and-hosting" class="hash-link" aria-label="Direct link to 🌐 Deployment and Hosting" title="Direct link to 🌐 Deployment and Hosting">​</a></h2>
+<ul>
+<li><strong>Git version control</strong> and collaboration</li>
+<li><strong>Cloud hosting</strong> platform selection</li>
+<li><strong>Database setup</strong> and configuration</li>
+<li><strong>Domain configuration</strong> and SSL certificates</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-performance-optimization">📊 Performance Optimization<a href="https://csjoshc.github.io/blog/project-implementation-june-2019#-performance-optimization" class="hash-link" aria-label="Direct link to 📊 Performance Optimization" title="Direct link to 📊 Performance Optimization">​</a></h2>
+<ul>
+<li><strong>Database query</strong> optimization</li>
+<li><strong>Caching strategies</strong> and implementation</li>
+<li><strong>Static file</strong> serving and CDN</li>
+<li><strong>Load testing</strong> and monitoring</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-quality-assurance">🔍 Quality Assurance<a href="https://csjoshc.github.io/blog/project-implementation-june-2019#-quality-assurance" class="hash-link" aria-label="Direct link to 🔍 Quality Assurance" title="Direct link to 🔍 Quality Assurance">​</a></h2>
+<ul>
+<li><strong>Unit testing</strong> and test coverage</li>
+<li><strong>Integration testing</strong> and user acceptance</li>
+<li><strong>Security review</strong> and vulnerability assessment</li>
+<li><strong>Performance monitoring</strong> and optimization</li>
+</ul>
+<hr>
+<p><em>Successfully transitioning from learning to implementation with real-world project deployment and optimization.</em></p>]]></content>
+        <author>
+            <name>Josh Chiu</name>
+            <uri>https://www.linkedin.com/in/joshua-chiu/</uri>
+        </author>
+        <category label="Project Implementation" term="Project Implementation"/>
+        <category label="Deployment" term="Deployment"/>
+        <category label="python" term="python"/>
+        <category label="web-development" term="web-development"/>
+        <category label="Learning" term="Learning"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Project Ideas Development - May 2019]]></title>
+        <id>https://csjoshc.github.io/blog/project-ideas-development-may-2019</id>
+        <link href="https://csjoshc.github.io/blog/project-ideas-development-may-2019"/>
+        <updated>2019-05-25T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Development of project ideas and learning roadmap for the coming months.]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-project-planning-phase">🎯 Project Planning Phase<a href="https://csjoshc.github.io/blog/project-ideas-development-may-2019#-project-planning-phase" class="hash-link" aria-label="Direct link to 🎯 Project Planning Phase" title="Direct link to 🎯 Project Planning Phase">​</a></h2>
+<p>This month focused on developing and refining project ideas that would provide practical learning opportunities and build real-world skills.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-key-project-areas">🚀 Key Project Areas<a href="https://csjoshc.github.io/blog/project-ideas-development-may-2019#-key-project-areas" class="hash-link" aria-label="Direct link to 🚀 Key Project Areas" title="Direct link to 🚀 Key Project Areas">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="cs50-course-completion">CS50 Course Completion<a href="https://csjoshc.github.io/blog/project-ideas-development-may-2019#cs50-course-completion" class="hash-link" aria-label="Direct link to CS50 Course Completion" title="Direct link to CS50 Course Completion">​</a></h3>
+<ul>
+<li>Continuing progress through Harvard's CS50 course</li>
+<li>Building foundational programming skills</li>
+<li>Completing problem sets and assignments</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="cloud-infrastructure">Cloud Infrastructure<a href="https://csjoshc.github.io/blog/project-ideas-development-may-2019#cloud-infrastructure" class="hash-link" aria-label="Direct link to Cloud Infrastructure" title="Direct link to Cloud Infrastructure">​</a></h3>
+<ul>
+<li>Exploring cloud deployment options</li>
+<li>Learning about scalable infrastructure</li>
+<li>Planning the Indeed Cloud project</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="web-development">Web Development<a href="https://csjoshc.github.io/blog/project-ideas-development-may-2019#web-development" class="hash-link" aria-label="Direct link to Web Development" title="Direct link to Web Development">​</a></h3>
+<ul>
+<li>Building web applications</li>
+<li>Learning modern web technologies</li>
+<li>Creating interactive user experiences</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-learning-objectives">📚 Learning Objectives<a href="https://csjoshc.github.io/blog/project-ideas-development-may-2019#-learning-objectives" class="hash-link" aria-label="Direct link to 📚 Learning Objectives" title="Direct link to 📚 Learning Objectives">​</a></h2>
+<p>The goal is to transition from theoretical learning to practical application, ensuring that each project builds upon previous knowledge and creates a comprehensive skill set.</p>
+<hr>
+<p><em>Building a foundation for practical software development through structured learning and project-based work.</em></p>]]></content>
+        <author>
+            <name>Josh Chiu</name>
+            <uri>https://www.linkedin.com/in/joshua-chiu/</uri>
+        </author>
+        <category label="Project Ideas" term="Project Ideas"/>
+        <category label="Development" term="Development"/>
+        <category label="Planning" term="Planning"/>
+        <category label="Learning" term="Learning"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Project Planning and Development - May 2019]]></title>
+        <id>https://csjoshc.github.io/blog/project-planning-may-2019</id>
+        <link href="https://csjoshc.github.io/blog/project-planning-may-2019"/>
+        <updated>2019-05-25T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Planning and developing real-world projects to apply learned skills in web development and database management.]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-project-based-learning">🎯 Project-Based Learning<a href="https://csjoshc.github.io/blog/project-planning-may-2019#-project-based-learning" class="hash-link" aria-label="Direct link to 🎯 Project-Based Learning" title="Direct link to 🎯 Project-Based Learning">​</a></h2>
+<p>This week focused on planning and developing real-world projects to apply the skills learned in web development, database design, and Python programming.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-project-ideas-development">🚀 Project Ideas Development<a href="https://csjoshc.github.io/blog/project-planning-may-2019#-project-ideas-development" class="hash-link" aria-label="Direct link to 🚀 Project Ideas Development" title="Direct link to 🚀 Project Ideas Development">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="personal-portfolio-website">Personal Portfolio Website<a href="https://csjoshc.github.io/blog/project-planning-may-2019#personal-portfolio-website" class="hash-link" aria-label="Direct link to Personal Portfolio Website" title="Direct link to Personal Portfolio Website">​</a></h3>
+<ul>
+<li><strong>Full-stack development</strong> with Django</li>
+<li><strong>Responsive design</strong> and modern UI</li>
+<li><strong>Content management</strong> system</li>
+<li><strong>Blog functionality</strong> and user interaction</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="data-analysis-dashboard">Data Analysis Dashboard<a href="https://csjoshc.github.io/blog/project-planning-may-2019#data-analysis-dashboard" class="hash-link" aria-label="Direct link to Data Analysis Dashboard" title="Direct link to Data Analysis Dashboard">​</a></h3>
+<ul>
+<li><strong>Python backend</strong> with Flask</li>
+<li><strong>Interactive visualizations</strong> with JavaScript</li>
+<li><strong>Database integration</strong> and real-time updates</li>
+<li><strong>User authentication</strong> and data privacy</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-technology-stack-integration">🔧 Technology Stack Integration<a href="https://csjoshc.github.io/blog/project-planning-may-2019#-technology-stack-integration" class="hash-link" aria-label="Direct link to 🔧 Technology Stack Integration" title="Direct link to 🔧 Technology Stack Integration">​</a></h2>
+<p>Combining all learned technologies:</p>
+<ul>
+<li><strong>Python frameworks</strong> (Django, Flask)</li>
+<li><strong>Database systems</strong> (SQLite, PostgreSQL)</li>
+<li><strong>Frontend technologies</strong> (HTML, CSS, JavaScript)</li>
+<li><strong>Version control</strong> and deployment</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-development-methodology">📋 Development Methodology<a href="https://csjoshc.github.io/blog/project-planning-may-2019#-development-methodology" class="hash-link" aria-label="Direct link to 📋 Development Methodology" title="Direct link to 📋 Development Methodology">​</a></h2>
+<p>Following best practices:</p>
+<ul>
+<li><strong>Requirements gathering</strong> and planning</li>
+<li><strong>Agile development</strong> with iterative improvements</li>
+<li><strong>Testing</strong> and quality assurance</li>
+<li><strong>Documentation</strong> and code organization</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-user-experience-focus">🎨 User Experience Focus<a href="https://csjoshc.github.io/blog/project-planning-may-2019#-user-experience-focus" class="hash-link" aria-label="Direct link to 🎨 User Experience Focus" title="Direct link to 🎨 User Experience Focus">​</a></h2>
+<ul>
+<li><strong>Responsive design</strong> for all devices</li>
+<li><strong>Intuitive navigation</strong> and user flow</li>
+<li><strong>Performance optimization</strong> and loading speed</li>
+<li><strong>Accessibility</strong> and inclusive design</li>
+</ul>
+<hr>
+<p><em>Applying comprehensive skills in real-world projects while maintaining focus on user experience and best practices.</em></p>]]></content>
+        <author>
+            <name>Josh Chiu</name>
+            <uri>https://www.linkedin.com/in/joshua-chiu/</uri>
+        </author>
+        <category label="Project Planning" term="Project Planning"/>
+        <category label="Development" term="Development"/>
+        <category label="python" term="python"/>
+        <category label="web-development" term="web-development"/>
+        <category label="Learning" term="Learning"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Database Design and Management - May 2019]]></title>
+        <id>https://csjoshc.github.io/blog/database-design-may-2019</id>
+        <link href="https://csjoshc.github.io/blog/database-design-may-2019"/>
+        <updated>2019-05-11T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Learning database design principles and SQL integration with Python web applications.]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️-database-fundamentals">🗄️ Database Fundamentals<a href="https://csjoshc.github.io/blog/database-design-may-2019#%EF%B8%8F-database-fundamentals" class="hash-link" aria-label="Direct link to 🗄️ Database Fundamentals" title="Direct link to 🗄️ Database Fundamentals">​</a></h2>
+<p>Building on the web development focus, this week concentrated on database design principles and SQL integration with Python applications.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-database-design-principles">📊 Database Design Principles<a href="https://csjoshc.github.io/blog/database-design-may-2019#-database-design-principles" class="hash-link" aria-label="Direct link to 📊 Database Design Principles" title="Direct link to 📊 Database Design Principles">​</a></h2>
+<ul>
+<li><strong>Normalization</strong> and data integrity</li>
+<li><strong>Entity relationships</strong> and modeling</li>
+<li><strong>Indexing strategies</strong> and performance</li>
+<li><strong>Data types</strong> and constraints</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-python-database-integration">🐍 Python Database Integration<a href="https://csjoshc.github.io/blog/database-design-may-2019#-python-database-integration" class="hash-link" aria-label="Direct link to 🐍 Python Database Integration" title="Direct link to 🐍 Python Database Integration">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="sqlalchemy-orm">SQLAlchemy ORM<a href="https://csjoshc.github.io/blog/database-design-may-2019#sqlalchemy-orm" class="hash-link" aria-label="Direct link to SQLAlchemy ORM" title="Direct link to SQLAlchemy ORM">​</a></h3>
+<ul>
+<li><strong>Object-relational mapping</strong> concepts</li>
+<li><strong>Model definition</strong> and relationships</li>
+<li><strong>Query building</strong> and optimization</li>
+<li><strong>Database migrations</strong> and versioning</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="django-orm">Django ORM<a href="https://csjoshc.github.io/blog/database-design-may-2019#django-orm" class="hash-link" aria-label="Direct link to Django ORM" title="Direct link to Django ORM">​</a></h3>
+<ul>
+<li><strong>Model definitions</strong> and field types</li>
+<li><strong>Query sets</strong> and filtering</li>
+<li><strong>Database migrations</strong> and management</li>
+<li><strong>Admin interface</strong> integration</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-sql-mastery">🔍 SQL Mastery<a href="https://csjoshc.github.io/blog/database-design-may-2019#-sql-mastery" class="hash-link" aria-label="Direct link to 🔍 SQL Mastery" title="Direct link to 🔍 SQL Mastery">​</a></h2>
+<ul>
+<li><strong>Basic queries</strong> and data retrieval</li>
+<li><strong>Joins</strong> and relationship handling</li>
+<li><strong>Aggregation</strong> and grouping functions</li>
+<li><strong>Performance optimization</strong> techniques</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-practical-applications">🚀 Practical Applications<a href="https://csjoshc.github.io/blog/database-design-may-2019#-practical-applications" class="hash-link" aria-label="Direct link to 🚀 Practical Applications" title="Direct link to 🚀 Practical Applications">​</a></h2>
+<p>The learning combines theory with practice:</p>
+<ul>
+<li><strong>Designing database schemas</strong> for web applications</li>
+<li><strong>Implementing CRUD operations</strong> with Python</li>
+<li><strong>Performance testing</strong> and optimization</li>
+<li><strong>Real-world project</strong> development</li>
+</ul>
+<hr>
+<p><em>Building comprehensive database skills to support full-stack web development with Python frameworks.</em></p>]]></content>
+        <author>
+            <name>Josh Chiu</name>
+            <uri>https://www.linkedin.com/in/joshua-chiu/</uri>
+        </author>
+        <category label="Database" term="Database"/>
+        <category label="SQL" term="SQL"/>
+        <category label="python" term="python"/>
+        <category label="web-development" term="web-development"/>
+        <category label="Learning" term="Learning"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Web Development Focus - May 2019]]></title>
+        <id>https://csjoshc.github.io/blog/web-development-focus-may-2019</id>
+        <link href="https://csjoshc.github.io/blog/web-development-focus-may-2019"/>
+        <updated>2019-05-04T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Shifting focus to web development with Python frameworks while continuing work integration and course progress.]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-web-development-learning-path">🌐 Web Development Learning Path<a href="https://csjoshc.github.io/blog/web-development-focus-may-2019#-web-development-learning-path" class="hash-link" aria-label="Direct link to 🌐 Web Development Learning Path" title="Direct link to 🌐 Web Development Learning Path">​</a></h2>
+<p>This week marked a shift in focus toward web development skills, building on the Python foundation established through work and course work.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-python-web-frameworks">🐍 Python Web Frameworks<a href="https://csjoshc.github.io/blog/web-development-focus-may-2019#-python-web-frameworks" class="hash-link" aria-label="Direct link to 🐍 Python Web Frameworks" title="Direct link to 🐍 Python Web Frameworks">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="django-framework">Django Framework<a href="https://csjoshc.github.io/blog/web-development-focus-may-2019#django-framework" class="hash-link" aria-label="Direct link to Django Framework" title="Direct link to Django Framework">​</a></h3>
+<ul>
+<li><strong>Full-stack web development</strong> capabilities</li>
+<li><strong>Admin interface</strong> and user management</li>
+<li><strong>Database models</strong> and ORM usage</li>
+<li><strong>URL routing</strong> and view handling</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="flask-framework">Flask Framework<a href="https://csjoshc.github.io/blog/web-development-focus-may-2019#flask-framework" class="hash-link" aria-label="Direct link to Flask Framework" title="Direct link to Flask Framework">​</a></h3>
+<ul>
+<li><strong>Lightweight and flexible</strong> web framework</li>
+<li><strong>Microservices</strong> and API development</li>
+<li><strong>Template rendering</strong> and static files</li>
+<li><strong>Extension ecosystem</strong> and customization</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-frontend-development">🎨 Frontend Development<a href="https://csjoshc.github.io/blog/web-development-focus-may-2019#-frontend-development" class="hash-link" aria-label="Direct link to 🎨 Frontend Development" title="Direct link to 🎨 Frontend Development">​</a></h2>
+<ul>
+<li><strong>HTML5</strong> and semantic markup</li>
+<li><strong>CSS3</strong> styling and responsive design</li>
+<li><strong>JavaScript</strong> fundamentals and DOM manipulation</li>
+<li><strong>Bootstrap</strong> and modern UI frameworks</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-full-stack-integration">🔗 Full-Stack Integration<a href="https://csjoshc.github.io/blog/web-development-focus-may-2019#-full-stack-integration" class="hash-link" aria-label="Direct link to 🔗 Full-Stack Integration" title="Direct link to 🔗 Full-Stack Integration">​</a></h2>
+<p>The learning approach combines:</p>
+<ul>
+<li><strong>Backend development</strong> with Python frameworks</li>
+<li><strong>Frontend design</strong> and user experience</li>
+<li><strong>Database design</strong> and management</li>
+<li><strong>API development</strong> and integration</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-learning-resources">📚 Learning Resources<a href="https://csjoshc.github.io/blog/web-development-focus-may-2019#-learning-resources" class="hash-link" aria-label="Direct link to 📚 Learning Resources" title="Direct link to 📚 Learning Resources">​</a></h2>
+<ul>
+<li><strong>Official documentation</strong> for Django and Flask</li>
+<li><strong>Online tutorials</strong> and video courses</li>
+<li><strong>Community forums</strong> and support</li>
+<li><strong>Practice projects</strong> and real-world applications</li>
+</ul>
+<hr>
+<p><em>Expanding Python skills into web development with a focus on full-stack capabilities and modern frameworks.</em></p>]]></content>
+        <author>
+            <name>Josh Chiu</name>
+            <uri>https://www.linkedin.com/in/joshua-chiu/</uri>
+        </author>
+        <category label="web-development" term="web-development"/>
+        <category label="python" term="python"/>
+        <category label="Django" term="Django"/>
+        <category label="Flask" term="Flask"/>
+        <category label="Frontend" term="Frontend"/>
+        <category label="Learning" term="Learning"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Python Work Integration - April 2019]]></title>
+        <id>https://csjoshc.github.io/blog/python-work-integration-april-2019</id>
+        <link href="https://csjoshc.github.io/blog/python-work-integration-april-2019"/>
+        <updated>2019-04-20T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Implementing Python at work for proof of concept projects while maintaining personal learning focus on web development and algorithms.]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-work-implementation-progress">💼 Work Implementation Progress<a href="https://csjoshc.github.io/blog/python-work-integration-april-2019#-work-implementation-progress" class="hash-link" aria-label="Direct link to 💼 Work Implementation Progress" title="Direct link to 💼 Work Implementation Progress">​</a></h2>
+<p>Following up on last week's plans, this week focused on implementing Python at work for proof of concept projects. The integration includes:</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-proof-of-concept-development">🔬 Proof of Concept Development<a href="https://csjoshc.github.io/blog/python-work-integration-april-2019#-proof-of-concept-development" class="hash-link" aria-label="Direct link to 🔬 Proof of Concept Development" title="Direct link to 🔬 Proof of Concept Development">​</a></h2>
+<ul>
+<li><strong>Data analysis</strong> tools and scripts</li>
+<li><strong>Automation</strong> of repetitive tasks</li>
+<li><strong>Integration</strong> with existing systems</li>
+<li><strong>Performance testing</strong> and optimization</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-learning-focus-areas">🎯 Learning Focus Areas<a href="https://csjoshc.github.io/blog/python-work-integration-april-2019#-learning-focus-areas" class="hash-link" aria-label="Direct link to 🎯 Learning Focus Areas" title="Direct link to 🎯 Learning Focus Areas">​</a></h2>
+<p>While using Python at work for practical applications, maintaining focus on personal development areas not covered in the workplace:</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="web-development">Web Development<a href="https://csjoshc.github.io/blog/python-work-integration-april-2019#web-development" class="hash-link" aria-label="Direct link to Web Development" title="Direct link to Web Development">​</a></h3>
+<ul>
+<li><strong>Frontend frameworks</strong> and libraries</li>
+<li><strong>Backend development</strong> with Django/Flask</li>
+<li><strong>API design</strong> and implementation</li>
+<li><strong>Database integration</strong> and management</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="advanced-algorithms">Advanced Algorithms<a href="https://csjoshc.github.io/blog/python-work-integration-april-2019#advanced-algorithms" class="hash-link" aria-label="Direct link to Advanced Algorithms" title="Direct link to Advanced Algorithms">​</a></h3>
+<ul>
+<li><strong>Data structures</strong> and complexity analysis</li>
+<li><strong>Sorting and searching</strong> algorithms</li>
+<li><strong>Graph algorithms</strong> and optimization</li>
+<li><strong>Dynamic programming</strong> techniques</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-skill-development-strategy">🔄 Skill Development Strategy<a href="https://csjoshc.github.io/blog/python-work-integration-april-2019#-skill-development-strategy" class="hash-link" aria-label="Direct link to 🔄 Skill Development Strategy" title="Direct link to 🔄 Skill Development Strategy">​</a></h2>
+<p>The dual approach provides:</p>
+<ul>
+<li><strong>Immediate practical experience</strong> through work projects</li>
+<li><strong>Broad skill development</strong> through personal study</li>
+<li><strong>Real-world problem solving</strong> in professional context</li>
+<li><strong>Theoretical foundation</strong> for advanced concepts</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-progress-tracking">📊 Progress Tracking<a href="https://csjoshc.github.io/blog/python-work-integration-april-2019#-progress-tracking" class="hash-link" aria-label="Direct link to 📊 Progress Tracking" title="Direct link to 📊 Progress Tracking">​</a></h2>
+<ul>
+<li><strong>Work projects</strong> advancing steadily</li>
+<li><strong>MIT course</strong> continuing alongside</li>
+<li><strong>Personal projects</strong> in planning phase</li>
+<li><strong>Skill integration</strong> showing positive results</li>
+</ul>
+<hr>
+<p><em>Successfully balancing Python implementation at work with continued personal development in web development and algorithmic thinking.</em></p>]]></content>
+        <author>
+            <name>Josh Chiu</name>
+            <uri>https://www.linkedin.com/in/joshua-chiu/</uri>
+        </author>
+        <category label="python" term="python"/>
+        <category label="Work" term="Work"/>
+        <category label="Integration" term="Integration"/>
+        <category label="Proof of Concept" term="Proof of Concept"/>
+        <category label="Learning" term="Learning"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[MIT 6.00.2x Course Progress - April 2019]]></title>
+        <id>https://csjoshc.github.io/blog/mit-course-progress-april-2019</id>
+        <link href="https://csjoshc.github.io/blog/mit-course-progress-april-2019"/>
+        <updated>2019-04-13T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Progress update on MIT 6.00.2x course with first problem set completion and plans for Python integration at work.]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-course-progress-update">📚 Course Progress Update<a href="https://csjoshc.github.io/blog/mit-course-progress-april-2019#-course-progress-update" class="hash-link" aria-label="Direct link to 📚 Course Progress Update" title="Direct link to 📚 Course Progress Update">​</a></h2>
+<p>A little behind on the MIT 6.00.2x course, but finished first of three problems for the first problem set. The course focuses on:</p>
+<ul>
+<li><strong>Introduction to Computational Thinking and Data Science</strong></li>
+<li><strong>Python programming</strong> fundamentals</li>
+<li><strong>Data analysis</strong> and visualization</li>
+<li><strong>Algorithmic thinking</strong> and problem solving</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-access-and-course-structure">🎯 Access and Course Structure<a href="https://csjoshc.github.io/blog/mit-course-progress-april-2019#-access-and-course-structure" class="hash-link" aria-label="Direct link to 🎯 Access and Course Structure" title="Direct link to 🎯 Access and Course Structure">​</a></h2>
+<p>I was surprised a few weeks ago when I got access to the grader and problem sets since I thought they would be behind a paywall for me since EdX changed their access policy. It might be because I worked on the course for a few weeks last year in December.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-work-integration-plans">💼 Work Integration Plans<a href="https://csjoshc.github.io/blog/mit-course-progress-april-2019#-work-integration-plans" class="hash-link" aria-label="Direct link to 💼 Work Integration Plans" title="Direct link to 💼 Work Integration Plans">​</a></h2>
+<p>Might start using Python a bit more at work for a proof of concept project, but I'll still want to continue working on Python on my own, focusing more on areas not covered at work, such as:</p>
+<ul>
+<li><strong>Web development</strong> and frameworks</li>
+<li><strong>Advanced algorithms</strong> and data structures</li>
+<li><strong>Machine learning</strong> applications</li>
+<li><strong>Automation</strong> and scripting</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-learning-strategy">🔄 Learning Strategy<a href="https://csjoshc.github.io/blog/mit-course-progress-april-2019#-learning-strategy" class="hash-link" aria-label="Direct link to 🔄 Learning Strategy" title="Direct link to 🔄 Learning Strategy">​</a></h2>
+<p>The approach balances practical work applications with personal development:</p>
+<ul>
+<li><strong>Work projects</strong> for immediate practical experience</li>
+<li><strong>Personal study</strong> for broader skill development</li>
+<li><strong>Course completion</strong> for structured learning</li>
+<li><strong>Project-based learning</strong> for hands-on application</li>
+</ul>
+<hr>
+<p><em>Balancing MIT course progress with practical Python applications at work while maintaining focus on broader skill development.</em></p>]]></content>
+        <author>
+            <name>Josh Chiu</name>
+            <uri>https://www.linkedin.com/in/joshua-chiu/</uri>
+        </author>
+        <category label="MIT" term="MIT"/>
+        <category label="python" term="python"/>
+        <category label="Algorithms" term="Algorithms"/>
+        <category label="EdX" term="EdX"/>
+        <category label="Learning" term="Learning"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Early Learning Progress - March 2019]]></title>
+        <id>https://csjoshc.github.io/blog/early-learning-progress-march-2019</id>
+        <link href="https://csjoshc.github.io/blog/early-learning-progress-march-2019"/>
+        <updated>2019-03-23T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Early progress in the learning journey, building foundational programming skills and establishing the learning platform.]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-learning-platform-foundation">🚀 Learning Platform Foundation<a href="https://csjoshc.github.io/blog/early-learning-progress-march-2019#-learning-platform-foundation" class="hash-link" aria-label="Direct link to 🚀 Learning Platform Foundation" title="Direct link to 🚀 Learning Platform Foundation">​</a></h2>
+<p>This period marked the beginning of a structured learning journey, focusing on building a solid foundation in computer science and programming fundamentals.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-key-learning-areas">📚 Key Learning Areas<a href="https://csjoshc.github.io/blog/early-learning-progress-march-2019#-key-learning-areas" class="hash-link" aria-label="Direct link to 📚 Key Learning Areas" title="Direct link to 📚 Key Learning Areas">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="programming-fundamentals">Programming Fundamentals<a href="https://csjoshc.github.io/blog/early-learning-progress-march-2019#programming-fundamentals" class="hash-link" aria-label="Direct link to Programming Fundamentals" title="Direct link to Programming Fundamentals">​</a></h3>
+<ul>
+<li><strong>C++ Basics</strong> - Learning core programming concepts</li>
+<li><strong>Problem Solving</strong> - Developing algorithmic thinking</li>
+<li><strong>Data Structures</strong> - Understanding fundamental data organization</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="cs50-course-progress">CS50 Course Progress<a href="https://csjoshc.github.io/blog/early-learning-progress-march-2019#cs50-course-progress" class="hash-link" aria-label="Direct link to CS50 Course Progress" title="Direct link to CS50 Course Progress">​</a></h3>
+<ul>
+<li><strong>Early Problem Sets</strong> - Building confidence with basic concepts</li>
+<li><strong>Programming Challenges</strong> - Applying theory to practice</li>
+<li><strong>Project Work</strong> - Creating small applications</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-learning-objectives">🎯 Learning Objectives<a href="https://csjoshc.github.io/blog/early-learning-progress-march-2019#-learning-objectives" class="hash-link" aria-label="Direct link to 🎯 Learning Objectives" title="Direct link to 🎯 Learning Objectives">​</a></h2>
+<p>The focus was on:</p>
+<ol>
+<li><strong>Building confidence</strong> in programming abilities</li>
+<li><strong>Establishing good habits</strong> for continued learning</li>
+<li><strong>Creating a foundation</strong> for more advanced topics</li>
+<li><strong>Developing problem-solving skills</strong> through practice</li>
+</ol>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-continuous-improvement">🔄 Continuous Improvement<a href="https://csjoshc.github.io/blog/early-learning-progress-march-2019#-continuous-improvement" class="hash-link" aria-label="Direct link to 🔄 Continuous Improvement" title="Direct link to 🔄 Continuous Improvement">​</a></h2>
+<p>Each day brought new challenges and opportunities to learn, with the goal of building a comprehensive understanding of computer science fundamentals.</p>
+<hr>
+<p><em>The beginning of a journey that would transform understanding of technology and programming.</em></p>]]></content>
+        <author>
+            <name>Josh Chiu</name>
+            <uri>https://www.linkedin.com/in/joshua-chiu/</uri>
+        </author>
+        <category label="Learning" term="Learning"/>
+        <category label="Programming" term="Programming"/>
+        <category label="CS50" term="CS50"/>
+        <category label="Foundations" term="Foundations"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Linux Command Line Mastery - March 2019]]></title>
+        <id>https://csjoshc.github.io/blog/linux-command-line-march-2019</id>
+        <link href="https://csjoshc.github.io/blog/linux-command-line-march-2019"/>
+        <updated>2019-03-23T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Advanced command line operations and shell scripting basics for Linux system administration and automation.]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-advanced-command-line-skills">🚀 Advanced Command Line Skills<a href="https://csjoshc.github.io/blog/linux-command-line-march-2019#-advanced-command-line-skills" class="hash-link" aria-label="Direct link to 🚀 Advanced Command Line Skills" title="Direct link to 🚀 Advanced Command Line Skills">​</a></h2>
+<p>Building on the fundamentals established in previous weeks, this week focused on more advanced command line operations and shell scripting capabilities.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-shell-scripting-basics">🔧 Shell Scripting Basics<a href="https://csjoshc.github.io/blog/linux-command-line-march-2019#-shell-scripting-basics" class="hash-link" aria-label="Direct link to 🔧 Shell Scripting Basics" title="Direct link to 🔧 Shell Scripting Basics">​</a></h2>
+<ul>
+<li><strong>Bash scripting</strong> fundamentals</li>
+<li><strong>Variable usage</strong> and environment setup</li>
+<li><strong>Control structures</strong> and loops</li>
+<li><strong>Function definition</strong> and usage</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️-system-administration-tools">🛠️ System Administration Tools<a href="https://csjoshc.github.io/blog/linux-command-line-march-2019#%EF%B8%8F-system-administration-tools" class="hash-link" aria-label="Direct link to 🛠️ System Administration Tools" title="Direct link to 🛠️ System Administration Tools">​</a></h2>
+<p>Exploring essential Linux administration tools:</p>
+<ul>
+<li><strong>Package management</strong> with apt/yum</li>
+<li><strong>Service management</strong> with systemctl</li>
+<li><strong>User management</strong> and permissions</li>
+<li><strong>Network configuration</strong> and monitoring</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-process-and-system-monitoring">📊 Process and System Monitoring<a href="https://csjoshc.github.io/blog/linux-command-line-march-2019#-process-and-system-monitoring" class="hash-link" aria-label="Direct link to 📊 Process and System Monitoring" title="Direct link to 📊 Process and System Monitoring">​</a></h2>
+<ul>
+<li><strong>Process monitoring</strong> with ps, top, htop</li>
+<li><strong>System resource</strong> usage tracking</li>
+<li><strong>Log analysis</strong> and troubleshooting</li>
+<li><strong>Performance optimization</strong> techniques</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-advanced-file-operations">🔍 Advanced File Operations<a href="https://csjoshc.github.io/blog/linux-command-line-march-2019#-advanced-file-operations" class="hash-link" aria-label="Direct link to 🔍 Advanced File Operations" title="Direct link to 🔍 Advanced File Operations">​</a></h2>
+<ul>
+<li><strong>Text processing</strong> with sed, awk, grep</li>
+<li><strong>File searching</strong> and pattern matching</li>
+<li><strong>Archive management</strong> and compression</li>
+<li><strong>Backup strategies</strong> and automation</li>
+</ul>
+<hr>
+<p><em>Advancing from basic Linux concepts to practical system administration skills and automation capabilities.</em></p>]]></content>
+        <author>
+            <name>Josh Chiu</name>
+            <uri>https://www.linkedin.com/in/joshua-chiu/</uri>
+        </author>
+        <category label="linux" term="linux"/>
+        <category label="Command Line" term="Command Line"/>
+        <category label="Shell" term="Shell"/>
+        <category label="Automation" term="Automation"/>
+        <category label="Learning" term="Learning"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Linux Fundamentals - March 2019]]></title>
+        <id>https://csjoshc.github.io/blog/linux-fundamentals-march-2019</id>
+        <link href="https://csjoshc.github.io/blog/linux-fundamentals-march-2019"/>
+        <updated>2019-03-16T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Continued progress on Linux fundamentals including command line operations and file system navigation.]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-linux-learning-progress">🐧 Linux Learning Progress<a href="https://csjoshc.github.io/blog/linux-fundamentals-march-2019#-linux-learning-progress" class="hash-link" aria-label="Direct link to 🐧 Linux Learning Progress" title="Direct link to 🐧 Linux Learning Progress">​</a></h2>
+<p>Continuing the Linux journey with focused study on fundamental concepts and practical applications. This week's learning covered:</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-command-line-operations">💻 Command Line Operations<a href="https://csjoshc.github.io/blog/linux-fundamentals-march-2019#-command-line-operations" class="hash-link" aria-label="Direct link to 💻 Command Line Operations" title="Direct link to 💻 Command Line Operations">​</a></h2>
+<ul>
+<li><strong>Basic shell commands</strong> and syntax</li>
+<li><strong>File manipulation</strong> and navigation</li>
+<li><strong>Text processing</strong> and filtering</li>
+<li><strong>Process management</strong> and monitoring</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-file-system-navigation">📁 File System Navigation<a href="https://csjoshc.github.io/blog/linux-fundamentals-march-2019#-file-system-navigation" class="hash-link" aria-label="Direct link to 📁 File System Navigation" title="Direct link to 📁 File System Navigation">​</a></h2>
+<ul>
+<li><strong>Directory structure</strong> understanding</li>
+<li><strong>Path navigation</strong> and shortcuts</li>
+<li><strong>File permissions</strong> and ownership</li>
+<li><strong>Mount points</strong> and storage management</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-practical-applications">🔧 Practical Applications<a href="https://csjoshc.github.io/blog/linux-fundamentals-march-2019#-practical-applications" class="hash-link" aria-label="Direct link to 🔧 Practical Applications" title="Direct link to 🔧 Practical Applications">​</a></h2>
+<p>The learning approach emphasizes hands-on practice with:</p>
+<ul>
+<li><strong>Virtual machines</strong> for safe experimentation</li>
+<li><strong>Real-world scenarios</strong> and use cases</li>
+<li><strong>Troubleshooting</strong> common issues</li>
+<li><strong>Automation</strong> and scripting basics</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-learning-methodology">📚 Learning Methodology<a href="https://csjoshc.github.io/blog/linux-fundamentals-march-2019#-learning-methodology" class="hash-link" aria-label="Direct link to 📚 Learning Methodology" title="Direct link to 📚 Learning Methodology">​</a></h2>
+<p>Following a structured approach:</p>
+<ul>
+<li><strong>Daily practice</strong> with command line</li>
+<li><strong>Weekly challenges</strong> and exercises</li>
+<li><strong>Documentation</strong> and note-taking</li>
+<li><strong>Community engagement</strong> and support</li>
+</ul>
+<hr>
+<p><em>Building a solid foundation in Linux fundamentals through daily practice and structured learning approaches.</em></p>]]></content>
+        <author>
+            <name>Josh Chiu</name>
+            <uri>https://www.linkedin.com/in/joshua-chiu/</uri>
+        </author>
+        <category label="linux" term="linux"/>
+        <category label="Fundamentals" term="Fundamentals"/>
+        <category label="Command Line" term="Command Line"/>
+        <category label="Learning" term="Learning"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Linux Learning Progress - March 2019]]></title>
+        <id>https://csjoshc.github.io/blog/linux-learning-progress-march-2019</id>
+        <link href="https://csjoshc.github.io/blog/linux-learning-progress-march-2019"/>
+        <updated>2019-03-09T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Weekly update on Linux learning progress and continued site development.]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-weekly-update-schedule">📅 Weekly Update Schedule<a href="https://csjoshc.github.io/blog/linux-learning-progress-march-2019#-weekly-update-schedule" class="hash-link" aria-label="Direct link to 📅 Weekly Update Schedule" title="Direct link to 📅 Weekly Update Schedule">​</a></h2>
+<p>Following the plan established last week, this is the first weekly site update. The goal is to maintain regular updates every Saturday to track learning progress and site development.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-linux-learning-journey">🐧 Linux Learning Journey<a href="https://csjoshc.github.io/blog/linux-learning-progress-march-2019#-linux-learning-journey" class="hash-link" aria-label="Direct link to 🐧 Linux Learning Journey" title="Direct link to 🐧 Linux Learning Journey">​</a></h2>
+<p>This week focused on making major progress on the Linux journey. The learning path includes:</p>
+<ul>
+<li><strong>Basic Linux concepts</strong> and fundamentals</li>
+<li><strong>Command line operations</strong> and shell usage</li>
+<li><strong>File system navigation</strong> and management</li>
+<li><strong>User permissions</strong> and security basics</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-python-notes-integration">🔄 Python Notes Integration<a href="https://csjoshc.github.io/blog/linux-learning-progress-march-2019#-python-notes-integration" class="hash-link" aria-label="Direct link to 🔄 Python Notes Integration" title="Direct link to 🔄 Python Notes Integration">​</a></h2>
+<p>Continued planning for incorporating prior Python notes from OneNote. The approach will likely involve:</p>
+<ul>
+<li><strong>Exporting from OneNote</strong> to web-compatible format</li>
+<li><strong>Converting to markdown</strong> for better site integration</li>
+<li><strong>Organizing by topic</strong> and difficulty level</li>
+<li><strong>Adding interactive elements</strong> where possible</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-learning-resources">📚 Learning Resources<a href="https://csjoshc.github.io/blog/linux-learning-progress-march-2019#-learning-resources" class="hash-link" aria-label="Direct link to 📚 Learning Resources" title="Direct link to 📚 Learning Resources">​</a></h2>
+<p>The focus remains on practical, hands-on learning with:</p>
+<ul>
+<li><strong>Online courses</strong> and tutorials</li>
+<li><strong>Practice exercises</strong> and real-world scenarios</li>
+<li><strong>Documentation</strong> and reference materials</li>
+<li><strong>Community resources</strong> and forums</li>
+</ul>
+<hr>
+<p><em>Weekly learning updates continue with focused progress on Linux fundamentals and planning for Python content integration.</em></p>]]></content>
+        <author>
+            <name>Josh Chiu</name>
+            <uri>https://www.linkedin.com/in/joshua-chiu/</uri>
+        </author>
+        <category label="linux" term="linux"/>
+        <category label="Learning" term="Learning"/>
+        <category label="Progress" term="Progress"/>
+        <category label="Weekly Update" term="Weekly Update"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Site Setup Complete - March 2019]]></title>
+        <id>https://csjoshc.github.io/blog/site-setup-complete-march-2019</id>
+        <link href="https://csjoshc.github.io/blog/site-setup-complete-march-2019"/>
+        <updated>2019-03-02T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Initial site setup completed with basic directory structure, style, and topic portals. GitHub integration working and Linux journey planning begins.]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-initial-site-foundation">🚀 Initial Site Foundation<a href="https://csjoshc.github.io/blog/site-setup-complete-march-2019#-initial-site-foundation" class="hash-link" aria-label="Direct link to 🚀 Initial Site Foundation" title="Direct link to 🚀 Initial Site Foundation">​</a></h2>
+<p>Definitely don't need to add a new site update file that often, maybe once a week at MOST. In the past week, basically this site was set up and I got the basic directory, style and topic portals set up.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-technical-setup">🔧 Technical Setup<a href="https://csjoshc.github.io/blog/site-setup-complete-march-2019#-technical-setup" class="hash-link" aria-label="Direct link to 🔧 Technical Setup" title="Direct link to 🔧 Technical Setup">​</a></h2>
+<p>GitHub was a pain to get working and I'm only using its most basic functionality, just whatever is sufficient to get things functional. The site now has:</p>
+<ul>
+<li><strong>Basic directory structure</strong> established</li>
+<li><strong>Styling and layout</strong> configured</li>
+<li><strong>Topic portals</strong> set up for different learning areas</li>
+<li><strong>GitHub integration</strong> working (basic functionality)</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-to-do-list">📋 To-Do List<a href="https://csjoshc.github.io/blog/site-setup-complete-march-2019#-to-do-list" class="hash-link" aria-label="Direct link to 📋 To-Do List" title="Direct link to 📋 To-Do List">​</a></h2>
+<ul>
+<li><strong>Next site update</strong>: March 9, 2019. Basically every Saturday</li>
+<li><strong>Cover most of basic Linux topics</strong> in the coming weeks</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-goals-for-next-week">🎯 Goals for Next Week<a href="https://csjoshc.github.io/blog/site-setup-complete-march-2019#-goals-for-next-week" class="hash-link" aria-label="Direct link to 🎯 Goals for Next Week" title="Direct link to 🎯 Goals for Next Week">​</a></h2>
+<p>When I check back in a week I hope that I will make some major progress on Linux journey and make a decision on how I'll incorporate my prior Python notes - probably just exporting from OneNote as some sort of web page.</p>
+<hr>
+<p><em>The beginning of a structured learning journey with weekly updates and clear goals for Linux and Python learning.</em></p>]]></content>
+        <author>
+            <name>Josh Chiu</name>
+            <uri>https://www.linkedin.com/in/joshua-chiu/</uri>
+        </author>
+        <category label="Site Setup" term="Site Setup"/>
+        <category label="GitHub" term="GitHub"/>
+        <category label="linux" term="linux"/>
+        <category label="python" term="python"/>
+        <category label="Learning" term="Learning"/>
+    </entry>
+</feed>
