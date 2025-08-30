@@ -1,6 +1,4 @@
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
+/* Tailwind CSS imports removed - using Docusaurus built-in styling instead */
 
 @custom-variant dark (&:is(.dark *));
 
