@@ -1,0 +1,64 @@
+---
+description: CSS quality standards and validation requirements
+globs:
+  - "*.css"
+  - "*.module.css"
+alwaysApply: false
+contextAware: true
+applyOnlyInContext: ["development", "operational"]
+---
+
+# CSS Quality Standards and Validation
+
+## 🎯 **Context-Aware Application**
+
+### **WHEN TO APPLY**
+
+✅ **Development Tasks:** Writing new CSS, fixing styling issues, responsive design
+✅ **Operational Tasks:** Building CSS, optimizing stylesheets, deployment
+✅ **Styling Tasks:** Creating themes, components, layouts
+
+### **WHEN NOT TO APPLY**
+
+❌ **Informational Queries:** "What CSS files exist?", "Show me the styles"
+❌ **Documentation Tasks:** Writing style guides, documenting CSS architecture
+❌ **General Questions:** "How does styling work?", "What is CSS?"
+
+**If the user is NOT asking you to write, modify, or analyze CSS/styling code, these standards do not apply.**
+
+## 🎯 **Mandatory CSS Validation**
+
+- **ALWAYS validate CSS** before committing changes
+- **Use CSS linting tools** to detect syntax errors and warnings
+- **Test responsive breakpoints** across multiple device sizes
+- **Verify dark/light mode compatibility** for all custom styles
+
+## 🔍 **CSS Override Detection**
+
+### **Theme Class Priority System**
+
+1. **Theme class names** (most stable) - `theme-layout-navbar`, `theme-doc-sidebar`
+2. **Infima class names** (stable) - `navbar__item`, `menu__link`
+3. **CSS module classes** (avoid targeting) - `codeBlockContainer_RIuc`
+
+### **Override Detection Commands**
+
+```bash
+# Check for CSS conflicts and overrides
+grep -r "!important" src/css/
+grep -r "z-index:" src/css/
+grep -r "position:" src/css/
+
+# Find duplicate selectors
+grep -r "\.navbar" src/css/ | sort
+grep -r "\.menu" src/css/ | sort
+```
+
+## 🏗️ **CSS File Organization**
+
+- **Keep `custom.css` focused** on theme overrides and custom components
+- **Use CSS modules** for component-specific styling
+- **Organize styles by component** with clear section comments
+- **Maintain logical grouping** of related styles
+
+---

@@ -1,0 +1,39 @@
+---
+description: File modification tracking and queue management rules
+globs:
+  - "*.ipynb"
+  - "*.md"
+  - "*.py"
+alwaysApply: false
+contextAware: true
+applyOnlyInContext: ["operational", "development"]
+---
+
+# File Modification Tracking Rules
+
+## 📝 **Jupyter Notebook (.ipynb) Files**
+
+When any `.ipynb` file is modified in the project:
+
+1. **Automatically add to rebuild queue**: Add the modified notebook to `rebuild_queue.txt` with action `ipynb_to_md`
+2. **Queue format**: `file_path|ipynb_to_md|timestamp`
+3. **Example**: `notes/Python/PythonforDataScience/3_Numpy.ipynb|ipynb_to_md|2024-01-15T10:30:00`
+
+## 📝 **Markdown (.md) Files**
+
+When any `.md` file is modified in the project:
+
+1. **Automatically add to rebuild queue**: Add the modified markdown file to `rebuild_queue.txt` with action `md_to_html`
+2. **Queue format**: `file_path|md_to_html|timestamp`
+3. **Example**: `docs/Python/PythonforDataScience/3_Numpy.md|md_to_html|2024-01-15T10:30:00`
+
+## 🔄 **Rebuild Queue Management**
+
+- **Never manually edit** `rebuild_queue.txt` - it's automatically managed
+- **Use the queue system** instead of rebuilding all files
+- **Check queue status** with: `python3 manage_rebuild_queue.py show`
+- **Process queue** with: `python3 manage_rebuild_queue.py process`
+
+---
+
+---

@@ -1,0 +1,35 @@
+---
+description: Navigation template system and automation
+globs:
+  - "docs/_templates/*.md"
+  - "*.py"
+alwaysApply: false
+contextAware: true
+applyOnlyInContext: ["operational", "development"]
+---
+
+# Navigation Template System
+
+## 📁 **Template Location**
+
+- **Templates**: `docs/_templates/nav_*.md`
+- **Scripts**: `insert_navigation.py`, `ipynb2md_with_nav.py`
+- **Documentation**: `docs/_templates/README.md`
+
+## 📁 **Navigation Patterns**
+
+- **Python Data Science**: `nav_python_datascience.md` (Index + Python Portal)
+- **Site Updates**: `nav_site_updates.md` (Index only)
+- **General Pages**: `nav_general.md` (Index only)
+- **Utility Pages**: `nav_utils.md` (Index only)
+
+## 📁 **Automated Navigation Insertion**
+
+- **Use scripts** to automatically insert navigation templates
+- **Test with dry-run** before applying changes
+- **Create backups** when modifying existing files
+- **Maintain consistency** across all navigation elements
+
+---
+
+---

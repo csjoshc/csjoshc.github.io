@@ -1,0 +1,44 @@
+---
+description: CSS maintenance and performance optimization
+globs:
+  - "*.css"
+  - "*.module.css"
+alwaysApply: false
+contextAware: true
+applyOnlyInContext: ["development", "operational"]
+---
+
+# CSS Maintenance
+
+## 🧹 **Code Quality Rules**
+
+- **Maximum file size**: 5000 lines (split if exceeded)
+- **Maximum selector depth**: 3 levels
+- **Use meaningful class names** that describe purpose
+- **Comment complex CSS** with clear explanations
+- **Group related styles** with section headers
+
+## 🧹 **Performance Optimization**
+
+```css
+/* GOOD: Efficient selectors */
+.navbar__item {
+  /* Direct class targeting */
+}
+
+/* AVOID: Inefficient selectors */
+.navbar div ul li a {
+  /* Deep descendant selectors */
+}
+```
+
+## 🧹 **Unused CSS Detection**
+
+```bash
+# Use PurgeCSS or similar tools
+npm install -g purgecss
+purgecss --css src/css/custom.css --content src/**/*.{js,jsx,ts,tsx,md,mdx}
+
+# Check for duplicate rules
+grep -r "\.navbar" src/css/ | wc -l
+```

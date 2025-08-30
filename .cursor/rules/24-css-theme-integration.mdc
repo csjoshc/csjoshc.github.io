@@ -1,0 +1,48 @@
+---
+description: CSS theme integration and variable management
+globs:
+  - "*.css"
+  - "*.module.css"
+  - "docusaurus.config.ts"
+alwaysApply: false
+contextAware: true
+applyOnlyInContext: ["development", "operational"]
+---
+
+# CSS Theme Integration
+
+## 🎨 **CSS Variable Usage**
+
+```css
+/* Use Infima variables for consistency */
+:root {
+  --ifm-color-primary: #0969da;
+  --ifm-background-color: #ffffff;
+  --ifm-color-emphasis-100: #f6f8fa;
+}
+
+/* Create custom variables for project-specific needs */
+:root {
+  --accent-blue: #0969da;
+  --accent-green: #1a7f37;
+  --border-light: #e1e4e8;
+}
+```
+
+## 🎨 **Dark Mode Support**
+
+```css
+/* Light mode (default) */
+:root {
+  --text-primary: #24292f;
+  --background-surface: #f6f8fa;
+}
+
+/* Dark mode overrides */
+[data-theme="dark"] {
+  --text-primary: #f0f6fc;
+  --background-surface: #242424;
+}
+```
+
+---

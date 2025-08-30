@@ -1,0 +1,57 @@
+---
+description: CSS conflict prevention and specificity management
+globs:
+  - "*.css"
+  - "*.module.css"
+alwaysApply: false
+contextAware: true
+applyOnlyInContext: ["development", "operational"]
+---
+
+# CSS Conflict Prevention and Specificity Management
+
+## 🚨 **CSS Specificity Rules**
+
+- **Use theme classes** when possible for maximum stability
+- **Avoid deep nesting** (max 3 levels)
+- **Prefer class selectors** over element selectors
+- **Use attribute selectors** sparingly and only for stable attributes
+
+## 📋 **Namespace Strategy**
+
+```css
+/* GOOD: Use theme classes when available */
+.theme-layout-navbar .navbar__item {
+  /* Custom navbar styling */
+}
+
+/* AVOID: Deep nesting with implementation details */
+.navbar .navbar__inner .navbar__items .navbar__item {
+  /* Fragile styling */
+}
+```
+
+## 🔢 **Z-Index Management**
+
+```css
+/* Define z-index scale in CSS variables */
+:root {
+  --z-navbar: 1000;
+  --z-sidebar: 999;
+  --z-backdrop: 998;
+  --z-content: 1;
+}
+
+/* Use variables consistently */
+.navbar {
+  z-index: var(--z-navbar);
+}
+```
+
+## 📍 **Positioning Conflicts**
+
+- **Fixed positioning** should use `z-index` management
+- **Sticky positioning** should respect parent containers
+- **Absolute positioning** should have defined boundaries
+
+---

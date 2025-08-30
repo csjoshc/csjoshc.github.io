@@ -1,0 +1,61 @@
+---
+alwaysApply: true
+---
+
+# Markdown General Standards
+
+## 📝 **Markdown Formatting Rules**
+
+### **File Structure**
+
+- Use descriptive filenames with clear purpose
+- Include creation dates when relevant (YYYY-MM-DD format)
+- Use kebab-case for multi-word filenames
+- Maintain consistent directory structure
+
+### **Header Hierarchy**
+
+- Start with `#` for main title
+- Use `##` for major sections
+- Use `###` for subsections
+- Avoid skipping header levels (no jumping from `#` to `###`)
+- Keep headers descriptive but concise
+
+### **Content Organization**
+
+- Use bullet points for lists
+- Use numbered lists for sequential steps
+- Include code blocks for technical content
+- Use tables for structured data
+- Add alt text for images
+
+### **Code Blocks**
+
+- Specify language for syntax highlighting
+- Use fenced code blocks (```)
+- Include comments in longer code examples
+- Test code examples to ensure they work
+
+### **Links and References**
+
+- Use descriptive link text
+- Verify all links work
+- Use relative links within the project
+- Include anchor links for long documents
+
+## 📋 **Quality Assurance**
+
+### **Pre-Commit Checks**
+
+- **No HTML tags** in markdown content (except valid HTML elements)
+- **Proper markdown syntax** throughout all files
+- **Consistent formatting** across all pages
+- **Working navigation** on all rendered pages
+
+### **Validation Commands**
+
+```bash
+# Check for common markdown issues
+grep -r "<[^/]" docs/ --include="*.md"
+grep -r "http://" docs/ --include="*.md"
+```

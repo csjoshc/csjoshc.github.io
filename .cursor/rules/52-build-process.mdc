@@ -1,0 +1,46 @@
+---
+description: Build process and synchronization requirements
+globs:
+  - "*.ipynb"
+  - "*.md"
+  - "*.py"
+  - "*.sh"
+alwaysApply: false
+contextAware: true
+applyOnlyInContext: ["operational", "development"]
+---
+
+# Build Process Rules
+
+## 🔄 **Smart Rebuild System**
+
+- **Don't rebuild unchanged files** - this is time-consuming
+- **Only process files in the rebuild queue**
+- **Use `./build.sh`** which automatically checks the queue
+- **Empty queue means no rebuild needed**
+
+## 🔄 **File Conversion Flow**
+
+1. **Notebook (.ipynb)** → **Markdown (.md)** → **HTML**
+2. **Only convert notebooks that have changed**
+3. **Only rebuild markdown that has changed**
+4. **MkDocs handles the final HTML generation**
+
+## 🚨 **CRITICAL REQUIREMENTS**
+
+### **Mandatory Sync Scenarios**
+
+- **Header changes** in `.md` files must be synchronized with corresponding `.ipynb` files
+- **Content updates** in `.ipynb` files must be reflected in `.md` files
+- **Navigation templates** must be consistent across related files
+- **File relationships** must be maintained and documented
+
+### **File Relationship Mapping**
+
+- **`.ipynb` ↔ `.md`**: Bidirectional sync for content and headers
+- **`.md` ↔ `.html`**: Generated HTML must reflect markdown changes
+- **Navigation templates**: Consistent navigation across all pages
+
+---
+
+---

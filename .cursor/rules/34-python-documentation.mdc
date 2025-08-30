@@ -1,0 +1,50 @@
+---
+description: Python documentation standards and practices
+globs:
+  - "*.py"
+  - "*.ipynb"
+  - "*.md"
+  - "README.md"
+alwaysApply: false
+contextAware: true
+applyOnlyInContext: ["development", "operational"]
+---
+
+# Python Documentation Standards
+
+## Documentation
+
+- Keep README files up to date
+- Document any new build processes
+- Update requirements.txt when adding dependencies
+- Comment complex build scripts
+
+## Agentic AI Change Summaries
+
+- **NEVER write .md files summarizing agentic AI changes directly to the root directory**
+- **Place all agentic AI change summaries in appropriate subdirectories**:
+  - Development logs: `DEVELOPMENT_LOG/` directory
+  - Feature documentation: `DEVELOPMENT_LOG/features/` directory
+  - System documentation: `DEVELOPMENT_LOG/systems/` directory
+  - Workflow documentation: `DEVELOPMENT_LOG/workflows/` directory
+- **Use descriptive filenames** that indicate the nature of the changes
+- **Include timestamps** in filenames when appropriate (e.g., `2025-08-28_23-15_FEATURE_NAME.md`)
+- **Maintain organized structure** within the DEVELOPMENT_LOG directory
+
+## Code Comments
+
+- Write clear, concise comments explaining complex logic
+- Use docstrings for all public functions and classes
+- Follow Google or NumPy docstring conventions
+- Keep comments up-to-date with code changes
+
+## API Documentation
+
+- Document all public interfaces clearly
+- Include usage examples in docstrings
+- Specify parameter types and return values
+- Document any side effects or exceptions
+
+---
+
+---

@@ -1,0 +1,54 @@
+---
+description: CSS responsive design standards and breakpoints
+globs:
+  - "*.css"
+  - "*.module.css"
+alwaysApply: false
+contextAware: true
+applyOnlyInContext: ["development", "operational"]
+---
+
+# CSS Responsive Design Standards
+
+## 📱 **Breakpoint Strategy**
+
+```css
+/* Use Docusaurus standard breakpoint */
+@media screen and (max-width: 996px) {
+  /* Mobile-specific styles */
+}
+
+/* Additional breakpoints for fine-tuning */
+@media screen and (max-width: 768px) {
+  /* Tablet styles */
+}
+
+@media screen and (max-width: 480px) {
+  /* Small mobile styles */
+}
+```
+
+## 📱 **Mobile-First Approach**
+
+```css
+/* Base styles for mobile */
+.navbar__item {
+  padding: 0.5rem;
+}
+
+/* Enhance for larger screens */
+@media screen and (min-width: 997px) {
+  .navbar__item {
+    padding: 0.75rem 1rem;
+  }
+}
+```
+
+## 📱 **Responsive Navigation Patterns**
+
+- **Hide navigation items** on mobile using `display: none`
+- **Show hamburger menu** below 996px breakpoint
+- **Use mobile sidebar** for navigation on small screens
+- **Maintain accessibility** with proper ARIA labels
+
+---

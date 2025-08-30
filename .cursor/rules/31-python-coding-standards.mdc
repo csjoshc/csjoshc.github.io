@@ -1,0 +1,59 @@
+---
+description: Python coding standards and best practices
+globs:
+  - "*.py"
+  - "*.ipynb"
+alwaysApply: false
+contextAware: true
+applyOnlyInContext: ["development", "operational"]
+---
+
+# Python Coding Standards
+
+## 🎯 **Context-Aware Application**
+
+### **WHEN TO APPLY**
+
+✅ **Development Tasks:** Writing new Python code, fixing bugs, refactoring
+✅ **Operational Tasks:** Running Python scripts, debugging production issues
+✅ **Code Review:** Analyzing existing Python code quality
+
+### **WHEN NOT TO APPLY**
+
+❌ **Informational Queries:** "What Python files are here?", "Show me the structure"
+❌ **Documentation Tasks:** Writing README files, creating guides
+❌ **General Questions:** "How does this work?", "What is Python?"
+
+**If the user is NOT asking you to write, modify, or analyze Python code, these standards do not apply.**
+
+## General Principles
+
+- Write clean, readable Python code that follows PEP 8 guidelines
+- Use type hints where appropriate for better code documentation
+- Implement proper error handling and logging
+- Write comprehensive docstrings for all functions and classes
+
+## 📝 **Code Quality Rules**
+
+### **Python Code**
+
+- Use type hints where appropriate
+- Follow PEP 8 style guidelines
+- Add docstrings to functions and classes
+- Handle exceptions gracefully
+
+### **Jupyter Notebooks**
+
+- Keep cells focused and logical
+- Use markdown cells for explanations
+- Avoid extremely long code cells
+- Include working directory setup in hidden cells
+
+## Code Structure
+
+### Function and Class Design
+
+- Use descriptive function names with clear purpose
+- Keep functions focused on single responsibility
+- Use classes for complex data structures and behavior
+- Implement proper inheritance and composition patterns

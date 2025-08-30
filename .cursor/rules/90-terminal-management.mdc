@@ -1,0 +1,207 @@
+---
+alwaysApply: true
+---
+
+# Terminal Management and PTY Safety
+
+## 🚨 **CRITICAL REQUIREMENTS**
+
+### **PTY Exhaustion Prevention**
+
+- **ALWAYS use terminal management commands** to prevent PTY exhaustion
+- **Check terminal status** before running operations
+- **Clean up after terminal sessions**
+- **Monitor PTY usage** during intensive operations
+
+### **Terminal Status Commands**
+
+```bash
+# Before any terminal operations
+just term-check
+
+# If status shows high usage
+just term-clean
+
+# For emergency cleanup
+just term-reset
+
+# Monitor during intensive work
+just term-monitor
+```
+
+## 🛡️ **Safety Protocols**
+
+### **Misformatted Command Detection**
+
+**IMMEDIATELY exit terminal sessions** showing these patterns:
+
+```bash
+pipe dquote bquote>
+dquote>
+bquote>
+>
+cmdand cmdand dquote>
+cmdand dquote>
+```
+
+**Response Protocol:**
+
+1. **Exit immediately** using `Ctrl+C`
+2. **Start fresh terminal session**
+3. **Retry with corrected command**
+4. **Analyze original command for syntax errors**
+
+### **Hanging Command Detection**
+
+**Exit terminal sessions** if commands hang for more than 10 seconds.
+
+**Response Protocol:**
+
+1. **Wait maximum 10 seconds** for completion
+2. **Use `Ctrl+C`** to interrupt hanging commands
+3. **Exit terminal completely**
+4. **Retry in fresh session**
+
+## 🔧 **Command Execution Best Practices**
+
+### **Pre-Execution Validation**
+
+- **Check command syntax** before execution
+- **Verify file paths and permissions**
+- **Test simple commands first**
+- **Validate complex command components**
+
+### **Safe Command Patterns**
+
+```bash
+# ✅ SAFE - Properly closed quotes
+echo "Hello world"
+
+# ❌ DANGEROUS - Unclosed quotes
+echo "Hello world
+
+# ✅ SAFE - Complete pipe operations
+ls | grep "file"
+
+# ❌ DANGEROUS - Incomplete pipes
+ls | grep "file" |
+
+# ✅ SAFE - Proper conditionals
+if [ -f file.txt ]; then echo "exists"; fi
+
+# ❌ DANGEROUS - Unclosed conditionals
+if [ -f file.txt ]; then echo "exists"
+```
+
+## 📊 **Resource Management**
+
+### **PTY Usage Monitoring**
+
+- **Track concurrent terminal sessions**
+- **Monitor system resource usage**
+- **Clean up unused terminals**
+- **Balance automation with system capacity**
+
+### **Memory Management**
+
+- **Close unused terminal sessions**
+- **Monitor memory usage during operations**
+- **Clean up temporary files and processes**
+- **Implement resource limits for automation**
+
+## 🏗️ **Build System Integration**
+
+### **Just Command Integration**
+
+- **Use `just` commands** for complex operations
+- **Integrate terminal management** into build scripts
+- **Include cleanup steps** in automation workflows
+- **Document terminal requirements** for each command
+
+### **Automation Safety**
+
+- **Implement timeout mechanisms**
+- **Add error recovery procedures**
+- **Include cleanup in error paths**
+- **Test automation in isolated environments**
+
+## 🔄 **Workflow Integration**
+
+### **Development Workflow**
+
+```bash
+# Safe development cycle
+just term-check          # Verify terminal availability
+just dev                 # Start development server
+just term-clean          # Clean up after completion
+
+# Safe build process
+just term-check          # Check resources
+just build              # Execute build
+just term-clean          # Clean up terminals
+```
+
+### **AI Interaction Workflow**
+
+```bash
+# Integrated AI workflow
+just ai-workflow "Feature implementation"
+# Includes automatic:
+# - Terminal status checks
+# - Resource validation
+# - Error recovery
+# - Cleanup procedures
+```
+
+## 📋 **Quality Assurance**
+
+### **Pre-Execution Checklist**
+
+- [ ] **Terminal status checked** with `just term-check`
+- [ ] **Resources available** for operation
+- [ ] **Command syntax validated**
+- [ ] **File paths verified**
+- [ ] **Permissions confirmed**
+
+### **Post-Execution Checklist**
+
+- [ ] **Terminal sessions closed** properly
+- [ ] **Temporary files cleaned up**
+- [ ] **Resources released**
+- [ ] **Error logs reviewed**
+- [ ] **Success/failure documented**
+
+## 🆘 **Emergency Procedures**
+
+### **PTY Exhaustion Recovery**
+
+1. **Stop all automation** immediately
+2. **Run `just term-reset`** for emergency cleanup
+3. **Restart development environment**
+4. **Monitor PTY usage** during recovery
+5. **Implement preventive measures**
+
+### **Hanging Process Recovery**
+
+1. **Identify hanging processes** with `ps aux`
+2. **Terminate problematic processes** with `kill`
+3. **Clean up terminal sessions**
+4. **Restart affected services**
+5. **Review automation for timeout issues**
+
+## 📚 **Documentation Requirements**
+
+### **Command Documentation**
+
+- **Document terminal requirements** for each script
+- **Include resource usage estimates**
+- **Specify cleanup procedures**
+- **Document error recovery steps**
+- **Maintain troubleshooting guides**
+
+### **Process Documentation**
+
+- **Record terminal management procedures**
+- **Document PTY usage patterns**
+- **Maintain incident response guides**
+- **Update procedures based on lessons learned**

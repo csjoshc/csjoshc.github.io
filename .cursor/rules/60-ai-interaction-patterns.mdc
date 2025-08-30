@@ -1,0 +1,264 @@
+---
+description: AI interaction patterns and workflow standards
+globs:
+  - "*.js"
+  - "*.ts"
+  - "*.tsx"
+  - "*.json"
+  - "*.md"
+  - "*.mdc"
+alwaysApply: true
+---
+
+# AI Interaction Patterns & Workflow Standards
+
+## 🚨 **CRITICAL AI AGENT RULES**
+
+### **Prompt Injection: Development Task Brutal Honesty Protocol**
+
+**When handling development-related tasks, AI agents MUST:**
+
+1. **Prefer brutal honesty over optimistic maybes**
+2. **Provide realistic takes instead of leading users down uncertain paths**
+3. **Use complex chain of reasoning to thoroughly evaluate solutions**
+4. **Do NOT jump straight to implementation**
+5. **Follow this sequence: ANALYZE → PLAN → LIST TASKS → EXECUTE SEQUENTIALLY → VALIDATE BETWEEN STEPS**
+
+**This protocol overrides all other interaction patterns for development contexts.**
+
+### **Context-Aware Rule Application**
+
+**BEFORE applying any rules or standards:**
+
+1. **Check Context Detection Rule (01-context-detection.mdc)**
+2. **Determine query/task type** (informational, development, operational, documentation)
+3. **Apply ONLY contextually-relevant rules**
+4. **Skip development standards for non-development queries**
+
+### **Rule Application Hierarchy:**
+
+1. **Context Detection** (01) - Determines what rules apply
+2. **Relevant Standards** - Only those matching the context
+3. **Safety Protocols** - Always apply for any terminal operations
+
+### Automation Script Requirements
+
+When creating terminal command scripts, shell scripts, or utilities for batch processing, modification, or other automated processes, AI agents MUST follow this pattern:
+
+#### 1. Single-File Processing Capability
+
+- **Always provide a way to run the automation for one file at a time**
+- Include command-line flags or parameters for single-file processing
+- Example: `./script.sh --single-file path/to/file.md` or `./script.sh single path/to/file.md`
+
+#### 2. File List Generation
+
+- **Create a list of files that need processing**
+- Generate this list programmatically or from user input
+- Store the list in a temporary file or variable for tracking progress
+
+#### 3. Iterative Processing Loop
+
+```bash
+# Perform the needful in a while loop
+while [ ${#files_to_process[@]} -gt 0 ]; do
+    # Take one file from the list
+    current_file="${files_to_process[0]}"
+
+    # Run automation on the single file
+    ./automation_script.sh "$current_file"
+
+    # Validate the output immediately
+    if validate_output "$current_file"; then
+        echo "✅ Successfully processed: $current_file"
+        # Remove from processing list
+        files_to_process=("${files_to_process[@]:1}")
+    else
+        echo "❌ Failed to process: $current_file"
+        # Handle error - stop or continue based on requirements
+        break
+    fi
+done
+```
+
+#### 4. Validation Requirements
+
+After processing each file, validate:
+
+- **Build pipeline compatibility** - Ensure no build errors
+- **Test suite compatibility** - Verify existing tests still pass
+- **Output format correctness** - Check file structure and content
+- **Rendering pipeline compatibility** - Ensure proper display
+
+#### 5. Integration with Build Process
+
+- **Integrate with the `just` build system** when necessary
+- Add new commands to `justfile` for automation tasks
+- Ensure automation can be run as part of the build pipeline
+- Example: `just process-files` or `just validate-all`
+
+#### 6. Error Handling and Recovery
+
+- **Stop processing on critical errors**
+- **Provide clear error messages** with file paths and line numbers
+- **Allow resuming from where it left off** when possible
+- **Log all operations** for debugging and audit trails
+
+## Terminal Command Safety
+
+AI agents MUST follow these terminal safety protocols to prevent getting stuck:
+
+#### 1. Misformatted Command Detection
+
+**IMMEDIATELY exit the terminal session** if you see any of these prompts:
+
+```bash
+pipe dquote bquote>
+dquote>
+bquote>
+>
+cmdand cmdand dquote>
+cmdand dquote>
+```
+
+**Response Protocol:**
+
+1. **Exit immediately** using `Ctrl+C` or `exit`
+2. **Do NOT try to fix the command in the same session**
+3. **Start a fresh terminal session**
+4. **Retry with a corrected command**
+5. **Analyze the original command for syntax errors before retrying**
+
+#### 2. Hanging Command Detection
+
+**Exit the terminal session** if a command hangs for more than 10 seconds without producing new output.
+
+**Response Protocol:**
+
+1. **Wait maximum 10 seconds** for command completion
+2. **If no new output appears**, use `Ctrl+C` to interrupt
+3. **Exit the terminal session** completely
+4. **Start a fresh session** and retry with the command
+
+#### 3. Command Validation Before Execution
+
+**Always validate commands** before submitting to terminal:
+
+- Check for **balanced quotes** and parentheses
+- Verify **proper escaping** of special characters
+- Ensure **complete command syntax**
+- Test **simple commands first** before complex ones
+
+## Core Interaction Principles
+
+### User-Centric Approach
+
+- **Always prioritize user experience and preferences**
+- **Listen carefully to user feedback and iterate accordingly**
+- **Provide comprehensive solutions, not just quick fixes**
+- **Maintain consistency with established patterns**
+
+### Proactive Problem Solving
+
+- **Identify root causes, not just symptoms**
+- **Anticipate related issues and address them proactively**
+- **Provide comprehensive solutions that prevent future problems**
+- **Think systematically about the entire project ecosystem**
+
+## AI Interaction Workflow Standards
+
+### Complete Development Cycle
+
+When engaging in AI-assisted development, follow this comprehensive workflow:
+
+#### 1. Validation Phase
+
+**Before making any changes:**
+
+- Run comprehensive test suite: `just test-all`
+- Verify build passes: `npm run build`
+- Check for existing issues: `just validate-all`
+- Document current state and requirements
+
+#### 2. Implementation Phase
+
+**During development:**
+
+- Implement changes incrementally
+- Test each component immediately after implementation
+- Validate integration with existing systems
+- Document decisions and trade-offs
+
+#### 3. Quality Assurance Phase
+
+**After implementation:**
+
+- Run full test suite: `just test-all`
+- Validate responsive behavior: `just test-responsive`
+- Check social navigation: `just test-social-nav`
+- Verify build integrity: `just test-build`
+
+#### 4. Cleanup Phase
+
+**Before finalizing:**
+
+- Remove temporary files and debug artifacts
+- Clean up unused dependencies
+- Remove one-time use scripts
+- Update documentation
+
+#### 5. Commit Phase
+
+**Final step:**
+
+- Use AI workflow: `just ai-workflow "Descriptive commit message"`
+- Or quick commit: `just ai-commit` (auto-generates message)
+- Extended validation: `just ai-workflow-custom "Message"`
+
+### Integration with Build System
+
+**Automated Quality Gates:**
+
+- All new scripts must integrate with `just` build system
+- Tests must be runnable via `just test-*` commands
+- Validation must pass before commits
+- Documentation must be updated
+
+## File Management Preferences
+
+### Synchronization First
+
+- **ALWAYS consider file relationships before making changes**
+- **Maintain consistency across all related files**
+- **Update source files when documentation changes**
+- **Prevent drift between different file formats**
+
+### Comprehensive Updates
+
+- **Update all related files, not just the primary target**
+- **Check for cross-references and navigation updates**
+- **Maintain consistency in naming and structure**
+- **Test functionality after making changes**
+
+## Quality Standards
+
+### Thoroughness
+
+- **Don't consider a task complete until fully validated**
+- **Test all aspects of implemented solutions**
+- **Verify related functionality still works**
+- **Check for unintended side effects**
+
+### Consistency
+
+- **Maintain established patterns and conventions**
+- **Use consistent terminology and formatting**
+- **Follow established file organization principles**
+- **Preserve existing functionality unless explicitly improving it**
+
+### Documentation
+
+- **Document all significant changes**
+- **Update relevant documentation files**
+- **Include usage examples and explanations**
+- **Maintain change logs and update summaries**

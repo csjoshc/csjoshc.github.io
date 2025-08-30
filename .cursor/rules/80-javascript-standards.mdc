@@ -1,0 +1,214 @@
+---
+description: JavaScript standards, best practices, and development guidelines
+globs:
+  - "*.js"
+  - "*.jsx"
+  - "*.ts"
+  - "*.tsx"
+alwaysApply: false
+contextAware: true
+applyOnlyInContext: ["development", "operational"]
+---
+
+# JavaScript Standards and Best Practices
+
+## 🎯 **Context-Aware Application**
+
+### **WHEN TO APPLY**
+
+✅ **Development Tasks:** Writing new JS/TS code, creating components, fixing bugs
+✅ **Operational Tasks:** Building applications, debugging production issues
+✅ **Code Tasks:** Refactoring, optimization, testing
+
+### **WHEN NOT TO APPLY**
+
+❌ **Informational Queries:** "What JS files exist?", "Show me the components"
+❌ **Documentation Tasks:** Writing API docs, creating guides
+❌ **General Questions:** "How does JavaScript work?", "What is TypeScript?"
+
+**If the user is NOT asking you to write, modify, or analyze JavaScript/TypeScript code, these standards do not apply.**
+
+## 📝 **Code Quality**
+
+### **ES6+ Features**
+
+- Use `const` and `let` instead of `var`
+- Use arrow functions for concise syntax
+- Use template literals for string interpolation
+- Use destructuring for object/array access
+- Use spread/rest operators appropriately
+
+### **Function Design**
+
+- Use descriptive function names
+- Keep functions focused on single responsibility
+- Use default parameters for optional values
+- Return early from functions when possible
+- Use async/await for asynchronous operations
+
+### **Error Handling**
+
+- Use try/catch for error-prone operations
+- Provide meaningful error messages
+- Don't suppress errors silently
+- Use custom error classes for specific error types
+- Log errors appropriately for debugging
+
+## 🏗️ **Architecture Patterns**
+
+### **Module Organization**
+
+- Use ES6 modules (`import`/`export`)
+- Keep modules focused and cohesive
+- Avoid circular dependencies
+- Use barrel exports for cleaner imports
+- Document public APIs clearly
+
+### **State Management**
+
+- Avoid global state when possible
+- Use immutable data patterns
+- Implement proper state validation
+- Document state structure and flow
+- Consider performance implications
+
+### **Performance Considerations**
+
+- Minimize DOM manipulations
+- Use efficient algorithms and data structures
+- Implement lazy loading for large components
+- Optimize bundle size and loading
+- Monitor memory usage and leaks
+
+## 🧪 **Testing Standards**
+
+### **Unit Testing**
+
+- Write tests for all public functions
+- Test both success and error cases
+- Use descriptive test names
+- Mock external dependencies
+- Maintain high test coverage (>80%)
+
+### **Integration Testing**
+
+- Test component interactions
+- Verify data flow between modules
+- Test API integrations
+- Include end-to-end scenarios
+- Test error recovery mechanisms
+
+### **Code Quality Tools**
+
+- Use ESLint for code linting
+- Use Prettier for code formatting
+- Run tests before commits
+- Use TypeScript for type safety
+- Implement CI/CD quality gates
+
+## 🔒 **Security Best Practices**
+
+### **Input Validation**
+
+- Validate all user inputs
+- Sanitize data before processing
+- Use parameterized queries for databases
+- Implement proper authentication
+- Validate file uploads and types
+
+### **XSS Prevention**
+
+- Escape user-generated content
+- Use Content Security Policy (CSP)
+- Avoid `innerHTML` with user input
+- Sanitize HTML content properly
+- Validate URLs and redirects
+
+## 📚 **Documentation**
+
+### **Code Comments**
+
+- Write clear, concise comments
+- Explain complex logic and algorithms
+- Document function parameters and return values
+- Include usage examples for complex APIs
+- Keep comments up-to-date with code changes
+
+### **API Documentation**
+
+- Document all public methods and classes
+- Include parameter types and descriptions
+- Specify return value types and formats
+- Document error conditions and exceptions
+- Provide usage examples and code snippets
+
+## 🔧 **Development Workflow**
+
+### **Code Reviews**
+
+- Request reviews for significant changes
+- Provide constructive feedback
+- Test changes before approving
+- Ensure documentation is updated
+- Verify tests pass and coverage maintained
+
+### **Version Control**
+
+- Write clear, descriptive commit messages
+- Keep commits focused and atomic
+- Use feature branches for new development
+- Rebase regularly to maintain clean history
+- Tag releases with semantic versioning
+
+## 🐛 **Debugging and Maintenance**
+
+### **Logging**
+
+- Use structured logging with appropriate levels
+- Include contextual information in logs
+- Avoid logging sensitive information
+- Implement log rotation and archiving
+- Monitor logs for error patterns
+
+### **Monitoring**
+
+- Implement health checks and metrics
+- Monitor performance and error rates
+- Set up alerts for critical issues
+- Track user interactions and usage patterns
+- Maintain uptime and reliability
+
+## 📋 **Quality Assurance**
+
+### **Pre-Commit Checks**
+
+- Run linting and formatting
+- Execute test suite
+- Check for security vulnerabilities
+- Validate bundle size and performance
+- Ensure no console errors or warnings
+
+### **Code Review Checklist**
+
+- [ ] Code follows established patterns
+- [ ] Tests are included and passing
+- [ ] Documentation is updated
+- [ ] Security considerations addressed
+- [ ] Performance implications considered
+- [ ] Error handling is appropriate
+- [ ] Code is readable and maintainable
+
+---
+
+description: JavaScript standards, best practices, and development guidelines
+globs:
+
+- "\*.js"
+- "\*.jsx"
+- "\*.ts"
+- "\*.tsx"
+  alwaysApply: false
+  contextAware: true
+  applyOnlyInContext: ["development", "operational"]
+
+---

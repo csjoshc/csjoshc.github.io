@@ -1,0 +1,181 @@
+# Git Commit Standards and AI Agent Attribution
+
+## 🚨 **CRITICAL REQUIREMENTS**
+
+### **AI Agent Attribution in Commits**
+
+**When an AI agent creates a git commit, the commit message MUST include:**
+
+1. **"Cursor agent"** - to identify the commit was created by an AI agent
+2. **Clear description** of what was changed
+3. **Context** about why the change was made
+
+### **Required Commit Message Format**
+
+```bash
+# ✅ CORRECT - AI agent attribution
+git commit -m "Cursor agent: Update landing page with latest blog post integration"
+
+# ✅ CORRECT - Detailed AI agent attribution
+git commit -m "Cursor agent: Fix duplicate site directory causing GitHub Pages to serve wrong content"
+
+# ❌ INCORRECT - Missing AI agent attribution
+git commit -m "Update landing page with latest blog post integration"
+
+# ❌ INCORRECT - Unclear attribution
+git commit -m "AI: Update landing page"
+```
+
+### **Commit Message Structure**
+
+**Standard Format:**
+
+```
+Cursor agent: [Action] [Target] - [Reason/Context]
+```
+
+**Examples:**
+
+- `Cursor agent: Remove duplicate site directory - fix GitHub Pages serving wrong content`
+- `Cursor agent: Update ModernLanding component - integrate latest blog post info`
+- `Cursor agent: Fix sidebar navigation - regenerate blog links with correct URLs`
+- `Cursor agent: Update site branding - change title to "Josh's demo site"`
+
+### **When This Rule Applies**
+
+**ALWAYS apply this rule when:**
+
+- ✅ Creating git commits via terminal commands
+- ✅ Suggesting commit messages to users
+- ✅ Automating git operations
+- ✅ Any git-related task that results in commits
+
+**This rule applies regardless of:**
+
+- Context type (informational, development, operational)
+- File types being modified
+- Complexity of the changes
+- Whether it's a single file or bulk operation
+
+## 📋 **Quality Assurance**
+
+### **Pre-Commit Validation**
+
+Before creating any commit, AI agents MUST verify:
+
+1. **Message includes "Cursor agent"** ✅
+2. **Action is clearly described** ✅
+3. **Target is specified** ✅
+4. **Context/reason is provided** ✅
+5. **Message follows standard format** ✅
+
+### **Commit Message Examples by Category**
+
+#### **Bug Fixes**
+
+```bash
+Cursor agent: Fix sidebar navigation error - regenerate blog links with correct URLs
+Cursor agent: Fix landing page update script - correct regex pattern for description replacement
+```
+
+#### **Feature Updates**
+
+```bash
+Cursor agent: Add blog navigation integration - update sidebar with latest posts
+Cursor agent: Update site branding - change title and tagline to reflect new identity
+```
+
+#### **Content Updates**
+
+```bash
+Cursor agent: Update landing page content - integrate latest blog post information
+Cursor agent: Regenerate navigation - add new blog posts to sidebar structure
+```
+
+#### **Cleanup Operations**
+
+```bash
+Cursor agent: Remove duplicate site directory - eliminate conflicting content sources
+Cursor agent: Clean up build artifacts - remove temporary files and old builds
+```
+
+## 🔧 **Implementation Guidelines**
+
+### **Terminal Commands**
+
+**When using git commands, always include proper attribution:**
+
+```bash
+# ✅ CORRECT
+git commit -m "Cursor agent: [Description of changes]"
+
+# ❌ INCORRECT
+git commit -m "[Description of changes]"
+```
+
+### **User Communication**
+
+**When suggesting commit messages to users:**
+
+1. **Always include "Cursor agent"** in the suggested message
+2. **Explain why attribution is important**
+3. **Provide the complete formatted message**
+
+### **Automation Scripts**
+
+**When creating scripts that make commits:**
+
+1. **Include "Cursor agent"** in all automated commit messages
+2. **Use descriptive, contextual messages**
+3. **Follow the standard format consistently**
+
+## 📊 **Monitoring and Compliance**
+
+### **Validation Commands**
+
+```bash
+# Check recent commits for AI agent attribution
+git log --oneline | grep -i "cursor agent"
+
+# Check if any recent commits are missing attribution
+git log --oneline | grep -v -i "cursor agent"
+```
+
+### **Compliance Checklist**
+
+- [ ] **All commits include "Cursor agent"** ✅
+- [ ] **Messages follow standard format** ✅
+- [ ] **Actions are clearly described** ✅
+- [ ] **Context is provided** ✅
+- [ ] **No generic or unclear messages** ✅
+
+## 🎯 **Benefits of This Rule**
+
+### **For Users:**
+
+- **Clear attribution** of AI-generated changes
+- **Audit trail** of what was modified by AI
+- **Understanding** of change context and reasoning
+
+### **For AI Agents:**
+
+- **Consistent communication** standards
+- **Professional appearance** in git history
+- **Clear responsibility** for changes made
+
+### **For Project Management:**
+
+- **Transparency** in development process
+- **Accountability** for AI-generated modifications
+- **Better collaboration** between human and AI contributors
+
+---
+
+**Priority:** High - Must be followed for all git commits
+**Scope:** All AI agent interactions involving git operations
+**Version:** 1.0 - Git Commit Standards and AI Agent Attribution
+description:
+globs:
+alwaysApply: true
+
+---

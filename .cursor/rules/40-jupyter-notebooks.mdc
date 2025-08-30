@@ -1,0 +1,167 @@
+---
+description: Jupyter notebook standards, best practices, and educational guidelines
+globs:
+  - "*.ipynb"
+alwaysApply: false
+contextAware: true
+applyOnlyInContext: ["development", "operational"]
+---
+
+# Jupyter Notebook Standards
+
+## 📓 **Notebook Structure**
+
+### **Cell Organization**
+
+- **Markdown cells** for explanations and documentation
+- **Code cells** for executable code and analysis
+- **Raw cells** for notes or non-executable content
+- **Logical flow** from introduction to conclusion
+
+### **Content Sections**
+
+- **Title and introduction** in first cells
+- **Import statements** grouped together
+- **Data loading and preprocessing**
+- **Analysis and visualization**
+- **Conclusions and next steps**
+
+### **Code Quality**
+
+- **Clear variable names** with descriptive purposes
+- **Comments explaining** complex operations
+- **Modular code structure** with reusable functions
+- **Error handling** for data operations
+- **Performance considerations** for large datasets
+
+## 🔧 **Best Practices**
+
+### **Reproducibility**
+
+- **Include all imports** at the top
+- **Document dependencies** and versions
+- **Use relative paths** for data files
+- **Include data loading steps**
+- **Document environment setup**
+
+### **Documentation**
+
+- **Rich text explanations** using markdown
+- **Inline comments** for complex code
+- **Cell-level documentation** for each section
+- **Links to external resources**
+- **Citations for methodologies**
+
+### **Data Management**
+
+- **Version control** for notebooks and data
+- **Data validation** and quality checks
+- **Intermediate results** saved appropriately
+- **File organization** for datasets
+- **Backup strategies** for important data
+
+## 📊 **Visualization Standards**
+
+### **Plot Quality**
+
+- **Clear titles and labels** on all charts
+- **Appropriate color schemes** for accessibility
+- **Consistent styling** across visualizations
+- **Proper axis scaling** and formatting
+- **Legends and annotations** where needed
+
+### **Interactive Elements**
+
+- **Widgets for parameter exploration**
+- **Hover information** for detailed data
+- **Responsive design** for different screen sizes
+- **Export capabilities** for static versions
+
+## 🧪 **Testing and Validation**
+
+### **Code Execution**
+
+- **Run all cells** before committing
+- **Verify output accuracy** and completeness
+- **Test edge cases** and error conditions
+- **Validate data integrity** throughout pipeline
+- **Check for deprecated functions** or methods
+
+### **Output Validation**
+
+- **Review all outputs** for correctness
+- **Check data types** and value ranges
+- **Verify calculations** with known examples
+- **Test visualization clarity** and accuracy
+- **Ensure reproducible results**
+
+## 🔄 **Conversion and Integration**
+
+### **Markdown Export**
+
+- **Clean conversion** to markdown format
+- **Preserve code execution** in converted files
+- **Maintain formatting** and structure
+- **Include output screenshots** when necessary
+- **Update cross-references** in documentation
+
+### **Documentation Integration**
+
+- **Seamless integration** with project docs
+- **Consistent navigation** and structure
+- **Proper linking** between notebook and docs
+- **Version synchronization** between formats
+- **Unified search and discovery**
+
+## 📋 **Quality Assurance**
+
+### **Pre-Commit Checklist**
+
+- [ ] **All cells executed** successfully
+- [ ] **Outputs are current** and accurate
+- [ ] **No sensitive data** in committed notebooks
+- [ ] **Dependencies documented** and available
+- [ ] **Code follows style guidelines**
+
+### **Review Process**
+
+- [ ] **Logic flow** is clear and logical
+- [ ] **Documentation** is comprehensive
+- [ ] **Code quality** meets standards
+- [ ] **Performance** is acceptable
+- [ ] **Error handling** is appropriate
+
+## 🛠️ **Development Tools**
+
+### **Extensions and Tools**
+
+- **Jupyter extensions** for enhanced functionality
+- **Version control integration** (nbdime, etc.)
+- **Code formatting tools** (black, autopep8)
+- **Linting tools** for code quality
+- **Testing frameworks** for notebook validation
+
+### **Environment Management**
+
+- **Virtual environments** for project isolation
+- **Dependency management** with requirements.txt
+- **Kernel management** for different Python versions
+- **Container support** for reproducible environments
+
+## 📚 **Educational Standards**
+
+### **Learning Objectives**
+
+- **Clear learning goals** stated upfront
+- **Progressive difficulty** throughout notebook
+- **Practical examples** with real-world relevance
+- **Exercises and challenges** for practice
+- **Further reading** and resources
+
+### **Pedagogical Best Practices**
+
+- **Chunked information** in digestible sections
+- **Visual explanations** alongside code
+- **Interactive exploration** opportunities
+- **Assessment checkpoints** throughout
+- **Summary and key takeaways** at conclusion

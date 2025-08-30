@@ -1,0 +1,31 @@
+---
+description: Python error handling and logging best practices
+globs:
+  - "*.py"
+  - "*.ipynb"
+alwaysApply: false
+contextAware: true
+applyOnlyInContext: ["development", "operational"]
+---
+
+# Python Error Handling and Logging
+
+## Error Handling
+
+### Exception Management
+
+- Use specific exception types rather than generic `except:`
+- Implement proper error messages for debugging
+- Log errors with appropriate context information
+- Provide user-friendly error messages when appropriate
+
+### Logging
+
+- Use Python's built-in logging module for debugging
+- Set appropriate log levels for different environments
+- Include contextual information in log messages
+- Configure logging to avoid cluttering output
+
+---
+
+---

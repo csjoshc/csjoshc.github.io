@@ -1,0 +1,131 @@
+---
+description: HTML standards, accessibility guidelines, and best practices
+globs:
+  - "*.html"
+  - "*.htm"
+  - "*.tsx"
+  - "*.jsx"
+alwaysApply: false
+contextAware: true
+applyOnlyInContext: ["development", "operational"]
+---
+
+# HTML Standards and Accessibility
+
+## 🎯 **Context-Aware Application**
+
+### **WHEN TO APPLY**
+
+✅ **Development Tasks:** Creating HTML pages, fixing markup, accessibility improvements
+✅ **Operational Tasks:** Building sites, validating HTML, deployment
+✅ **Markup Tasks:** Writing templates, components, layouts
+
+### **WHEN NOT TO APPLY**
+
+❌ **Informational Queries:** "What HTML files exist?", "Show me the pages"
+❌ **Documentation Tasks:** Writing HTML guides, documenting structure
+❌ **General Questions:** "How does HTML work?", "What is semantic markup?"
+
+**If the user is NOT asking you to write, modify, or analyze HTML/markup code, these standards do not apply.**
+
+## 🌐 **HTML Structure**
+
+### **Semantic HTML**
+
+- Use semantic elements (`<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<aside>`, `<footer>`)
+- Avoid generic `<div>` and `<span>` when semantic alternatives exist
+- Use proper heading hierarchy (h1-h6)
+- Include `<main>` element for primary content
+
+### **Document Structure**
+
+- Include proper `<!DOCTYPE html>`
+- Use `<html lang="en">` with appropriate language attribute
+- Include `<meta charset="UTF-8">`
+- Add viewport meta tag for responsive design
+
+### **Accessibility First**
+
+- Use semantic HTML for screen readers
+- Include alt text for all images
+- Provide sufficient color contrast
+- Ensure keyboard navigation works
+- Add ARIA labels when needed
+
+## ♿ **Accessibility Guidelines**
+
+### **WCAG 2.1 AA Compliance**
+
+- **Color Contrast**: Minimum 4.5:1 for normal text, 3:1 for large text
+- **Keyboard Navigation**: All interactive elements accessible via keyboard
+- **Screen Reader Support**: Proper semantic markup and ARIA labels
+- **Focus Management**: Clear focus indicators and logical tab order
+
+### **Form Accessibility**
+
+- Associate labels with form controls using `<label for="id">`
+- Use fieldsets and legends for form groupings
+- Provide clear error messages and instructions
+- Include autocomplete attributes where appropriate
+
+### **Image Accessibility**
+
+- Always include descriptive alt text
+- Use empty alt (`alt=""`) for decorative images
+- Include text alternatives for complex images/charts
+- Consider using `<figure>` and `<figcaption>` for important images
+
+## 🔧 **HTML Best Practices**
+
+### **Performance**
+
+- Minimize DOM depth and complexity
+- Use CSS for styling, avoid inline styles
+- Optimize images and media files
+- Minimize HTTP requests
+
+### **SEO and Metadata**
+
+- Include descriptive page titles
+- Add meta descriptions
+- Use structured data when appropriate
+- Include Open Graph tags for social sharing
+
+### **Cross-Browser Compatibility**
+
+- Use progressive enhancement
+- Include fallbacks for older browsers
+- Test on multiple browsers and devices
+- Avoid browser-specific CSS hacks
+
+## 🧪 **Quality Assurance**
+
+### **Validation**
+
+- Validate HTML using W3C validator
+- Check for broken links and missing resources
+- Test responsive design across devices
+- Verify accessibility compliance
+
+### **Maintenance**
+
+- Always check for related files that need updating
+- Maintain semantic structure and accessibility
+- Preserve existing functionality
+- Test changes across different browsers
+- Update related documentation when needed
+
+---
+
+description: HTML standards, accessibility guidelines, and best practices
+globs:
+
+- "\*.html"
+- "\*.htm"
+- "\*.tsx"
+- "\*.jsx"
+  alwaysApply: false
+  contextAware: true
+  applyOnlyInContext: ["development", "operational"]
+
+---

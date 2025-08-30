@@ -1,0 +1,50 @@
+---
+description: Python package management and virtual environment usage
+globs:
+  - "*.py"
+  - "requirements.txt"
+  - "pyproject.toml"
+alwaysApply: false
+contextAware: true
+applyOnlyInContext: ["development", "operational"]
+---
+
+# Python Package Management
+
+## Virtual Environment Usage
+
+- **ALWAYS use the project's virtual environment** (`.venv`) for development
+- **Activate the environment** before running scripts: `source .venv/bin/activate`
+- **Install packages only in the project's virtual environment**
+
+## Package Installation Documentation
+
+- **When installing new Python packages**, document the change immediately
+- **Update requirements.txt** to include the new package and version
+- **Record the installation** in project documentation or commit messages
+
+**Example workflow**:
+
+```bash
+# Install package
+pip install package_name
+
+# Update requirements.txt
+pip freeze > requirements.txt
+
+# Document the change
+# - Add to commit message
+# - Update relevant documentation
+# - Note any configuration changes needed
+```
+
+## Requirements Management
+
+- **Keep requirements.txt up-to-date** with all installed packages
+- **Specify version constraints** when needed for compatibility
+- **Document any special installation requirements** or dependencies
+- **Test the build process** after adding new packages
+
+---
+
+---

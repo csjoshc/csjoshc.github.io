@@ -1,0 +1,68 @@
+---
+description: File synchronization workflows and quality assurance
+globs:
+  - "*.ipynb"
+  - "*.md"
+  - "*.py"
+alwaysApply: false
+contextAware: true
+applyOnlyInContext: ["operational", "development"]
+---
+
+# Synchronization Workflows
+
+## 🔄 **1. Jupyter Notebook to Markdown Conversion**
+
+```bash
+# Convert with navigation templates
+python3 ipynb2md_with_nav.py docs/Python --backup
+
+# Verify conversion
+python3 insert_navigation.py --dry-run
+```
+
+## 🔄 **2. Navigation Template Updates**
+
+```bash
+# Test changes
+python3 insert_navigation.py --dry-run
+
+# Apply with backup
+python3 insert_navigation.py --backup
+```
+
+## 🔄 **3. Header Synchronization**
+
+```bash
+# Clean headers in markdown files
+# Sync back to Jupyter notebooks
+# Verify consistency across all related files
+```
+
+## 📋 **Quality Assurance**
+
+### **Pre-Sync Validation**
+
+- [ ] **Content consistency** between source and target files
+- [ ] **Navigation templates** match file location and context
+- [ ] **Relative paths** calculated correctly for file structure
+- [ ] **No duplicate navigation** elements in files
+
+### **Post-Sync Validation**
+
+- [ ] **All related files** updated consistently
+- [ ] **Navigation links** work correctly
+- [ ] **No broken references** or 404 errors
+- [ ] **Styling consistency** across all pages
+- [ ] **Test page rendering** after build steps
+
+### **Testing Requirements**
+
+- **Page rendering**: Verify all pages display correctly after build
+- **Navigation functionality**: Test all navigation buttons and links
+- **Cross-browser compatibility**: Ensure consistent behavior
+- **Responsive design**: Test navigation on different screen sizes
+
+---
+
+---

@@ -1,0 +1,218 @@
+---
+description: Context-aware rule application system
+globs:
+  - "*"
+alwaysApply: true
+priority: 1
+---
+
+# Context-Aware Rule Application System
+
+## 🚨 **CRITICAL OVERRIDE RULES**
+
+### **Context Detection and Selective Application**
+
+**BEFORE applying any development-specific rules, AI agents MUST:**
+
+1. **Analyze the user's query/task type**
+2. **Determine if development rules are relevant**
+3. **Apply ONLY contextually-appropriate rules**
+
+## 📋 **Query/Task Type Classification**
+
+### **Informational Queries**
+
+**Examples:** "what files are here?", "show me the structure", "what rules are applied?"
+
+**APPLY ONLY:**
+
+- ✅ General documentation standards (markdown, file organization)
+- ✅ AI interaction safety protocols
+- ✅ Terminal management (if commands are involved)
+
+**DO NOT APPLY:**
+
+- ❌ Python coding standards
+- ❌ CSS validation rules
+- ❌ JavaScript/TypeScript standards
+- ❌ HTML accessibility requirements
+- ❌ Build system integration
+- ❌ Testing frameworks
+- ❌ Code quality linting
+
+### **Development Tasks**
+
+**Examples:** "write a Python function", "fix this CSS", "create a React component"
+
+**APPLY ALL:**
+
+- ✅ All relevant development standards
+- ✅ Code quality rules
+- ✅ Testing requirements
+- ✅ Documentation standards
+- ✅ Build integration
+
+### **Operational Tasks**
+
+**Examples:** "run the build", "deploy to production", "check status"
+
+**APPLY:**
+
+- ✅ Terminal safety protocols
+- ✅ Build system integration
+- ✅ Error handling
+- ✅ Validation requirements
+
+### **Documentation Tasks**
+
+**Examples:** "update README", "write documentation", "create user guide"
+
+**APPLY:**
+
+- ✅ Markdown standards
+- ✅ Documentation structure
+- ✅ Link validation
+- ✅ Content organization
+
+## 🎯 **Rule Application Logic**
+
+### **Step 1: Context Analysis**
+
+```javascript
+function analyzeContext(query) {
+  // Informational queries
+  if (query.match(/(what|show|list|display|tell me about)/i)) {
+    return "informational";
+  }
+
+  // Development queries
+  if (
+    query.match(/(write|create|fix|implement|code|function|class|component)/i)
+  ) {
+    return "development";
+  }
+
+  // Operational queries
+  if (query.match(/(run|build|deploy|start|stop|check|status)/i)) {
+    return "operational";
+  }
+
+  // Documentation queries
+  if (query.match(/(document|readme|guide|tutorial|explain)/i)) {
+    return "documentation";
+  }
+
+  return "general";
+}
+```
+
+### **Step 2: Selective Rule Application**
+
+**For INFORMATIONAL context:**
+
+- Load: `10-markdown-general.mdc`, `60-ai-interaction-patterns.mdc`, `90-terminal-management.mdc`
+- Skip: All development-specific rules (`21-26`, `31-34`, `70`, `80`)
+
+**For DEVELOPMENT context:**
+
+- Load: ALL relevant rules based on file types and technologies used
+- Apply: Full development standards and quality assurance
+
+**For OPERATIONAL context:**
+
+- Load: `52-build-process.mdc`, `60-ai-interaction-patterns.mdc`, `90-terminal-management.mdc`
+- Skip: Pure development rules (unless building/testing)
+
+**For DOCUMENTATION context:**
+
+- Load: `10-markdown-general.mdc`, `60-ai-interaction-patterns.mdc`
+- Skip: Code-specific rules
+
+## 🚫 **Prohibited Rule Applications**
+
+### **NEVER apply development rules to:**
+
+- Purely informational questions
+- Status queries
+- File listing requests
+- Documentation-only tasks
+- Configuration questions
+
+### **Example Violations (DO NOT DO):**
+
+- ❌ Applying Python PEP 8 to "what files are in this directory?"
+- ❌ Enforcing CSS validation when reading documentation
+- ❌ Requiring TypeScript standards for "show me the project structure"
+- ❌ HTML accessibility rules for "what build commands are available?"
+
+## 📊 **Implementation Guidelines**
+
+### **Context Detection Keywords**
+
+**Informational:**
+
+- what, show, list, display, tell me, explain, describe
+- files, structure, rules, status, overview
+- how does, what is, what are
+
+**Development:**
+
+- write, create, implement, fix, refactor, optimize
+- function, class, component, module, script
+- code, programming, development, feature
+
+**Operational:**
+
+- run, build, deploy, start, stop, restart
+- check, test, validate, verify
+- install, setup, configure, update
+
+**Documentation:**
+
+- document, readme, guide, tutorial, manual
+- explain, describe, overview, summary
+- markdown, content, writing
+
+## 🧪 **Quality Assurance**
+
+### **Rule Application Validation**
+
+Before responding to any query, validate:
+
+1. **Context correctly identified?**
+2. **Only relevant rules applied?**
+3. **No over-application of development standards?**
+4. **Response appropriate for context?**
+
+### **Self-Check Questions**
+
+- Is this query asking for information or requesting development work?
+- Are the applied rules actually relevant to the task?
+- Would applying development standards help or hinder the response?
+- Is this the minimal set of rules needed for this context?
+
+## 🔄 **Continuous Improvement**
+
+### **Feedback Integration**
+
+When users question rule application (like "why are Python standards relevant?"):
+
+1. **Acknowledge the valid concern**
+2. **Explain the context detection logic**
+3. **Adjust rule application for similar future queries**
+4. **Document the improvement for the rule system**
+
+### **Rule Effectiveness Metrics**
+
+Track:
+
+- User satisfaction with rule application
+- Frequency of rule relevance questions
+- Accuracy of context detection
+- Reduction in over-application complaints
+
+---
+
+**Priority:** This rule takes precedence over all others
+**Override:** Can disable development rules for non-development contexts
+**Version:** 1.0 - Context-Aware Rule Application

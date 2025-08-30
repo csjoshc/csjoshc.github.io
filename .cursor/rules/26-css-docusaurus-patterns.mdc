@@ -1,0 +1,49 @@
+---
+description: CSS Docusaurus-specific patterns and theme classes
+globs:
+  - "*.css"
+  - "*.module.css"
+  - "docusaurus.config.ts"
+alwaysApply: false
+contextAware: true
+applyOnlyInContext: ["development", "operational"]
+---
+
+# CSS Docusaurus-Specific Patterns
+
+## 🔧 **Theme Class Usage**
+
+```css
+/* Use stable theme classes for layout */
+.theme-layout-navbar {
+  /* Navbar container styling */
+}
+
+.theme-doc-sidebar-container {
+  /* Sidebar container styling */
+}
+
+.theme-layout-main {
+  /* Main content area styling */
+}
+```
+
+## 🔧 **Component Swizzling CSS**
+
+- **Create component-specific CSS modules** when swizzling
+- **Use theme classes** for layout positioning
+- **Maintain responsive behavior** across all breakpoints
+- **Test dark/light mode** compatibility
+
+## 🔧 **Plugin Integration**
+
+```css
+/* Style plugin components consistently */
+.theme-announcement-bar {
+  /* Announcement bar styling */
+}
+
+.theme-back-to-top-button {
+  /* Back to top button styling */
+}
+```
