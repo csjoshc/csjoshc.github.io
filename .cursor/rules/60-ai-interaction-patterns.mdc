@@ -1,15 +1,3 @@
----
-description: AI interaction patterns and workflow standards
-globs:
-  - "*.js"
-  - "*.ts"
-  - "*.tsx"
-  - "*.json"
-  - "*.md"
-  - "*.mdc"
-alwaysApply: true
----
-
 # AI Interaction Patterns & Workflow Standards
 
 ## 🚨 **CRITICAL AI AGENT RULES**
@@ -25,6 +13,30 @@ alwaysApply: true
 5. **Follow this sequence: ANALYZE → PLAN → LIST TASKS → EXECUTE SEQUENTIALLY → VALIDATE BETWEEN STEPS**
 
 **This protocol overrides all other interaction patterns for development contexts.**
+
+### **🚨 CRITICAL: Narrow Scope Change Protocol**
+
+**AI agents MUST follow this protocol for ANY changes that could affect UI, styling, or user experience:**
+
+1. **MINIMAL SCOPE**: Make only the absolute minimum changes needed to fix the specific issue
+2. **PRESERVE EXISTING**: Never change UI components, styling, or navigation unless explicitly requested
+3. **INCREMENTAL TESTING**: Test each small change before proceeding to the next
+4. **VALIDATION FIRST**: Validate that the original issue is fixed before making any additional changes
+5. **USER APPROVAL**: Get explicit user approval before changing more than 5 lines of code
+
+**VIOLATION EXAMPLE (NEVER DO THIS):**
+
+- ❌ Replacing entire UI components with different designs
+- ❌ Changing navigation structure without explicit request
+- ❌ Modifying styling or layout "to improve it"
+- ❌ Making changes to dozens of lines when only a few were needed
+
+**CORRECT APPROACH:**
+
+- ✅ Fix only the specific build error
+- ✅ Preserve all existing UI components and styling
+- ✅ Test the minimal fix before proceeding
+- ✅ Ask user if they want any UI improvements (don't assume)
 
 ### **Context-Aware Rule Application**
 
@@ -252,6 +264,17 @@ When engaging in AI-assisted development, follow this comprehensive workflow:
 ### Consistency
 
 - **Maintain established patterns and conventions**
+- **Use consistent terminology and formatting**
+- **Follow established file organization principles**
+- **Preserve existing functionality unless explicitly improving it**
+
+### Documentation
+
+- **Document all significant changes**
+- **Update relevant documentation files**
+- **Include usage examples and explanations**
+- **Maintain change logs and update summaries**
+
 - **Use consistent terminology and formatting**
 - **Follow established file organization principles**
 - **Preserve existing functionality unless explicitly improving it**
