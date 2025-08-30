@@ -12,4 +12,3 @@ export default function Home(): React.JSX.Element {
     </Layout>
   );
 }
-  // Test comment added at Fri Aug 29 23:58:05 EDT 2025
