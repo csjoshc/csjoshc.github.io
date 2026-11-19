@@ -26,7 +26,7 @@ export default function ModernLanding() {
     },
     {
       title: 'General',
-      description: 'Latest update: August 28, 2025. Major Site Overhaul - August 2025',
+      description: 'Latest update: November 19, 2026. Major Site Overhaul - August 2025',
       icon: <BookOpen className="w-6 h-6 text-purple-600 dark:text-purple-400" />,
       iconBg: 'bg-purple-500/10 dark:bg-purple-400/10',
       link: '/blog/major-site-overhaul-2025',
