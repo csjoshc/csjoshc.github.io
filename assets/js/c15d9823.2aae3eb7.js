@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdocusaurus_temp=self.webpackChunkdocusaurus_temp||[]).push([[8146],{9328:e=>{e.exports=JSON.parse('{"metadata":{"permalink":"/blog","page":1,"postsPerPage":5,"totalPages":4,"totalCount":18,"nextPage":"/blog/page/2","blogDescription":"Latest updates and insights from the learning platform","blogTitle":"Site Updates & Blog"}}')}}]);
